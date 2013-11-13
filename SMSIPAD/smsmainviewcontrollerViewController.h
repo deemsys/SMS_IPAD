@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BlockAlertView.h"
+
 
 @interface smsmainviewcontrollerViewController : UIViewController
+{
+    IBOutlet UITextField*phonenumber;
+    IBOutlet UITextField*password;
+    NSMutableDictionary*recorddict;
+    int a;
+}
+@property(nonatomic,retain)NSMutableDictionary*recorddict;
+-(IBAction)signin:(id)sender;
 
+-(IBAction)forgetpassword:(id)sender;
 @end
