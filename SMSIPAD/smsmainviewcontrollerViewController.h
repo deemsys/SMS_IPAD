@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BlockAlertView.h"
+#import "UITextfieldScrollViewController.h"
 
-
-@interface smsmainviewcontrollerViewController : UIViewController
-{
+@interface smsmainviewcontrollerViewController :UITextfieldScrollViewController{
     IBOutlet UITextField*phonenumber;
     IBOutlet UITextField*password;
     NSMutableDictionary*recorddict;
@@ -20,5 +19,5 @@
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 -(IBAction)signin:(id)sender;
 
--(IBAction)forgetpassword:(id)sender;
+
 @end

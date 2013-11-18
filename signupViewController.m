@@ -26,14 +26,56 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    firstname.delegate=self;
+    username.delegate=self;
+    mobilenum.delegate=self;
+    email.delegate=self;
+    
  recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+
 	// Do any additional setup after loading the view.
 }
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    c=0;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+
+
+- (IBAction)hideKeyboard:(id)sender
+{
+    //NSLog(@"hideKeyboard");
+    [sender resignFirstResponder];
+}
+
 -(void)dismissKeyboard {
     [firstname resignFirstResponder];
-    [mobilecode resignFirstResponder];
+    [username resignFirstResponder];
     [mobilenum resignFirstResponder];
     [email resignFirstResponder];
     
@@ -77,37 +119,30 @@
 }
 
 -(BOOL)validateMobile:(NSString*)mobilenumber{
-    NSString *mobileFormat1 =  @"[0-9]{10}?";
-    
+   NSString *mobileFormat1 =  @"[4-6]{1}[0-9]{9}?";
+   //  NSString *mobileFormat1=@"((?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4}))";
     [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *mobileTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobileFormat1];
     return [mobileTest1 evaluateWithObject:mobilenumber];
-    
-}
--(IBAction)sendmobilecode:(id)sender{
-    
-}
--(IBAction)verifyemail:(id)sender
-{
     
 }
 
 -(IBAction)next:(id)sender
 {
  
-if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([mobilecode.text length]!=0)&&([email.text length]!=0))
+if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
 {
     if ([self alphabeticvalidation:firstname.text]==1)
     {
-        if ([self validateMobile:mobilenum.text]==1)
+        if ([self alphanumericvalidation:username.text]==1)
         {
-          if ([self alphanumericvalidation:mobilecode.text]==1)
+          if ([self validateMobile:mobilenum.text]==1)
           {
               if ([self validateEmail:email.text]==1)
               {
                   c=1;
                   [recorddict setValue:firstname.text forKey:@"FirstName"];
-                  [recorddict setValue:mobilecode.text forKey:@"Mobilecode"];
+                  [recorddict setValue:username.text forKey:@"UserName"];
                   [recorddict setValue:mobilenum.text forKey:@"Mobilenum"];
                   [recorddict setValue:email.text forKey:@"email"];
                   
@@ -117,14 +152,14 @@ if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([mobilecode.text
               else
               {
                   BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid emailid."];
-                  [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                  [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                   [alert show];
               }
           }
           else
           {
-              BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Code."];
-              [alert setDestructiveButtonWithTitle:@"x" block:nil];
+              BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobilenumber."];
+              [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
               [alert show];
           }
 
@@ -132,15 +167,15 @@ if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([mobilecode.text
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Number."];
-            [alert setDestructiveButtonWithTitle:@"x" block:nil];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Username."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
     }
     else
     {
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Firstname."];
-        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
 }

@@ -9,6 +9,7 @@
 #import "smsmainviewcontrollerViewController.h"
 #import "WelcomeViewController.h"
 #import "signupViewController.h"
+#import "forgetpasswordViewController.h"
 
 @interface smsmainviewcontrollerViewController ()
 
@@ -19,6 +20,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    password.delegate=self;
+    phonenumber.delegate=self;
+    
+    
+    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *homeImage = [UIImage imageNamed:@" "]  ;
+    [home setBackgroundImage:homeImage forState:UIControlStateNormal];
+    [home addTarget:self action:@selector(back)
+   forControlEvents:UIControlEventTouchUpInside];
+    home.frame = CGRectMake(0, 0, 50, 30);
+    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
+                                      initWithCustomView:home] autorelease];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+
+
     recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -27,6 +43,10 @@
     [self.view addGestureRecognizer:tap];
 
 	// Do any additional setup after loading the view, typically from a nib.
+}
+-(void)back
+{
+    
 }
 -(void)dismissKeyboard {
     [password resignFirstResponder];
@@ -53,11 +73,11 @@
 {
    if(([phonenumber.text length]!=0)&&([password.text length]!=0))
    {
-      if([self validateMobile:phonenumber.text]==1)
+      if([self alphanumericvalidation:phonenumber.text]==1)
       {
        if([self alphanumericvalidation:password.text]==1)
        {
-           [recorddict setValue:phonenumber.text forKey:@"Phonenumber"];
+           [recorddict setValue:phonenumber.text forKey:@"Username"];
            [recorddict setValue:password.text forKey:@"Password"];
            a=1;
        }
@@ -66,16 +86,16 @@
               BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Password."];
               
               //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-              [alert setDestructiveButtonWithTitle:@"x" block:nil];
+              [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
               [alert show];
           }
       }
        else
        {
-           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Phonenumber."];
+           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Username."];
            
            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-           [alert setDestructiveButtonWithTitle:@"x" block:nil];
+           [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
            [alert show];
        }
    }
@@ -108,10 +128,9 @@
         return NO;
         
     }
-    else if([identifier isEqual:@"signup"])
-        return YES;
+  
     else
-        return NO;
+        return YES;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -122,11 +141,18 @@
        NSLog(@"recorddict in welcome %@",recorddict);
 
    }
-    if([segue.identifier isEqualToString:@"signup"])
-    {
-        signupViewController*destViewController = [segue destinationViewController];
-        
-        
     }
+- (IBAction)hideKeyboard:(id)sender
+{
+   // NSLog(@"hideKeyboard");
+    [sender resignFirstResponder];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+  //  self.view.frame=CGRectMake(0,0,50,50);
+}
+
+
 @end

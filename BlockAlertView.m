@@ -163,7 +163,7 @@ static UIFont *buttonFont = nil;
         if (isSecondButton)
         {
             width = maxHalfWidth;
-            xOffset = width + kAlertViewBorder * 2;
+            xOffset = width ;
             isSecondButton = NO;
         }
         else if (i + 1 < _blocks.count)

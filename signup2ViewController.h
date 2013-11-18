@@ -7,18 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface signup2ViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate> 
+#import "UITextfieldScrollViewController.h"
+@interface signup2ViewController :UITextfieldScrollViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 {
     NSMutableDictionary *recorddict;
     IBOutlet UIPickerView*agepick;
     IBOutlet UILabel*agepicker;
     IBOutlet UISegmentedControl*seggender;
     IBOutlet UILabel*gender;
-    IBOutlet UIPickerView*providerpick;
-    IBOutlet UILabel*providerpicker;
-    IBOutlet UIPickerView*grouppick;
-    IBOutlet UILabel*grouppicker;
+    IBOutlet UITextView*medicaldetails;
+    IBOutlet UITextField *city;
+    IBOutlet UITextField *education;
+    
     int c;
 
     
@@ -27,16 +27,9 @@
 @property(assign)NSMutableDictionary *recorddict;
 @property(nonatomic,retain)UISegmentedControl*seggender;
 @property (nonatomic, strong) NSArray *ageArray;
-@property (nonatomic, strong) NSMutableArray *providerarray;
-@property (nonatomic, strong) NSMutableArray *grouparray;
-@property (nonatomic, strong) IBOutlet UILabel*agepicker;
-@property (nonatomic, strong) IBOutlet UIPickerView *providerpick;
-@property (nonatomic, strong) IBOutlet UIPickerView *grouppick;
-@property (nonatomic, strong) IBOutlet UILabel*providerpicker;
-@property (nonatomic, strong) IBOutlet UILabel*grouppicker;
 -(IBAction)seggenderclicked:(id)sender;
 - (IBAction)changeage:(id)sender;
--(IBAction)changeprovider:(id)sender;
--(IBAction)changegroup:(id)sender;
+- (IBAction)hideKeyboard:(id)sender;
+@property (nonatomic, strong) IBOutlet UILabel*agepicker;
 
 @end

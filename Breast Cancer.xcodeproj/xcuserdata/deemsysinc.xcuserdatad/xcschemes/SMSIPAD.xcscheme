@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D0271E9182D119F00C35B94"
-               BuildableName = "SMSIPAD.app"
-               BlueprintName = "SMSIPAD"
-               ReferencedContainer = "container:SMSIPAD.xcodeproj">
+               BuildableName = "Breast Cancer.app"
+               BlueprintName = "Breast Cancer"
+               ReferencedContainer = "container:Breast Cancer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D02720A182D119F00C35B94"
-               BuildableName = "SMSIPADTests.xctest"
-               BlueprintName = "SMSIPADTests"
-               ReferencedContainer = "container:SMSIPAD.xcodeproj">
+               BuildableName = "Breast CancerTests.xctest"
+               BlueprintName = "Breast CancerTests"
+               ReferencedContainer = "container:Breast Cancer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0271E9182D119F00C35B94"
-            BuildableName = "SMSIPAD.app"
-            BlueprintName = "SMSIPAD"
-            ReferencedContainer = "container:SMSIPAD.xcodeproj">
+            BuildableName = "Breast Cancer.app"
+            BlueprintName = "Breast Cancer"
+            ReferencedContainer = "container:Breast Cancer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0271E9182D119F00C35B94"
-            BuildableName = "SMSIPAD.app"
-            BlueprintName = "SMSIPAD"
-            ReferencedContainer = "container:SMSIPAD.xcodeproj">
+            BuildableName = "Breast Cancer.app"
+            BlueprintName = "Breast Cancer"
+            ReferencedContainer = "container:Breast Cancer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0271E9182D119F00C35B94"
-            BuildableName = "SMSIPAD.app"
-            BlueprintName = "SMSIPAD"
-            ReferencedContainer = "container:SMSIPAD.xcodeproj">
+            BuildableName = "Breast Cancer.app"
+            BlueprintName = "Breast Cancer"
+            ReferencedContainer = "container:Breast Cancer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

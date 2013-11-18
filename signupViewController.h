@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BlockAlertView.h"
 #import "signup2ViewController.h"
+#import "UITextfieldScrollViewController.h"
 
-@interface signupViewController : UIViewController
+@interface signupViewController :UITextfieldScrollViewController
 {
     IBOutlet UITextField * firstname;
     IBOutlet UITextField *mobilenum;
-    IBOutlet UITextField *mobilecode;
+    IBOutlet UITextField *username;
     IBOutlet UITextField *email;
     NSMutableDictionary*recorddict;
     int c;
@@ -23,6 +24,5 @@
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 -(IBAction)clear:(id)sender;
 -(IBAction)next:(id)sender;
--(IBAction)verifyemail:(id)sender;
--(IBAction)sendmobilecode:(id)sender;
+
 @end
