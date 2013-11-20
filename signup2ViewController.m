@@ -20,6 +20,7 @@
 @synthesize ageArray;
 @synthesize agepicker;
 @synthesize seggender;
+@synthesize gender;
 
 
 
@@ -115,7 +116,7 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
     if(pickerView.tag==1)
         
         agepicker.text=[ageArray objectAtIndex:row];
-     [[self view] endEditing:YES];
+    pickerView.hidden=YES;
     
    
     //Let's print in the console what the user had chosen;
@@ -155,11 +156,11 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
 {
     if([seggender selectedSegmentIndex]==0)
     {
-      gender.text=@"Male";
+      gender.text=@"0";
     }
     else if ([seggender selectedSegmentIndex]==1)
     {
-        gender.text=@"Female";
+        gender.text=@"1";
 
     }
 }

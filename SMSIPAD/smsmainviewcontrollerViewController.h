@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "BlockAlertView.h"
 #import "UITextfieldScrollViewController.h"
+#import "MBProgressHUD.h"
 
-@interface smsmainviewcontrollerViewController :UITextfieldScrollViewController{
+@interface smsmainviewcontrollerViewController :UITextfieldScrollViewController<UITextFieldDelegate,MBProgressHUDDelegate>{
     IBOutlet UITextField*phonenumber;
     IBOutlet UITextField*password;
     NSMutableDictionary*recorddict;
-    int a;
+    int a,c;
+    MBProgressHUD *HUD;
+    BOOL isConnect;
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 -(IBAction)signin:(id)sender;

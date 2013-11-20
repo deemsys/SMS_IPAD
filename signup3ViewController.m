@@ -11,6 +11,11 @@
 #import <CFNetwork/CFNetwork.h>
 #import "SKPSMTPMessage.h"
 #import "NSData+Base64Additions.h"
+#import "Reachability.h"
+#import "MBProgressHUD.h"
+#import "JSON.h"
+#import "signup2ViewController.h"
+#import "signupViewController.h"
 
 #define FROM_EMAIL_PREF_KEY @"kFromEmailPreferenceKey"
 #define TO_EMAIL_PREF_KEY @"kToEmailPreferenceKey"
@@ -226,7 +231,7 @@
         timepicker3.text= [timearray objectAtIndex:row];
     else
         timepicker3.text= [timearray objectAtIndex:row];
-
+    pickerView.hidden=YES;
     //Let's print in the console what the user had chosen;
     // NSLog(@"Chosen item: %@", [itemsArray objectAtIndex:row]);
 }
@@ -282,8 +287,10 @@
     [recorddict setValue:providerpicker.text forKey:@"Provider"];
     [recorddict setValue:grouppicker.text forKey:@"group"];
     NSLog(@"complete list %@",recorddict);
-      NSString * password1 = @"";
-   // NSString*finaltext=@"Hi user,your password is";
+    
+    
+    NSString * password1 = @"";
+    // NSString*finaltext=@"Hi user,your password is";
     NSString *letters = @"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
     
     NSString *pw = @"";
@@ -299,43 +306,15 @@
         password1 = [password1 stringByAppendingString:[NSString stringWithFormat:@"%@",pw]];
         
     }
+    NSLog(@"%@ password",password1);
+    [recorddict setValue:password1 forKey:@"pass"];
     
-    
-    
-   // finaltext=[finaltext stringByAppendingString:[NSString stringWithFormat:@"%@",password1]];
-    
-    
-    
-    
-    NSLog(@"Start Sending");
-    SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-    emailMessage.fromEmail = @"learnguild@gmail.com";
-    
-    emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
-    emailMessage.relayHost = @"smtp.gmail.com";
-    
-    emailMessage.requiresAuth = YES;
-    emailMessage.login = @"learnguild@gmail.com"; //sender email address
-    emailMessage.pass = @"deemsys@123"; //sender email password
-    emailMessage.subject =@"BCResearch App Registration";
-    //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-    emailMessage.wantsSecure = YES;
-    emailMessage.delegate = self;
-    
-    
-    // you must include <SKPSMTPMessageDelegate> to your class
-    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],password1];
-
-        NSDictionary *plainMsg = [NSDictionary
-                              dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                              messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-    emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-    Spinner.hidden = NO;
-    [Spinner startAnimating];
-    ProgressBar.hidden = NO;
-    HighestState = 0;
-
-    [emailMessage send];
+        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.delegate = self;
+    HUD.labelText = @"Registering....";
+    [HUD show:YES];
+    [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
     
     
    
@@ -348,6 +327,11 @@
         HighestState = messageState;
     
     ProgressBar.progress = (float)HighestState/(float)kSKPSMTPWaitingSendSuccess;
+    
+    
+    //insert into database
+    
+    
 }
 
 
@@ -371,6 +355,267 @@
     Spinner.hidden=YES;
     ProgressBar.hidden=YES;
 }
+
+-(void)signUpMethod
+{
+        NSString*email=[recorddict objectForKey:@"email"];
+      NSString *username1=[recorddict objectForKey:@"UserName"];
+    NSLog(@"Signup");
+
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+	switch (netStatus)
+	{
+		case NotReachable:
+		{
+			isConnect=NO;
+			//NSLog(@"Access Not Available");
+			break;
+		}
+			
+		case ReachableViaWWAN:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WWAN");
+			break;
+		}
+		case ReachableViaWiFi:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WiFi");
+			break;
+		}
+	}
+	
+	
+    
+    if(isConnect)
+    {
+        
+    }
+    //  imgName=@"Connected.png";
+    else
+    {
+        HUD.labelText = @"Check network connection....";
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        [HUD hide:YES afterDelay:1];
+        return;
+    }
+    
+        
+        
+       //for username
+        NSString *resultResponse=[self HttpPostEntityFirst:@"email" ForValue1:email EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+        
+     NSLog(@"********%@",resultResponse);
+     //   NSLog(@"REGISTRATION");
+        
+        NSError *error;
+        
+        SBJSON *json = [[SBJSON new] autorelease];
+        NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+        
+         NSLog(@"%@ lucky numbers",luckyNumbers);
+        if (luckyNumbers == nil)
+        {
+            
+            NSLog(@"luckyNumbers == nil");
+            
+        }
+        else
+        {
+            
+            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+            NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            
+            
+            
+            if ([[menu objectForKey:@"servicename"] isEqualToString:@"Signup"])
+            {
+                if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+                {
+                   
+                    
+                    
+                    NSLog(@"Start Sending");
+                    SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+                    emailMessage.fromEmail = @"learnguild@gmail.com";
+                    
+                    emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
+                    emailMessage.relayHost = @"smtp.gmail.com";
+                    
+                    emailMessage.requiresAuth = YES;
+                    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                    emailMessage.pass = @"deemsys@123"; //sender email password
+                    emailMessage.subject =@"BCResearch App Registration";
+                    //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+                    emailMessage.wantsSecure = YES;
+                    emailMessage.delegate = self;
+                    
+                    [recorddict objectForKey:@"pass"];
+
+                    // you must include <SKPSMTPMessageDelegate> to your class
+                    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+                    [recorddict objectForKey:@"pass"]];
+
+                    NSDictionary *plainMsg = [NSDictionary
+                                              dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                                              messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+                    emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+                    Spinner.hidden = NO;
+                    [Spinner startAnimating];
+                    ProgressBar.hidden = NO;
+                    HighestState = 0;
+                    
+                    [emailMessage send];
+
+                    HUD.labelText = @"Completed.";
+                    HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+                    HUD.mode = MBProgressHUDModeCustomView;
+                    [HUD hide:YES afterDelay:0];
+                    
+                     NSLog(@"success");
+                    
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration successful!"];
+                    
+                    
+                    [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                    [alert show];
+                  
+                    
+                    
+                }
+               else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+                {
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration failed!"];
+                    
+                    
+                    [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                    [alert show];
+                    
+                }
+                else
+                {
+                    
+                    if ([[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
+                    {
+                        
+                        
+                        
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Emailid Already Exits and active."];
+                        
+                        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                        [alert show];
+                        
+                        [HUD hide:YES];
+                        return;
+                    }
+                    
+                    
+                }
+            }
+    else if ([[menu objectForKey:@"emaill"]  isEqualToString:@""])
+    {
+         NSLog(@"fail");
+        
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Failed!" message:@"Registration Failed."];
+        
+        
+        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert show];
+        
+    }
+    else
+    {
+        
+        
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"password!" message:@"Incorrect Password."];
+        
+        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert show];
+        
+        
+        
+    }
+    
+    
+    [HUD hide:YES];
+    
+}
+}
+
+-(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
+{
+    
+    // NSString *authKey=@"rzTFevN099Km39PV";
+    // NSString *userId=@"alagar@ajsquare.net";
+    
+    
+    //NSLog(@"HTTP");
+    NSString*fname= [recorddict objectForKey:@"FirstName"];
+    NSString *username1=[recorddict objectForKey:@"UserName"];
+    NSString*mobnum=[recorddict objectForKey:@"Mobilenum"];
+   // NSString*email=[recorddict objectForKey:@"email"];
+
+    NSString*gend=[recorddict objectForKey:@"Gender"];
+    NSString*age=[recorddict objectForKey:@"Age"];
+    NSString*city=[recorddict objectForKey:@"City"];
+    NSString*edu=[recorddict objectForKey:@"Education"];
+    NSString *meddet=[recorddict objectForKey:@"Medicaldetails"];
+    NSString*pt1=[recorddict objectForKey:@"Preferred Time1"];
+    NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
+    NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
+    NSString*prov=[recorddict objectForKey:@"Provider"];
+    NSString*group=[recorddict objectForKey:@"group"];
+    NSString*password1=[recorddict objectForKey:@"pass"];
+     NSLog(@"%@ password",password1);
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,group,age,username1,password1,secondEntity,value2];
+    
+     NSLog(@"query");
+    
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=partinsert"];
+    
+    
+    
+    NSLog(@"%@",post);
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+   NSLog(@"postlenth%@",postLength);
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
+    
+    
+    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    
+    
+    
+    
+    
+    
+    
+    
+    return data;
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -27,6 +27,7 @@
 @property(assign)NSMutableDictionary *recorddict;
 @property(nonatomic,retain)UISegmentedControl*seggender;
 @property (nonatomic, strong) NSArray *ageArray;
+@property (nonatomic, strong) IBOutlet UILabel * gender;
 -(IBAction)seggenderclicked:(id)sender;
 - (IBAction)changeage:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;

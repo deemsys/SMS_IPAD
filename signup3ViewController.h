@@ -12,6 +12,10 @@
 #import <CFNetwork/CFNetwork.h>
 #import "SKPSMTPMessage.h"
 #import "NSData+Base64Additions.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+#import "signup2ViewController.h"
+#import "signupViewController.h"
 
 #define FROM_EMAIL_PREF_KEY @"kFromEmailPreferenceKey"
 #define TO_EMAIL_PREF_KEY @"kToEmailPreferenceKey"
@@ -26,7 +30,7 @@
 #define SEND_IMAGE_BOOL_PREF_KEY @"kSendImageBoolPreferenceKey"
 #define SEND_VCARD_BOOL_PREF_KEY @"kSendVcardBoolPreferenceKey"
 
-@interface signup3ViewController : UIViewController<SKPSMTPMessageDelegate>
+@interface signup3ViewController : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate>
 {
     NSMutableDictionary*recorddict;
     IBOutlet UIPickerView*timepick1;
@@ -62,8 +66,9 @@
     NSDictionary *prefKeyDictionary;
     
     IBOutlet UITextField*emailid;
-
-
+    MBProgressHUD *HUD;
+    BOOL isConnect;
+   
     
 }
 @property(assign)NSMutableDictionary *recorddict;

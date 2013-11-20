@@ -10,6 +10,9 @@
 #import "WelcomeViewController.h"
 #import "signupViewController.h"
 #import "forgetpasswordViewController.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
 
 @interface smsmainviewcontrollerViewController ()
 
@@ -80,6 +83,18 @@
            [recorddict setValue:phonenumber.text forKey:@"Username"];
            [recorddict setValue:password.text forKey:@"Password"];
            a=1;
+               
+               HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+               [self.navigationController.view addSubview:HUD];
+               
+               
+               HUD.delegate = self;
+               HUD.labelText = @"Authenticating...";
+               
+               [HUD show:YES];
+               [self performSelector:@selector(SignInCheck) withObject:nil afterDelay:0.2];
+           
+
        }
           else
           {
@@ -101,7 +116,7 @@
    }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter all the required fields."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter login Credentials."];
         
      // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
@@ -109,6 +124,170 @@
 
     }
 }
+
+
+-(void)SignInCheck
+{
+    
+    
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+	switch (netStatus)
+	{
+		case NotReachable:
+		{
+			isConnect=NO;
+			//NSLog(@"Access Not Available");
+			break;
+		}
+			
+		case ReachableViaWWAN:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WWAN");
+			break;
+		}
+		case ReachableViaWiFi:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WiFi");
+			break;
+		}
+	}
+	
+	
+    
+    if(isConnect)
+    {
+        
+    }
+    //  imgName=@"Connected.png";
+    else
+    {
+        HUD.labelText = @"Check network connection...";
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        [HUD hide:YES afterDelay:2];
+        return;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    NSString *resultResponse=[self HttpPostEntityFirst1:@"username" ForValue1:phonenumber.text EntitySecond:@"pswd" ForValue2:password.text EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    
+    
+    
+    
+	NSError *error;
+    
+    SBJSON *json = [[SBJSON new] autorelease];
+	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    
+    if (luckyNumbers == nil)
+    {
+        ////NSLog(@"Failed");
+        
+    }
+    else
+    {
+        
+        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+        //////NSLog(@"Menu id: %@", [menu objectForKey:@"success"]);
+        
+        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+        {
+            
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+            
+            NSString *LoginId=[menu objectForKey:@"userid"];
+            NSString *LoginId1=[menu objectForKey:@"message"];
+            
+            
+            
+            [[NSUserDefaults standardUserDefaults] setObject:LoginId    forKey:@"loginid"];
+            [[NSUserDefaults standardUserDefaults] setObject:phonenumber.text forKey:@"username"];
+            //name.text=Nil;
+            password.text=nil;
+            
+            
+            c  =1;
+            
+          /*
+            Welcome *WelcomeViewController = [[Welcome alloc] initWithNibName:@"Welcome" bundle:nil];
+            WelcomeViewController.first=1;
+            [self.navigationController pushViewController:WelcomeViewController animated:YES];
+            [WelcomeViewController release];//
+            
+            //NSLog(@"success");*/
+            
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Invalid Username And Password."];
+            
+            [HUD hide:YES];
+            
+            [alert setDestructiveButtonWithTitle:@"x" block:nil];
+            [alert show];
+            
+        }
+        
+        
+    }
+    
+}
+
+
+
+-(NSString *)HttpPostEntityFirst1:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    
+    
+    
+    
+    
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
+    
+    ////NSLog(@"POST:%@",post);
+    
+    
+    
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/loginresponse.php?service=login"];
+    
+    
+    //////NSLog(post);
+    
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
+    
+    
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    return data;
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -120,7 +299,7 @@
     if([identifier isEqual:@"Welcome"])
     {
 
-    if(a==1)
+    if((a==1)&&(c==1))
     {
         return  YES;
     }
