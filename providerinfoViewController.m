@@ -47,13 +47,14 @@
     {
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
         controller.mailComposeDelegate = self;
+        [controller setTitle:@"Email"];
         [controller setSubject:@""];
-        [controller setMessageBody:@"Hi" isHTML:YES];
+        [controller setMessageBody:@"Sent from BC research App Mail" isHTML:YES];
         [controller setToRecipients:[NSArray arrayWithObjects:provideremail.text,nil]];
         [self presentViewController:controller animated:YES completion:NULL];
     }
     else{
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"oh snap!" message:@"Your device doesn't support mailing feature.."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"oh snap!" message:@"Your device doesn't support mailing feature."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         // [alert setDestructiveButtonWithTitle:@"ok" block:nil];
