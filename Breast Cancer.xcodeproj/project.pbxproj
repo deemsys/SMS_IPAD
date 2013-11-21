@@ -43,6 +43,11 @@
 		0D55AAA81833D31D006DC806 /* alert-window@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D55AAA71833D31D006DC806 /* alert-window@2x.png */; };
 		0D55AAAA1833D326006DC806 /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D55AAA91833D326006DC806 /* alert-window.png */; };
 		0D6C79BF183C817300C48D17 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79BE183C817200C48D17 /* login.png */; };
+		0D6C79C3183CABA500C48D17 /* dailymessageslist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79C2183CABA500C48D17 /* dailymessageslist.m */; };
+		0D6C79C7183CDD0100C48D17 /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79C6183CDD0100C48D17 /* SimpleTableCell.m */; };
+		0D6C79C9183CE4BE00C48D17 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79C8183CE4BE00C48D17 /* SimpleTableCell.xib */; };
+		0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79CC183CEE1C00C48D17 /* messageview.m */; };
+		0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D0183D00FD00C48D17 /* weeklymessage.m */; };
 		0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */; };
 		0D709F361836646700C4F907 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F351836646700C4F907 /* testViewController.m */; };
 		0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E741834ECB400053B45 /* forgetpasswordViewController.m */; };
@@ -161,6 +166,15 @@
 		0D55AAA71833D31D006DC806 /* alert-window@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window@2x.png"; sourceTree = "<group>"; };
 		0D55AAA91833D326006DC806 /* alert-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window.png"; sourceTree = "<group>"; };
 		0D6C79BE183C817200C48D17 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		0D6C79C1183CABA500C48D17 /* dailymessageslist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dailymessageslist.h; sourceTree = "<group>"; };
+		0D6C79C2183CABA500C48D17 /* dailymessageslist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dailymessageslist.m; sourceTree = "<group>"; };
+		0D6C79C5183CDD0100C48D17 /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
+		0D6C79C6183CDD0100C48D17 /* SimpleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableCell.m; sourceTree = "<group>"; };
+		0D6C79C8183CE4BE00C48D17 /* SimpleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableCell.xib; sourceTree = "<group>"; };
+		0D6C79CB183CEE1C00C48D17 /* messageview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageview.h; sourceTree = "<group>"; };
+		0D6C79CC183CEE1C00C48D17 /* messageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageview.m; sourceTree = "<group>"; };
+		0D6C79CF183D00FD00C48D17 /* weeklymessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage.h; sourceTree = "<group>"; };
+		0D6C79D0183D00FD00C48D17 /* weeklymessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage.m; sourceTree = "<group>"; };
 		0D709F311836643400C4F907 /* UITextfieldScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldScrollViewController.h; sourceTree = "<group>"; };
 		0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextfieldScrollViewController.m; sourceTree = "<group>"; };
 		0D709F341836646700C4F907 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
@@ -253,6 +267,10 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0D6C79CE183D00E100C48D17 /* Weeklymessage */,
+				0D6C79CA183CEE0400C48D17 /* messageview */,
+				0D6C79C4183CDCE600C48D17 /* supportfiles */,
+				0D6C79C0183CAB7300C48D17 /* dailymessage */,
 				0DA1ABC51839FDD10063C29F /* JSON */,
 				0D9F19B41837C442001389C1 /* Sendingemail */,
 				0D709F341836646700C4F907 /* testViewController.h */,
@@ -388,6 +406,43 @@
 				0D2F5070183250F400056E53 /* signup3ViewController.m */,
 			);
 			name = SignUp;
+			sourceTree = "<group>";
+		};
+		0D6C79C0183CAB7300C48D17 /* dailymessage */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79C1183CABA500C48D17 /* dailymessageslist.h */,
+				0D6C79C2183CABA500C48D17 /* dailymessageslist.m */,
+			);
+			name = dailymessage;
+			sourceTree = "<group>";
+		};
+		0D6C79C4183CDCE600C48D17 /* supportfiles */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79C5183CDD0100C48D17 /* SimpleTableCell.h */,
+				0D6C79C6183CDD0100C48D17 /* SimpleTableCell.m */,
+				0D6C79C8183CE4BE00C48D17 /* SimpleTableCell.xib */,
+			);
+			name = supportfiles;
+			sourceTree = "<group>";
+		};
+		0D6C79CA183CEE0400C48D17 /* messageview */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79CB183CEE1C00C48D17 /* messageview.h */,
+				0D6C79CC183CEE1C00C48D17 /* messageview.m */,
+			);
+			name = messageview;
+			sourceTree = "<group>";
+		};
+		0D6C79CE183D00E100C48D17 /* Weeklymessage */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79CF183D00FD00C48D17 /* weeklymessage.h */,
+				0D6C79D0183D00FD00C48D17 /* weeklymessage.m */,
+			);
+			name = Weeklymessage;
 			sourceTree = "<group>";
 		};
 		0D952E761834ECBB00053B45 /* Forgetpassword */ = {
@@ -585,6 +640,7 @@
 				0D55AAA21833D2FE006DC806 /* alert-gray-button.png in Resources */,
 				0D55AA8F18339E7D006DC806 /* alert_bg.png in Resources */,
 				0D55AAA81833D31D006DC806 /* alert-window@2x.png in Resources */,
+				0D6C79C9183CE4BE00C48D17 /* SimpleTableCell.xib in Resources */,
 				0D0271F8182D119F00C35B94 /* InfoPlist.strings in Resources */,
 				0D55AAA61833D30B006DC806 /* alert-black-button@2x.png in Resources */,
 				0D55AAAA1833D326006DC806 /* alert-window.png in Resources */,
@@ -625,6 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */,
 				0D0271FE182D119F00C35B94 /* smsmainviewcontrollerAppDelegate.m in Sources */,
 				0D9F19C11837C478001389C1 /* NSData+Base64Additions.m in Sources */,
 				0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */,
@@ -636,8 +693,10 @@
 				0D55AA971833CF60006DC806 /* MBProgressHUD.m in Sources */,
 				0D55AA9A1833CF90006DC806 /* fileMngr.m in Sources */,
 				0D9F19BF1837C478001389C1 /* Base64Transcoder.m in Sources */,
+				0D6C79C3183CABA500C48D17 /* dailymessageslist.m in Sources */,
 				0D55AA941833CF43006DC806 /* Reachability.m in Sources */,
 				0D2F505A18320FA400056E53 /* BlockAlertView.m in Sources */,
+				0D6C79C7183CDD0100C48D17 /* SimpleTableCell.m in Sources */,
 				0DA1ABDF183A018F0063C29F /* NSObject+SBJSON.m in Sources */,
 				0D9F19C01837C478001389C1 /* HSK_CFUtilities.m in Sources */,
 				0D709F361836646700C4F907 /* testViewController.m in Sources */,
@@ -652,6 +711,7 @@
 				0DA1ABE0183A018F0063C29F /* NSString+SBJSON.m in Sources */,
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,
 				0D027204182D119F00C35B94 /* smsmainviewcontrollerViewController.m in Sources */,
+				0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */,
 				0DA1ABE1183A018F0063C29F /* SBJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

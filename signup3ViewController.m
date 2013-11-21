@@ -481,7 +481,7 @@
                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration successful!"];
                     
                     
-                    [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                    [alert setDestructiveButtonWithTitle:@"ok" block:nil];
                     [alert show];
                   
                     
@@ -492,7 +492,7 @@
                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration failed!"];
                     
                     
-                    [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                    [alert setDestructiveButtonWithTitle:@"ok" block:nil];
                     [alert show];
                     
                 }
@@ -507,7 +507,7 @@
                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Emailid Already Exits and active."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+                        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
                         [alert show];
                         
                         [HUD hide:YES];
@@ -524,7 +524,7 @@
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Failed!" message:@"Registration Failed."];
         
         
-        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
         [alert show];
         
     }
@@ -535,7 +535,7 @@
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"password!" message:@"Incorrect Password."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
         [alert show];
         
         

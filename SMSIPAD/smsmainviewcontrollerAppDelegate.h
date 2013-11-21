@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class smsmainviewcontrollerViewController;
 @interface smsmainviewcontrollerAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) smsmainviewcontrollerViewController *viewController;
 @end
