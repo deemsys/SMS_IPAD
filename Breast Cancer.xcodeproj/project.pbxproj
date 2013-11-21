@@ -48,6 +48,7 @@
 		0D6C79C9183CE4BE00C48D17 /* SimpleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79C8183CE4BE00C48D17 /* SimpleTableCell.xib */; };
 		0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79CC183CEE1C00C48D17 /* messageview.m */; };
 		0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D0183D00FD00C48D17 /* weeklymessage.m */; };
+		0D6C79D3183DFAC600C48D17 /* week.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79D2183DFAC500C48D17 /* week.png */; };
 		0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */; };
 		0D709F361836646700C4F907 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F351836646700C4F907 /* testViewController.m */; };
 		0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E741834ECB400053B45 /* forgetpasswordViewController.m */; };
@@ -175,6 +176,7 @@
 		0D6C79CC183CEE1C00C48D17 /* messageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageview.m; sourceTree = "<group>"; };
 		0D6C79CF183D00FD00C48D17 /* weeklymessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage.h; sourceTree = "<group>"; };
 		0D6C79D0183D00FD00C48D17 /* weeklymessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage.m; sourceTree = "<group>"; };
+		0D6C79D2183DFAC500C48D17 /* week.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = week.png; sourceTree = "<group>"; };
 		0D709F311836643400C4F907 /* UITextfieldScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldScrollViewController.h; sourceTree = "<group>"; };
 		0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextfieldScrollViewController.m; sourceTree = "<group>"; };
 		0D709F341836646700C4F907 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 		0D952E8718351AA800053B45 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0D6C79D2183DFAC500C48D17 /* week.png */,
 				0D952EA1183528F900053B45 /* edit.png */,
 				0D952EB718352B2D00053B45 /* forgotpass.png */,
 				0D952EBE1835314D00053B45 /* back_btn@2x.png */,
@@ -630,6 +633,7 @@
 				0D952E9E1835224B00053B45 /* splashscreen.png in Resources */,
 				0D952E9D1835224700053B45 /* icon58.png in Resources */,
 				0D952E8A18351B2300053B45 /* BG.png in Resources */,
+				0D6C79D3183DFAC600C48D17 /* week.png in Resources */,
 				0D55AAA41833D305006DC806 /* alert-black-button.png in Resources */,
 				0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */,
 				0D55AA9C1833D2EB006DC806 /* alert-red-button.png in Resources */,
