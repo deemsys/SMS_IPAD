@@ -49,6 +49,8 @@
 		0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79CC183CEE1C00C48D17 /* messageview.m */; };
 		0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D0183D00FD00C48D17 /* weeklymessage.m */; };
 		0D6C79D3183DFAC600C48D17 /* week.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79D2183DFAC500C48D17 /* week.png */; };
+		0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D6183E453B00C48D17 /* participantprofile.m */; };
+		0D6C79DB183E581700C48D17 /* editprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79DA183E581700C48D17 /* editprofile.m */; };
 		0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */; };
 		0D709F361836646700C4F907 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F351836646700C4F907 /* testViewController.m */; };
 		0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E741834ECB400053B45 /* forgetpasswordViewController.m */; };
@@ -177,6 +179,10 @@
 		0D6C79CF183D00FD00C48D17 /* weeklymessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage.h; sourceTree = "<group>"; };
 		0D6C79D0183D00FD00C48D17 /* weeklymessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage.m; sourceTree = "<group>"; };
 		0D6C79D2183DFAC500C48D17 /* week.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = week.png; sourceTree = "<group>"; };
+		0D6C79D5183E453B00C48D17 /* participantprofile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = participantprofile.h; sourceTree = "<group>"; };
+		0D6C79D6183E453B00C48D17 /* participantprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = participantprofile.m; sourceTree = "<group>"; };
+		0D6C79D9183E581700C48D17 /* editprofile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editprofile.h; sourceTree = "<group>"; };
+		0D6C79DA183E581700C48D17 /* editprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editprofile.m; sourceTree = "<group>"; };
 		0D709F311836643400C4F907 /* UITextfieldScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldScrollViewController.h; sourceTree = "<group>"; };
 		0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextfieldScrollViewController.m; sourceTree = "<group>"; };
 		0D709F341836646700C4F907 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
@@ -269,6 +275,8 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0D6C79D8183E57F600C48D17 /* editprofile */,
+				0D6C79D4183E451F00C48D17 /* participantprofile */,
 				0D6C79CE183D00E100C48D17 /* Weeklymessage */,
 				0D6C79CA183CEE0400C48D17 /* messageview */,
 				0D6C79C4183CDCE600C48D17 /* supportfiles */,
@@ -445,6 +453,24 @@
 				0D6C79D0183D00FD00C48D17 /* weeklymessage.m */,
 			);
 			name = Weeklymessage;
+			sourceTree = "<group>";
+		};
+		0D6C79D4183E451F00C48D17 /* participantprofile */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79D5183E453B00C48D17 /* participantprofile.h */,
+				0D6C79D6183E453B00C48D17 /* participantprofile.m */,
+			);
+			name = participantprofile;
+			sourceTree = "<group>";
+		};
+		0D6C79D8183E57F600C48D17 /* editprofile */ = {
+			isa = PBXGroup;
+			children = (
+				0D6C79D9183E581700C48D17 /* editprofile.h */,
+				0D6C79DA183E581700C48D17 /* editprofile.m */,
+			);
+			name = editprofile;
 			sourceTree = "<group>";
 		};
 		0D952E761834ECBB00053B45 /* Forgetpassword */ = {
@@ -686,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */,
+				0D6C79DB183E581700C48D17 /* editprofile.m in Sources */,
 				0D0271FE182D119F00C35B94 /* smsmainviewcontrollerAppDelegate.m in Sources */,
 				0D9F19C11837C478001389C1 /* NSData+Base64Additions.m in Sources */,
 				0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */,
@@ -717,6 +744,7 @@
 				0D027204182D119F00C35B94 /* smsmainviewcontrollerViewController.m in Sources */,
 				0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */,
 				0DA1ABE1183A018F0063C29F /* SBJSON.m in Sources */,
+				0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
