@@ -8,6 +8,9 @@
 
 #import "forgetpasswordViewController.h"
 #import "BlockAlertView.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+#import "JSON.h"
 @interface forgetpasswordViewController ()
 
 @end
@@ -70,61 +73,157 @@
 
 - (IBAction)sendpassword:(id)sender
 {
-    NSString * password1 = @"";
-  //  NSString*finaltext=@"Hi user,your password is";
-       NSString *letters = @"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
-   
-       NSString *pw = @"";
-       NSRange r;
-  
-        int PASSWORD_LENGTH=6;
-        for (int i=0; i<PASSWORD_LENGTH; i++)
-          {
-              int  index = (arc4random()%[letters length])+1;
-                    r.location=index;
-                  r.length=1;
-                   pw = [letters substringWithRange:r]  ;
-                   password1 = [password1 stringByAppendingString:[NSString stringWithFormat:@"%@",pw]];
-              
-               }
+    [self getpassword:emailid.text];
+    
+}
+-(void)getpassword:(NSString*)email
+{
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
     
     
+	HUD.delegate = self;
+	HUD.labelText = @"Loading...";
+    [HUD show:YES];
     
-  //  finaltext=[finaltext stringByAppendingString:[NSString stringWithFormat:@"%@",password1]];
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+	switch (netStatus)
+	{
+		case NotReachable:
+		{
+			isConnect=NO;
+			NSLog(@"Access Not Available");
+			break;
+		}
+			
+		case ReachableViaWWAN:
+		{
+			isConnect=YES;
+			NSLog(@"Reachable WWAN");
+			break;
+		}
+		case ReachableViaWiFi:
+		{
+			isConnect=YES;
+            NSLog(@"Reachable WiFi");
+			break;
+		}
+	}
+	
+	
+    
+    if(isConnect)
+    {
+        
+    }
+    
+    else
+    {
+        HUD.labelText = @"Check network connection....";
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        [HUD hide:YES afterDelay:2];
+        return;
+    }
+    NSString *resultResponse=[self HttpPostEntityFirst:@"emailid" ForValue1:emailid.text  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *error;
+    SBJSON *json = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
+    NSArray *items1App=[itemsApp objectForKey:@"Patient password"];
+    
+    NSDictionary *arrayList1;
+    if ([[itemsApp objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        for (id anUpdate1 in items1App)
+        {
+            NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            
+            password1 =[arrayList1 objectForKey:@"userpassword"];
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+            [self sendmail:password1];
+        }
+        
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Email id not found."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+        
+    }
+    // NSLog(@"items1app %@",luckyNumbers);
+}
+
+-(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
     
     
+    HUD.labelText = @"Feteching Providerdetail...";
     
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=passwordSelect"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
-    NSLog(@"Start Sending");
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    NSLog(@" post %@ ",post);
+    
+    NSLog(@"%@ ",data);
+    
+    return data;
+    
+}
+
+-(void)sendmail:(NSString*)userpassword
+{
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
     emailMessage.fromEmail = @"learnguild@gmail.com";
-    //sender email address
+    
     emailMessage.toEmail = emailid.text;  //receiver email address
     emailMessage.relayHost = @"smtp.gmail.com";
-        emailMessage.requiresAuth = YES;
+    emailMessage.requiresAuth = YES;
     emailMessage.login = @"learnguild@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
     emailMessage.subject =@"Hi user";
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self; // you must include <SKPSMTPMessageDelegate> to your class
-    NSString *messageBody = [NSString stringWithFormat:@"Hi .\n welcome to BC Research App. \n\n Your Password:%@",password1];
-
+    NSString *messageBody = [NSString stringWithFormat:@"Hi .\n welcome to BC Research App. \n\n Your Password is:%@",userpassword];
     
     NSDictionary *plainMsg = [NSDictionary
                               dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
                               messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
     emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-     Spinner.hidden = NO;
+    Spinner.hidden = NO;
     [Spinner startAnimating];
     ProgressBar.hidden = NO;
     HighestState = 0;
-
+    
     [emailMessage send];
     // sending email- will take little time to send so its better to use indicator with message showing sending...}
-
-
+    
     
 }
+
 
 -(void)messageSent:(SKPSMTPMessage *)message{
     NSLog(@"delegate - message sent");
@@ -133,21 +232,28 @@
     [alert show];
     [Spinner stopAnimating];
 }
+
+
 // On Failure
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
     // open an alert with just an OK button
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Error!" message:[error localizedDescription]];
+    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert show];
-     [Spinner stopAnimating];
+    [Spinner stopAnimating];
     NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
 }
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-//[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
-  
-
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
+    
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -165,7 +271,7 @@
 }
 
 - (void)dealloc {
-  
+    
     [super dealloc];
 }
 

@@ -10,15 +10,29 @@
 #import "BlockAlertView.h"
 #import "signup2ViewController.h"
 #import "UITextfieldScrollViewController.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+#import "fileMngr.h"
 
-@interface signupViewController :UITextfieldScrollViewController
+
+
+@interface signupViewController :UITextfieldScrollViewController<MBProgressHUDDelegate>
+
 {
-    IBOutlet UITextField * firstname;
+    MBProgressHUD *HUD;
+    NSString*appoFile;
+    NSString*appoNFile;
+    NSMutableArray *_AppDArr;
+    NSMutableArray *_AppNArr;    IBOutlet UITextField * firstname;
     IBOutlet UITextField *mobilenum;
     IBOutlet UITextField *username;
     IBOutlet UITextField *email;
     NSMutableDictionary*recorddict;
     int c;
+    NSMutableArray*temp2,*temp3,*temp4;
+    BOOL isConnect;
+    
+
     
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;

@@ -68,7 +68,9 @@
     IBOutlet UITextField*emailid;
     MBProgressHUD *HUD;
     BOOL isConnect;
-   
+    NSMutableArray*groupfinal;
+    NSString*selectedgroupid;
+    NSArray*groupidlist;
     
 }
 @property(assign)NSMutableDictionary *recorddict;

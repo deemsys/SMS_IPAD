@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+#import "Reachability.h"
 
-@interface WelcomeViewController : UIViewController
+@interface WelcomeViewController : UIViewController<MBProgressHUDDelegate>
 {
-    NSDictionary *recorddict;
+    NSMutableDictionary *recorddict;
+    NSString*temp,*temp1,*temp2,*temp3;
+    MBProgressHUD *HUD;
+    BOOL isConnect;
 }
-@property(assign)NSDictionary*recorddict;
+@property(nonatomic,retain)NSMutableDictionary*recorddict;
 @end

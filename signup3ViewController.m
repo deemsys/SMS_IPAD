@@ -78,18 +78,21 @@
     timepicker1.text=@"0-1";
     timepicker2.text=@"0-1";
     timepicker3.text=@"0-1";
-   /* grouppick.dataSource=self;
-    grouppick.delegate=self;
-    providerpick.delegate=self;
-    providerpick.dataSource=self;*/
+    /* grouppick.dataSource=self;
+     grouppick.delegate=self;
+     providerpick.delegate=self;
+     providerpick.dataSource=self;*/
     providerpick.hidden=YES;
     grouppick.hidden=YES;
+    groupidlist=[recorddict objectForKey:@"Groupid"];
+    NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
+    
     timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
     providerpicker.text=@"Apollo";
-    providerarray=[[NSMutableArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"31-40", @"41-50",@"51-60",@"61-70",@"71-80",@"81-90",@"91-100", nil];
-    
+    providerarray=names;
+    groupfinal=[[NSMutableArray alloc]init];
     grouppicker.text=@"cancer";
-    grouparray=[[NSMutableArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"31-40", @"41-50",@"51-60",@"61-70",@"71-80",@"81-90",@"91-100", nil];
+    grouparray=[recorddict objectForKey:@"Groupname"];
     UITapGestureRecognizer *tapGR3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped3)];
     [providerpick addGestureRecognizer:tapGR3];
     UITapGestureRecognizer *tapGR4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped4)];
@@ -101,7 +104,7 @@
     [timepick2 addGestureRecognizer:tapGR1];
     UITapGestureRecognizer *tapGR2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped2)];
     [timepick3 addGestureRecognizer:tapGR2];
-
+    
     
 	// Do any additional setup after loading the view.
 }
@@ -186,7 +189,7 @@
     else if(pickerView.tag==5)
         return [grouparray objectAtIndex:row];
     else
-         return [timearray  objectAtIndex:row];
+        return [timearray  objectAtIndex:row];
     
     
 }
@@ -200,7 +203,7 @@
         timepick2.hidden=YES;
     }
     if (timepick3.hidden==NO) {
-       timepick3.hidden=YES;
+        timepick3.hidden=YES;
     }
     if (providerpick.hidden==NO) {
         providerpick.hidden=YES;
@@ -208,7 +211,7 @@
     if (grouppick.hidden==NO) {
         grouppick.hidden=YES;
     }
-
+    
 }
 
 //If the user chooses from the pickerview, it calls this function;
@@ -220,13 +223,18 @@
     
     else if(pickerView.tag==2)
         
-       timepicker2.text=[timearray  objectAtIndex:row];
+        timepicker2.text=[timearray  objectAtIndex:row];
     else if(pickerView.tag==4)
-        
+    {
         providerpicker.text=[providerarray  objectAtIndex:row];
-    
+        [self collectgroup:providerpicker.text];
+        
+    }
     else if(pickerView.tag==5)
+    {
         grouppicker.text= [grouparray objectAtIndex:row];
+        selectedgroupid=[groupidlist objectAtIndex:row];
+    }
     else if(pickerView.tag==3)
         timepicker3.text= [timearray objectAtIndex:row];
     else
@@ -240,7 +248,7 @@
     c=0;
 }
 
- -(IBAction)changeTimeInLabel1:(id)sender
+-(IBAction)changeTimeInLabel1:(id)sender
 {
     if (timepick1.hidden==YES)
     {
@@ -268,6 +276,7 @@
 {
     if(providerpick.hidden==YES)
     {
+        grouppicker.text=@"";
         providerpick.hidden=NO;
     }
 }
@@ -277,6 +286,7 @@
     {
         grouppick.hidden=NO;
     }
+    [grouppick reloadAllComponents];
 }
 
 -(IBAction)submit:(id)sender
@@ -306,10 +316,10 @@
         password1 = [password1 stringByAppendingString:[NSString stringWithFormat:@"%@",pw]];
         
     }
-    NSLog(@"%@ password",password1);
+    // NSLog(@"%@ password",password1);
     [recorddict setValue:password1 forKey:@"pass"];
     
-        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
     HUD.delegate = self;
     HUD.labelText = @"Registering....";
@@ -317,12 +327,12 @@
     [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
     
     
-   
+    
 }
 #pragma mark SKPSMTPMessage Delegate Methods
 - (void)messageState:(SKPSMTPState)messageState;
 {
-    NSLog(@"HighestState:%d", HighestState);
+    // NSLog(@"HighestState:%d", HighestState);
     if (messageState > HighestState)
         HighestState = messageState;
     
@@ -336,9 +346,9 @@
 
 
 -(void)messageSent:(SKPSMTPMessage *)message{
-    NSLog(@"delegate - message sent");
-   
-     BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password have been sent to your mail."];
+    // NSLog(@"delegate - message sent");
+    
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password have been sent to your mail."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
     [Spinner stopAnimating];
@@ -350,7 +360,7 @@
     // open an alert with just an OK button
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
-    NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
+    // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
     [Spinner stopAnimating];
     Spinner.hidden=YES;
     ProgressBar.hidden=YES;
@@ -358,10 +368,10 @@
 
 -(void)signUpMethod
 {
-        NSString*email=[recorddict objectForKey:@"email"];
-      NSString *username1=[recorddict objectForKey:@"UserName"];
-    NSLog(@"Signup");
-
+    NSString*email=[recorddict objectForKey:@"email"];
+    NSString *username1=[recorddict objectForKey:@"UserName"];
+    //  NSLog(@"Signup");
+    
     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
 	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
     
@@ -404,148 +414,148 @@
         return;
     }
     
-        
-        
-       //for username
-        NSString *resultResponse=[self HttpPostEntityFirst:@"email" ForValue1:email EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
-        
-     NSLog(@"********%@",resultResponse);
-     //   NSLog(@"REGISTRATION");
-        
-        NSError *error;
-        
-        SBJSON *json = [[SBJSON new] autorelease];
-        NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-        
-         NSLog(@"%@ lucky numbers",luckyNumbers);
-        if (luckyNumbers == nil)
-        {
-            
-            NSLog(@"luckyNumbers == nil");
-            
-        }
-        else
-        {
-            
-            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
-            
-            
-            
-            if ([[menu objectForKey:@"servicename"] isEqualToString:@"Signup"])
-            {
-                if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
-                {
-                   
-                    
-                    
-                    NSLog(@"Start Sending");
-                    SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                    emailMessage.fromEmail = @"learnguild@gmail.com";
-                    
-                    emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
-                    emailMessage.relayHost = @"smtp.gmail.com";
-                    
-                    emailMessage.requiresAuth = YES;
-                    emailMessage.login = @"learnguild@gmail.com"; //sender email address
-                    emailMessage.pass = @"deemsys@123"; //sender email password
-                    emailMessage.subject =@"BCResearch App Registration";
-                    //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-                    emailMessage.wantsSecure = YES;
-                    emailMessage.delegate = self;
-                    
-                    [recorddict objectForKey:@"pass"];
-
-                    // you must include <SKPSMTPMessageDelegate> to your class
-                    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
-                    [recorddict objectForKey:@"pass"]];
-
-                    NSDictionary *plainMsg = [NSDictionary
-                                              dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                                              messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-                    emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-                    Spinner.hidden = NO;
-                    [Spinner startAnimating];
-                    ProgressBar.hidden = NO;
-                    HighestState = 0;
-                    
-                    [emailMessage send];
-
-                    HUD.labelText = @"Completed.";
-                    HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-                    HUD.mode = MBProgressHUDModeCustomView;
-                    [HUD hide:YES afterDelay:0];
-                    
-                     NSLog(@"success");
-                    
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration successful!"];
-                    
-                    
-                    [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-                    [alert show];
-                  
-                    
-                    
-                }
-               else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
-                {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration failed!"];
-                    
-                    
-                    [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-                    [alert show];
-                    
-                }
-                else
-                {
-                    
-                    if ([[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
-                    {
-                        
-                        
-                        
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Emailid Already Exits and active."];
-                        
-                        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-                        [alert show];
-                        
-                        [HUD hide:YES];
-                        return;
-                    }
-                    
-                    
-                }
-            }
-    else if ([[menu objectForKey:@"emaill"]  isEqualToString:@""])
+    
+    
+    //for username
+    NSString *resultResponse=[self HttpPostEntityFirst:@"email" ForValue1:email EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    
+    //  NSLog(@"********%@",resultResponse);
+    //   NSLog(@"REGISTRATION");
+    
+    NSError *error;
+    
+    SBJSON *json = [[SBJSON new] autorelease];
+    NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    if (luckyNumbers == nil)
     {
-         NSLog(@"fail");
         
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Failed!" message:@"Registration Failed."];
-        
-        
-        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-        [alert show];
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
-        
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"password!" message:@"Incorrect Password."];
-        
-        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-        [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-        [alert show];
+        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
+        
+        if ([[menu objectForKey:@"servicename"] isEqualToString:@"Signup"])
+        {
+            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+            {
+                
+                
+                
+                // NSLog(@"Start Sending");
+                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+                emailMessage.fromEmail = @"learnguild@gmail.com";
+                
+                emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
+                emailMessage.relayHost = @"smtp.gmail.com";
+                
+                emailMessage.requiresAuth = YES;
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                emailMessage.pass = @"deemsys@123"; //sender email password
+                emailMessage.subject =@"BCResearch App Registration";
+                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+                emailMessage.wantsSecure = YES;
+                emailMessage.delegate = self;
+                
+                [recorddict objectForKey:@"pass"];
+                
+                // you must include <SKPSMTPMessageDelegate> to your class
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+                                        [recorddict objectForKey:@"pass"]];
+                
+                NSDictionary *plainMsg = [NSDictionary
+                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+                Spinner.hidden = NO;
+                [Spinner startAnimating];
+                ProgressBar.hidden = NO;
+                HighestState = 0;
+                
+                [emailMessage send];
+                
+                HUD.labelText = @"Completed.";
+                HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+                HUD.mode = MBProgressHUDModeCustomView;
+                [HUD hide:YES afterDelay:0];
+                
+                //NSLog(@"success");
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration successful!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                
+                
+                
+            }
+            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+            {
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration failed!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                
+            }
+            else
+            {
+                
+                if ([[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
+                {
+                    
+                    
+                    
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Emailid Already Exits and active."];
+                    
+                    //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                    [alert show];
+                    
+                    [HUD hide:YES];
+                    return;
+                }
+                
+                
+            }
+        }
+        else if ([[menu objectForKey:@"emaill"]  isEqualToString:@""])
+        {
+            // NSLog(@"fail");
+            
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Failed!" message:@"Registration Failed."];
+            
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+        }
+        else
+        {
+            
+            
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"password!" message:@"Incorrect Password."];
+            
+            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+            
+            
+        }
+        
+        
+        [HUD hide:YES];
         
     }
-    
-    
-    [HUD hide:YES];
-    
-}
 }
 
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
@@ -559,8 +569,6 @@
     NSString*fname= [recorddict objectForKey:@"FirstName"];
     NSString *username1=[recorddict objectForKey:@"UserName"];
     NSString*mobnum=[recorddict objectForKey:@"Mobilenum"];
-   // NSString*email=[recorddict objectForKey:@"email"];
-
     NSString*gend=[recorddict objectForKey:@"Gender"];
     NSString*age=[recorddict objectForKey:@"Age"];
     NSString*city=[recorddict objectForKey:@"City"];
@@ -572,21 +580,21 @@
     NSString*prov=[recorddict objectForKey:@"Provider"];
     NSString*group=[recorddict objectForKey:@"group"];
     NSString*password1=[recorddict objectForKey:@"pass"];
-     NSLog(@"%@ password",password1);
+    NSLog(@"%@ groupid",selectedgroupid);
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,group,age,username1,password1,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,group,age,username1,password1,selectedgroupid,secondEntity,value2];
     
-     NSLog(@"query");
+    // NSLog(@"query");
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=partinsert"];
     
     
     
-    NSLog(@"%@",post);
+    // NSLog(@"%@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-   NSLog(@"postlenth%@",postLength);
+    NSLog(@"postlenth%@",postLength);
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
@@ -615,7 +623,25 @@
     return data;
     
 }
-
+-(void)collectgroup:(NSString*)providername
+{
+    groupfinal=[[NSMutableArray alloc]init];
+    NSArray*groupname=[recorddict objectForKey:@"Groupname"];
+    NSArray*createdby=[recorddict objectForKey:@"Createdby"];
+    for (int i=0;i<[createdby count];i++)
+    {
+        // NSLog(@"vales createdby %@",[createdby objectAtIndex:i]);
+        //  NSLog(@"vales providernaem %@",providername);
+        // NSLog(@"vales createdby %@",[groupname objectAtIndex:i]);
+        if([[createdby objectAtIndex:i]isEqualToString:providername])
+        {
+            [groupfinal addObject:[groupname objectAtIndex:i]];
+        }
+        
+    }
+    // NSLog(@"vales in f*n call %@",groupfinal);
+    grouparray=groupfinal;
+}
 
 - (void)didReceiveMemoryWarning
 {

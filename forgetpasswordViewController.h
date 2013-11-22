@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
-
-
+#import "Reachability.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
 #import <CFNetwork/CFNetwork.h>
 #import "SKPSMTPMessage.h"
 #import "NSData+Base64Additions.h"
@@ -29,9 +28,12 @@
 #define SEND_VCARD_BOOL_PREF_KEY @"kSendVcardBoolPreferenceKey"
 
 
-@interface forgetpasswordViewController :UIViewController <SKPSMTPMessageDelegate>
+@interface forgetpasswordViewController :UIViewController <SKPSMTPMessageDelegate,MBProgressHUDDelegate>
 
 {
+    MBProgressHUD *HUD;
+    BOOL isConnect;
+    NSString*password1;
     SKPSMTPState HighestState;
     IBOutlet UITextField *fromEmail;
     IBOutlet UITextField *toEmail;
@@ -50,9 +52,9 @@
     
     IBOutlet UIActivityIndicatorView *Spinner;
     IBOutlet UIProgressView *ProgressBar;
-       
+    
     NSDictionary *prefKeyDictionary;
-
+    
     IBOutlet UITextField*emailid;
     
 }

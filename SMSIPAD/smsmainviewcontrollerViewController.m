@@ -36,15 +36,15 @@
     UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
-
-
+    
+    
     recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 -(void)back
@@ -54,7 +54,7 @@
 -(void)dismissKeyboard {
     [password resignFirstResponder];
     [phonenumber resignFirstResponder];
-     }
+}
 -(BOOL)alphanumericvalidation:(NSString *)country1
 {
     NSString *countryFormat1 = @"(?:[A-Za-z0-9]+)";
@@ -74,54 +74,54 @@
 }
 -(IBAction)signin:(id)sender
 {
-   if(([phonenumber.text length]!=0)&&([password.text length]!=0))
-   {
-      if([self alphanumericvalidation:phonenumber.text]==1)
-      {
-       if([self alphanumericvalidation:password.text]==1)
-       {
-           [recorddict setValue:phonenumber.text forKey:@"Username"];
-           [recorddict setValue:password.text forKey:@"Password"];
-           a=1;
-               
-               HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-               [self.navigationController.view addSubview:HUD];
-               
-               
-               HUD.delegate = self;
-               HUD.labelText = @"Authenticating...";
-               
-               [HUD show:YES];
-               [self performSelector:@selector(SignInCheck) withObject:nil afterDelay:0.2];
-           
-
-       }
-          else
-          {
-              BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Password."];
-              
-              //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-              [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-              [alert show];
-          }
-      }
-       else
-       {
-           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Username."];
-           
-           //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-           [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-           [alert show];
-       }
-   }
+    if(([phonenumber.text length]!=0)&&([password.text length]!=0))
+    {
+        if([self alphanumericvalidation:phonenumber.text]==1)
+        {
+            if([self alphanumericvalidation:password.text]==1)
+            {
+                [recorddict setValue:phonenumber.text forKey:@"Username"];
+                [recorddict setValue:password.text forKey:@"Password"];
+                a=1;
+                
+                HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+                [self.navigationController.view addSubview:HUD];
+                
+                
+                HUD.delegate = self;
+                HUD.labelText = @"Authenticating...";
+                
+                [HUD show:YES];
+                [self performSelector:@selector(SignInCheck) withObject:nil afterDelay:0.2];
+                
+                
+            }
+            else
+            {
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Password."];
+                
+                //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+            }
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Username."];
+            
+            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
+    }
     else
     {
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter login Credentials."];
         
-     // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-       [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
         [alert show];
-
+        
     }
 }
 
@@ -214,20 +214,27 @@
             
             
             [[NSUserDefaults standardUserDefaults] setObject:LoginId    forKey:@"loginid"];
+            [[NSUserDefaults standardUserDefaults] setObject:password.text    forKey:@"password"];
+            
             [[NSUserDefaults standardUserDefaults] setObject:phonenumber.text forKey:@"username"];
             //name.text=Nil;
-            password.text=nil;
+            //password.text=nil;
             
             
-            c  =1;
-            
-          /*
-            Welcome *WelcomeViewController = [[Welcome alloc] initWithNibName:@"Welcome" bundle:nil];
-            WelcomeViewController.first=1;
-            [self.navigationController pushViewController:WelcomeViewController animated:YES];
-            [WelcomeViewController release];//
-            
-            //NSLog(@"success");*/
+            c =1;
+            if(c==1 && a==1)
+            {
+                
+
+          [self performSegueWithIdentifier:@"Welcome" sender:self];
+            }
+            /*
+             Welcome *WelcomeViewController = [[Welcome alloc] initWithNibName:@"Welcome" bundle:nil];
+             WelcomeViewController.first=1;
+             [self.navigationController pushViewController:WelcomeViewController animated:YES];
+             [WelcomeViewController release];//
+             
+             //NSLog(@"success");*/
             
         }
         else
@@ -236,7 +243,7 @@
             
             [HUD hide:YES];
             
-            [alert setDestructiveButtonWithTitle:@"x" block:nil];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
             
         }
@@ -294,43 +301,46 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+/*-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if([identifier isEqual:@"Welcome"])
     {
-
-    if((a==1)&&(c==1))
-    {
-        return  YES;
-    }
-    else
-        return NO;
+        
+        if(c==1 && a==1)
+        {
+            c=0;
+            a=0;
+            return  YES;
+        }
+        else
+            return NO;
         
     }
-  
+    
     else
         return YES;
-}
+}*/
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-   if([segue.identifier isEqualToString:@"Welcome"])
-   {
-       WelcomeViewController*destViewController = [segue destinationViewController];
-       destViewController.recorddict=recorddict;
-       NSLog(@"recorddict in welcome %@",recorddict);
-
-   }
+    if([segue.identifier isEqualToString:@"Welcome"])
+    {
+        WelcomeViewController*destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        NSLog(@"recorddict in login %@",recorddict);
+        
     }
+}
 - (IBAction)hideKeyboard:(id)sender
 {
-   // NSLog(@"hideKeyboard");
+    // NSLog(@"hideKeyboard");
     [sender resignFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-  //  self.view.frame=CGRectMake(0,0,50,50);
+    c=0,a=0;
+    //  self.view.frame=CGRectMake(0,0,50,50);
 }
 
 
