@@ -77,6 +77,7 @@
     
 }
 -(void)getpassword:(NSString*)email
+
 {
     
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];

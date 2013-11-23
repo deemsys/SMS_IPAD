@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
+#import "JSON.h"
+#import "MBProgressHUD.h"
 
-@interface participantprofile : UIViewController<UIPickerViewAccessibilityDelegate,UIPickerViewDataSource>
+@interface participantprofile : UIViewController<UIPickerViewAccessibilityDelegate,UIPickerViewDataSource,UIScrollViewDelegate,MBProgressHUDDelegate>
+
 {
+    MBProgressHUD *HUD;
+    BOOL isConnect;
+    NSString *firstname1;
+    NSString *providername1;
+    NSString *username1;
+    NSString *mobile1;
+    
+    IBOutlet UIScrollView *scrollView;
     IBOutlet UILabel * firstname;
     IBOutlet UILabel * username;
     IBOutlet UILabel * mobilenumber;
