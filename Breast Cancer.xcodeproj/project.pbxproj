@@ -51,6 +51,10 @@
 		0D6C79D3183DFAC600C48D17 /* week.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79D2183DFAC500C48D17 /* week.png */; };
 		0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D6183E453B00C48D17 /* participantprofile.m */; };
 		0D6C79DB183E581700C48D17 /* editprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79DA183E581700C48D17 /* editprofile.m */; };
+		0D6C79E71840849E00C48D17 /* weeklymessage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79E61840849E00C48D17 /* weeklymessage2.m */; };
+		0D6C79EA184084BA00C48D17 /* weeklymessage3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79E9184084BA00C48D17 /* weeklymessage3.m */; };
+		0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EC184084CC00C48D17 /* weeklymessage4.m */; };
+		0D6C79F01840852F00C48D17 /* weeklymessage5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EF1840852F00C48D17 /* weeklymessage5.m */; };
 		0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */; };
 		0D709F361836646700C4F907 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F351836646700C4F907 /* testViewController.m */; };
 		0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E741834ECB400053B45 /* forgetpasswordViewController.m */; };
@@ -183,6 +187,14 @@
 		0D6C79D6183E453B00C48D17 /* participantprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = participantprofile.m; sourceTree = "<group>"; };
 		0D6C79D9183E581700C48D17 /* editprofile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editprofile.h; sourceTree = "<group>"; };
 		0D6C79DA183E581700C48D17 /* editprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editprofile.m; sourceTree = "<group>"; };
+		0D6C79E51840849E00C48D17 /* weeklymessage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage2.h; sourceTree = "<group>"; };
+		0D6C79E61840849E00C48D17 /* weeklymessage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage2.m; sourceTree = "<group>"; };
+		0D6C79E8184084BA00C48D17 /* weeklymessage3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage3.h; sourceTree = "<group>"; };
+		0D6C79E9184084BA00C48D17 /* weeklymessage3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage3.m; sourceTree = "<group>"; };
+		0D6C79EB184084CC00C48D17 /* weeklymessage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage4.h; sourceTree = "<group>"; };
+		0D6C79EC184084CC00C48D17 /* weeklymessage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage4.m; sourceTree = "<group>"; };
+		0D6C79EE1840852F00C48D17 /* weeklymessage5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage5.h; sourceTree = "<group>"; };
+		0D6C79EF1840852F00C48D17 /* weeklymessage5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage5.m; sourceTree = "<group>"; };
 		0D709F311836643400C4F907 /* UITextfieldScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITextfieldScrollViewController.h; sourceTree = "<group>"; };
 		0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextfieldScrollViewController.m; sourceTree = "<group>"; };
 		0D709F341836646700C4F907 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
@@ -451,6 +463,14 @@
 			children = (
 				0D6C79CF183D00FD00C48D17 /* weeklymessage.h */,
 				0D6C79D0183D00FD00C48D17 /* weeklymessage.m */,
+				0D6C79E51840849E00C48D17 /* weeklymessage2.h */,
+				0D6C79E61840849E00C48D17 /* weeklymessage2.m */,
+				0D6C79E8184084BA00C48D17 /* weeklymessage3.h */,
+				0D6C79E9184084BA00C48D17 /* weeklymessage3.m */,
+				0D6C79EB184084CC00C48D17 /* weeklymessage4.h */,
+				0D6C79EC184084CC00C48D17 /* weeklymessage4.m */,
+				0D6C79EE1840852F00C48D17 /* weeklymessage5.h */,
+				0D6C79EF1840852F00C48D17 /* weeklymessage5.m */,
 			);
 			name = Weeklymessage;
 			sourceTree = "<group>";
@@ -715,6 +735,7 @@
 				0D6C79DB183E581700C48D17 /* editprofile.m in Sources */,
 				0D0271FE182D119F00C35B94 /* smsmainviewcontrollerAppDelegate.m in Sources */,
 				0D9F19C11837C478001389C1 /* NSData+Base64Additions.m in Sources */,
+				0D6C79F01840852F00C48D17 /* weeklymessage5.m in Sources */,
 				0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */,
 				0D2F506A1832446800056E53 /* signup2ViewController.m in Sources */,
 				0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */,
@@ -723,6 +744,7 @@
 				0D952E7E1834F27D00053B45 /* providerinfoViewController.m in Sources */,
 				0D55AA971833CF60006DC806 /* MBProgressHUD.m in Sources */,
 				0D55AA9A1833CF90006DC806 /* fileMngr.m in Sources */,
+				0D6C79EA184084BA00C48D17 /* weeklymessage3.m in Sources */,
 				0D9F19BF1837C478001389C1 /* Base64Transcoder.m in Sources */,
 				0D6C79C3183CABA500C48D17 /* dailymessageslist.m in Sources */,
 				0D55AA941833CF43006DC806 /* Reachability.m in Sources */,
@@ -734,10 +756,12 @@
 				0D9F19C21837C478001389C1 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				0DA1ABE2183A018F0063C29F /* SBJsonBase.m in Sources */,
 				0D952E7A1834EF0700053B45 /* changepasswordViewController.m in Sources */,
+				0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */,
 				0D2F505D18320FB100056E53 /* BlockBackground.m in Sources */,
 				0D2F50671832393900056E53 /* signupViewController.m in Sources */,
 				0DA1ABE4183A018F0063C29F /* SBJsonWriter.m in Sources */,
 				0D0271FA182D119F00C35B94 /* main.m in Sources */,
+				0D6C79E71840849E00C48D17 /* weeklymessage2.m in Sources */,
 				0D9F19C31837C478001389C1 /* SKPSMTPMessage.m in Sources */,
 				0DA1ABE0183A018F0063C29F /* NSString+SBJSON.m in Sources */,
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,

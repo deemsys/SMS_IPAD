@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface weeklymessage : UIViewController
-
+@interface weeklymessage : UIViewController<UITextFieldDelegate>
+{
+    IBOutlet UIView * question1;
+    IBOutlet UITextField * answer1;
+    
+}
+-(IBAction)send:(id)sender;
+-(IBAction)clear:(id)sender;
+@property(nonatomic,retain)NSMutableDictionary * recorddict;
 @end

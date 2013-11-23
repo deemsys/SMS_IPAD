@@ -15,7 +15,17 @@
 @end
 
 @implementation weeklymessage
-
+@synthesize recorddict;
+int a;
+-(BOOL)numbers:(NSString *)country1
+{
+    NSString *countryFormat1 = @"[0-7]{1}";
+    
+    //  [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
+    return [countryTest1 evaluateWithObject:country1];
+    
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,10 +34,81 @@
     }
     return self;
 }
+-(IBAction)send:(id)sender
+{
+    if(([answer1.text length]!=0))
+    {
+        a=0;
+        if([self numbers:[answer1 text]]==1)
+        {
+            a=1;
+            [recorddict setValue:answer1.text forKey:@"answer1"];
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Answer you submitted is Invalid."];
+            
+            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+            [alert setDestructiveButtonWithTitle:@"x" block:nil];
+            [alert show];
+        }
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Field should not be empty."];
+        
+        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"x" block:nil];
+        [alert show];
+    }
+    if (a==1)
+    {
+        NSLog(@"recorddict in health insurace patient info %@",recorddict);
+    }
+    else
+    {
+        NULL;
+    }
+    
 
+
+}
+-(IBAction)clear:(id)sender
+{
+answer1.text=@"";
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    [answer1 resignFirstResponder];
+}
+-(void)back
+{
+    
+}
+-(void)dismissKeyboard {
+    [question1 resignFirstResponder];
+    [answer1 resignFirstResponder];
+}
+- (IBAction)hideKeyboard:(id)sender
+{
+    // NSLog(@"hideKeyboard");
+    [sender resignFirstResponder];
+}
 - (void)viewDidLoad
 {
+    
+    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *homeImage = [UIImage imageNamed:@" "]  ;
+    [home setBackgroundImage:homeImage forState:UIControlStateNormal];
+    [home addTarget:self action:@selector(back)
+   forControlEvents:UIControlEventTouchUpInside];
+    home.frame = CGRectMake(0, 0, 50, 30);
+    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
+                                      initWithCustomView:home] autorelease];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+
     [super viewDidLoad];
+    answer1.delegate=self;
     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Weekly Evaluation" message:@"System Begins Your Evaluation."];
     
     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
