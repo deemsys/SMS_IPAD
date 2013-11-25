@@ -12,6 +12,7 @@
 {
     IBOutlet UIView * question1;
     IBOutlet UITextField * answer1;
+    NSMutableDictionary *recorddict;
     
 }
 -(IBAction)send:(id)sender;

@@ -13,10 +13,11 @@
     IBOutlet UIView * question2;
     IBOutlet UITextField * answer2;
     IBOutlet UILabel * reinforcement;
+    NSMutableDictionary * recorddict;
 }
 
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
 -(IBAction)next:(id)sender;
-
+@property(nonatomic , retain) NSMutableDictionary * recorddict;
 @end

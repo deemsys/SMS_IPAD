@@ -9,6 +9,7 @@
 #import "weeklymessage.h"
 #import "BlockUI.h"
 #import "BlockAlertView.h"
+#import "weeklymessage2.h"
 
 @interface weeklymessage ()
 
@@ -116,6 +117,45 @@ answer1.text=@"";
     [alert setCancelButtonWithTitle:@"ok" block:nil];
     [alert show];
 	// Do any additional setup after loading the view.
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    
+    //NSLog(@"identifier %@",identifier);
+    if([identifier isEqual:@"push1"])
+    {
+        if (a==1)
+        {
+            return YES;
+        }
+        else
+        {
+            
+            return NO;
+        }
+    }
+    else
+        return NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    if ([segue.identifier isEqualToString:@"push1"])
+    {
+        
+        
+        weeklymessage2 *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        NSLog(@"recorddict in week first %@",recorddict);
+        // destViewController.delegate=self;
+        
+    }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
