@@ -168,12 +168,117 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
 {
     [recorddict setValue:gender.text forKey:@"Gender"];
     [recorddict setValue:agepicker.text forKey:@"Age"];
-    [recorddict setValue:city.text forKey:@"City"];
+   [recorddict setValue:city.text forKey:@"City"];
     [recorddict setValue:education.text forKey:@"Education"];
     [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
-      c=1;
-    
-    /* if(([city.text length]!=0)&&([education.text length]!=0)&&([medicaldetails.text length]!=0))
+    c=1;
+     /*  if([city.text length]!=0)
+    {
+       if([self alphabeticvalidation:city.text]==1)
+       {
+             [recorddict setValue:city.text forKey:@"City"];
+           c=1;
+           if([education.text length]!=0)
+           {
+               if([self alphabeticvalidation:education.text]==1)
+               {  c=1;
+                   [recorddict setValue:education.text forKey:@"Education"];
+                   if([medicaldetails.text length]!=0)
+                   {
+                       if ([self alphanumericvalidation:medicaldetails.text]==1)
+                       {  c=1;
+                           [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+                       }
+                       else
+                       {
+                           
+                           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                           [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                           [alert show];
+                       }
+                   }
+
+               }
+               else
+               {
+                   BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Education detail."];
+                   [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                   [alert show];
+               }
+               
+           }
+           else
+           {
+               if([medicaldetails.text length]!=0)
+               {
+                   if ([self alphanumericvalidation:medicaldetails.text]==1)
+                   {  c=1;
+                       [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+                   }
+                   else
+                   {
+                       
+                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                       [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                       [alert show];
+                   }
+               }
+  
+           }
+
+       }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid city."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
+    }
+    else if([education.text length]!=0)
+    {
+           if([self alphabeticvalidation:education.text]==1)
+           {
+             [recorddict setValue:education.text forKey:@"Education"];
+               if([medicaldetails.text length]!=0)
+               {
+                   if ([self alphanumericvalidation:medicaldetails.text]==1)
+                   {  c=1;
+                       [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+                   }
+                   else
+                   {
+                       
+                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                       [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                       [alert show];
+                   }
+               }
+
+               
+           }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Education detail."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
+        
+    }
+    else if([medicaldetails.text length]!=0)
+    {
+        if ([self alphanumericvalidation:medicaldetails.text]==1)
+        {  c=1;
+            [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+        }
+        else
+        {
+            
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
+    }
+    if(([city.text length]!=0)&&([education.text length]!=0)&&([medicaldetails.text length]!=0))
     {
         if([self alphabeticvalidation:city.text]==1)
         {
@@ -222,6 +327,9 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
         
         
     }*/
+    if(c==1)
+        [self performSegueWithIdentifier:@"signup2to3" sender:self];
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -242,6 +350,7 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
     
     
 }
+
 -(IBAction)clear:(id)sender
 {
     for (UIView *subview in [self.view subviews])
@@ -252,6 +361,7 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    c=0;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }

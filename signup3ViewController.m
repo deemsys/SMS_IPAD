@@ -88,10 +88,10 @@
     NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
     timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
-    providerpicker.text=@"Apollo";
+    providerpicker.text=@"Select provider";
     providerarray=names;
     groupfinal=[[NSMutableArray alloc]init];
-    grouppicker.text=@"cancer";
+    grouppicker.text=@"Select group";
     grouparray=[recorddict objectForKey:@"Groupname"];
     UITapGestureRecognizer *tapGR3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped3)];
     [providerpick addGestureRecognizer:tapGR3];
@@ -276,7 +276,7 @@
 {
     if(providerpick.hidden==YES)
     {
-        grouppicker.text=@"";
+        grouppicker.text=@"Select group";
         providerpick.hidden=NO;
     }
 }
@@ -291,6 +291,8 @@
 
 -(IBAction)submit:(id)sender
 {
+    if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
+    {
     [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
     [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
     [recorddict setValue:timepicker3.text forKey:@"Preferred Time3"];
@@ -326,6 +328,14 @@
     [HUD show:YES];
     [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
     
+    }
+    
+    else
+    {
+        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Select Provider and group detail."];
+        [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert1 show];
+    }
     
     
 }

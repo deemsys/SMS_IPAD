@@ -17,10 +17,22 @@
     MBProgressHUD *HUD;
     BOOL isConnect;
     NSString *firstname1;
-    NSString *providername1;
     NSString *username1;
     NSString *mobile1;
-    
+    NSString *email1;
+    NSString *gender1;
+    NSString *city1;
+    NSString *education1;
+    NSString *medical1;
+    NSString *time11;
+    NSString *time21;
+    NSString *time31;
+    NSString *provider1;
+    NSString *group1;
+    NSMutableArray *groupid,*groupdes;
+    NSString *age1;
+    NSMutableDictionary*recorddict;
+    NSMutableArray*groupname,*createdby;
     IBOutlet UIScrollView *scrollView;
     IBOutlet UILabel * firstname;
     IBOutlet UILabel * username;
@@ -35,7 +47,9 @@
     IBOutlet UILabel * provider;
     IBOutlet UIPickerView *group;
     IBOutlet UILabel * age;
+    IBOutlet UILabel*emailid;
 }
 -(IBAction)edit:(id)sender;
+@property(nonatomic,retain)NSMutableDictionary*recorddict;
 
 @end

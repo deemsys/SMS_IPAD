@@ -138,7 +138,7 @@
         HUD.labelText = @"Check network connection....";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
-        [HUD hide:YES afterDelay:2];
+        [HUD hide:YES afterDelay:0];
         return;
     }
     NSString *resultResponse2=[self HttpPostEntityFirstGroup:@"oldpassword" ForValue1:oldpaswrd.text  EntitySecond:@"newpassword" ForValue2:newpaswrd.text EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV" EntityFourth:@"loginid" ForValue4:logid ];

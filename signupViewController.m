@@ -200,26 +200,10 @@
         [alert show];
         
     }
+    if(c==1)
+        [self performSegueWithIdentifier:@"signup1to2" sender:self];
 }
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    
-    //NSLog(@"identifier %@",identifier);
-    if([identifier isEqual:@"signup1to2"])
-    {
-        if (c==1)
-        {
-            return YES;
-        }
-        else
-        {
-            
-            return NO;
-        }
-    }
-    else
-        return NO;
-}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -388,12 +372,12 @@
     }
     
     
-    // NSLog(@"groupname value %@",temp2);
-    // NSLog(@"groupid value %@",temp3);
-    //NSLog(@"createdby value %@",temp4);
+     NSLog(@"groupname value %@",temp2);
+ NSLog(@"groupid value %@",temp3);
+    NSLog(@"createdby value %@",temp4);
     
-    // NSLog(@"providerName:%@",_AppDArr);
-    // NSLog(@"ProviderId:%@",_AppNArr);
+    NSLog(@"providerName:%@",_AppDArr);
+   NSLog(@"ProviderId:%@",_AppNArr);
     
 }
 

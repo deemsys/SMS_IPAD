@@ -73,7 +73,7 @@
     NSArray*groupidlist;
     
 }
-@property(assign)NSMutableDictionary *recorddict;
+@property(nonatomic,retain)NSMutableDictionary *recorddict;
 @property (nonatomic, strong) NSMutableArray *timearray;
 @property (nonatomic,retain) IBOutlet UIPickerView *timepick1;
 @property (nonatomic,retain) IBOutlet UIPickerView *timepick2;
