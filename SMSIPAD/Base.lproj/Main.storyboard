@@ -446,6 +446,9 @@
                     <navigationItem key="navigationItem" title="DashBoard" id="QHg-GF-Qfe">
                         <barButtonItem key="backBarButtonItem" title="back" id="nMl-HY-d5M"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="welcome" destination="hLA-hc-oew" id="MIR-vg-D9m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE7-RP-15a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2428,10 +2431,31 @@ R4. Others
     </scenes>
     <resources>
         <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
         <image name="cancel.png" width="98" height="36"/>
         <image name="forgotpass.png" width="206" height="35"/>
         <image name="login.png" width="320" height="460"/>
         <image name="next.png" width="98" height="36"/>
+        <image name="next.png" width="98" height="36"/>
+        <image name="next.png" width="98" height="36"/>
+        <image name="reset.png" width="98" height="36"/>
+        <image name="reset.png" width="98" height="36"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="signin.png" width="98" height="36"/>
         <image name="signup.png" width="98" height="36"/>
@@ -2445,8 +2469,8 @@ R4. Others
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KlT-rp-OLs"/>
         <segue reference="zJw-5E-t9R"/>
+        <segue reference="0Js-Lx-Uc6"/>
         <segue reference="n2Z-CH-tq8"/>
     </inferredMetricsTieBreakers>
 </document>

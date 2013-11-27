@@ -125,7 +125,7 @@
  //    NSLog(@"temp value %@",temp);
   //  NSLog(@"temp1 value %@",temp1);
    //NSLog(@"temp2 value %@",temp2);
-     NSLog(@"temp3 value %@",temp3);
+    // NSLog(@"temp3 value %@",temp3);
     [[NSUserDefaults standardUserDefaults]setObject:temp forKey:@"Providerusername"];
     [[NSUserDefaults standardUserDefaults]setObject:temp1 forKey:@"Providerfirstname"];
     [[NSUserDefaults standardUserDefaults]setObject:temp2 forKey:@"Providermobile"];
@@ -172,6 +172,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[recorddict objectForKey:@"Username"]];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];

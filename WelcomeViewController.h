@@ -15,6 +15,7 @@
     NSMutableDictionary *recorddict;
     NSString*temp,*temp1,*temp2,*temp3;
     MBProgressHUD *HUD;
+    IBOutlet UILabel*welcome;
     BOOL isConnect;
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
