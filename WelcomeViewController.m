@@ -11,12 +11,15 @@
 #import "Reachability.h"
 #import "MBProgressHUD.h"
 #import "JSON.h"
+#import "BlockAlertView.h"
 @interface WelcomeViewController ()
 
 @end
 
 @implementation WelcomeViewController
 @synthesize recorddict;
+@synthesize switch1;
+@synthesize resLabel1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +33,71 @@
 {
     
 }
+- (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender
+{
+    NSString*select;
+	if (switch1.on)
+    {
+      select=@"1";
+   resLabel1.text = @"On";
+    }
+	else
+    {
+        
+        select=@"0";
+    resLabel1.text = @"Off";
+    }
+    NSString *resultResponse=[self HttpPostEntityFirstmessagestream:@"patientid" ForValue1:[[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"] EntitySecond:@"messagestream" ForValue2:select EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    
+    
+    
+    
+    NSError *error;
+    
+    SBJSON *json = [[SBJSON new] autorelease];
+    NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    
+    if (luckyNumbers == nil)
+    {
+        ////NSLog(@"Failed");
+        
+    }
+    else
+    {
+        
+        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+        //////NSLog(@"Menu id: %@", [menu objectForKey:@"success"]);
+        
+        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+        {
+            
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation successful."];
+            
+            [HUD hide:YES];
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+
+            
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation failed."];
+            
+            [HUD hide:YES];
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+        }
+        
+        
+    }
+    
+    
+
+}
+
 -(void)sunc
 {
     
@@ -167,11 +235,51 @@
     return data;
     
 }
+-(NSString *)HttpPostEntityFirstmessagestream:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    
+    
+    HUD.labelText = @"Feteching Messagestream...";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    // NSLog(@" post %@ ",post);
+    
+   // NSLog(@"%@ ",data);
+    
+    return data;
+    
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
+    if ([mes isEqual:@"0"]) {
+        [switch1 setOn:NO];
+        resLabel1.text=@"Off";
+    }
+    else
+    {
+        [switch1 setOn:YES];
+        resLabel1.text=@"On";
+    }
     welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;

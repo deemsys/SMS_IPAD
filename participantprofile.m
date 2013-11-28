@@ -31,6 +31,8 @@
     recorddict=[[NSMutableDictionary alloc]init];
     NSString*userid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
     // NSString*userid=@"56";
+    group.delegate=self;
+    group.dataSource=self;
     [self getparticipantdetail:userid];
     
     
@@ -47,7 +49,9 @@
     time3.text=time31;
     provider.text=provider1;
     age.text=age1;
+    grouplist = [group1 componentsSeparatedByString:@"-"];
     NSLog(@"age %@",age.text);
+    NSLog(@"group %@",grouplist);
     [recorddict setValue:firstname1 forKey:@"firstname"];
     [recorddict setValue:username1 forKey:@"username"];
     [recorddict setValue:mobile1 forKey:@"mobile"];
@@ -60,9 +64,9 @@
     [recorddict setValue:time31 forKey:@"time31"];
     [recorddict setValue:provider1 forKey:@"provider"];
     [recorddict setValue:age1 forKey:@"age"];
-    [recorddict setValue:group1 forKey:@"group"];
+    [recorddict setObject:grouplist forKey:@"selectedgrouplist"];
     
-[[NSUserDefaults standardUserDefaults] setObject:email1 forKey:@"patientemail"];
+    
     
     
     if([gender1 isEqualToString:@"0"])
@@ -78,7 +82,6 @@
     // Generate content for our scroll view using the frame height and width as the reference point
     
 }
-
 -(void)getparticipantdetail:(NSString*)userid
 {
     
@@ -186,11 +189,11 @@
     groupname=[[NSMutableArray alloc]init];
     createdby=[[NSMutableArray alloc]init];
     groupid=[[NSMutableArray alloc]init];
-     groupdes=[[NSMutableArray alloc]init];
+    groupdes=[[NSMutableArray alloc]init];
     NSDictionary *arrayList2;
     if ([[itemsApp1 objectForKey:@"success"] isEqualToString:@"Yes"])
     {
-
+        
         for (id anUpdate1 in items1App1)
         {
             NSDictionary *arrayList2=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
@@ -200,7 +203,7 @@
             [groupid addObject:[arrayList2 objectForKey:@"groupid"]];
             
         }
-       
+        
     }
     else
     {
@@ -208,15 +211,34 @@
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-     [recorddict setObject:groupid forKey:@"groupid"];
+    [recorddict setObject:groupid forKey:@"groupid"];
     [recorddict setObject:groupname forKey:@"Grouplist"];
-      //  NSLog(@"items1app %@",luckyNumbers);
+    [recorddict setObject:createdby forKey:@"createdby"];
+    //  NSLog(@"items1app %@",luckyNumbers);
     NSLog(@"group name %@",groupname);
     NSLog(@"group id %@",groupid);
-  NSLog(@" created by%@",createdby);
+    NSLog(@" created by%@",createdby);
     
 }
 
+#pragma mark - UIPickerView DataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;// or the number of vertical "columns" the picker will show...
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (grouplist!=nil) {
+        return [grouplist count];//this will tell the picker how many rows it has - in this case, the size of your loaded array...
+    }
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    //you can also write code here to descide what data to return depending on the component ("column")
+    if (grouplist!=nil) {
+        return [grouplist objectAtIndex:row];//assuming the array contains strings..
+    }
+    return @"";//or nil, depending how protective you are
+}
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     
@@ -242,7 +264,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     //   NSLog(@" post %@ ",post);
     
-     NSLog(@"%@ ",data);
+    NSLog(@"%@ ",data);
     
     return data;
     
@@ -270,9 +292,9 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   //NSLog(@" post %@ ",post);
+    //NSLog(@" post %@ ",post);
     
-  // NSLog(@"%@ ",data);
+    // NSLog(@"%@ ",data);
     
     return data;
     

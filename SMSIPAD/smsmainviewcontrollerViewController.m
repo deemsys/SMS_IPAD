@@ -210,9 +210,10 @@
             
             NSString *LoginId=[menu objectForKey:@"userid"];
             NSString *LoginId1=[menu objectForKey:@"message"];
+            NSString *messagevalue=[menu objectForKey:@"messagestream"];
             
             
-            
+             [[NSUserDefaults standardUserDefaults] setObject:messagevalue    forKey:@"messagestream"];
             [[NSUserDefaults standardUserDefaults] setObject:LoginId    forKey:@"loginid"];
             [[NSUserDefaults standardUserDefaults] setObject:password.text    forKey:@"password"];
             
@@ -286,11 +287,12 @@
     //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
     
     
-    
     NSError *error;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    NSLog(@"data %@",data);
+
     return data;
     
 }

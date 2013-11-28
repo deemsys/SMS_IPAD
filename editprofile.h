@@ -12,8 +12,16 @@
 #import "Reachability.h"
 #import "MBProgressHUD.h"
 #import "JSON.h"
-@interface editprofile :UITextfieldScrollViewController<UIPickerViewDataSource, UIPickerViewDelegate,MBProgressHUDDelegate>
+#import "ALPickerView.h"
+#import "CYCustomMultiSelectPickerView.h"
+@interface editprofile :UITextfieldScrollViewController<MBProgressHUDDelegate,CYCustomMultiSelectPickerViewDelegate>
 {
+    
+    NSArray *entries;
+    NSArray *entriesSelected;
+	NSMutableDictionary *selectionStates;
+    UILabel *showLbl;
+    CYCustomMultiSelectPickerView *multiPickerView;
     NSMutableDictionary*recorddict;
     IBOutlet UITextField*fname;
     IBOutlet UILabel*username;
@@ -37,10 +45,11 @@
     IBOutlet UILabel*agepicker;
     NSMutableArray*groupfinal;
     NSArray *groupdesc;
-    NSString*selectedgroupid,*selectgroupidold,*selectedgroupdescription;
-    NSArray*groupidlist;
-      BOOL isConnect;
-MBProgressHUD *HUD;
+    NSString*selectgroupidold,*selectedgroupdescription;
+    NSMutableArray*selectedgroupid;
+    NSMutableArray*groupidlist;
+    BOOL isConnect;
+    MBProgressHUD *HUD;
     
 }
 - (IBAction)submit:(id)sender;

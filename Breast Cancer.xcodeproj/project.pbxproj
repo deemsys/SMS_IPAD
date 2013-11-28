@@ -111,6 +111,16 @@
 		0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1ABE5183A0CCA0063C29F /* 37x-Checkmark.png */; };
 		0DB9A9F71845D1B200C55C98 /* weekmessage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9A9F61845D1B200C55C98 /* weekmessage2.m */; };
 		0DB9A9F91845DE7500C55C98 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */; };
+		0DD26E661847620700E1CCE3 /* ALPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD26E631847620700E1CCE3 /* ALPickerView.m */; };
+		0DD26E671847620700E1CCE3 /* ALPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD26E651847620700E1CCE3 /* ALPickerViewCell.m */; };
+		0DD26E6A1847621600E1CCE3 /* CYCustomMultiSelectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD26E691847621600E1CCE3 /* CYCustomMultiSelectPickerView.m */; };
+		0DD26E721847622F00E1CCE3 /* check_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E6B1847622F00E1CCE3 /* check_selected@2x.png */; };
+		0DD26E731847622F00E1CCE3 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E6C1847622F00E1CCE3 /* check@2x.png */; };
+		0DD26E741847622F00E1CCE3 /* frame_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E6D1847622F00E1CCE3 /* frame_left@2x.png */; };
+		0DD26E751847622F00E1CCE3 /* frame_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E6E1847622F00E1CCE3 /* frame_middle@2x.png */; };
+		0DD26E761847622F00E1CCE3 /* frame_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E6F1847622F00E1CCE3 /* frame_right@2x.png */; };
+		0DD26E771847622F00E1CCE3 /* wheel_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E701847622F00E1CCE3 /* wheel_bg@2x.png */; };
+		0DD26E781847622F00E1CCE3 /* wheel_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD26E711847622F00E1CCE3 /* wheel_shadow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +265,19 @@
 		0DB9A9F51845D1B200C55C98 /* weekmessage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weekmessage2.h; sourceTree = "<group>"; };
 		0DB9A9F61845D1B200C55C98 /* weekmessage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weekmessage2.m; sourceTree = "<group>"; };
 		0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		0DD26E621847620700E1CCE3 /* ALPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerView.h; sourceTree = "<group>"; };
+		0DD26E631847620700E1CCE3 /* ALPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerView.m; sourceTree = "<group>"; };
+		0DD26E641847620700E1CCE3 /* ALPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerViewCell.h; sourceTree = "<group>"; };
+		0DD26E651847620700E1CCE3 /* ALPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerViewCell.m; sourceTree = "<group>"; };
+		0DD26E681847621600E1CCE3 /* CYCustomMultiSelectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomMultiSelectPickerView.h; sourceTree = "<group>"; };
+		0DD26E691847621600E1CCE3 /* CYCustomMultiSelectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomMultiSelectPickerView.m; sourceTree = "<group>"; };
+		0DD26E6B1847622F00E1CCE3 /* check_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_selected@2x.png"; sourceTree = "<group>"; };
+		0DD26E6C1847622F00E1CCE3 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		0DD26E6D1847622F00E1CCE3 /* frame_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_left@2x.png"; sourceTree = "<group>"; };
+		0DD26E6E1847622F00E1CCE3 /* frame_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_middle@2x.png"; sourceTree = "<group>"; };
+		0DD26E6F1847622F00E1CCE3 /* frame_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_right@2x.png"; sourceTree = "<group>"; };
+		0DD26E701847622F00E1CCE3 /* wheel_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_bg@2x.png"; sourceTree = "<group>"; };
+		0DD26E711847622F00E1CCE3 /* wheel_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_shadow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +315,7 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0DD26E61184761EF00E1CCE3 /* Pickerviewmultipleselection */,
 				0DA1ABD0183A014F0063C29F /* AVFoundation.framework */,
 				0D6C79D8183E57F600C48D17 /* editprofile */,
 				0D6C79D4183E451F00C48D17 /* participantprofile */,
@@ -594,6 +618,26 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		0DD26E61184761EF00E1CCE3 /* Pickerviewmultipleselection */ = {
+			isa = PBXGroup;
+			children = (
+				0DD26E6B1847622F00E1CCE3 /* check_selected@2x.png */,
+				0DD26E6C1847622F00E1CCE3 /* check@2x.png */,
+				0DD26E6D1847622F00E1CCE3 /* frame_left@2x.png */,
+				0DD26E6E1847622F00E1CCE3 /* frame_middle@2x.png */,
+				0DD26E6F1847622F00E1CCE3 /* frame_right@2x.png */,
+				0DD26E701847622F00E1CCE3 /* wheel_bg@2x.png */,
+				0DD26E711847622F00E1CCE3 /* wheel_shadow@2x.png */,
+				0DD26E681847621600E1CCE3 /* CYCustomMultiSelectPickerView.h */,
+				0DD26E691847621600E1CCE3 /* CYCustomMultiSelectPickerView.m */,
+				0DD26E621847620700E1CCE3 /* ALPickerView.h */,
+				0DD26E631847620700E1CCE3 /* ALPickerView.m */,
+				0DD26E641847620700E1CCE3 /* ALPickerViewCell.h */,
+				0DD26E651847620700E1CCE3 /* ALPickerViewCell.m */,
+			);
+			name = Pickerviewmultipleselection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -675,9 +719,12 @@
 				0D952EC11835317200053B45 /* back_btn.png in Resources */,
 				0D952EC01835316C00053B45 /* back_btn@2x.png in Resources */,
 				0D952EB918352BAA00053B45 /* forgotpass.png in Resources */,
+				0DD26E721847622F00E1CCE3 /* check_selected@2x.png in Resources */,
 				0D952EAF1835291400053B45 /* edit.png in Resources */,
 				0D952EB01835291400053B45 /* next.png in Resources */,
 				0D952EB11835291400053B45 /* reset.png in Resources */,
+				0DD26E751847622F00E1CCE3 /* frame_middle@2x.png in Resources */,
+				0DD26E731847622F00E1CCE3 /* check@2x.png in Resources */,
 				0D952EB21835291400053B45 /* signin.png in Resources */,
 				0D952EB31835291400053B45 /* signup.png in Resources */,
 				0D952EB41835291400053B45 /* submit.png in Resources */,
@@ -688,9 +735,11 @@
 				0D952E8A18351B2300053B45 /* BG.png in Resources */,
 				0D6C79D3183DFAC600C48D17 /* week.png in Resources */,
 				0D55AAA41833D305006DC806 /* alert-black-button.png in Resources */,
+				0DD26E771847622F00E1CCE3 /* wheel_bg@2x.png in Resources */,
 				0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */,
 				0D55AA9C1833D2EB006DC806 /* alert-red-button.png in Resources */,
 				0D2F50601832105E00056E53 /* alert.png in Resources */,
+				0DD26E761847622F00E1CCE3 /* frame_right@2x.png in Resources */,
 				0D7AB9A9184713C9000A2343 /* BG1.jpg in Resources */,
 				0D2F50621832106300056E53 /* alert@2x.png in Resources */,
 				0D027206182D119F00C35B94 /* Images.xcassets in Resources */,
@@ -700,10 +749,12 @@
 				0D55AAA81833D31D006DC806 /* alert-window@2x.png in Resources */,
 				0D6C79C9183CE4BE00C48D17 /* SimpleTableCell.xib in Resources */,
 				0D0271F8182D119F00C35B94 /* InfoPlist.strings in Resources */,
+				0DD26E781847622F00E1CCE3 /* wheel_shadow@2x.png in Resources */,
 				0D55AAA61833D30B006DC806 /* alert-black-button@2x.png in Resources */,
 				0D55AAAA1833D326006DC806 /* alert-window.png in Resources */,
 				0D55AAA01833D2F8006DC806 /* alert-gray-button@2x.png in Resources */,
 				0D027201182D119F00C35B94 /* Main.storyboard in Resources */,
+				0DD26E741847622F00E1CCE3 /* frame_left@2x.png in Resources */,
 				0D55AA9118339E83006DC806 /* alert_bg@2x.png in Resources */,
 				0D55AA9E1833D2F4006DC806 /* alert-red-button@2x.png in Resources */,
 			);
@@ -742,6 +793,7 @@
 				0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */,
 				0D6C79DB183E581700C48D17 /* editprofile.m in Sources */,
 				0D0271FE182D119F00C35B94 /* smsmainviewcontrollerAppDelegate.m in Sources */,
+				0DD26E6A1847621600E1CCE3 /* CYCustomMultiSelectPickerView.m in Sources */,
 				0D9F19C11837C478001389C1 /* NSData+Base64Additions.m in Sources */,
 				0D6C79F01840852F00C48D17 /* weeklymessage5.m in Sources */,
 				0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */,
@@ -765,6 +817,7 @@
 				0DA1ABE2183A018F0063C29F /* SBJsonBase.m in Sources */,
 				0D952E7A1834EF0700053B45 /* changepasswordViewController.m in Sources */,
 				0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */,
+				0DD26E661847620700E1CCE3 /* ALPickerView.m in Sources */,
 				0D2F505D18320FB100056E53 /* BlockBackground.m in Sources */,
 				0D2F50671832393900056E53 /* signupViewController.m in Sources */,
 				0DB9A9F71845D1B200C55C98 /* weekmessage2.m in Sources */,
@@ -773,6 +826,7 @@
 				0D9F19C31837C478001389C1 /* SKPSMTPMessage.m in Sources */,
 				0DA1ABE0183A018F0063C29F /* NSString+SBJSON.m in Sources */,
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,
+				0DD26E671847620700E1CCE3 /* ALPickerViewCell.m in Sources */,
 				0D027204182D119F00C35B94 /* smsmainviewcontrollerViewController.m in Sources */,
 				0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */,
 				0DA1ABE1183A018F0063C29F /* SBJSON.m in Sources */,

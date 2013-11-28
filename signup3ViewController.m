@@ -85,11 +85,11 @@
     providerpick.hidden=YES;
     grouppick.hidden=YES;
     groupidlist=[recorddict objectForKey:@"Groupid"];
-    NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
+    // NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
     timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
     providerpicker.text=@"Select provider";
-    providerarray=names;
+    providerarray=[recorddict objectForKey:@"Providersname"];
     groupfinal=[[NSMutableArray alloc]init];
     grouppicker.text=@"Select group";
     grouparray=[recorddict objectForKey:@"Groupname"];
@@ -233,7 +233,7 @@
     else if(pickerView.tag==5)
     {
         grouppicker.text= [grouparray objectAtIndex:row];
-        selectedgroupid=[groupidlist objectAtIndex:row];
+        // selectedgroupid=[groupidlist objectAtIndex:row];
     }
     else if(pickerView.tag==3)
         timepicker3.text= [timearray objectAtIndex:row];
@@ -287,47 +287,88 @@
         grouppick.hidden=NO;
     }
     [grouppick reloadAllComponents];
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[CYCustomMultiSelectPickerView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    multiPickerView = [[CYCustomMultiSelectPickerView alloc] initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height - 260-20, 320, 260+44)];
+    
+    //  multiPickerView.backgroundColor = [UIColor redColor];
+    multiPickerView.entriesArray = entries;
+    multiPickerView.entriesSelectedArray = entriesSelected;
+    multiPickerView.multiPickerDelegate = self;
+    
+    [self.view addSubview:multiPickerView];
+    
+    [multiPickerView pickerShow];
+    
+}
+-(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
+{
+    NSLog(@"selectedArray=%@",selectedEntriesArr);
+    
+    NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
+    selectedgroupid=[[NSMutableArray alloc]init];
+    showLbl.text = dataStr;
+    grouppicker.text=dataStr;
+    entriesSelected = [[NSArray arrayWithArray:selectedEntriesArr] retain];
+    for (int i=0; i<[selectedEntriesArr count]; i++)
+    {
+        int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
+        //NSLog(@"%d %@ %lu",indexValue,[selectedEntriesArr objectAtIndex:i],(unsigned long)[grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]]);
+        [selectedgroupid addObject:[groupidlist objectAtIndex:indexValue]];
+    }
+    
+    // NSLog(@"index %d",indexValue);
+    // NSLog(@"selectedgroupid %@",selectedgroupid);
+    [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
+    [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
+    
+    
+    
 }
 
 -(IBAction)submit:(id)sender
 {
     if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
     {
-    [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
-    [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
-    [recorddict setValue:timepicker3.text forKey:@"Preferred Time3"];
-    [recorddict setValue:providerpicker.text forKey:@"Provider"];
-    [recorddict setValue:grouppicker.text forKey:@"group"];
-    NSLog(@"complete list %@",recorddict);
-    
-    
-    NSString * password1 = @"";
-    // NSString*finaltext=@"Hi user,your password is";
-    NSString *letters = @"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
-    
-    NSString *pw = @"";
-    NSRange r;
-    
-    int PASSWORD_LENGTH=6;
-    for (int i=0; i<PASSWORD_LENGTH; i++)
-    {
-        int  index = (arc4random()%[letters length])+1;
-        r.location=index;
-        r.length=1;
-        pw = [letters substringWithRange:r]  ;
-        password1 = [password1 stringByAppendingString:[NSString stringWithFormat:@"%@",pw]];
+        [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
+        [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
+        [recorddict setValue:timepicker3.text forKey:@"Preferred Time3"];
+        [recorddict setValue:providerpicker.text forKey:@"Provider"];
+        // [recorddict setValue:grouppicker.text forKey:@"group"];
+        NSLog(@"complete list %@",recorddict);
         
-    }
-    // NSLog(@"%@ password",password1);
-    [recorddict setValue:password1 forKey:@"pass"];
-    
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-    HUD.delegate = self;
-    HUD.labelText = @"Registering....";
-    [HUD show:YES];
-    [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
-    
+        
+        NSString * password1 = @"";
+        // NSString*finaltext=@"Hi user,your password is";
+        NSString *letters = @"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
+        
+        NSString *pw = @"";
+        NSRange r;
+        
+        int PASSWORD_LENGTH=6;
+        for (int i=0; i<PASSWORD_LENGTH; i++)
+        {
+            int  index = (arc4random()%[letters length])+1;
+            r.location=index;
+            r.length=1;
+            pw = [letters substringWithRange:r]  ;
+            password1 = [password1 stringByAppendingString:[NSString stringWithFormat:@"%@",pw]];
+            
+        }
+        // NSLog(@"%@ password",password1);
+        [recorddict setValue:password1 forKey:@"pass"];
+        
+        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:HUD];
+        HUD.delegate = self;
+        HUD.labelText = @"Registering....";
+        [HUD show:YES];
+        [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+        
     }
     
     else
@@ -571,11 +612,32 @@
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     
-    // NSString *authKey=@"rzTFevN099Km39PV";
-    // NSString *userId=@"alagar@ajsquare.net";
+    NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
+    NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
+    NSString *postVarArrayString = @"";
+    NSString *postVarArrayStringid = @"";
+    int j=[arrayWithIDs count];
+    //NSString *separator= @"&";;
+    for (int i=0; i<[arrayWithIDs count]; i++) {
+        postVarArrayString = [NSString stringWithFormat:@"%@%@", postVarArrayString, [arrayWithIDs objectAtIndex:i] ];
+        postVarArrayStringid = [NSString stringWithFormat:@"%@%d", postVarArrayStringid, [[arrayWithIDvalues objectAtIndex:i] integerValue]];
+        if(i==j-1)
+        {
+            postVarArrayString = [NSString stringWithFormat:@"%@", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@", postVarArrayStringid];
+        }
+        else
+        {
+            postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+        }
+        
+        
+    }
     
     
     //NSLog(@"HTTP");
+    NSString*groupname=grouppicker.text;
     NSString*fname= [recorddict objectForKey:@"FirstName"];
     NSString *username1=[recorddict objectForKey:@"UserName"];
     NSString*mobnum=[recorddict objectForKey:@"Mobilenum"];
@@ -588,19 +650,18 @@
     NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
     NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
     NSString*prov=[recorddict objectForKey:@"Provider"];
-    NSString*group=[recorddict objectForKey:@"group"];
+    // NSString*group=[recorddict objectForKey:@"group"];
     NSString*password1=[recorddict objectForKey:@"pass"];
-    NSLog(@"%@ groupid",selectedgroupid);
+    NSLog(@"%@ group",postVarArrayString);
+    NSLog(@"%@ groupid",postVarArrayStringid);
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,group,age,username1,password1,selectedgroupid,secondEntity,value2];
-    
-    // NSLog(@"query");
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=partinsert"];
     
     
     
-    // NSLog(@"%@",post);
+    NSLog(@"%@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -624,7 +685,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
     
-    
+    NSLog(@"response %@",data);
     
     
     
@@ -649,8 +710,25 @@
         }
         
     }
+    entries = groupfinal;
+    
+    entriesSelected = [[NSArray alloc] init];
+    
+    
+	selectionStates = [[NSMutableDictionary alloc] init];
+    
+  	for (NSString *key in entries){
+        BOOL isSelected = NO;
+        for (NSString *keyed in entriesSelected) {
+            if ([key isEqualToString:keyed]) {
+                isSelected = YES;
+            }
+        }
+        [selectionStates setObject:[NSNumber numberWithBool:isSelected] forKey:key];
+    }
+    
     // NSLog(@"vales in f*n call %@",groupfinal);
-    grouparray=groupfinal;
+    
 }
 
 - (void)didReceiveMemoryWarning

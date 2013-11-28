@@ -16,6 +16,8 @@
 #import "Reachability.h"
 #import "signup2ViewController.h"
 #import "signupViewController.h"
+#import "ALPickerView.h"
+#import "CYCustomMultiSelectPickerView.h"
 
 #define FROM_EMAIL_PREF_KEY @"kFromEmailPreferenceKey"
 #define TO_EMAIL_PREF_KEY @"kToEmailPreferenceKey"
@@ -30,14 +32,20 @@
 #define SEND_IMAGE_BOOL_PREF_KEY @"kSendImageBoolPreferenceKey"
 #define SEND_VCARD_BOOL_PREF_KEY @"kSendVcardBoolPreferenceKey"
 
-@interface signup3ViewController : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate>
+@interface signup3ViewController : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate,CYCustomMultiSelectPickerViewDelegate>
 {
+    NSArray *entries;
+    NSArray *entriesSelected;
+	NSMutableDictionary *selectionStates;
+    UILabel *showLbl;
+    
+    CYCustomMultiSelectPickerView *multiPickerView;
     NSMutableDictionary*recorddict;
     IBOutlet UIPickerView*timepick1;
     IBOutlet UILabel*timepicker1;
-     IBOutlet UILabel*timepicker2;
-     IBOutlet UILabel*timepicker3;
-   IBOutlet UIPickerView * timepick2;
+    IBOutlet UILabel*timepicker2;
+    IBOutlet UILabel*timepicker3;
+    IBOutlet UIPickerView * timepick2;
     IBOutlet UIPickerView * timepick3;
     IBOutlet UIPickerView*providerpick;
     IBOutlet UILabel*providerpicker;
@@ -69,7 +77,7 @@
     MBProgressHUD *HUD;
     BOOL isConnect;
     NSMutableArray*groupfinal;
-    NSString*selectedgroupid;
+    NSMutableArray*selectedgroupid;
     NSArray*groupidlist;
     
 }

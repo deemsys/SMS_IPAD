@@ -17,6 +17,11 @@
     MBProgressHUD *HUD;
     IBOutlet UILabel*welcome;
     BOOL isConnect;
+    IBOutlet UISwitch *switch1;
+    IBOutlet UILabel *resLabel1;
 }
+- (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
+@property (nonatomic, retain) UISwitch *switch1;
+@property (nonatomic, retain) UILabel *resLabel1;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @end

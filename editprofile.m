@@ -49,12 +49,13 @@
     timepick1.hidden=YES;
     timepick2.hidden=YES;
     timepick3.hidden=YES;
-     grouppick.hidden=YES;
+    grouppick.hidden=YES;
     agepick.delegate = self;
     agepick.dataSource = self;
     
     agepick.hidden=YES;
-
+    
+    
     fname.text=[recorddict objectForKey:@"firstname"];
 	age.text=[recorddict objectForKey:@"age"];
     city.text=[recorddict objectForKey:@"city"];
@@ -70,17 +71,17 @@
     gender.text=[recorddict objectForKey:@"gender"];
     ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"31-40", @"41-50",@"51-60",@"61-70",@"71-80",@"81-90",@"91-100", nil];
     
-        timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
-    grouppicker.text=[recorddict objectForKey:@"group"];
-   // NSString *ss=grouppicker.text;
-    groupfinal=[recorddict objectForKey:@"groupid"];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
+    
+    grouppicker.text=@"Select group";
     grouparray=[recorddict objectForKey:@"Grouplist"];
-   int indexValue = [grouparray indexOfObject:[NSString stringWithFormat:@"%@",grouppicker.text]];
-   // NSLog(@"index %d",indexValue);
-   // NSLog(@"text %@",grouppicker.text);
-    selectedgroupid=[groupfinal objectAtIndex:indexValue];
-   // NSLog(@"selexted id %@",selectedgroupid);
-    selectgroupidold=selectedgroupid;
+    entries=[[NSArray alloc]init];
+    entriesSelected=[[NSArray alloc]init];
+    selectionStates = [[NSMutableDictionary alloc] init];
+    
+    
+    [self collectgroup:provider.text];
+    
     
     UITapGestureRecognizer *tapGRage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTappedage)];
     [agepick addGestureRecognizer:tapGRage];
@@ -93,9 +94,35 @@
     [timepick2 addGestureRecognizer:tapGR1];
     UITapGestureRecognizer *tapGR2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped2)];
     [timepick3 addGestureRecognizer:tapGR2];
-
-// Do any additional setup after loading the view.
+    
+    // Do any additional setup after loading the view.
 }
+
+-(void)collectgroup:(NSString*)providername
+{
+    
+    entries = grouparray;
+    
+    entriesSelected = [[NSArray alloc] init];
+    
+    
+	selectionStates = [[NSMutableDictionary alloc] init];
+    
+  	for (NSString *key in entries){
+        BOOL isSelected = NO;
+        for (NSString *keyed in entriesSelected) {
+            if ([key isEqualToString:keyed]) {
+                isSelected = YES;
+            }
+        }
+        [selectionStates setObject:[NSNumber numberWithBool:isSelected] forKey:key];
+    }
+    
+    // NSLog(@"vales in f*n call %@",groupfinal);
+    
+}
+
+
 - (void)pickerViewTapped
 {
     timepick1.hidden=YES;
@@ -134,11 +161,11 @@
     else if (pickerView.tag==3)
         
         return [timearray count];
-   else if(pickerView.tag==4)
+    else if(pickerView.tag==4)
         
         return [ageArray count];
     
-
+    
     else if (pickerView.tag==5)
         
         return [grouparray count];
@@ -172,7 +199,7 @@
         return [grouparray objectAtIndex:row];
     else if (pickerView.tag==4)
         return [ageArray objectAtIndex:row];
-
+    
     else
         return [timearray  objectAtIndex:row];
     
@@ -210,15 +237,15 @@
     else if(pickerView.tag==2)
         
         time2.text=[timearray  objectAtIndex:row];
-        else if(pickerView.tag==5)
+    else if(pickerView.tag==5)
     {
         grouppicker.text= [grouparray objectAtIndex:row];
-       selectedgroupid=[groupfinal objectAtIndex:row];
+        // selectedgroupid=[groupfinal objectAtIndex:row];
     }
     else if(pickerView.tag==3)
         time3.text= [timearray objectAtIndex:row];
     else if(pickerView.tag==4)
-         agepicker.text=[ageArray objectAtIndex:row];
+        agepicker.text=[ageArray objectAtIndex:row];
     else
         time3.text= [timearray objectAtIndex:row];
     pickerView.hidden=YES;
@@ -257,6 +284,49 @@
         grouppick.hidden=NO;
     }
     [grouppick reloadAllComponents];
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[CYCustomMultiSelectPickerView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    multiPickerView = [[CYCustomMultiSelectPickerView alloc] initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height - 260-20, 320, 260+44)];
+    
+    //  multiPickerView.backgroundColor = [UIColor redColor];
+    multiPickerView.entriesArray = entries;
+    multiPickerView.entriesSelectedArray = entriesSelected;
+    multiPickerView.multiPickerDelegate = self;
+    
+    [self.view addSubview:multiPickerView];
+    
+    [multiPickerView pickerShow];
+    
+}
+#pragma mark - Delegate
+-(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
+{
+    NSLog(@"selectedArray=%@",selectedEntriesArr);
+    groupidlist=[recorddict objectForKey:@"groupid"];
+    NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
+    selectedgroupid=[[NSMutableArray alloc]init];
+    showLbl.text = dataStr;
+    grouppicker.text=dataStr;
+    entriesSelected = [[NSArray arrayWithArray:selectedEntriesArr] retain];
+    for (int i=0; i<[selectedEntriesArr count]; i++)
+    {
+        int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
+        //NSLog(@"%d %@ %lu",indexValue,[selectedEntriesArr objectAtIndex:i],(unsigned long)
+        //[grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]]);
+        [selectedgroupid addObject:[groupidlist objectAtIndex:indexValue]];
+    }
+    
+    // NSLog(@"index %d",indexValue);
+    // NSLog(@"selectedgroupid %@",selectedgroupid);
+    [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
+    [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
+    
+    
+    
 }
 
 -(IBAction)changeage:(id)sender
@@ -309,85 +379,86 @@
 
 - (IBAction)submit:(id)sender
 {
-    if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
+    if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0)&&(![grouppicker.text isEqualToString:@"Select group"]))
     {
-       
-            if ([self alphabeticvalidation:fname.text]==1)
+        
+        if ([self alphabeticvalidation:fname.text]==1)
+        {
+            if ([self alphanumericvalidation:username.text]==1)
             {
-                if ([self alphanumericvalidation:username.text]==1)
+                if ([self validateMobile:mobile.text]==1)
                 {
-                    if ([self validateMobile:mobile.text]==1)
+                    if ([self validateEmail:email.text]==1)
                     {
-                        if ([self validateEmail:email.text]==1)
-                        {
-                          
-                            [recorddict setValue:fname.text forKey:@"FirstName"];
-                            [recorddict setValue:username.text forKey:@"UserName"];
-                            [recorddict setValue:mobile.text forKey:@"Mobilenum"];
-                            [recorddict setValue:email.text forKey:@"email"];
-                            [recorddict setValue:age.text forKey:@"age"];
-                            [recorddict setValue:city.text forKey:@"city"];
-                            [recorddict setValue:education.text forKey:@"education"];
-                            [recorddict setValue:medical.text forKey:@"medical"];
-                           [recorddict setObject:selectedgroupid forKey:@"Groupid"];
-                            [recorddict setValue:time1.text forKey:@"Preferred Time1"];
-                            [recorddict setValue:time2.text forKey:@"Preferred Time2"];
-                            [recorddict setValue:time3.text forKey:@"Preferred Time3"];
-                            [recorddict setValue:provider.text forKey:@"Provider"];
-                            [recorddict setValue:grouppicker.text forKey:@"group"];
-                            NSLog(@"complete patient list %@",recorddict);
-
                         
-                        }
-                        else
-                        {
-                            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid emailid."];
-                            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                            [alert show];
-                        }
+                        [recorddict setValue:fname.text forKey:@"FirstName"];
+                        [recorddict setValue:username.text forKey:@"UserName"];
+                        [recorddict setValue:mobile.text forKey:@"Mobilenum"];
+                        [recorddict setValue:email.text forKey:@"email"];
+                        [recorddict setValue:age.text forKey:@"age"];
+                        [recorddict setValue:city.text forKey:@"city"];
+                        [recorddict setValue:education.text forKey:@"education"];
+                        [recorddict setValue:medical.text forKey:@"medical"];
+                        // [recorddict setObject:selectedgroupid forKey:@"Groupid"];
+                        [recorddict setValue:time1.text forKey:@"Preferred Time1"];
+                        [recorddict setValue:time2.text forKey:@"Preferred Time2"];
+                        [recorddict setValue:time3.text forKey:@"Preferred Time3"];
+                        [recorddict setValue:provider.text forKey:@"Provider"];
+                        //[recorddict setValue:grouppicker.text forKey:@"group"];
+                        NSLog(@"complete patient list %@",recorddict);
+                        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+                        [self.navigationController.view addSubview:HUD];
+                        HUD.delegate = self;
+                        HUD.labelText = @"Updating....";
+                        [HUD show:YES];
+                        [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+                        
+                        
+                        
                     }
                     else
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobilenumber."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid emailid."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
-                    
-                    
                 }
                 else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Username."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobilenumber."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
+                
+                
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Firstname."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Username."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
-   
-    else
+        else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter all the required fields."];
-            [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Firstname."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
-            
         }
-
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-    HUD.delegate = self;
-    HUD.labelText = @"Updating....";
-    [HUD show:YES];
-    [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+    }
+    
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter all the required fields."];
+        [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+        [alert show];
+        
+    }
+    
 }
 -(void)signUpMethod
 {
-       //  NSLog(@"Signup");
+    //  NSLog(@"Signup");
     
     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
 	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
@@ -443,7 +514,7 @@
     
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-     NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+    NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
     //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
@@ -454,53 +525,53 @@
     else
     {
         
-       
         
         
-            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
-            {
-                
-                
-                
-                // NSLog(@"Start Sending");
-                HUD.labelText = @"Completed.";
-                HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-                HUD.mode = MBProgressHUDModeCustomView;
-                [HUD hide:YES afterDelay:0];
-                
-                //NSLog(@"success");
-                
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"successfully updated!"];
-                
-                
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-                
-                
-                
-            }
-            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"]&&[[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
-            {
-               // NSLog(@"Start Sending in email exist");
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Emailid already exist!"];
-                
-                
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-                
-            }
-            else
-            {
-               // NSLog(@"else Start Sending");
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Updation Failed!"];
-                
-                
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-            }
+        
+        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+        {
             
+            
+            
+            // NSLog(@"Start Sending");
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+            
+            //NSLog(@"success");
+            
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"successfully updated!"];
+            
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+            
+            
+        }
+        else if ([[menu objectForKey:@"success"] isEqualToString:@"No"]&&[[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
+        {
+            // NSLog(@"Start Sending in email exist");
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Emailid already exist!"];
+            
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+        }
+        else
+        {
+            // NSLog(@"else Start Sending");
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Updation Failed!"];
+            
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
         
-     
+        
+        
         
         
         [HUD hide:YES];
@@ -530,7 +601,28 @@
     NSString*pt2=time2.text;
     NSString*pt3=time3.text;
     NSString*prov=provider.text;
-    NSString*group=grouppicker.text;
+    NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
+    NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
+    NSString *postVarArrayString = @"";
+    NSString *postVarArrayStringid = @"";
+    int j=[arrayWithIDs count];
+    //NSString *separator= @"&";;
+    for (int i=0; i<[arrayWithIDs count]; i++) {
+        postVarArrayString = [NSString stringWithFormat:@"%@%@", postVarArrayString, [arrayWithIDs objectAtIndex:i] ];
+        postVarArrayStringid = [NSString stringWithFormat:@"%@%d", postVarArrayStringid, [[arrayWithIDvalues objectAtIndex:i] integerValue]];
+        if(i==j-1)
+        {
+            postVarArrayString = [NSString stringWithFormat:@"%@", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@", postVarArrayStringid];
+        }
+        else
+        {
+            postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+        }
+        
+        
+    }
     if([gender.text isEqualToString:@"Female"]||[gender.text isEqualToString:@"female"])
     {
         gend=@"1";
@@ -539,11 +631,12 @@
     {
         gend=@"0";
     }
-  // NSLog(@"%@ selected groupid",selectedgroupid);
+    // NSLog(@"%@ selected groupid",selectedgroupid);
+    NSLog(@"%@ group",postVarArrayString);
+    NSLog(@"%@ groupid",postVarArrayStringid);
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,pt2,pt3,prov,postVarArrayString,age1,username1,postVarArrayStringid,emailid,oldemail,secondEntity,value2];
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,pt2,pt3,prov,group,age1,username1,selectedgroupid,emailid,oldemail,secondEntity,value2];
-    
-  NSLog(@"post %@",post);
+    NSLog(@"post %@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=patientupdate"];
     
@@ -553,7 +646,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-   // NSLog(@"postlenth%@",postLength);
+    // NSLog(@"postlenth%@",postLength);
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
