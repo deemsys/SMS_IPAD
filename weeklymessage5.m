@@ -13,6 +13,8 @@
 @end
 
 @implementation weeklymessage5
+@synthesize recorddict;
+@synthesize temp;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface weeklymessage5 : UIViewController
-
+{
+    NSMutableDictionary * recordict;
+    NSMutableDictionary * temp;
+}
+@property (nonatomic, retain) NSMutableDictionary * recorddict;
+@property (nonatomic, retain) NSMutableDictionary * temp;
 @end

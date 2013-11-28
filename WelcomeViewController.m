@@ -172,7 +172,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[recorddict objectForKey:@"Username"]];
+    welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];

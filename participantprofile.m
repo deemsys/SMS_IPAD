@@ -62,7 +62,7 @@
     [recorddict setValue:age1 forKey:@"age"];
     [recorddict setValue:group1 forKey:@"group"];
     
-    
+[[NSUserDefaults standardUserDefaults] setObject:email1 forKey:@"patientemail"];
     
     
     if([gender1 isEqualToString:@"0"])
@@ -78,6 +78,7 @@
     // Generate content for our scroll view using the frame height and width as the reference point
     
 }
+
 -(void)getparticipantdetail:(NSString*)userid
 {
     

@@ -51,12 +51,12 @@
 		0D6C79D3183DFAC600C48D17 /* week.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79D2183DFAC500C48D17 /* week.png */; };
 		0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D6183E453B00C48D17 /* participantprofile.m */; };
 		0D6C79DB183E581700C48D17 /* editprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79DA183E581700C48D17 /* editprofile.m */; };
-		0D6C79E71840849E00C48D17 /* weeklymessage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79E61840849E00C48D17 /* weeklymessage2.m */; };
 		0D6C79EA184084BA00C48D17 /* weeklymessage3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79E9184084BA00C48D17 /* weeklymessage3.m */; };
 		0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EC184084CC00C48D17 /* weeklymessage4.m */; };
 		0D6C79F01840852F00C48D17 /* weeklymessage5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EF1840852F00C48D17 /* weeklymessage5.m */; };
 		0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */; };
 		0D709F361836646700C4F907 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D709F351836646700C4F907 /* testViewController.m */; };
+		0D7AB9A9184713C9000A2343 /* BG1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D7AB9A8184713C5000A2343 /* BG1.jpg */; };
 		0D952E751834ECB400053B45 /* forgetpasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E741834ECB400053B45 /* forgetpasswordViewController.m */; };
 		0D952E7A1834EF0700053B45 /* changepasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E791834EF0700053B45 /* changepasswordViewController.m */; };
 		0D952E7E1834F27D00053B45 /* providerinfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D952E7D1834F27D00053B45 /* providerinfoViewController.m */; };
@@ -109,6 +109,8 @@
 		0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA1ABDC183A018F0063C29F /* SBJsonParser.m */; };
 		0DA1ABE4183A018F0063C29F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA1ABDE183A018F0063C29F /* SBJsonWriter.m */; };
 		0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1ABE5183A0CCA0063C29F /* 37x-Checkmark.png */; };
+		0DB9A9F71845D1B200C55C98 /* weekmessage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9A9F61845D1B200C55C98 /* weekmessage2.m */; };
+		0DB9A9F91845DE7500C55C98 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,8 +189,6 @@
 		0D6C79D6183E453B00C48D17 /* participantprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = participantprofile.m; sourceTree = "<group>"; };
 		0D6C79D9183E581700C48D17 /* editprofile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editprofile.h; sourceTree = "<group>"; };
 		0D6C79DA183E581700C48D17 /* editprofile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = editprofile.m; sourceTree = "<group>"; };
-		0D6C79E51840849E00C48D17 /* weeklymessage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage2.h; sourceTree = "<group>"; };
-		0D6C79E61840849E00C48D17 /* weeklymessage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage2.m; sourceTree = "<group>"; };
 		0D6C79E8184084BA00C48D17 /* weeklymessage3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage3.h; sourceTree = "<group>"; };
 		0D6C79E9184084BA00C48D17 /* weeklymessage3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weeklymessage3.m; sourceTree = "<group>"; };
 		0D6C79EB184084CC00C48D17 /* weeklymessage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weeklymessage4.h; sourceTree = "<group>"; };
@@ -199,6 +199,7 @@
 		0D709F321836643700C4F907 /* UITextfieldScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextfieldScrollViewController.m; sourceTree = "<group>"; };
 		0D709F341836646700C4F907 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
 		0D709F351836646700C4F907 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		0D7AB9A8184713C5000A2343 /* BG1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG1.jpg; sourceTree = "<group>"; };
 		0D952E731834ECB400053B45 /* forgetpasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetpasswordViewController.h; sourceTree = "<group>"; };
 		0D952E741834ECB400053B45 /* forgetpasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetpasswordViewController.m; sourceTree = "<group>"; };
 		0D952E781834EF0700053B45 /* changepasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changepasswordViewController.h; sourceTree = "<group>"; };
@@ -251,6 +252,9 @@
 		0DA1ABDD183A018F0063C29F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0DA1ABDE183A018F0063C29F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		0DA1ABE5183A0CCA0063C29F /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		0DB9A9F51845D1B200C55C98 /* weekmessage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weekmessage2.h; sourceTree = "<group>"; };
+		0DB9A9F61845D1B200C55C98 /* weekmessage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weekmessage2.m; sourceTree = "<group>"; };
+		0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB9A9F91845DE7500C55C98 /* CoreAudio.framework in Frameworks */,
 				0DA1ABD1183A014F0063C29F /* AVFoundation.framework in Frameworks */,
 				0D0271F0182D119F00C35B94 /* CoreGraphics.framework in Frameworks */,
 				0D0271F2182D119F00C35B94 /* UIKit.framework in Frameworks */,
@@ -287,6 +292,7 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0DA1ABD0183A014F0063C29F /* AVFoundation.framework */,
 				0D6C79D8183E57F600C48D17 /* editprofile */,
 				0D6C79D4183E451F00C48D17 /* participantprofile */,
 				0D6C79CE183D00E100C48D17 /* Weeklymessage */,
@@ -325,7 +331,7 @@
 		0D0271EC182D119F00C35B94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0DA1ABD0183A014F0063C29F /* AVFoundation.framework */,
+				0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */,
 				0DA1ABCE183A00570063C29F /* QuartzCore.framework */,
 				0DA1ABCC183A004D0063C29F /* AudioToolbox.framework */,
 				0DA1ABCA183A00450063C29F /* OpenGLES.framework */,
@@ -463,14 +469,14 @@
 			children = (
 				0D6C79CF183D00FD00C48D17 /* weeklymessage.h */,
 				0D6C79D0183D00FD00C48D17 /* weeklymessage.m */,
-				0D6C79E51840849E00C48D17 /* weeklymessage2.h */,
-				0D6C79E61840849E00C48D17 /* weeklymessage2.m */,
 				0D6C79E8184084BA00C48D17 /* weeklymessage3.h */,
 				0D6C79E9184084BA00C48D17 /* weeklymessage3.m */,
 				0D6C79EB184084CC00C48D17 /* weeklymessage4.h */,
 				0D6C79EC184084CC00C48D17 /* weeklymessage4.m */,
 				0D6C79EE1840852F00C48D17 /* weeklymessage5.h */,
 				0D6C79EF1840852F00C48D17 /* weeklymessage5.m */,
+				0DB9A9F51845D1B200C55C98 /* weekmessage2.h */,
+				0DB9A9F61845D1B200C55C98 /* weekmessage2.m */,
 			);
 			name = Weeklymessage;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 		0D952E8718351AA800053B45 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0D7AB9A8184713C5000A2343 /* BG1.jpg */,
 				0D6C79D2183DFAC500C48D17 /* week.png */,
 				0D952EA1183528F900053B45 /* edit.png */,
 				0D952EB718352B2D00053B45 /* forgotpass.png */,
@@ -684,6 +691,7 @@
 				0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */,
 				0D55AA9C1833D2EB006DC806 /* alert-red-button.png in Resources */,
 				0D2F50601832105E00056E53 /* alert.png in Resources */,
+				0D7AB9A9184713C9000A2343 /* BG1.jpg in Resources */,
 				0D2F50621832106300056E53 /* alert@2x.png in Resources */,
 				0D027206182D119F00C35B94 /* Images.xcassets in Resources */,
 				0D6C79BF183C817300C48D17 /* login.png in Resources */,
@@ -759,9 +767,9 @@
 				0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */,
 				0D2F505D18320FB100056E53 /* BlockBackground.m in Sources */,
 				0D2F50671832393900056E53 /* signupViewController.m in Sources */,
+				0DB9A9F71845D1B200C55C98 /* weekmessage2.m in Sources */,
 				0DA1ABE4183A018F0063C29F /* SBJsonWriter.m in Sources */,
 				0D0271FA182D119F00C35B94 /* main.m in Sources */,
-				0D6C79E71840849E00C48D17 /* weeklymessage2.m in Sources */,
 				0D9F19C31837C478001389C1 /* SKPSMTPMessage.m in Sources */,
 				0DA1ABE0183A018F0063C29F /* NSString+SBJSON.m in Sources */,
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,

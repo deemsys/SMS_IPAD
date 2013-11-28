@@ -10,7 +10,7 @@
 
 @interface weeklymessage : UIViewController<UITextFieldDelegate>
 {
-    IBOutlet UIView * question1;
+    IBOutlet UITextView * question1;
     IBOutlet UITextField * answer1;
     NSMutableDictionary *recorddict;
     
