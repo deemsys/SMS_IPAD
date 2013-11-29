@@ -312,21 +312,32 @@
     NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
     selectedgroupid=[[NSMutableArray alloc]init];
     showLbl.text = dataStr;
-    grouppicker.text=dataStr;
+    
     entriesSelected = [[NSArray arrayWithArray:selectedEntriesArr] retain];
+    if([selectedEntriesArr count]<=4)
+    {
+        grouppicker.text=dataStr;
     for (int i=0; i<[selectedEntriesArr count]; i++)
     {
         int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
         //NSLog(@"%d %@ %lu",indexValue,[selectedEntriesArr objectAtIndex:i],(unsigned long)[grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]]);
         [selectedgroupid addObject:[groupidlist objectAtIndex:indexValue]];
     }
-    
+        
     // NSLog(@"index %d",indexValue);
     // NSLog(@"selectedgroupid %@",selectedgroupid);
     [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
     [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
     
-    
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
+        
+        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+    }
     
 }
 

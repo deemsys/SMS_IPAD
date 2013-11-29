@@ -20,6 +20,7 @@
 @synthesize recorddict;
 @synthesize switch1;
 @synthesize resLabel1;
+@synthesize eval;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -188,8 +189,61 @@
         
         
     }
+    //Fetching Weekly Evaluation details
     
-    
+     NSString *resultResponse1=[self HttpPostEntityFirstweekly:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *error1;
+    SBJSON *json1 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers1 = [json1 objectWithString:resultResponse1 error:&error1];
+    NSDictionary *itemsApp1 = [luckyNumbers1 objectForKey:@"serviceresponse"];
+    NSArray *items1App1=[itemsApp1 objectForKey:@"Weekly_logs List"];
+    week1=[[NSMutableArray alloc]init];
+    week2=[[NSMutableArray alloc]init];
+    week3=[[NSMutableArray alloc]init];
+    week4=[[NSMutableArray alloc]init];
+    week5=[[NSMutableArray alloc]init];
+      week6=[[NSMutableArray alloc]init];
+    NSDictionary *arrayList2;
+    // NSLog(@"items1app %@",luckyNumbers);
+    for (id anUpdate1 in items1App1)
+    {
+        NSDictionary *arrayList2=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+        [week1 addObject:[arrayList2 objectForKey:@"log_id"]];
+        [week2 addObject:[arrayList2 objectForKey:@"week"]];
+        [week3 addObject:[arrayList2 objectForKey:@"date_time"]];
+        [week4 addObject:[arrayList2 objectForKey:@"continuous"]];
+        [week5 addObject:[arrayList2 objectForKey:@"count"]];
+        [week6 addObject:[arrayList2 objectForKey:@"status"]];
+        
+        
+    }
+    weekcount=0;
+    for (int i=0; i<[week6 count ]; i++)
+    {
+        if([[week6 objectAtIndex:i] isEqual:@"0"])
+        {
+            weekcount++;
+        }
+    }
+    if(weekcount==0)
+    {
+        eval.hidden=YES;
+        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly evaluations"];
+    }
+    else
+    {
+        eval.hidden=NO;
+        weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations thats overdue",weekcount];
+    }
+
+ 
+  //  NSLog(@"logid %@",week1);
+   // NSLog(@"week %@",week2);
+   // NSLog(@"date_time %@",week3);
+   // NSLog(@"continuous %@",week4);
+   // NSLog(@"count %@",week5);
+   // NSLog(@"status %@",week6);
  //    NSLog(@"temp value %@",temp);
   //  NSLog(@"temp1 value %@",temp1);
    //NSLog(@"temp2 value %@",temp2);
@@ -235,6 +289,37 @@
     return data;
     
 }
+-(NSString *)HttpPostEntityFirstweekly:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    
+    
+    HUD.labelText = @"Feteching Weekly evaluation...";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=weeklyevaluationSelect"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+ NSLog(@" post %@ ",post);
+    
+ NSLog(@"%@ ",data);
+    
+    return data;
+    
+}
+
 -(NSString *)HttpPostEntityFirstmessagestream:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     
@@ -291,6 +376,7 @@
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
     [self sunc];
+    
 	// Do any additional setup after loading the view.
 }
 

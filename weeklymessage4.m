@@ -167,12 +167,166 @@ int a;
     if (a==1)
     {
         NSLog(@"recorddict in answer3 %@",recorddict);
+        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:HUD];
+        HUD.delegate = self;
+        HUD.labelText = @"Saving....";
+        [HUD show:YES];
+        [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+
+        
         [self performSegueWithIdentifier:@"sms10" sender:self];
     }
     else
     {
         NULL;
     }
+    
+}
+-(void)signUpMethod
+{
+   // NSString*email=[recorddict objectForKey:@"email"];
+    //NSString *username1=[recorddict objectForKey:@"UserName"];
+    //  NSLog(@"Signup");
+    
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+	switch (netStatus)
+	{
+		case NotReachable:
+		{
+			isConnect=NO;
+			//NSLog(@"Access Not Available");
+			break;
+		}
+			
+		case ReachableViaWWAN:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WWAN");
+			break;
+		}
+		case ReachableViaWiFi:
+		{
+			isConnect=YES;
+			//NSLog(@"Reachable WiFi");
+			break;
+		}
+	}
+	
+	
+    
+    if(isConnect)
+    {
+        
+    }
+    //  imgName=@"Connected.png";
+    else
+    {
+        HUD.labelText = @"Check network connection....";
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        [HUD hide:YES afterDelay:1];
+        return;
+    }
+    
+    
+    NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    //for username
+    NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    
+    //  NSLog(@"********%@",resultResponse);
+    //   NSLog(@"REGISTRATION");
+    
+    NSError *error;
+    
+    SBJSON *json = [[SBJSON new] autorelease];
+    NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    if (luckyNumbers == nil)
+    {
+        
+        //NSLog(@"luckyNumbers == nil");
+        
+    }
+    else
+    {
+        
+        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        
+        
+        
+       
+            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+            {
+                    [HUD hide:YES];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+            }
+            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+            {
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                    [HUD hide:YES];
+                
+            }
+            
+        [HUD hide:YES];
+        
+    }
+   
+
+
+}
+-(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
+{
+    
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],secondEntity,value2];
+    
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
+    
+    
+    
+    NSLog(@"%@",post);
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSLog(@"postlenth%@",postLength);
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
+    
+    
+    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    
+    
+    NSLog(@"response %@",data);
+    
+    
+    
+    
+    
+    return data;
     
 }
 -(IBAction)clear:(id)sender

@@ -264,7 +264,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     //   NSLog(@" post %@ ",post);
     
-    NSLog(@"%@ ",data);
+   // NSLog(@"%@ ",data);
     
     return data;
     

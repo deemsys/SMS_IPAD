@@ -156,6 +156,7 @@ int a;
         [player play];
     }
     
+    
 }
 
 #pragma mark - AVAudioRecorderDelegate
@@ -253,7 +254,7 @@ int a;
     recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:nil];
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
-    [recorder prepareToRecord];
+   // [recorder prepareToRecord];
     
     
     

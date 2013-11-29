@@ -12,6 +12,8 @@
 #import "NSData+Base64Additions.h"
 #import "MBProgressHUD.h"
 #import "Reachability.h"
+#import "BlockAlertView.h"
+#import "JSON.h"
 
 
 
@@ -39,7 +41,8 @@
     
     NSString * proemail;
     NSString * patemail;
-    
+    MBProgressHUD *HUD;
+    BOOL isConnect;
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;

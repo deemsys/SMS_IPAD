@@ -17,11 +17,16 @@
     MBProgressHUD *HUD;
     IBOutlet UILabel*welcome;
     BOOL isConnect;
+    IBOutlet UIButton *eval;
     IBOutlet UISwitch *switch1;
     IBOutlet UILabel *resLabel1;
+   IBOutlet UILabel*weekremaining;
+    int weekcount;
+    NSMutableArray *week1,*week2,*week3,*week4,*week5,*week6;
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;
 @property (nonatomic, retain) UILabel *resLabel1;
+@property (nonatomic, retain) UIButton*eval;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @end
