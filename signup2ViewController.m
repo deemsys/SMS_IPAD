@@ -21,6 +21,7 @@
 @synthesize agepicker;
 @synthesize seggender;
 @synthesize gender;
+@synthesize educationseg;
 
 
 
@@ -40,11 +41,13 @@
     
     agepick.hidden=YES;
     city.delegate=self;
-    education.delegate=self;
+    
     medicaldetails.delegate=self;
    
     agepicker.text=@"Below 12";
-ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"31-40", @"41-50",@"51-60",@"61-70",@"71-80",@"81-90",@"91-100", nil];
+    ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
+    
+
     
     
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped)];
@@ -62,7 +65,7 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
 -(void)dismissKeyboard
 {
     [city resignFirstResponder];
-    [education resignFirstResponder];
+    
     [medicaldetails resignFirstResponder];
 }
 - (void)pickerViewTapped
@@ -164,12 +167,31 @@ ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"3
 
     }
 }
+-(IBAction)segeduclicked:(id)sender
+{
+    if([educationseg selectedSegmentIndex]==0)
+        {
+           edu=@"Scholl";
+        }
+    else if([educationseg selectedSegmentIndex]==1)
+    {
+        edu=@"Some College";
+    }
+    else if([educationseg selectedSegmentIndex]==2)
+    {
+        edu=@"Professional Degree";
+    }
+    else if([educationseg selectedSegmentIndex]==3)
+    {
+        edu=@"Master Degree";
+    }
+}
 -(IBAction)next:(id)sender
 {
     [recorddict setValue:gender.text forKey:@"Gender"];
     [recorddict setValue:agepicker.text forKey:@"Age"];
    [recorddict setValue:city.text forKey:@"City"];
-    [recorddict setValue:education.text forKey:@"Education"];
+    [recorddict setValue:edu forKey:@"Education"];
     [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
     c=1;
      /*  if([city.text length]!=0)

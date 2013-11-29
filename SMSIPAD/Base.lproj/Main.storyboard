@@ -1472,16 +1472,6 @@
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="4eM-1d-7Ab"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Female" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLF-lE-R0q">
-                                        <rect key="frame" x="140" y="131" width="176" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="VY9-pI-0LI"/>
-                                        </connections>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chennai" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o45-iX-dBL">
                                         <rect key="frame" x="140" y="162" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1490,16 +1480,6 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="uY6-jn-INe"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Graduate" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iAB-0U-k0F">
-                                        <rect key="frame" x="140" y="193" width="176" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="PQn-xC-dj1"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Fever" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kM-e1-Iqt">
@@ -1649,6 +1629,30 @@
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="zUG-Go-hw8"/>
                                         </connections>
                                     </pickerView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-aD-tZ3">
+                                        <rect key="frame" x="104" y="192" width="211" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="School"/>
+                                            <segment title="Some College"/>
+                                            <segment title="Professional Degree"/>
+                                            <segment title="Master Degree"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segeduselected:" destination="WQZ-3Y-SQ4" eventType="valueChanged" id="0Ir-jX-CP3"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wTS-no-qQL">
+                                        <rect key="frame" x="104" y="133" width="157" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Male"/>
+                                            <segment title="Female"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="seggenderselected:" destination="WQZ-3Y-SQ4" eventType="valueChanged" id="iZM-yz-6MM"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -1661,15 +1665,15 @@
                         <outlet property="agepick" destination="zOo-JU-GXz" id="iBo-nP-Oke"/>
                         <outlet property="agepicker" destination="Lsc-s3-N16" id="L0q-cJ-jnG"/>
                         <outlet property="city" destination="o45-iX-dBL" id="aQc-Lo-vD8"/>
-                        <outlet property="education" destination="iAB-0U-k0F" id="Nb7-Qe-PqG"/>
                         <outlet property="email" destination="bp7-wh-gUI" id="8wJ-TH-o8Y"/>
                         <outlet property="fname" destination="QL3-VK-IPG" id="Gqc-3L-ArT"/>
-                        <outlet property="gender" destination="pLF-lE-R0q" id="rEj-R8-jS4"/>
+                        <outlet property="gender" destination="wTS-no-qQL" id="FAj-42-ibs"/>
                         <outlet property="grouppicker" destination="sv6-Ae-pTD" id="X69-qy-xyN"/>
                         <outlet property="medical" destination="9kM-e1-Iqt" id="f4k-Ri-WfD"/>
                         <outlet property="mobile" destination="MPJ-tT-8jz" id="WBp-VP-t4a"/>
                         <outlet property="provider" destination="gMp-yQ-Ubf" id="wdt-m4-rOB"/>
                         <outlet property="scrollView" destination="tZa-hD-lHn" id="DEd-sS-aOQ"/>
+                        <outlet property="segedu" destination="fH0-aD-tZ3" id="kTI-89-12E"/>
                         <outlet property="time1" destination="c8C-lz-Exv" id="ymf-Iy-gBm"/>
                         <outlet property="time2" destination="9yP-uA-x6m" id="cPT-8U-8PR"/>
                         <outlet property="time3" destination="D0L-dx-pnl" id="Zf4-C5-fJD"/>
@@ -2246,12 +2250,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-ba-OPz">
-                                        <rect key="frame" x="155" y="9" width="123" height="29"/>
+                                        <rect key="frame" x="101" y="9" width="123" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="Male"/>
                                             <segment title="Female"/>
                                         </segments>
+                                        <color key="tintColor" red="0.088193650969999995" green="0.19150101250000001" blue="0.40632971940000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="seggenderclicked:" destination="lcf-wr-ts9" eventType="valueChanged" id="msE-Da-NfL"/>
                                         </connections>
@@ -2270,7 +2275,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-yT-b9p">
-                                        <rect key="frame" x="73" y="73" width="92" height="30"/>
+                                        <rect key="frame" x="73" y="73" width="146" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2280,7 +2285,7 @@
                                         </connections>
                                     </button>
                                     <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9N-ds-Dc4">
-                                        <rect key="frame" x="182" y="-15" width="89" height="162"/>
+                                        <rect key="frame" x="129" y="9" width="171" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="lcf-wr-ts9" id="net-cb-atX"/>
@@ -2288,7 +2293,7 @@
                                         </connections>
                                     </pickerView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-XO-XWC">
-                                        <rect key="frame" x="128" y="123" width="177" height="30"/>
+                                        <rect key="frame" x="101" y="111" width="177" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2298,21 +2303,11 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Education:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJD-4X-2lt">
-                                        <rect key="frame" x="20" y="158" width="115" height="38"/>
+                                        <rect key="frame" x="20" y="146" width="115" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Education" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wE4-to-lo2">
-                                        <rect key="frame" x="128" y="162" width="177" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="hideKeyboard:" destination="lcf-wr-ts9" eventType="editingDidEndOnExit" id="1MH-nQ-gxk"/>
-                                            <outlet property="delegate" destination="lcf-wr-ts9" id="BKV-7K-yAT"/>
-                                        </connections>
-                                    </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medical Details:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfR-cD-pjl">
                                         <rect key="frame" x="20" y="200" width="123" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2340,7 +2335,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmt-7J-8jz">
-                                        <rect key="frame" x="20" y="119" width="115" height="37"/>
+                                        <rect key="frame" x="24" y="101" width="115" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -2352,6 +2347,20 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gvs-Tr-hag">
+                                        <rect key="frame" x="24" y="175" width="288" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="School"/>
+                                            <segment title="Some College"/>
+                                            <segment title="Professional Degree"/>
+                                            <segment title="Master Degree"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.15034299100000001" green="0.2107495814" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="segeduclicked:" destination="lcf-wr-ts9" eventType="valueChanged" id="3YG-27-7Ix"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2364,7 +2373,7 @@
                         <outlet property="agepick" destination="w9N-ds-Dc4" id="Fpy-R0-LSA"/>
                         <outlet property="agepicker" destination="RIV-tV-ja2" id="Som-MH-cBi"/>
                         <outlet property="city" destination="XKc-XO-XWC" id="Di3-ZW-zh3"/>
-                        <outlet property="education" destination="wE4-to-lo2" id="jEv-Gd-Gp6"/>
+                        <outlet property="educationseg" destination="Gvs-Tr-hag" id="Rqd-qe-COS"/>
                         <outlet property="gender" destination="tfN-tM-zft" id="jpG-fZ-Mdm"/>
                         <outlet property="medicaldetails" destination="faO-zm-QIX" id="DXb-Ib-eT0"/>
                         <outlet property="scrollView" destination="Z2h-cL-Qb9" id="q24-pn-2U4"/>
@@ -2374,7 +2383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIm-Os-qc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="863"/>
+            <point key="canvasLocation" x="1162" y="865"/>
         </scene>
     </scenes>
     <resources>

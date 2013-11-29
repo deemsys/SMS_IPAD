@@ -31,6 +31,8 @@
 @synthesize ageArray;
 @synthesize agepick;
 @synthesize agepicker;
+@synthesize segedu;
+@synthesize gender;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,6 +44,34 @@
 - (void)pickerViewTappedage
 {
     agepick.hidden=YES;
+}
+-(IBAction)segeduselected:(id)sender
+{
+    if([segedu selectedSegmentIndex]==0)
+    {
+        education=@"School";
+    }
+    if([segedu selectedSegmentIndex]==1)
+    {
+          education=@"Some College";
+    }
+    if([segedu selectedSegmentIndex]==2)
+    {
+        education=@"Professional Degree";
+    }
+    if([segedu selectedSegmentIndex]==3)
+    {
+          education=@"Master Degree";
+    }
+}
+-(IBAction)seggenderselected:(id)sender
+{
+    if ([gender selectedSegmentIndex]==0) {
+        gend=@"0";
+    }
+    if ([gender selectedSegmentIndex]==1) {
+        gend=@"1";
+    }
 }
 - (void)viewDidLoad
 {
@@ -59,7 +89,34 @@
     fname.text=[recorddict objectForKey:@"firstname"];
 	age.text=[recorddict objectForKey:@"age"];
     city.text=[recorddict objectForKey:@"city"];
-    education.text=[recorddict objectForKey:@"education"];
+     education=[recorddict objectForKey:@"education"];
+    gend=[recorddict objectForKey:@"gender"];
+    if ([education isEqualToString:@"School"])
+    {
+           [segedu setSelectedSegmentIndex:0];
+    }
+    else if ([education isEqualToString:@"Some College"])
+    {
+        [segedu setSelectedSegmentIndex:1];
+    }
+    else if ([education isEqualToString:@"Professional Degree"])
+    {
+      [segedu setSelectedSegmentIndex:2];
+    }
+   else if ([education isEqualToString:@"Master Degree"])
+   {
+       [segedu setSelectedSegmentIndex:3];
+    }
+
+    if ([gend isEqualToString:@"Male"])
+    {
+        [gender setSelectedSegmentIndex:0];
+    }
+   else if ([gend isEqualToString:@"Female"])
+    {
+        [gender setSelectedSegmentIndex:1];
+    }
+   
     email.text=[recorddict objectForKey:@"email"];
     medical.text=[recorddict objectForKey:@"medical"];
     mobile.text=[recorddict objectForKey:@"mobile"];
@@ -68,8 +125,8 @@
     time2.text=[recorddict objectForKey:@"time21"];
     time3.text=[recorddict objectForKey:@"time31"];
     username.text=[recorddict objectForKey:@"username"];
-    gender.text=[recorddict objectForKey:@"gender"];
-    ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20", @"21-30", @"31-40", @"41-50",@"51-60",@"61-70",@"71-80",@"81-90",@"91-100", nil];
+   // gender.text=[recorddict objectForKey:@"gender"];
+    ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
     
     timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
     
@@ -397,7 +454,7 @@
                         [recorddict setValue:email.text forKey:@"email"];
                         [recorddict setValue:age.text forKey:@"age"];
                         [recorddict setValue:city.text forKey:@"city"];
-                        [recorddict setValue:education.text forKey:@"education"];
+                        [recorddict setValue:education forKey:@"education"];
                         [recorddict setValue:medical.text forKey:@"medical"];
                         // [recorddict setObject:selectedgroupid forKey:@"Groupid"];
                         [recorddict setValue:time1.text forKey:@"Preferred Time1"];
@@ -590,12 +647,11 @@
     NSString*firstname=fname.text;
     NSString *username1=username.text;
     NSString*mobnum=mobile.text;
-    NSString*gend;
-    NSString *emailid=email.text;
+   NSString *emailid=email.text;
     NSString *oldemail=[recorddict objectForKey:@"email"];
     NSString*age1=agepicker.text;
     NSString*city1=city.text;
-    NSString*edu=education.text;
+    NSString*edu=education;
     NSString *meddet=medical.text;
     NSString*pt1=time1.text;
     NSString*pt2=time2.text;
@@ -623,14 +679,7 @@
         
         
     }
-    if([gender.text isEqualToString:@"Female"]||[gender.text isEqualToString:@"female"])
-    {
-        gend=@"1";
-    }
-    else
-    {
-        gend=@"0";
-    }
+    
     // NSLog(@"%@ selected groupid",selectedgroupid);
     NSLog(@"%@ group",postVarArrayString);
     NSLog(@"%@ groupid",postVarArrayStringid);

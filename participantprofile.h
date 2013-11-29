@@ -47,7 +47,7 @@
     IBOutlet UILabel * provider;
     IBOutlet UIPickerView *group;
     IBOutlet UILabel * age;
-    IBOutlet UILabel*emailid; NSArray *grouplist;
+    IBOutlet UILabel*emailid; NSMutableArray *grouplist;
 }
 -(IBAction)edit:(id)sender;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;

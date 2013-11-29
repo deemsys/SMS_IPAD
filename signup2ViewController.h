@@ -17,7 +17,8 @@
     IBOutlet UILabel*gender;
     IBOutlet UITextView*medicaldetails;
     IBOutlet UITextField *city;
-    IBOutlet UITextField *education;
+    IBOutlet UISegmentedControl*educationseg;
+    NSString *edu;
     
     int c;
 
@@ -32,5 +33,6 @@
 - (IBAction)changeage:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
 @property (nonatomic, strong) IBOutlet UILabel*agepicker;
-
+@property(nonatomic,retain)IBOutlet UISegmentedControl*educationseg;
+-(IBAction)segeduclicked:(id)sender;
 @end

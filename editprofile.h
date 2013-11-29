@@ -27,7 +27,7 @@
     IBOutlet UILabel*username;
     IBOutlet UILabel*age;
     IBOutlet UITextField*city;
-    IBOutlet UITextField*education;
+    IBOutlet UISegmentedControl*segedu;
     IBOutlet UITextField*email;
     IBOutlet UITextField*medical;
     IBOutlet UITextField*mobile;
@@ -35,7 +35,6 @@
     IBOutlet UILabel*time1;
     IBOutlet UILabel*time2;
     IBOutlet UILabel*time3;
-    IBOutlet UITextField*gender;
     IBOutlet UIPickerView*timepick1;
     IBOutlet UIPickerView * timepick2;
     IBOutlet UIPickerView * timepick3;
@@ -50,6 +49,9 @@
     NSMutableArray*groupidlist;
     BOOL isConnect;
     MBProgressHUD *HUD;
+    NSString*education;
+    IBOutlet UISegmentedControl*gender;
+    NSString *gend;
     
 }
 - (IBAction)submit:(id)sender;
@@ -70,11 +72,14 @@
 @property (nonatomic, strong)IBOutlet UILabel*time2;
 
 @property (nonatomic, strong)IBOutlet UILabel*time3;
-
+@property(nonatomic,retain)IBOutlet UISegmentedControl*segedu;
+@property(nonatomic,retain)IBOutlet UISegmentedControl*gender;
 
 - (IBAction)changeTimeInLabel1:(id)sender;
 - (IBAction)changeTimeInLabel2:(id)sender;
 - (IBAction)changeTimeInLabel3:(id)sender;
 -(IBAction)changegroup:(id)sender;
+-(IBAction)segeduselected:(id)sender;
+-(IBAction)seggenderselected:(id)sender;
 @property(assign) NSMutableDictionary*recorddict;
 @end

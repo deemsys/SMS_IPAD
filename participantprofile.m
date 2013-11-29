@@ -49,7 +49,7 @@
     time3.text=time31;
     provider.text=provider1;
     age.text=age1;
-    grouplist = [group1 componentsSeparatedByString:@"-"];
+    grouplist = [group1 componentsSeparatedByString:@","];
     NSLog(@"age %@",age.text);
     NSLog(@"group %@",grouplist);
     [recorddict setValue:firstname1 forKey:@"firstname"];
