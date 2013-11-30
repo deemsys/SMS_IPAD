@@ -1,26 +1,23 @@
 //
-//  weeklymessage.m
+//  weeklymail.m
 //  Breast Cancer
 //
-//  Created by DeemSysInc on 20/11/13.
+//  Created by DeemSysInc on 30/11/13.
 //  Copyright (c) 2013 DeemSysInc. All rights reserved.
 //
 
-#import "weeklymessage.h"
-#import "BlockUI.h"
-#import "BlockAlertView.h"
+#import "weeklymail.h"
 #import "weekmessage2.h"
-#import "weeklymessage4.h"
+#import "BlockAlertView.h"
 
-@interface weeklymessage ()
+@interface weeklymail ()
 
 @end
 
-@implementation weeklymessage
+@implementation weeklymail
 @synthesize recorddict;
 int a;
-int count=3;
-int cont=1;
+
 -(BOOL)numbers:(NSString *)country1
 {
     NSString *countryFormat1 = @"[0-7]{1}";
@@ -30,26 +27,20 @@ int cont=1;
     return [countryTest1 evaluateWithObject:country1];
     
 }
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 -(IBAction)send:(id)sender
 {
     recorddict=[[NSMutableDictionary alloc]init];
-    if(([answer1.text length]!=0))
+    if(([mailanswer.text length]!=0))
     {
         a=0;
-        if([self numbers:[answer1 text]]==1)
+        if([self numbers:[mailanswer text]]==1)
         {
             a=1;
             NSLog(@"a value %i",a);
-            [recorddict setValue:answer1.text forKey:@"answer1"];
+            //[recorddict setValue:mailanswer.text forKey:@"answer1"];
             //NSLog(@"answer5%@",answer1.text);
+            
         }
         else
         {
@@ -68,14 +59,10 @@ int cont=1;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if (((cont==1)&&(count==3)&&([answer1.text isEqual:@"1"]))||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
-    {
-        [self performSegueWithIdentifier:@"sms12" sender:self];
-    }
-    else if (a==1)
+    if (a==1)
     {
         NSLog(@"recorddict in answer1 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms1" sender:self];
+        [self performSegueWithIdentifier:@"sms13" sender:self];
     }
     else
     {
@@ -83,33 +70,24 @@ int cont=1;
     }
     
     
-    
-    
 }
+
 -(IBAction)clear:(id)sender
 {
-    answer1.text=@"";
+    mailanswer.text=@"";
 }
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    [answer1 resignFirstResponder];
-}
--(void)back
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
--(void)dismissKeyboard {
-    [question1 resignFirstResponder];
-    [answer1 resignFirstResponder];
-}
-- (IBAction)hideKeyboard:(id)sender
-{
-    // NSLog(@"hideKeyboard");
-    [sender resignFirstResponder];
-}
+
 - (void)viewDidLoad
 {
-    
+    [super viewDidLoad];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -120,34 +98,11 @@ int cont=1;
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    [super viewDidLoad];
-    answer1.delegate=self;
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Weekly Evaluation" message:@"System Begins Your Evaluation."];
-    
-    //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-    // [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-    [alert setCancelButtonWithTitle:@"ok" block:nil];
-    [alert show];
 	// Do any additional setup after loading the view.
 }
 
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)back
 {
-    
-    
-    if ([segue.identifier isEqualToString:@"sms1"])
-    {
-        
-        
-        weekmessage2 *destViewController = [segue destinationViewController];
-        destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in week first %@",recorddict);
-        // destViewController.delegate=self;
-        
-    }
-    
     
 }
 
@@ -156,10 +111,18 @@ int cont=1;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)viewWillAppear:(BOOL)animated
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super viewWillAppear:animated];
-    a=0;
-    //  self.view.frame=CGRectMake(0,0,50,50);
+    
+    
+    if ([segue.identifier isEqualToString:@"sms13"])
+    {
+        weekmessage2 *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        NSLog(@"recorddict in week first %@",recorddict);
+        // destViewController.delegate=self;
+        
+    }
 }
+
 @end
