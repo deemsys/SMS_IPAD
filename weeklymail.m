@@ -9,6 +9,11 @@
 #import "weeklymail.h"
 #import "weekmessage2.h"
 #import "BlockAlertView.h"
+#import <CFNetwork/CFNetwork.h>
+#import "SKPSMTPMessage.h"
+#import "NSData+Base64Additions.h"
+#import "Reachability.h"
+#import "MBProgressHUD.h"
 
 @interface weeklymail ()
 
@@ -20,7 +25,7 @@ int a;
 
 -(BOOL)numbers:(NSString *)country1
 {
-    NSString *countryFormat1 = @"[0-7]{1}";
+    NSString *countryFormat1 = @"[1-2]{1}";
     
     //  [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -38,8 +43,39 @@ int a;
         {
             a=1;
             NSLog(@"a value %i",a);
-            //[recorddict setValue:mailanswer.text forKey:@"answer1"];
-            //NSLog(@"answer5%@",answer1.text);
+            //smtp email composing
+            
+           /* if ([mailanswer.text isEqual:@"1"])
+            {
+                //mail compose
+                
+                // NSLog(@"Start Sending");
+                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+                emailMessage.fromEmail = @"learnguild@gmail.com";
+                
+                emailMessage.toEmail = proemail;//receiver email address
+                emailMessage.relayHost = @"smtp.gmail.com";
+                
+                emailMessage.requiresAuth = YES;
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                emailMessage.pass = @"deemsys@123"; //sender email password
+                emailMessage.subject =@"BCResearch App Weekly Message Details";
+                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+                emailMessage.wantsSecure = YES;
+                emailMessage.delegate = self;
+                
+                [recorddict objectForKey:@"pass"];
+                
+                // you must include <SKPSMTPMessageDelegate> to your class
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",@"DavidPrabu",@"Uday"];
+                
+                NSDictionary *plainMsg = [NSDictionary
+                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+                [emailMessage send];
+            }*/
+    
             
         }
         else
@@ -87,6 +123,9 @@ int a;
 
 - (void)viewDidLoad
 {
+    proemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+    patemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientemail"];
+    
     [super viewDidLoad];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;

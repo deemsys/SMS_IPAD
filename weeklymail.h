@@ -7,14 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CFNetwork/CFNetwork.h>
+#import "SKPSMTPMessage.h"
+#import "NSData+Base64Additions.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+#import "BlockAlertView.h"
+#import "JSON.h"
 
-@interface weeklymail : UIViewController
+
+@interface weeklymail : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextView * mailmessage;
     IBOutlet UITextField * mailanswer;
     IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     NSMutableDictionary * recordict;
+    NSString * proemail;
+    NSString * patemail;
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
