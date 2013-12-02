@@ -104,6 +104,9 @@
     providername.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
     providerphonebook.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providermobile"];
     provideremail.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+    providerfirstname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerfirstname"];
+
+    
 	// Do any additional setup after loading the view.
     
     

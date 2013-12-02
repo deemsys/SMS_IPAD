@@ -23,6 +23,21 @@
    IBOutlet UILabel*weekremaining;
     int weekcount;
     NSMutableArray *week1,*week2,*week3,*week4,*week5,*week6;
+    NSMutableArray *filtereddate,*filteredweek,*filteredlogid;
+    NSString *firstname1;
+    NSString *username1;
+    NSString *mobile1;
+    NSString *email1;
+    NSString *gender1;
+    NSString *city1;
+    NSString *education1;
+    NSString *medical1;
+    NSString *time11;
+    NSString *time21;
+    NSString *time31;
+    NSString *provider1;
+    NSString *group1;
+    NSString *age1;
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;

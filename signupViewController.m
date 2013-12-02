@@ -30,6 +30,10 @@
     }
     return self;
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [mobilenum.text length] + [string length] - range.length;
+    return (newLength > 10) ? NO : YES;
+}
 
 - (void)viewDidLoad
 {
@@ -42,7 +46,7 @@
     recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-    [self sunc];
+      [self sunc];
     
 	// Do any additional setup after loading the view.
 }
@@ -102,12 +106,7 @@
     return [emailTest1 evaluateWithObject:candidate];
     
 }
--(IBAction)clear:(id)sender{
-    for (UIView *subview in [self.view subviews])
-        if([subview isKindOfClass:[UITextField class]])
-            [(UITextField*)subview setText:@""];
-    
-}
+
 -(BOOL)alphabeticvalidation:(NSString *)country1
 {
     NSString *countryFormat1 = @"(?:[A-Za-z]+)";
@@ -134,6 +133,15 @@
     NSPredicate *mobileTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobileFormat1];
     return [mobileTest1 evaluateWithObject:mobilenumber];
     
+}
+
+
+
+- (IBAction)clear:(id)sender {
+    firstname.text=@"";
+    email.text=@"";
+    username.text=@"";
+    mobilenum.text=@"";
 }
 
 -(IBAction)next:(id)sender
@@ -165,14 +173,14 @@
                     }
                     else
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid emailid."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobilenumber."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -181,14 +189,14 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Username."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Firstname."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -393,7 +401,7 @@
 -(NSString *)HttpPostEntityFirstPROVIDER:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     
-    
+    //Reading all providers detail
     HUD.labelText = @"Feteching ProvidersRequests..";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
@@ -426,7 +434,7 @@
 -(NSString *)HttpPostEntityFirstGroup:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     
-    
+    //Reading group names
     HUD.labelText = @"Feteching Groupnames..";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
@@ -459,4 +467,8 @@
 
 
 
+- (void)dealloc {
+   
+    [super dealloc];
+}
 @end

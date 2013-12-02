@@ -174,6 +174,7 @@
 }
 -(NSString *)HttpPostEntityFirstGroup:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3 EntityFourth:(NSString*)fourthEntity ForValue4:(NSString*)value4
 {
+    //updating password
     
     
     HUD.labelText = @"Updating Password..";

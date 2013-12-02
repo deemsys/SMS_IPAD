@@ -85,6 +85,11 @@ int a;
             }
             
             [recorddict setValue:answer4.text forKey:@"answer3"];
+          NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
+           NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+           NSString*patemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
+            NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
+            
             
          /*   if ([answer4.text isEqual:@"Yes"])
             {
@@ -94,7 +99,8 @@ int a;
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
                 emailMessage.fromEmail = @"learnguild@gmail.com";
                 
-                emailMessage.toEmail = proemail;//receiver email address
+          emailMessage.toEmail = [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+          //receiver email address
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
@@ -121,7 +127,7 @@ int a;
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
                 emailMessage.fromEmail = @"learnguild@gmail.com";
                 
-                emailMessage.toEmail = patemail;//receiver email address
+                emailMessage.toEmail = [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];;//receiver email address
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
@@ -288,9 +294,19 @@ int a;
 }
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
-    
-    
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],secondEntity,value2];
+  NSString*weekl=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Weeklogid"];
+     NSString *weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
+         NSString *weekdate=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weekdate"];
+    NSLog(@"l=%@,n=%@,d=%@",weekl,weeknum, weekdate);
+    int n=[[recorddict objectForKey:@"answer1"]integerValue];
+    int countcol;
+    if(n<=5)
+    {
+        countcol=1;
+    }
+    else
+        countcol=0;
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&weeknum=%@&weekdate=%@&weeklogid=%@&countcol=%d&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],weeknum,weekdate,weekl,countcol,secondEntity,value2];
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
     

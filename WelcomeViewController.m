@@ -236,8 +236,120 @@
         eval.hidden=NO;
         weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations thats overdue",weekcount];
     }
+    filtereddate=[[NSMutableArray alloc]init];
+    filteredlogid=[[NSMutableArray alloc]init];
+    filteredweek=[[NSMutableArray alloc]init];
+    
+    
+    NSDate *date=[NSDate date];
+       NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString * currentDate = [dateFormatter stringFromDate:date];
+    NSLog(@"current date %@",currentDate);
+    int count=0;
+    for(int i=0;i<[week3 count];i++)
+    {
+        
+    
+    if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedDescending)
+    {
+        [filtereddate addObject:[week3 objectAtIndex:i]];
+        [filteredlogid addObject:[week1 objectAtIndex:i]];
+        [filteredweek addObject:[week2 objectAtIndex:i]];
+       // NSLog(@"now is later than date2");
+        count++;
+      
+        
+    }
+    else if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedAscending)
+    {
+       // NSLog(@"date1 is earlier than date2");
+        
+    }
+    else {
+        //NSLog(@"dates are the same");
+        count++;
+        [filtereddate addObject:[week3 objectAtIndex:i]];
+        [filteredlogid addObject:[week1 objectAtIndex:i]];
+        [filteredweek addObject:[week2 objectAtIndex:i]];
 
- 
+        
+    }
+
+    }
+    NSLog(@"no of pending weeks %d",count);
+    if(count==0)
+    {
+        eval.hidden=YES;
+        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly evaluations"];
+    }
+    else
+    {
+        eval.hidden=NO;
+        weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations that is overdue",count];
+    }
+    NSLog(@"filtered date %@",filtereddate);
+     NSLog(@"filtered logid %@",filteredlogid);
+     NSLog(@"filtered week%@",filteredweek);
+    if([filteredlogid count]>0)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:[filtereddate objectAtIndex:0] forKey:@"Weekdate"];
+     [[NSUserDefaults standardUserDefaults]setObject:[filteredweek objectAtIndex:0] forKey:@"Weeknum"];
+     [[NSUserDefaults standardUserDefaults]setObject:[filteredlogid objectAtIndex:0] forKey:@"Weeklogid"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+    else
+    {
+        
+    }
+    NSString *resultResponse2=[self HttpPostEntityFirstparticipant:@"loginid" ForValue1:useridnumber  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *error2;
+    
+    SBJSON *json2 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers2 = [json2 objectWithString:resultResponse2 error:&error2];
+    NSDictionary *itemsApp2 = [luckyNumbers2 objectForKey:@"serviceresponse"];
+    NSArray *items1App2=[itemsApp2 objectForKey:@"Patient info"];
+    
+    NSDictionary *arrayList3;
+    if ([[itemsApp2 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        for (id anUpdate1 in items1App2)
+        {
+            NSDictionary *arrayList3=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            firstname1=[arrayList3 objectForKey:@"firstname"];
+            username1 =[arrayList3 objectForKey:@"username"];
+            mobile1 =[arrayList3 objectForKey:@"mobilenum"];
+            email1 =[arrayList3 objectForKey:@"email"];
+            gender1 =[arrayList3 objectForKey:@"gender"];
+            city1 =[arrayList3 objectForKey:@"city"];
+            education1=[arrayList3 objectForKey:@"education"];
+            medical1 =[arrayList3 objectForKey:@"medical"];
+            time11 =[arrayList3 objectForKey:@"time1"];
+            time21 =[arrayList3 objectForKey:@"time2"];
+            time31 =[arrayList3 objectForKey:@"time3"];
+            provider1 =[arrayList3 objectForKey:@"providername"];
+            group1 =[arrayList3 objectForKey:@"group"];
+            age1 =[arrayList3 objectForKey:@"age"];
+            
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+            
+        }
+        
+        [[NSUserDefaults standardUserDefaults]setObject:username1 forKey:@"Participantusername"];
+        [[NSUserDefaults standardUserDefaults]setObject:email1 forKey:@"Participantemail"];
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"userid not found."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+        
+    }
   //  NSLog(@"logid %@",week1);
    // NSLog(@"week %@",week2);
    // NSLog(@"date_time %@",week3);
@@ -256,13 +368,14 @@
     HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	HUD.mode = MBProgressHUDModeCustomView;
     [HUD hide:YES afterDelay:0];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
     
 }
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     
-    
+    //getting provider details
     HUD.labelText = @"Feteching Providerdetail...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
@@ -291,7 +404,7 @@
 }
 -(NSString *)HttpPostEntityFirstweekly:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
-    
+    //getting weekly evaluation unfilled dates
     
     HUD.labelText = @"Feteching Weekly evaluation...";
     
@@ -312,9 +425,39 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
- NSLog(@" post %@ ",post);
+ //NSLog(@" post %@ ",post);
     
- NSLog(@"%@ ",data);
+ //NSLog(@"%@ ",data);
+    
+    return data;
+    
+}
+-(NSString *)HttpPostEntityFirstparticipant:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    //Getting Participants detail
+    
+    HUD.labelText = @"Fetching Userdetail..";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=participantSelect"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    //   NSLog(@" post %@ ",post);
+    
+    // NSLog(@"%@ ",data);
     
     return data;
     
@@ -322,7 +465,7 @@
 
 -(NSString *)HttpPostEntityFirstmessagestream:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
-    
+    //manually start stop message stream
     
     HUD.labelText = @"Feteching Messagestream...";
     
@@ -376,6 +519,7 @@
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
     [self sunc];
+    
     
 	// Do any additional setup after loading the view.
 }

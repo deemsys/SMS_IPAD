@@ -192,7 +192,15 @@
     [recorddict setValue:agepicker.text forKey:@"Age"];
    [recorddict setValue:city.text forKey:@"City"];
     [recorddict setValue:edu forKey:@"Education"];
-    [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+    if ([medicaldetails.text  isEqual: @"Add Medical Details"]) {
+        medicaldetails.text=@"";
+        [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+    }
+    else
+    {
+        [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+    }
+    
     c=1;
      /*  if([city.text length]!=0)
     {
@@ -375,9 +383,7 @@
 
 -(IBAction)clear:(id)sender
 {
-    for (UIView *subview in [self.view subviews])
-        if([subview isKindOfClass:[UITextField class]])
-            [(UITextField*)subview setText:@""];
+   city.text=@"";
     medicaldetails.text=@"";
 }
 - (void)viewDidUnload

@@ -49,7 +49,10 @@
     time3.text=time31;
     provider.text=provider1;
     age.text=age1;
-    grouplist = [group1 componentsSeparatedByString:@","];
+    if(![group1 isEqualToString:@""])
+    {
+        grouplist = [group1 componentsSeparatedByString:@","];
+    }
     NSLog(@"age %@",age.text);
     NSLog(@"group %@",grouplist);
     [recorddict setValue:firstname1 forKey:@"firstname"];
@@ -174,7 +177,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"userid not found."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"User id not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
@@ -241,7 +244,7 @@
 }
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
-    
+    //reading user detail
     
     HUD.labelText = @"Fetching Userdetail..";
     
@@ -273,6 +276,7 @@
 {
     
     
+    //reading groups based on provider detail
     HUD.labelText = @"Fetching groupdetail..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];

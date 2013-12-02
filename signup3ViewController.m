@@ -67,7 +67,39 @@
     }
     return self;
 }
-
+-(IBAction)changetimeset1:(id)sender
+{
+    if([time1 selectedSegmentIndex]==0)
+    {
+        t1=@"AM";
+    }
+    else
+    {
+      t1=@"PM";
+    }
+}
+-(IBAction)changetimeset2:(id)sender
+{
+    if([time2 selectedSegmentIndex]==0)
+    {
+        t2=@"AM";
+    }
+    else
+    {
+        t2=@"PM";
+    }
+}
+-(IBAction)changetimeset3:(id)sender
+{
+    if([time3 selectedSegmentIndex ]==0)
+    {
+        t3=@"AM";
+    }
+    else
+    {
+        t3=@"PM";
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -75,9 +107,13 @@
     timepick1.hidden=YES;
     timepick2.hidden=YES;
     timepick3.hidden=YES;
-    timepicker1.text=@"0-1";
-    timepicker2.text=@"0-1";
-    timepicker3.text=@"0-1";
+    timepicker1.text=@"1";
+    timepicker2.text=@"1";
+    timepicker3.text=@"1";
+    t1=@"AM";
+    t2=@"AM";
+    t3=@"AM";
+    
     /* grouppick.dataSource=self;
      grouppick.delegate=self;
      providerpick.delegate=self;
@@ -87,7 +123,7 @@
     groupidlist=[recorddict objectForKey:@"Groupid"];
     // NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
-    timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12", nil];
     providerpicker.text=@"Select provider";
     providerarray=[recorddict objectForKey:@"Providersname"];
     groupfinal=[[NSMutableArray alloc]init];
@@ -345,9 +381,10 @@
 {
     if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
     {
-        [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
-        [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
-        [recorddict setValue:timepicker3.text forKey:@"Preferred Time3"];
+       
+        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker1.text,t1] forKey:@"Preferred Time1"];
+        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker2.text,t2] forKey:@"Preferred Time2"];
+        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker3.text,t3] forKey:@"Preferred Time3"];
         [recorddict setValue:providerpicker.text forKey:@"Provider"];
         // [recorddict setValue:grouppicker.text forKey:@"group"];
         NSLog(@"complete list %@",recorddict);
@@ -355,7 +392,7 @@
         
         NSString * password1 = @"";
         // NSString*finaltext=@"Hi user,your password is";
-        NSString *letters = @"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
+        NSString *letters=@"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
         
         NSString *pw = @"";
         NSRange r;
@@ -410,7 +447,7 @@
 -(void)messageSent:(SKPSMTPMessage *)message{
     // NSLog(@"delegate - message sent");
     
-    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password have been sent to your mail."];
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
     [Spinner stopAnimating];
@@ -576,7 +613,7 @@
                     
                     
                     
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Emailid Already Exits and active."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"E-mail id Already Exits and active."];
                     
                     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -622,6 +659,7 @@
 
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
+    //Registering user detail
     
     NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
     NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];

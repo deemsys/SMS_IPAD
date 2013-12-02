@@ -218,6 +218,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:password.text    forKey:@"password"];
             
             [[NSUserDefaults standardUserDefaults] setObject:phonenumber.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
             //name.text=Nil;
             //password.text=nil;
             
@@ -260,7 +261,7 @@
 {
     
     
-    
+    //Checking username and password
     
     
     

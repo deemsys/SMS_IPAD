@@ -53,7 +53,7 @@ int cont=1;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Answer you submitted is Invalid."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Invalid answer!Enter a valid number within (0-7)"];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -68,11 +68,11 @@ int cont=1;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if (((cont==1)&&(count==3)&&([answer1.text isEqual:@"1"]))||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
+ /*   if (((cont==1)&&(count==3)&&([answer1.text isEqual:@"1"]))||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
     {
         [self performSegueWithIdentifier:@"sms12" sender:self];
     }
-    else if (a==1)
+    else */if (a==1)
     {
         NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms1" sender:self];
@@ -82,7 +82,7 @@ int cont=1;
         NULL;
     }
     
-    
+  
     
     
 }

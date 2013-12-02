@@ -45,6 +45,40 @@
 {
     agepick.hidden=YES;
 }
+-(IBAction)changetimeset1:(id)sender
+{
+    if([time1seg selectedSegmentIndex]==0)
+    {
+        t1=@"AM";
+    }
+    else
+    {
+        t1=@"PM";
+    }
+}
+-(IBAction)changetimeset2:(id)sender
+{
+    if([time2seg selectedSegmentIndex]==0)
+    {
+        t2=@"AM";
+    }
+    else
+    {
+        t2=@"PM";
+    }
+}
+-(IBAction)changetimeset3:(id)sender
+{
+    if([time3seg selectedSegmentIndex ]==0)
+    {
+        t3=@"AM";
+    }
+    else
+    {
+        t3=@"PM";
+    }
+}
+
 -(IBAction)segeduselected:(id)sender
 {
     if([segedu selectedSegmentIndex]==0)
@@ -84,7 +118,9 @@
     agepick.dataSource = self;
     
     agepick.hidden=YES;
-    
+    t1=@"AM";
+    t2=@"AM";
+    t3=@"AM";
     
     fname.text=[recorddict objectForKey:@"firstname"];
 	age.text=[recorddict objectForKey:@"age"];
@@ -128,7 +164,7 @@
    // gender.text=[recorddict objectForKey:@"gender"];
     ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
     
-    timearray=[[NSMutableArray alloc] initWithObjects:@"0-1", @"1-2", @"2-3", @"3-4", @"4-5",@"5-6",@"6-7",@"7-8",@"8-9",@"9-10",@"10-11",@"11-12",@"12-13",@"13-14",@"14-15",@"15-16",@"16-17",@"18-19",@"19-20",@"20-21",@"21-22",@"22-23",@"23-0", nil];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12", nil];
     
     grouppicker.text=@"Select group";
     grouparray=[recorddict objectForKey:@"Grouplist"];
@@ -457,9 +493,9 @@
                         [recorddict setValue:education forKey:@"education"];
                         [recorddict setValue:medical.text forKey:@"medical"];
                         // [recorddict setObject:selectedgroupid forKey:@"Groupid"];
-                        [recorddict setValue:time1.text forKey:@"Preferred Time1"];
-                        [recorddict setValue:time2.text forKey:@"Preferred Time2"];
-                        [recorddict setValue:time3.text forKey:@"Preferred Time3"];
+                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time1.text,t1] forKey:@"Preferred Time1"];
+                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time2.text,t2] forKey:@"Preferred Time2"];
+                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time3.text,t3] forKey:@"Preferred Time3"];
                         [recorddict setValue:provider.text forKey:@"Provider"];
                         //[recorddict setValue:grouppicker.text forKey:@"group"];
                         NSLog(@"complete patient list %@",recorddict);
@@ -475,14 +511,14 @@
                     }
                     else
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid emailid."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobilenumber."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -491,14 +527,14 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Username."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Firstname."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -638,9 +674,8 @@
 
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
+    //updating patient info into database
     
-    // NSString *authKey=@"rzTFevN099Km39PV";
-    // NSString *userId=@"alagar@ajsquare.net";
     
     
     //NSLog(@"HTTP");
@@ -653,9 +688,9 @@
     NSString*city1=city.text;
     NSString*edu=education;
     NSString *meddet=medical.text;
-    NSString*pt1=time1.text;
-    NSString*pt2=time2.text;
-    NSString*pt3=time3.text;
+    NSString*pt1=[recorddict objectForKey:@"Preferred Time1"];
+    NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
+    NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
     NSString*prov=provider.text;
     NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
     NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
@@ -673,8 +708,8 @@
         }
         else
         {
-            postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
-            postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+            postVarArrayString = [NSString stringWithFormat:@"%@,", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@,", postVarArrayStringid];
         }
         
         

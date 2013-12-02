@@ -23,7 +23,8 @@
     NSString*appoFile;
     NSString*appoNFile;
     NSMutableArray *_AppDArr;
-    NSMutableArray *_AppNArr;    IBOutlet UITextField * firstname;
+    NSMutableArray *_AppNArr;
+    IBOutlet UITextField * firstname;
     IBOutlet UITextField *mobilenum;
     IBOutlet UITextField *username;
     IBOutlet UITextField *email;

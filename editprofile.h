@@ -52,9 +52,16 @@
     NSString*education;
     IBOutlet UISegmentedControl*gender;
     NSString *gend;
+    IBOutlet UISegmentedControl*time1seg;
+    IBOutlet UISegmentedControl*time2seg;
+    IBOutlet UISegmentedControl*time3seg;
+    NSString *t1,*t2,*t3;
     
 }
 - (IBAction)submit:(id)sender;
+-(IBAction)changetimeset1:(id)sender;
+-(IBAction)changetimeset2:(id)sender;
+-(IBAction)changetimeset3:(id)sender;
 @property (nonatomic, strong) IBOutlet UIPickerView *agepick;
 @property (nonatomic, strong) NSArray *ageArray;
 - (IBAction)changeage:(id)sender;

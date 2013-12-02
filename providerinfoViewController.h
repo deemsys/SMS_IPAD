@@ -15,6 +15,7 @@
     IBOutlet UILabel*providername;
    IBOutlet UILabel*providerphonebook;
     IBOutlet UILabel*provideremail;
+    IBOutlet UILabel*providerfirstname;
     
 }
 -(IBAction)callprovider:(id)sender;

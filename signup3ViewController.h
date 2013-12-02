@@ -79,6 +79,11 @@
     NSMutableArray*groupfinal;
     NSMutableArray*selectedgroupid;
     NSArray*groupidlist;
+    IBOutlet UISegmentedControl*time1;
+    IBOutlet UISegmentedControl*time2;
+    IBOutlet UISegmentedControl*time3;
+    NSString *t1,*t2,*t3;
+    
     
 }
 @property(nonatomic,retain)NSMutableDictionary *recorddict;
@@ -97,7 +102,9 @@
 @property (nonatomic, strong) IBOutlet UILabel*providerpicker;
 @property (nonatomic, strong) IBOutlet UILabel*grouppicker;
 
-
+-(IBAction)changetimeset1:(id)sender;
+-(IBAction)changetimeset2:(id)sender;
+-(IBAction)changetimeset3:(id)sender;
 
 - (IBAction)changeTimeInLabel1:(id)sender;
 - (IBAction)changeTimeInLabel2:(id)sender;
