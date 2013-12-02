@@ -38,10 +38,12 @@
     NSString *provider1;
     NSString *group1;
     NSString *age1;
+      NSTimer *timer;
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;
 @property (nonatomic, retain) UILabel *resLabel1;
 @property (nonatomic, retain) UIButton*eval;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
+@property (nonatomic, strong) NSTimer *timer;
 @end

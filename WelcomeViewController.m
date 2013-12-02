@@ -21,6 +21,7 @@
 @synthesize switch1;
 @synthesize resLabel1;
 @synthesize eval;
+@synthesize timer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,122 @@
 -(void)back
 {
     
+}
+-(void)weekupdate
+{
+     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    NSString *resultResponse1=[self HttpPostEntityFirstweekly:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *error1;
+    SBJSON *json1 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers1 = [json1 objectWithString:resultResponse1 error:&error1];
+    NSDictionary *itemsApp1 = [luckyNumbers1 objectForKey:@"serviceresponse"];
+    NSArray *items1App1=[itemsApp1 objectForKey:@"Weekly_logs List"];
+    week1=[[NSMutableArray alloc]init];
+    week2=[[NSMutableArray alloc]init];
+    week3=[[NSMutableArray alloc]init];
+    week4=[[NSMutableArray alloc]init];
+    week5=[[NSMutableArray alloc]init];
+    week6=[[NSMutableArray alloc]init];
+    NSDictionary *arrayList2;
+    // NSLog(@"items1app %@",luckyNumbers);
+    for (id anUpdate1 in items1App1)
+    {
+        NSDictionary *arrayList2=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+        [week1 addObject:[arrayList2 objectForKey:@"log_id"]];
+        [week2 addObject:[arrayList2 objectForKey:@"week"]];
+        [week3 addObject:[arrayList2 objectForKey:@"date_time"]];
+        [week4 addObject:[arrayList2 objectForKey:@"continuous"]];
+        [week5 addObject:[arrayList2 objectForKey:@"count"]];
+        [week6 addObject:[arrayList2 objectForKey:@"status"]];
+        
+        
+    }
+    weekcount=0;
+    for (int i=0; i<[week6 count ]; i++)
+    {
+        if([[week6 objectAtIndex:i] isEqual:@"0"])
+        {
+            weekcount++;
+        }
+    }
+    if(weekcount==0)
+    {
+        eval.hidden=YES;
+        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly evaluations"];
+    }
+    else
+    {
+        eval.hidden=NO;
+        weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations thats overdue",weekcount];
+    }
+    filtereddate=[[NSMutableArray alloc]init];
+    filteredlogid=[[NSMutableArray alloc]init];
+    filteredweek=[[NSMutableArray alloc]init];
+    
+    
+    NSDate *date=[NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString * currentDate = [dateFormatter stringFromDate:date];
+    NSLog(@"current date %@",currentDate);
+    int count=0;
+    for(int i=0;i<[week3 count];i++)
+    {
+        
+        
+        if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedDescending)
+        {
+            [filtereddate addObject:[week3 objectAtIndex:i]];
+            [filteredlogid addObject:[week1 objectAtIndex:i]];
+            [filteredweek addObject:[week2 objectAtIndex:i]];
+            // NSLog(@"now is later than date2");
+            count++;
+            
+            
+        }
+        else if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedAscending)
+        {
+            // NSLog(@"date1 is earlier than date2");
+            
+        }
+        else {
+            //NSLog(@"dates are the same");
+            count++;
+            [filtereddate addObject:[week3 objectAtIndex:i]];
+            [filteredlogid addObject:[week1 objectAtIndex:i]];
+            [filteredweek addObject:[week2 objectAtIndex:i]];
+            
+            
+        }
+        
+    }
+    NSLog(@"no of pending weeks %d",count);
+    if(count==0)
+    {
+        eval.hidden=YES;
+        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly evaluations"];
+    }
+    else
+    {
+        eval.hidden=NO;
+        weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations that is overdue",count];
+    }
+    NSLog(@"filtered date %@",filtereddate);
+    NSLog(@"filtered logid %@",filteredlogid);
+    NSLog(@"filtered week%@",filteredweek);
+    if([filteredlogid count]>0)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:[filtereddate objectAtIndex:0] forKey:@"Weekdate"];
+        [[NSUserDefaults standardUserDefaults]setObject:[filteredweek objectAtIndex:0] forKey:@"Weeknum"];
+        [[NSUserDefaults standardUserDefaults]setObject:[filteredlogid objectAtIndex:0] forKey:@"Weeklogid"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+    else
+    {
+        
+    }
+
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender
 {
@@ -116,6 +233,9 @@
 }
 -(IBAction)sunc1
 {
+    
+    NSLog(@"Sunc called automatically");
+    
     // [[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
     
@@ -518,7 +638,15 @@
     UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
-    [self sunc];
+  timer = [NSTimer scheduledTimerWithTimeInterval:1800
+                                                  target:self
+                                                selector:@selector(sunc1)
+                                                userInfo:nil
+                                                 repeats:YES];
+
+    //[self sunc];
+    [self weekupdate];
+    
     
     
 	// Do any additional setup after loading the view.
