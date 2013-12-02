@@ -22,7 +22,7 @@
                                                            [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:18.0], NSFontAttributeName, nil]];
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x214474)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x027f9f)];
    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
 //[[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back_btn.png"]];
