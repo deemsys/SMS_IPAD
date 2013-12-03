@@ -148,6 +148,16 @@
     return [countryTest1 evaluateWithObject:country1];
     
 }
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    label.backgroundColor = [UIColor whiteColor];
+   label.textColor = [UIColor blackColor];
+   // [label setTextColor:[UIColorFromRGB(0x027f9f)]];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+    label.text = [NSString stringWithFormat:@" %d", row+1];
+    return label;
+}
 -(IBAction)changeage:(id)sender
 {
     if(agepick.hidden==YES)

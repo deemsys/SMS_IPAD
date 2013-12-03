@@ -30,9 +30,15 @@
     }
     return self;
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSUInteger newLength = [mobilenum.text length] + [string length] - range.length;
-    return (newLength > 10) ? NO : YES;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag==5) {
+        
+        NSUInteger newLength = [mobilenum.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    else
+        return YES;
 }
 
 - (void)viewDidLoad
