@@ -27,6 +27,9 @@
     NSString *time11;
     NSString *time21;
     NSString *time31;
+    NSString *time11fm;
+    NSString *time21fm;
+    NSString *time31fm;
     NSString *provider1;
     NSString *group1;
     NSMutableArray *groupid,*groupdes;

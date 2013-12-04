@@ -148,16 +148,7 @@
     return [countryTest1 evaluateWithObject:country1];
     
 }
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
-    label.backgroundColor = [UIColor whiteColor];
-   label.textColor = [UIColor blackColor];
-   // [label setTextColor:[UIColorFromRGB(0x027f9f)]];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-    label.text = [NSString stringWithFormat:@" %d", row+1];
-    return label;
-}
+
 -(IBAction)changeage:(id)sender
 {
     if(agepick.hidden==YES)
@@ -200,15 +191,24 @@
 {
     [recorddict setValue:gender.text forKey:@"Gender"];
     [recorddict setValue:agepicker.text forKey:@"Age"];
-   [recorddict setValue:city.text forKey:@"City"];
-    [recorddict setValue:edu forKey:@"Education"];
-    if ([medicaldetails.text  isEqual: @"Add Medical Details"]) {
-        medicaldetails.text=@"";
+       [recorddict setValue:edu forKey:@"Education"];
+    if ([medicaldetails.text  isEqual: @""]) {
+        medicaldetails.text=@"null";
         [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
     }
     else
     {
         [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
+    }
+    if ([city.text  isEqual: @""]) {
+       city.text=@"null";
+        [recorddict setValue:city.text forKey:@"City"];
+
+    }
+    else
+    {
+        [recorddict setValue:city.text forKey:@"City"];
+
     }
     
     c=1;

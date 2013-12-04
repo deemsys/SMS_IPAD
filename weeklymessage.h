@@ -13,7 +13,8 @@
     IBOutlet UITextView * question1;
     IBOutlet UITextField * answer1;
     NSMutableDictionary *recorddict;
-    
+    NSString*seq;
+    NSString*seqmorethan3;
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;

@@ -44,9 +44,9 @@
     city.text=city1;
     education.text=education1;
     medical.text=medical1;
-    time1.text=time11;
-    time2.text=time21;
-    time3.text=time31;
+    time1.text=[NSString stringWithFormat:@"%@%@",time11,time11fm];
+    time2.text=[NSString stringWithFormat:@"%@%@",time21,time21fm];
+    time3.text=[NSString stringWithFormat:@"%@%@",time31,time31fm];
     provider.text=provider1;
     age.text=age1;
     if(![group1 isEqualToString:@""])
@@ -65,6 +65,9 @@
     [recorddict setValue:time11 forKey:@"time11"];
     [recorddict setValue:time21 forKey:@"time21"];
     [recorddict setValue:time31 forKey:@"time31"];
+    [recorddict setValue:time11fm forKey:@"time11fm"];
+    [recorddict setValue:time21fm forKey:@"time21fm"];
+    [recorddict setValue:time31fm forKey:@"time31fm"];
     [recorddict setValue:provider1 forKey:@"provider"];
     [recorddict setValue:age1 forKey:@"age"];
     [recorddict setObject:grouplist forKey:@"selectedgrouplist"];
@@ -163,6 +166,10 @@
             time11 =[arrayList1 objectForKey:@"time1"];
             time21 =[arrayList1 objectForKey:@"time2"];
             time31 =[arrayList1 objectForKey:@"time3"];
+            time11fm =[arrayList1 objectForKey:@"time1format"];
+            time21fm =[arrayList1 objectForKey:@"time2format"];
+            time31fm =[arrayList1 objectForKey:@"time3format"];
+            
             provider1 =[arrayList1 objectForKey:@"providername"];
             group1 =[arrayList1 objectForKey:@"group"];
             age1 =[arrayList1 objectForKey:@"age"];
@@ -265,9 +272,9 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //   NSLog(@" post %@ ",post);
+   //NSLog(@" post %@ ",post);
     
-   // NSLog(@"%@ ",data);
+ //NSLog(@"%@ ",data);
     
     return data;
     

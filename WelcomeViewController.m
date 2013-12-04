@@ -37,7 +37,7 @@
 }
 -(void)weekupdate
 {
-     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
     NSString *resultResponse1=[self HttpPostEntityFirstweekly:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     NSError *error1;
     SBJSON *json1 = [[SBJSON new] autorelease];
@@ -149,21 +149,21 @@
     {
         
     }
-
+    
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender
 {
     NSString*select;
 	if (switch1.on)
     {
-      select=@"1";
-   resLabel1.text = @"On";
+        select=@"1";
+        resLabel1.text = @"On";
     }
 	else
     {
         
         select=@"0";
-    resLabel1.text = @"Off";
+        resLabel1.text = @"Off";
     }
     NSString *resultResponse=[self HttpPostEntityFirstmessagestream:@"patientid" ForValue1:[[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"] EntitySecond:@"messagestream" ForValue2:select EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     
@@ -195,7 +195,7 @@
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
-
+            
             
         }
         else
@@ -213,7 +213,7 @@
     }
     
     
-
+    
 }
 
 -(void)sunc
@@ -311,7 +311,7 @@
     }
     //Fetching Weekly Evaluation details
     
-     NSString *resultResponse1=[self HttpPostEntityFirstweekly:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSString *resultResponse1=[self HttpPostEntityFirstweekly:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     NSError *error1;
     SBJSON *json1 = [[SBJSON new] autorelease];
     // NSLog(@"response %@",resultResponse);
@@ -323,7 +323,7 @@
     week3=[[NSMutableArray alloc]init];
     week4=[[NSMutableArray alloc]init];
     week5=[[NSMutableArray alloc]init];
-      week6=[[NSMutableArray alloc]init];
+    week6=[[NSMutableArray alloc]init];
     NSDictionary *arrayList2;
     // NSLog(@"items1app %@",luckyNumbers);
     for (id anUpdate1 in items1App1)
@@ -362,7 +362,7 @@
     
     
     NSDate *date=[NSDate date];
-       NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString * currentDate = [dateFormatter stringFromDate:date];
     NSLog(@"current date %@",currentDate);
@@ -370,32 +370,32 @@
     for(int i=0;i<[week3 count];i++)
     {
         
-    
-    if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedDescending)
-    {
-        [filtereddate addObject:[week3 objectAtIndex:i]];
-        [filteredlogid addObject:[week1 objectAtIndex:i]];
-        [filteredweek addObject:[week2 objectAtIndex:i]];
-       // NSLog(@"now is later than date2");
-        count++;
-      
         
-    }
-    else if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedAscending)
-    {
-       // NSLog(@"date1 is earlier than date2");
+        if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedDescending)
+        {
+            [filtereddate addObject:[week3 objectAtIndex:i]];
+            [filteredlogid addObject:[week1 objectAtIndex:i]];
+            [filteredweek addObject:[week2 objectAtIndex:i]];
+            // NSLog(@"now is later than date2");
+            count++;
+            
+            
+        }
+        else if ([currentDate compare:[week3 objectAtIndex:i]] == NSOrderedAscending)
+        {
+            // NSLog(@"date1 is earlier than date2");
+            
+        }
+        else {
+            //NSLog(@"dates are the same");
+            count++;
+            [filtereddate addObject:[week3 objectAtIndex:i]];
+            [filteredlogid addObject:[week1 objectAtIndex:i]];
+            [filteredweek addObject:[week2 objectAtIndex:i]];
+            
+            
+        }
         
-    }
-    else {
-        //NSLog(@"dates are the same");
-        count++;
-        [filtereddate addObject:[week3 objectAtIndex:i]];
-        [filteredlogid addObject:[week1 objectAtIndex:i]];
-        [filteredweek addObject:[week2 objectAtIndex:i]];
-
-        
-    }
-
     }
     NSLog(@"no of pending weeks %d",count);
     if(count==0)
@@ -409,14 +409,14 @@
         weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations that is overdue",count];
     }
     NSLog(@"filtered date %@",filtereddate);
-     NSLog(@"filtered logid %@",filteredlogid);
-     NSLog(@"filtered week%@",filteredweek);
+    NSLog(@"filtered logid %@",filteredlogid);
+    NSLog(@"filtered week%@",filteredweek);
     if([filteredlogid count]>0)
     {
         [[NSUserDefaults standardUserDefaults]setObject:[filtereddate objectAtIndex:0] forKey:@"Weekdate"];
-     [[NSUserDefaults standardUserDefaults]setObject:[filteredweek objectAtIndex:0] forKey:@"Weeknum"];
-     [[NSUserDefaults standardUserDefaults]setObject:[filteredlogid objectAtIndex:0] forKey:@"Weeklogid"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+        [[NSUserDefaults standardUserDefaults]setObject:[filteredweek objectAtIndex:0] forKey:@"Weeknum"];
+        [[NSUserDefaults standardUserDefaults]setObject:[filteredlogid objectAtIndex:0] forKey:@"Weeklogid"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
     }
     else
     {
@@ -470,15 +470,15 @@
         [alert show];
         
     }
-  //  NSLog(@"logid %@",week1);
-   // NSLog(@"week %@",week2);
-   // NSLog(@"date_time %@",week3);
-   // NSLog(@"continuous %@",week4);
-   // NSLog(@"count %@",week5);
-   // NSLog(@"status %@",week6);
- //    NSLog(@"temp value %@",temp);
-  //  NSLog(@"temp1 value %@",temp1);
-   //NSLog(@"temp2 value %@",temp2);
+    //  NSLog(@"logid %@",week1);
+    // NSLog(@"week %@",week2);
+    // NSLog(@"date_time %@",week3);
+    // NSLog(@"continuous %@",week4);
+    // NSLog(@"count %@",week5);
+    // NSLog(@"status %@",week6);
+    //    NSLog(@"temp value %@",temp);
+    //  NSLog(@"temp1 value %@",temp1);
+    //NSLog(@"temp2 value %@",temp2);
     // NSLog(@"temp3 value %@",temp3);
     [[NSUserDefaults standardUserDefaults]setObject:temp forKey:@"Providerusername"];
     [[NSUserDefaults standardUserDefaults]setObject:temp1 forKey:@"Providerfirstname"];
@@ -545,9 +545,38 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
- //NSLog(@" post %@ ",post);
+    //NSLog(@" post %@ ",post);
     
- //NSLog(@"%@ ",data);
+    //NSLog(@"%@ ",data);
+    
+    return data;
+    
+}
+-(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    //getting weekly evaluation sequence occurence
+    HUD.labelText = @"Feteching Weekly evaluation...";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=sequenceSelect"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    //  NSLog(@" post %@ ",post);
+    
+    // NSLog(@"result %@ ",data);
     
     return data;
     
@@ -608,7 +637,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     // NSLog(@" post %@ ",post);
     
-   // NSLog(@"%@ ",data);
+    // NSLog(@"%@ ",data);
     
     return data;
     
@@ -638,20 +667,111 @@
     UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
-  timer = [NSTimer scheduledTimerWithTimeInterval:1800
-                                                  target:self
-                                                selector:@selector(sunc1)
-                                                userInfo:nil
-                                                 repeats:YES];
-
+    timer = [NSTimer scheduledTimerWithTimeInterval:1800
+                                             target:self
+                                           selector:@selector(sunc1)
+                                           userInfo:nil
+                                            repeats:YES];
+    
     //[self sunc];
     [self weekupdate];
+    [self sequencycheck];
     
     
     
 	// Do any additional setup after loading the view.
 }
-
+-(void)sequencycheck
+{
+    NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    NSString *resultResponse2=[self HttpPostEntityFirstsequence:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    
+    NSError *error2;
+    SBJSON *json2 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers2 = [json2 objectWithString:resultResponse2 error:&error2];
+    NSDictionary *itemsApp2 = [luckyNumbers2 objectForKey:@"serviceresponse"];
+    NSArray *items1App2=[itemsApp2 objectForKey:@"Weekly_logs sequence List"];
+    seqweek1=[[NSMutableArray alloc]init];
+    seqweek2=[[NSMutableArray alloc]init];
+    seqweek3=[[NSMutableArray alloc]init];
+    seqweek4=[[NSMutableArray alloc]init];
+    seqweek5=[[NSMutableArray alloc]init];
+    seqweek6=[[NSMutableArray alloc]init];
+    NSDictionary *arrayList22;
+    // NSLog(@"items1app %@",luckyNumbers);
+    for (id anUpdate1 in items1App2)
+    {
+        NSDictionary *arrayList22=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+        [seqweek1 addObject:[arrayList22 objectForKey:@"log_id"]];
+        [seqweek2 addObject:[arrayList22 objectForKey:@"week"]];
+        [seqweek3 addObject:[arrayList22 objectForKey:@"date_time"]];
+        [seqweek4 addObject:[arrayList22 objectForKey:@"continuous"]];
+        [seqweek5 addObject:[arrayList22 objectForKey:@"count"]];
+        [seqweek6 addObject:[arrayList22 objectForKey:@"status"]];
+        
+        
+    }
+    continuous=0;
+    int seq;
+    NSString *occ;
+    for(int i=0;i<[seqweek4 count];i++)
+    {
+        if([[seqweek4 objectAtIndex:i] isEqual:@"1"])
+        {
+            continuous++;
+            if (continuous==2)
+            {
+                seq=1;
+                break;
+            }
+        }
+        else
+        {
+            seq=0;
+            continuous=0;
+        }
+        
+    }
+    
+    if (seq==1) {
+        occ=@"1";
+        NSLog(@"occ %@ ",occ);
+        [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccured"];
+    }
+    else
+    {
+        occ=@"0";
+        NSLog(@"occ %@",occ);
+        [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccured"];
+    }
+    // NSLog(@"couvt %@",seqweek5);
+    count1=0;
+    for (int j=0; j<[seqweek5 count]; j++)
+    {
+        if([[seqweek5 objectAtIndex:j] isEqual:@"1"])
+        {
+            count1++;
+            
+            
+        }
+        
+    }
+    if (count1>=3)
+    {
+        occ=@"1";
+        NSLog(@"occ more than 3 %@",occ);
+        [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccuredmorethan3"];
+    }
+    else
+    {
+        occ=@"0";
+        NSLog(@"occ not more than 3 %@",occ);
+        [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccuredmorethan3"];
+    }
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

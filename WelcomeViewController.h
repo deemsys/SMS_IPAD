@@ -20,9 +20,10 @@
     IBOutlet UIButton *eval;
     IBOutlet UISwitch *switch1;
     IBOutlet UILabel *resLabel1;
-   IBOutlet UILabel*weekremaining;
-    int weekcount;
+    IBOutlet UILabel*weekremaining;
+    int weekcount,continuous,count1;
     NSMutableArray *week1,*week2,*week3,*week4,*week5,*week6;
+    NSMutableArray *seqweek1,*seqweek2,*seqweek3,*seqweek4,*seqweek5,*seqweek6;
     NSMutableArray *filtereddate,*filteredweek,*filteredlogid;
     NSString *firstname1;
     NSString *username1;
@@ -38,7 +39,7 @@
     NSString *provider1;
     NSString *group1;
     NSString *age1;
-      NSTimer *timer;
+    NSTimer *timer;
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;

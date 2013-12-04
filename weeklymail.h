@@ -18,6 +18,7 @@
 
 @interface weeklymail : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate>
 {
+    MBProgressHUD *HUD;
     IBOutlet UITextView * mailmessage;
     IBOutlet UITextField * mailanswer;
     IBOutlet UIButton * send;

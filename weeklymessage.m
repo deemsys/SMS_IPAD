@@ -19,8 +19,7 @@
 @implementation weeklymessage
 @synthesize recorddict;
 int a;
-int count=3;
-int cont=1;
+
 -(BOOL)numbers:(NSString *)country1
 {
     NSString *countryFormat1 = @"[0-7]{1}";
@@ -68,11 +67,11 @@ int cont=1;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
- /*   if (((cont==1)&&(count==3)&&([answer1.text isEqual:@"1"]))||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
+    if ((([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))&&(([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"])))
     {
         [self performSegueWithIdentifier:@"sms12" sender:self];
     }
-    else */if (a==1)
+    else if (a==1)
     {
         NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms1" sender:self];
@@ -82,7 +81,7 @@ int cont=1;
         NULL;
     }
     
-  
+    
     
     
 }
@@ -128,6 +127,9 @@ int cont=1;
     // [alert setDestructiveButtonWithTitle:@"ok" block:nil];
     [alert setCancelButtonWithTitle:@"ok" block:nil];
     [alert show];
+    seq=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
+    seqmorethan3=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
+    NSLog(@"sequence occured %@,count %@",seq,seqmorethan3);
 	// Do any additional setup after loading the view.
 }
 

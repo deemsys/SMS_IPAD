@@ -2545,6 +2545,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="fRF-I4-4KV" eventType="editingDidEndOnExit" id="6z0-az-Ycw"/>
+                                    <outlet property="delegate" destination="fRF-I4-4KV" id="jgd-dl-QaQ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-hD-l0S">
                                 <rect key="frame" x="90" y="225" width="52" height="30"/>
@@ -2591,60 +2595,10 @@
     </scenes>
     <resources>
         <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="loginbg.png" width="640" height="960"/>
         <image name="next.png" width="98" height="36"/>
-        <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
     </resources>
@@ -2654,9 +2608,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="blN-DC-lSG"/>
         <segue reference="DkS-WN-iHq"/>
-        <segue reference="ONR-yB-HFl"/>
-        <segue reference="aaA-rd-okW"/>
-        <segue reference="KlT-rp-OLs"/>
+        <segue reference="O7b-do-JxL"/>
+        <segue reference="0Js-Lx-Uc6"/>
     </inferredMetricsTieBreakers>
 </document>

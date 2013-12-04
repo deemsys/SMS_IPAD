@@ -250,16 +250,7 @@
     
 }
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
-    label.backgroundColor = [UIColor whiteColor];
-    label.textColor = [UIColor blackColor];
-    // [label setTextColor:[UIColorFromRGB(0x027f9f)]];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-    label.text = [NSString stringWithFormat:@" %d", row+1];
-    return label;
-}
+
 //If the user chooses from the pickerview, it calls this function;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
@@ -392,9 +383,12 @@
     if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
     {
        
-        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker1.text,t1] forKey:@"Preferred Time1"];
-        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker2.text,t2] forKey:@"Preferred Time2"];
-        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",timepicker3.text,t3] forKey:@"Preferred Time3"];
+        [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
+         [recorddict setValue:t1 forKey:@"Preferred Time1 format"];
+        [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
+        [recorddict setValue:t2 forKey:@"Preferred Time2 format"];
+        [recorddict setValue:timepicker3.text forKey:@"Preferred Time3"];
+        [recorddict setValue:t3 forKey:@"Preferred Time3 format"];
         [recorddict setValue:providerpicker.text forKey:@"Provider"];
         // [recorddict setValue:grouppicker.text forKey:@"group"];
         NSLog(@"complete list %@",recorddict);
@@ -708,19 +702,23 @@
     NSString*pt1=[recorddict objectForKey:@"Preferred Time1"];
     NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
     NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
+    NSString *tf1=[recorddict objectForKey:@"Preferred Time1 format"];
+     NSString *tf2=[recorddict objectForKey:@"Preferred Time2 format"];
+     NSString *tf3=[recorddict objectForKey:@"Preferred Time3 format"];
+    
     NSString*prov=[recorddict objectForKey:@"Provider"];
     // NSString*group=[recorddict objectForKey:@"group"];
     NSString*password1=[recorddict objectForKey:@"pass"];
     NSLog(@"%@ group",postVarArrayString);
     NSLog(@"%@ groupid",postVarArrayStringid);
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,pt2,pt3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=partinsert"];
     
     
     
-    NSLog(@"%@",post);
+   // NSLog(@"%@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -744,7 +742,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
     
-    NSLog(@"response %@",data);
+   // NSLog(@"response %@",data);
     
     
     

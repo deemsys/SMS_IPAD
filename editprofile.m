@@ -118,9 +118,7 @@
     agepick.dataSource = self;
     
     agepick.hidden=YES;
-    t1=@"AM";
-    t2=@"AM";
-    t3=@"AM";
+    
     
     fname.text=[recorddict objectForKey:@"firstname"];
 	age.text=[recorddict objectForKey:@"age"];
@@ -160,6 +158,37 @@
     time1.text=[recorddict objectForKey:@"time11"];
     time2.text=[recorddict objectForKey:@"time21"];
     time3.text=[recorddict objectForKey:@"time31"];
+    if([[recorddict objectForKey:@"time11fm"] isEqual:@"AM"] )
+    {
+        t1=@"AM";
+        [time1seg setSelectedSegmentIndex:0];
+    }
+    else
+    {
+        t1=@"PM";
+         [time1seg setSelectedSegmentIndex:1];
+    }
+    if([[recorddict objectForKey:@"time21fm"] isEqual:@"AM"] )
+    {
+        t2=@"AM";
+        [time2seg setSelectedSegmentIndex:0];
+    }
+    else
+    {
+        t2=@"PM";
+        [time2seg setSelectedSegmentIndex:1];
+    }
+    if([[recorddict objectForKey:@"time31fm"] isEqual:@"AM"] )
+    {
+          t3=@"AM";
+        
+        [time3seg setSelectedSegmentIndex:0];
+    }
+    else
+    {
+        t3=@"PM";
+        [time3seg setSelectedSegmentIndex:1];
+    }
     username.text=[recorddict objectForKey:@"username"];
    // gender.text=[recorddict objectForKey:@"gender"];
     ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
@@ -489,13 +518,35 @@
                         [recorddict setValue:mobile.text forKey:@"Mobilenum"];
                         [recorddict setValue:email.text forKey:@"email"];
                         [recorddict setValue:age.text forKey:@"age"];
+                        if ([medical.text  isEqual: @""]) {
+                            medical.text=@"null";
+                            [recorddict setValue:medical.text forKey:@"Medicaldetails"];
+                        }
+                        else
+                        {
+                            [recorddict setValue:medical.text forKey:@"Medicaldetails"];
+                        }
+                        if ([city.text  isEqual: @""]) {
+                            city.text=@"null";
+                            [recorddict setValue:city.text forKey:@"City"];
+                            
+                        }
+                        else
+                        {
+                            [recorddict setValue:city.text forKey:@"City"];
+                            
+                        }
+
                         [recorddict setValue:city.text forKey:@"city"];
                         [recorddict setValue:education forKey:@"education"];
                         [recorddict setValue:medical.text forKey:@"medical"];
                         // [recorddict setObject:selectedgroupid forKey:@"Groupid"];
-                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time1.text,t1] forKey:@"Preferred Time1"];
-                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time2.text,t2] forKey:@"Preferred Time2"];
-                        [recorddict setValue:[NSString stringWithFormat:@"%@ %@",time3.text,t3] forKey:@"Preferred Time3"];
+                        [recorddict setValue:time1.text forKey:@"Preferred Time1"];
+                        [recorddict setValue:t1 forKey:@"Preferred Time1 format"];
+                        [recorddict setValue:time2.text forKey:@"Preferred Time2"];
+                        [recorddict setValue:t2 forKey:@"Preferred Time2 format"];
+                        [recorddict setValue:time3.text forKey:@"Preferred Time3"];
+                        [recorddict setValue:t3 forKey:@"Preferred Time3 format"];
                         [recorddict setValue:provider.text forKey:@"Provider"];
                         //[recorddict setValue:grouppicker.text forKey:@"group"];
                         NSLog(@"complete patient list %@",recorddict);
@@ -691,6 +742,9 @@
     NSString*pt1=[recorddict objectForKey:@"Preferred Time1"];
     NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
     NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
+    NSString *tf1=[recorddict objectForKey:@"Preferred Time1 format"];
+    NSString *tf2=[recorddict objectForKey:@"Preferred Time2 format"];
+    NSString *tf3=[recorddict objectForKey:@"Preferred Time3 format"];
     NSString*prov=provider.text;
     NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
     NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
@@ -718,9 +772,9 @@
     // NSLog(@"%@ selected groupid",selectedgroupid);
     NSLog(@"%@ group",postVarArrayString);
     NSLog(@"%@ groupid",postVarArrayStringid);
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time2=%@&time3=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,pt2,pt3,prov,postVarArrayString,age1,username1,postVarArrayStringid,emailid,oldemail,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid,emailid,oldemail,secondEntity,value2];
     
-    NSLog(@"post %@",post);
+  //  NSLog(@"post %@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=patientupdate"];
     
@@ -749,7 +803,7 @@
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@",data);
+   // NSLog(@"%@",data);
     
     
     

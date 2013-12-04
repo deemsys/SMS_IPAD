@@ -15,6 +15,7 @@
 #import "Reachability.h"
 #import "MBProgressHUD.h"
 
+
 @interface weeklymail ()
 
 @end
@@ -32,7 +33,82 @@ int a;
     return [countryTest1 evaluateWithObject:country1];
     
 }
-
+-(void)updatetable
+{
+    NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    NSString *resultResponse2=[self HttpPostEntityFirstsequence:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    
+    NSError *error2;
+    SBJSON *json2 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers2 = [json2 objectWithString:resultResponse2 error:&error2];
+    
+    if (luckyNumbers2 == nil)
+    {
+        ////NSLog(@"Failed");
+        
+    }
+    else
+    {
+        
+        NSDictionary* menu = [luckyNumbers2 objectForKey:@"serviceresponse"];
+        //////NSLog(@"Menu id: %@", [menu objectForKey:@"success"]);
+        
+        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+        {
+            
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Failed to update weekly evaluation result."];
+            
+            [HUD hide:YES];
+            
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            
+        }
+    }
+    
+}
+-(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    //getting weekly evaluation sequence occurence
+    HUD.labelText = @"Updating Weekly evaluation result...";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    NSLog(@" post %@ ",post);
+    
+    NSLog(@"result %@ ",data);
+    
+    return data;
+    
+}
+- (IBAction)hideKeyboard:(id)sender
+{
+    //  NSLog(@"hideKeyboard");
+    [sender resignFirstResponder];
+}
 -(IBAction)send:(id)sender
 {
     recorddict=[[NSMutableDictionary alloc]init];
@@ -43,39 +119,43 @@ int a;
         {
             a=1;
             NSLog(@"a value %i",a);
+            [self updatetable];
+            NSString *weekly=@"1";
+            [[NSUserDefaults standardUserDefaults]setObject:weekly forKey:@"weeklyvisit"];
+            
             //smtp email composing
             
-           /* if ([mailanswer.text isEqual:@"1"])
-            {
-                //mail compose
-                
-                // NSLog(@"Start Sending");
-                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"learnguild@gmail.com";
-                
-                emailMessage.toEmail = proemail;//receiver email address
-                emailMessage.relayHost = @"smtp.gmail.com";
-                
-                emailMessage.requiresAuth = YES;
-                emailMessage.login = @"learnguild@gmail.com"; //sender email address
-                emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Weekly Message Details";
-                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-                emailMessage.wantsSecure = YES;
-                emailMessage.delegate = self;
-                
-                [recorddict objectForKey:@"pass"];
-                
-                // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",@"DavidPrabu",@"Uday"];
-                
-                NSDictionary *plainMsg = [NSDictionary
-                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-                [emailMessage send];
-            }*/
-    
+            /* if ([mailanswer.text isEqual:@"1"])
+             {
+             //mail compose
+             
+             // NSLog(@"Start Sending");
+             SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+             emailMessage.fromEmail = @"learnguild@gmail.com";
+             
+             emailMessage.toEmail = proemail;//receiver email address
+             emailMessage.relayHost = @"smtp.gmail.com";
+             
+             emailMessage.requiresAuth = YES;
+             emailMessage.login = @"learnguild@gmail.com"; //sender email address
+             emailMessage.pass = @"deemsys@123"; //sender email password
+             emailMessage.subject =@"BCResearch App Weekly Message Details";
+             //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+             emailMessage.wantsSecure = YES;
+             emailMessage.delegate = self;
+             
+             [recorddict objectForKey:@"pass"];
+             
+             // you must include <SKPSMTPMessageDelegate> to your class
+             NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",@"DavidPrabu",@"Uday"];
+             
+             NSDictionary *plainMsg = [NSDictionary
+             dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+             messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+             emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+             [emailMessage send];
+             }*/
+            
             
         }
         else
@@ -125,6 +205,10 @@ int a;
 {
     proemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
     patemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientemail"];
+    NSString*sequenceocc=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
+    NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
+    
+    
     
     [super viewDidLoad];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
