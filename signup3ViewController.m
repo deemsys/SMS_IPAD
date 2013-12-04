@@ -591,7 +591,7 @@
                 
                 [emailMessage send];
                 
-                  [self smssend];
+              //    [self smssend];
                 
                 HUD.labelText = @"Completed.";
                 HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];

@@ -150,6 +150,7 @@
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];
+            ProgressBar.hidden=YES;
             [self sendmail:password1];
         }
         
@@ -232,6 +233,7 @@
     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert show];
     [Spinner stopAnimating];
+    ProgressBar.hidden=YES;
 }
 
 
