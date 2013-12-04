@@ -51,7 +51,7 @@
     IBOutlet UILabel*providerpicker;
     IBOutlet UIPickerView*grouppick;
     IBOutlet UILabel*grouppicker;
-    int c;
+    int c,a;
     SKPSMTPState HighestState;
     IBOutlet UITextField *fromEmail;
     IBOutlet UITextField *toEmail;

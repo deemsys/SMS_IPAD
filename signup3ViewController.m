@@ -113,7 +113,7 @@
     t1=@"AM";
     t2=@"AM";
     t3=@"AM";
-    
+    a=0;
     /* grouppick.dataSource=self;
      grouppick.delegate=self;
      providerpick.delegate=self;
@@ -450,13 +450,15 @@
 
 -(void)messageSent:(SKPSMTPMessage *)message{
     // NSLog(@"delegate - message sent");
-    
-    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail."];
+    if (a==1)
+    {
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail and mobile number."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
     [Spinner stopAnimating];
     Spinner.hidden=YES;
     ProgressBar.hidden=YES;
+    }
 }
 // On Failure
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
@@ -572,7 +574,7 @@
                 // you must include <SKPSMTPMessageDelegate> to your class
                 NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
                                         [recorddict objectForKey:@"pass"]];
-                
+               
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
                                           messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
@@ -584,6 +586,8 @@
                 
                 [emailMessage send];
                 
+                  [self smssend];
+                
                 HUD.labelText = @"Completed.";
                 HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
                 HUD.mode = MBProgressHUDModeCustomView;
@@ -591,12 +595,7 @@
                 
                 //NSLog(@"success");
                 
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration successful!"];
-                
-                
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-                
+                a=1;
                 
                 
             }
@@ -659,6 +658,62 @@
         [HUD hide:YES];
         
     }
+}
+-(void)smssend
+{
+    NSString *body=[NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+                    [recorddict objectForKey:@"pass"]];;
+    NSString *resultResponse2=[self HttpPostEntityFirstSms:@"to" ForValue1:[recorddict objectForKey:@"Mobilenum"]  EntitySecond:@"msgbody" ForValue2:body EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV" ];
+    NSError *error2;
+    SBJSON *json2 = [[SBJSON new] autorelease];
+    
+    NSDictionary *luckyNumbers2 = [json2 objectWithString:resultResponse2 error:&error2];
+    
+    NSDictionary *itemsApp2 = [luckyNumbers2 objectForKey:@"serviceresponse"];
+    ;
+    if ( [[itemsApp2 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+       
+    }
+    else
+    {
+       
+    }
+    
+}
+-(NSString *)HttpPostEntityFirstSms:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    //Sending message
+    
+    
+    HUD.labelText = @"Sending message..";
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
+    
+    
+    NSLog(@"%@",post);
+    
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/twilioservice.php?service=sendmessage"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    
+    
+    NSLog(@"%@ data",data);
+    
+    return data;
+    
 }
 
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2

@@ -762,8 +762,8 @@
         }
         else
         {
-            postVarArrayString = [NSString stringWithFormat:@"%@,", postVarArrayString];
-            postVarArrayStringid =  [NSString stringWithFormat:@"%@,", postVarArrayStringid];
+            postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
+            postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
         }
         
         
@@ -772,7 +772,7 @@
     // NSLog(@"%@ selected groupid",selectedgroupid);
     NSLog(@"%@ group",postVarArrayString);
     NSLog(@"%@ groupid",postVarArrayStringid);
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid,emailid,oldemail,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&groupname=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid, grouppicker.text,emailid,oldemail,secondEntity,value2];
     
   //  NSLog(@"post %@",post);
     
