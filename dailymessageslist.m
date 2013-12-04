@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     tableData = [NSMutableArray arrayWithObjects:@"Message1", @"Message2", @"Message3", @"Message4", @"Message5", @"Message6", @"Message7", @"Message8", @"Message9", @"Message10", @"Message11", @"Message12", @"Message13", @"Message14", @"Message15", @"HMessage16", nil];
+     tableData = [[NSMutableArray alloc] initWithObjects:@"Message1", @"Message2", @"Message3", @"Message4", @"Message5", @"Message6", @"Message7", @"Message8", @"Message9", @"Message10", @"Message11", @"Message12", @"Message13", @"Message14", @"Message15", @"HMessage16", nil];
 	// Do any additional setup after loading the view.
 }
 

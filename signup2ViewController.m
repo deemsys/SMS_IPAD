@@ -35,6 +35,7 @@
 }
 - (void)viewDidLoad
 {
+     [agepick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     agepick.delegate = self;
     agepick.dataSource = self;

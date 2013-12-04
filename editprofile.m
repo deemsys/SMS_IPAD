@@ -109,6 +109,11 @@
 }
 - (void)viewDidLoad
 {
+    [timepick1 setBackgroundColor:([UIColor whiteColor])];
+    [timepick2 setBackgroundColor:([UIColor whiteColor])];
+    [timepick3 setBackgroundColor:([UIColor whiteColor])];
+    [provider setBackgroundColor:([UIColor whiteColor])];
+    [grouppick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     timepick1.hidden=YES;
     timepick2.hidden=YES;
