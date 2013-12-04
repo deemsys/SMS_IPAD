@@ -172,7 +172,7 @@
 {
     if([educationseg selectedSegmentIndex]==0)
         {
-           edu=@"Scholl";
+           edu=@"School";
         }
     else if([educationseg selectedSegmentIndex]==1)
     {

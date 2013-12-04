@@ -119,42 +119,42 @@ int a;
         {
             a=1;
             NSLog(@"a value %i",a);
-            [self updatetable];
-            NSString *weekly=@"1";
-            [[NSUserDefaults standardUserDefaults]setObject:weekly forKey:@"weeklyvisit"];
-            
+            NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+            NSString*patemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
+            NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
+            NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
             //smtp email composing
             
-            /* if ([mailanswer.text isEqual:@"1"])
-             {
-             //mail compose
-             
-             // NSLog(@"Start Sending");
-             SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-             emailMessage.fromEmail = @"learnguild@gmail.com";
-             
-             emailMessage.toEmail = proemail;//receiver email address
-             emailMessage.relayHost = @"smtp.gmail.com";
-             
-             emailMessage.requiresAuth = YES;
-             emailMessage.login = @"learnguild@gmail.com"; //sender email address
-             emailMessage.pass = @"deemsys@123"; //sender email password
-             emailMessage.subject =@"BCResearch App Weekly Message Details";
-             //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-             emailMessage.wantsSecure = YES;
-             emailMessage.delegate = self;
-             
-             [recorddict objectForKey:@"pass"];
-             
-             // you must include <SKPSMTPMessageDelegate> to your class
-             NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",@"DavidPrabu",@"Uday"];
-             
-             NSDictionary *plainMsg = [NSDictionary
-             dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-             messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-             emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-             [emailMessage send];
-             }*/
+            if ([mailanswer.text isEqual:@"1"])
+            {
+                //mail compose
+                
+                // NSLog(@"Start Sending");
+                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+                emailMessage.fromEmail = @"learnguild@gmail.com";
+                
+                emailMessage.toEmail = proemail;//receiver email address
+                emailMessage.relayHost = @"smtp.gmail.com";
+                
+                emailMessage.requiresAuth = YES;
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                emailMessage.pass = @"deemsys@123"; //sender email password
+                emailMessage.subject =@"BCResearch App Weekly Message Details";
+                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+                emailMessage.wantsSecure = YES;
+                emailMessage.delegate = self;
+                
+                [recorddict objectForKey:@"pass"];
+                
+                // you must include <SKPSMTPMessageDelegate> to your class
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                
+                NSDictionary *plainMsg = [NSDictionary
+                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+                [emailMessage send];
+            }
             
             
         }
