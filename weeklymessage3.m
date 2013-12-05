@@ -51,14 +51,7 @@ int a;
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)validateNames:(NSString *)country1
-{
-    NSString *countryFormat1 = @"(?:[A-Za-z]+[A-Za-z]*)";
-    [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
-    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
-    return [countryTest1 evaluateWithObject:country1];
-    
-}
+
 
 
 
@@ -73,23 +66,12 @@ int a;
     
     if(([answer3.text length]!=0))
     {
-        a=0;
-        NSLog(@"a value %i",a);
-        if([self validateNames:[answer3 text]]==1)
-        {
+       
             a=1;
             NSLog(@"a value %i",a);
             [recorddict setValue:answer3.text forKey:@"answer2"];
             //NSLog(@"answer5%@",answer1.text);
-        }
-        else
-        {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Answer you submitted is Invalid."];
-            
-            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
-        }
+       
     }
     else
     {
@@ -123,6 +105,7 @@ int a;
 {
     if (player.playing) {
         [player stop];
+        
     }
     NSLog(@"player%@",player);
     
@@ -154,6 +137,7 @@ int a;
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
         [player setDelegate:self];
         [player play];
+        recording.text=@"playing..";
     }
     
     

@@ -158,7 +158,7 @@
     //NSLog(@"%@ array",names[1]);
     if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
     {
-        if ([self alphabeticvalidation:firstname.text]==1)
+        if ([self alphanumericvalidation:firstname.text]==1)
         {
             if ([self alphanumericvalidation:username.text]==1)
             {

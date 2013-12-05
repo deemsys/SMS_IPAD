@@ -125,7 +125,7 @@ int a;
             NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
             //smtp email composing
             
-            if ([mailanswer.text isEqual:@"1"])
+            if (([mailanswer.text isEqual:@"1"])&&(cont=@"1"))
             {
                 //mail compose
                 
@@ -145,7 +145,35 @@ int a;
                 emailMessage.delegate = self;
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment had misses his/her medications frequently thrice in a row entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                
+                NSDictionary *plainMsg = [NSDictionary
+                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+                [emailMessage send];
+            }
+            else if(([mailanswer.text isEqual:@"1"])&&(count=@"1"))
+            {
+                //mail compose
+                
+                // NSLog(@"Start Sending");
+                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+                emailMessage.fromEmail = @"learnguild@gmail.com";
+                
+                emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+                emailMessage.relayHost = @"smtp.gmail.com";
+                
+                emailMessage.requiresAuth = YES;
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                emailMessage.pass = @"deemsys@123"; //sender email password
+                emailMessage.subject =@"BCResearch App Weekly Message Details";
+                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+                emailMessage.wantsSecure = YES;
+                emailMessage.delegate = self;
+                
+                // you must include <SKPSMTPMessageDelegate> to your class
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment had misses his/her medications 4 times out of 12 weekly assessments entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
                 
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -229,8 +257,10 @@ int a;
 {
     NSString*sequenceocc=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
-    
-    
+  cont= [recorddict objectForKey:@"seq"];
+    count=[recorddict objectForKey: @"seqmorethan3"];
+    NSLog(@"cont value%@",cont);
+    NSLog(@"count value%@",count);
     
     [super viewDidLoad];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];

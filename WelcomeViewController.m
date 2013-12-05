@@ -133,7 +133,7 @@
     else
     {
         eval.hidden=NO;
-        weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations that is overdue",count];
+        weekremaining.text=[NSString stringWithFormat:@"You have %d Surveys that is overdue",count];
     }
     NSLog(@"filtered date %@",filtereddate);
     NSLog(@"filtered logid %@",filteredlogid);

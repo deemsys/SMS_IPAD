@@ -24,6 +24,8 @@
     IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     NSMutableDictionary * recordict;
+    NSString * cont;
+    NSString * count;
     
 }
 -(IBAction)send:(id)sender;

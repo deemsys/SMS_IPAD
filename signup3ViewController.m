@@ -438,7 +438,7 @@
     
 }
 #pragma mark SKPSMTPMessage Delegate Methods
-- (void)messageState:(SKPSMTPState)messageState;
+- (void)messageState:(SKPSMTPState)messageState
 {
     // NSLog(@"HighestState:%d", HighestState);
     if (messageState > HighestState)
@@ -457,6 +457,7 @@
     // NSLog(@"delegate - message sent");
     if (a==1)
     {
+         [self smssend];
     BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail and mobile number."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
@@ -591,7 +592,7 @@
                 
                 [emailMessage send];
                 
-              //    [self smssend];
+                
                 
                 HUD.labelText = @"Completed.";
                 HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];

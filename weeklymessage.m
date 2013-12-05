@@ -49,6 +49,8 @@ int a;
             a=1;
             NSLog(@"a value %i",a);
             [recorddict setValue:answer1.text forKey:@"answer1"];
+            [recorddict setValue:seq forKey:@"seq"];
+            [recorddict setValue:seqmorethan3 forKey:@"seqmorethan 3"];
             //NSLog(@"answer5%@",answer1.text);
         }
         else

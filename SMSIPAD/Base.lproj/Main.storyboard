@@ -296,7 +296,7 @@
             </objects>
             <point key="canvasLocation" x="1287" y="-851"/>
         </scene>
-        <!--Welcome View Controller - DashBoard-->
+        <!--Welcome View Controller - Adherence To Medication-->
         <scene sceneID="mpP-O5-tFc">
             <objects>
                 <viewController id="Oja-Bk-TjT" customClass="WelcomeViewController" sceneMemberID="viewController">
@@ -404,7 +404,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Evaluate" backgroundImage="blue-teal-gradient.jpg">
+                                <state key="normal" title="Survey" backgroundImage="blue-teal-gradient.jpg">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -457,7 +457,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="DashBoard" id="QHg-GF-Qfe">
+                    <navigationItem key="navigationItem" title="Adherence To Medication" id="QHg-GF-Qfe">
                         <barButtonItem key="backBarButtonItem" title="back" id="nMl-HY-d5M"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -2096,9 +2096,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foS-Lq-sLE">
                                 <rect key="frame" x="81" y="163" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80755739795918369" green="0.0" blue="0.0087628104428739886" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="End Conversation">
+                                <state key="normal" title="End Conversation" backgroundImage="blue-teal-gradient.jpg">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2416,7 +2415,7 @@
                                             <outlet property="delegate" destination="lcf-wr-ts9" id="SAE-WU-1RM"/>
                                         </connections>
                                     </pickerView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-XO-XWC">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-XO-XWC">
                                         <rect key="frame" x="143" y="81" width="129" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2595,10 +2594,61 @@
     </scenes>
     <resources>
         <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="loginbg.png" width="640" height="960"/>
         <image name="next.png" width="98" height="36"/>
+        <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
         <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
     </resources>
@@ -2609,7 +2659,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="DkS-WN-iHq"/>
-        <segue reference="O7b-do-JxL"/>
+        <segue reference="ONR-yB-HFl"/>
         <segue reference="Vcd-52-NTG"/>
         <segue reference="0Js-Lx-Uc6"/>
     </inferredMetricsTieBreakers>

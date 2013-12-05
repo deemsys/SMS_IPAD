@@ -33,6 +33,16 @@
     }
     return self;
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag==10) {
+        
+        NSUInteger newLength = [city.text length] + [string length] - range.length;
+        return (newLength > 6) ? NO : YES;
+    }
+    else
+        return YES;
+}
 - (void)viewDidLoad
 {
      [agepick setBackgroundColor:([UIColor whiteColor])];
