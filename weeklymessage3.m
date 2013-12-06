@@ -353,6 +353,7 @@ int a;
 - (void)dealloc {
     [nextbut release];
     [toolbar release];
+    [tipsimprove release];
     [super dealloc];
 }
 @end

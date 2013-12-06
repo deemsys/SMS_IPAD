@@ -460,6 +460,7 @@ int a;
 - (void)dealloc {
     [yesbutton release];
     [nobutton release];
+    [question4 release];
     [super dealloc];
 }
 @end

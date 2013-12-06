@@ -280,6 +280,7 @@ int a;
     [ranoutlabel release];
     [otherslabel release];
     [iforget release];
+    [question2 release];
     [super dealloc];
 }
 @end

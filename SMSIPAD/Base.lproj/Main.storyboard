@@ -88,25 +88,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="7bS-oV-PB7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg3.png" translatesAutoresizingMaskIntoConstraints="NO" id="7bS-oV-PB7">
                                         <rect key="frame" x="0.0" y="-44" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8kf-eT-z16">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg3.png" translatesAutoresizingMaskIntoConstraints="NO" id="8kf-eT-z16">
                                         <rect key="frame" x="-6" y="-44" width="331" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFN-ng-5c2">
                                         <rect key="frame" x="71" y="143" width="80" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gle-ty-trM">
                                         <rect key="frame" x="71" y="180" width="80" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -564,14 +564,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="327" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" editable="NO" text="Over the past 7 days, on how many days did you take a dose of your AHT Medication?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4p-6O-9Aa">
-                                <rect key="frame" x="43" y="74" width="240" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fzq-od-kSx">
                                 <rect key="frame" x="43" y="421" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -613,6 +605,13 @@
                                     <action selector="ahtrating:" destination="Rpt-YX-E6W" eventType="valueChanged" id="ELE-zv-hmk"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Over the past 7 days, on how many days did you take a dose of your AHT Medication?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="248" translatesAutoresizingMaskIntoConstraints="NO" id="kv1-0c-Tqe">
+                                <rect key="frame" x="43" y="108" width="248" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -622,7 +621,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="answer1" destination="fzq-od-kSx" id="LsG-pI-11T"/>
-                        <outlet property="question1" destination="l4p-6O-9Aa" id="WPe-j3-RZr"/>
+                        <outlet property="question1" destination="kv1-0c-Tqe" id="7xx-Qo-JhH"/>
                         <outlet property="seg" destination="ElC-5w-xjY" id="1Zm-Sa-BFD"/>
                         <segue destination="CdN-Hy-moe" kind="push" identifier="sms1" id="blN-DC-lSG"/>
                         <segue destination="fRF-I4-4KV" kind="push" identifier="sms12" id="LIy-8n-oab"/>
@@ -1793,16 +1792,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN3-4l-7xa">
-                                <rect key="frame" x="30" y="27" width="240" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">What  made you miss some doses?
-
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
                                 <rect key="frame" x="34" y="101" width="235" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1921,6 +1910,13 @@
                                     <action selector="forgotsel:" destination="CdN-Hy-moe" eventType="touchUpInside" id="Fg5-o4-l6a"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What  made you miss some doses?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="fg8-LA-hCh">
+                                <rect key="frame" x="52" y="47" width="206" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1937,7 +1933,7 @@
                         <outlet property="next" destination="PoB-ax-im6" id="zGT-2F-Usc"/>
                         <outlet property="others" destination="Msn-1g-6mW" id="Wr7-2E-sMe"/>
                         <outlet property="otherslabel" destination="Gqs-ZZ-JyK" id="Bbx-pL-nAq"/>
-                        <outlet property="question2" destination="fN3-4l-7xa" id="D9Z-w6-iS9"/>
+                        <outlet property="question2" destination="fg8-LA-hCh" id="G9X-Nr-7bL"/>
                         <outlet property="ranout" destination="wy1-H4-9hc" id="4aQ-pg-QXg"/>
                         <outlet property="ranoutlabel" destination="kbu-1f-tOx" id="Yvl-2r-epi"/>
                         <outlet property="send" destination="hXv-L4-5L9" id="57J-qk-epi"/>
@@ -1995,13 +1991,6 @@
                                 <rect key="frame" x="139" y="328" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="tips to improve message" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-3j-avx">
-                                <rect key="frame" x="40" y="33" width="240" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FsP-sD-pNZ">
                                 <rect key="frame" x="134" y="135" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2063,6 +2052,13 @@
                                     <action selector="record:" destination="Q1P-2b-Rt9" eventType="touchUpInside" id="66k-vg-Xe3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tips to improve message" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="229" translatesAutoresizingMaskIntoConstraints="NO" id="1K4-FR-r9X">
+                                <rect key="frame" x="47" y="53" width="229" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2080,7 +2076,7 @@
                         <outlet property="recording" destination="oPN-WY-5tm" id="MOD-zi-6VN"/>
                         <outlet property="saveButton" destination="CVg-OA-7Gz" id="t71-4j-Yk8"/>
                         <outlet property="stopButton" destination="E9C-Fj-CfY" id="lRN-6B-ryo"/>
-                        <outlet property="tipsimprove" destination="KxZ-3j-avx" id="c3b-Ov-BkB"/>
+                        <outlet property="tipsimprove" destination="1K4-FR-r9X" id="0MM-py-1Wc"/>
                         <segue destination="4Jx-nq-F7F" kind="push" identifier="sms8" id="ONR-yB-HFl"/>
                     </connections>
                 </viewController>
@@ -2170,13 +2166,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="489"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Would you like the app to send an email to your Provider?" translatesAutoresizingMaskIntoConstraints="NO" id="oMr-gJ-wRf">
-                                <rect key="frame" x="40" y="90" width="240" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-ea-Rhp">
                                 <rect key="frame" x="61" y="443" width="183" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2234,6 +2223,13 @@
                                     <action selector="noselected:" destination="4Jx-nq-F7F" eventType="touchUpInside" id="54V-XE-Srm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Would you like the app to send an email to your Provider?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="231" translatesAutoresizingMaskIntoConstraints="NO" id="oN0-ww-h5f">
+                                <rect key="frame" x="53" y="111" width="231" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2244,7 +2240,7 @@
                     <connections>
                         <outlet property="answer4" destination="aeK-ea-Rhp" id="8mP-j6-S5l"/>
                         <outlet property="nobutton" destination="xZs-v9-E1i" id="D2f-yw-bjU"/>
-                        <outlet property="question4" destination="oMr-gJ-wRf" id="pvf-Xn-SYN"/>
+                        <outlet property="question4" destination="oN0-ww-h5f" id="Fxq-VZ-HMa"/>
                         <outlet property="yesbutton" destination="HyQ-FN-A2N" id="XLj-u5-uLB"/>
                         <segue destination="bgu-a2-w5H" kind="push" identifier="sms10" id="Alh-Q7-BA5"/>
                     </connections>
@@ -2662,14 +2658,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="330" height="488"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvX-aQ-JEh">
-                                <rect key="frame" x="20" y="38" width="272" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">It appears you have not been taking your medication regularly. We encourage you to contact your doctor’s office at the number listed in Provider's Profile. If you’d like, we can inform your doctor’s office via email. Would you like us to inform your doctor’s office? </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rby-Ll-9tE">
                                 <rect key="frame" x="58" y="430" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2727,13 +2715,20 @@
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="252" translatesAutoresizingMaskIntoConstraints="NO" id="NdY-jX-Siz">
+                                <rect key="frame" x="45" y="36" width="252" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">It appears you have not been taking your medication regularly. We encourage you to contact your doctor’s office at the number listed in Provider's Profile. If you’d like, we can inform your doctor’s office via email. Would you like us to inform your doctor’s office? </string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fkg-ZN-ldT"/>
                     <connections>
                         <outlet property="mailanswer" destination="rby-Ll-9tE" id="NF3-9V-dMV"/>
-                        <outlet property="mailmessage" destination="fvX-aQ-JEh" id="3SU-0Y-ZXh"/>
                         <outlet property="nobutton" destination="XF7-eS-aWU" id="wVO-QU-yrU"/>
                         <outlet property="send" destination="wXc-hD-l0S" id="i2l-ut-xaA"/>
                         <outlet property="yesbutton" destination="RVh-pa-GHy" id="RHi-kR-oUd"/>
@@ -2747,15 +2742,68 @@
     </scenes>
     <resources>
         <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG.png" width="320" height="460"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
+        <image name="bg3.png" width="640" height="960"/>
+        <image name="bg3.png" width="640" height="960"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="loginbg.png" width="640" height="960"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
         <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2764,9 +2812,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="DkS-WN-iHq"/>
-        <segue reference="ONR-yB-HFl"/>
+        <segue reference="zJw-5E-t9R"/>
+        <segue reference="LhH-3a-ZP2"/>
         <segue reference="Vcd-52-NTG"/>
-        <segue reference="0Js-Lx-Uc6"/>
+        <segue reference="ONR-yB-HFl"/>
     </inferredMetricsTieBreakers>
 </document>

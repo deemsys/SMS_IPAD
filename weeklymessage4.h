@@ -34,7 +34,8 @@
 
 @interface weeklymessage4 : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate,UITextFieldDelegate>
 {
-    IBOutlet UITextView * question4;
+   
+    IBOutlet UILabel *question4;
     IBOutlet UITextField * answer4;
     NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;

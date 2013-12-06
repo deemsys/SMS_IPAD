@@ -25,6 +25,7 @@
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x027f9f)];
    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
+    
 //[[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back_btn.png"]];
  //[[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back_btn.png"]];
     return YES;

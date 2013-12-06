@@ -13,7 +13,8 @@
 {
     IBOutlet UILabel * pleaseexplain;
     IBOutlet UITextView * answer3;
-    IBOutlet UITextView * tipsimprove;
+    IBOutlet UILabel *tipsimprove;
+  
     IBOutlet UILabel * recording;
     NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;

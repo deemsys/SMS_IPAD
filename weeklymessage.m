@@ -218,6 +218,7 @@ int a;
 }
 - (void)dealloc {
     [seg release];
+    [question1 release];
     [super dealloc];
 }
 @end
