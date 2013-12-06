@@ -2747,68 +2747,15 @@
     </scenes>
     <resources>
         <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG.png" width="320" height="460"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="loginbg.png" width="640" height="960"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
         <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
