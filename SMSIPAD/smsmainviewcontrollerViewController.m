@@ -129,7 +129,7 @@
 -(void)SignInCheck
 {
     
-    
+   /*
     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
 	NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
     
@@ -175,7 +175,7 @@
     
     
     
-    
+    */
     
     
     

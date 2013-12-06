@@ -130,6 +130,7 @@
 		0DE7E7AB1850C3A400846356 /* profileimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7AA1850C3A400846356 /* profileimage.png */; };
 		0DE7E7AD1850C78300846356 /* Visualpharm-Icons8-Metro-Style-System-Logout.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7AC1850C78300846356 /* Visualpharm-Icons8-Metro-Style-System-Logout.ico */; };
 		0DE7E7AF1850CB6300846356 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7AE1850CB6300846356 /* settings.png */; };
+		0DE7E7B318518AC400846356 /* stiings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7E7B218518AC400846356 /* stiings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +298,8 @@
 		0DE7E7AA1850C3A400846356 /* profileimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileimage.png; sourceTree = "<group>"; };
 		0DE7E7AC1850C78300846356 /* Visualpharm-Icons8-Metro-Style-System-Logout.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "Visualpharm-Icons8-Metro-Style-System-Logout.ico"; sourceTree = "<group>"; };
 		0DE7E7AE1850CB6300846356 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		0DE7E7B118518AC400846356 /* stiings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stiings.h; sourceTree = "<group>"; };
+		0DE7E7B218518AC400846356 /* stiings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stiings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +337,7 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0DE7E7B018518AAF00846356 /* Settings */,
 				0DD26E61184761EF00E1CCE3 /* Pickerviewmultipleselection */,
 				0DA1ABD0183A014F0063C29F /* AVFoundation.framework */,
 				0D6C79D8183E57F600C48D17 /* editprofile */,
@@ -667,6 +671,15 @@
 			name = Pickerviewmultipleselection;
 			sourceTree = "<group>";
 		};
+		0DE7E7B018518AAF00846356 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0DE7E7B118518AC400846356 /* stiings.h */,
+				0DE7E7B218518AC400846356 /* stiings.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -866,6 +879,7 @@
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,
 				0DD26E671847620700E1CCE3 /* ALPickerViewCell.m in Sources */,
 				0D027204182D119F00C35B94 /* smsmainviewcontrollerViewController.m in Sources */,
+				0DE7E7B318518AC400846356 /* stiings.m in Sources */,
 				0D6C79CD183CEE1C00C48D17 /* messageview.m in Sources */,
 				0DA1ABE1183A018F0063C29F /* SBJSON.m in Sources */,
 				0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */,
