@@ -41,7 +41,9 @@
     NSString *age1;
     NSTimer *timer;
     IBOutlet UIButton *review;
-    
+    NSMutableArray *msgfrom,*msgto,*msgdate,*msgstatus,*msgbody;
+    int totalmessage;
+    NSNumber *total2;
     IBOutlet UIButton *survey;
     
     

@@ -14,7 +14,10 @@
 @end
 
 @implementation messageview
-
+@synthesize fromdate1;
+@synthesize readmessage;
+@synthesize datetime1;
+@synthesize mesagedetail1;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,14 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.fromdate1.text=readmessage.fromnumber;
+    self.mesagedetail1.text=readmessage.message;
+    self.datetime1.text=readmessage.date;
 	// Do any additional setup after loading the view.
-    mesagedetail.clipsToBounds = YES;
-    mesagedetail.layer.cornerRadius = 10.0f;
+    mesagedetail1.clipsToBounds = YES;
+    mesagedetail1.layer.cornerRadius = 10.0f;
   //  mesagedetail.backgroundColor = [UIColor clearColor];
-    UIImageView *imageView = [[[UIImageView alloc] initWithFrame:mesagedetail.frame] autorelease];
+    UIImageView *imageView = [[[UIImageView alloc] initWithFrame:mesagedetail1.frame] autorelease];
     imageView.image = [UIImage imageNamed:@"BG.png"];
-    [self.view addSubview:mesagedetail];
-    [self.view bringSubviewToFront:mesagedetail];
+    [self.view addSubview:mesagedetail1];
+    [self.view bringSubviewToFront:mesagedetail1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +50,7 @@
 }
 
 - (void)dealloc {
-    [mesagedetail release];
+    [mesagedetail1 release];
     [super dealloc];
 }
 @end

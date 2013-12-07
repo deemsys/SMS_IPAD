@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 #import "JSON.h"
 #import "BlockAlertView.h"
+#import "dailymsglistViewController.h"
 @interface WelcomeViewController ()
 
 @end
@@ -486,12 +487,90 @@
     [[NSUserDefaults standardUserDefaults]setObject:temp1 forKey:@"Providerfirstname"];
     [[NSUserDefaults standardUserDefaults]setObject:temp2 forKey:@"Providermobile"];
     [[NSUserDefaults standardUserDefaults]setObject:temp3 forKey:@"Provideremail"];
+    //Fetching Daily messages
+    
+    msgfrom=[[NSMutableArray alloc]init];
+    msgto=[[NSMutableArray alloc]init];
+    msgbody=[[NSMutableArray alloc]init];
+    msgdate=[[NSMutableArray alloc]init];
+    msgstatus=[[NSMutableArray alloc]init];
+    
+    
+    NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    NSError *error5;
+    
+    SBJSON *parser = [[SBJSON new] autorelease];
+    NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
+    jsonstring = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    NSDictionary *jsonObject = [parser objectWithString:jsonstring error:&error5];
+    
+    
+    NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
+    NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
+    
+    
+    
+    NSDictionary *setHostName;
+    if ([[itemsApp21 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        for (id anUpdate1 in items1App21)
+        {
+            NSDictionary *setHostName=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            // 3 ...that contains a string for the key "stunde"
+            
+            [msgfrom addObject:[setHostName objectForKey:@"From_num"]];
+            [msgto addObject:[setHostName objectForKey:@"To_num"]];
+            [msgbody addObject:[setHostName objectForKey:@"contenttext"]];
+            [msgdate addObject:[setHostName objectForKey:@"date_time"]];
+            [msgstatus addObject:[setHostName objectForKey:@"status"]];
+            
+        }
+        
+        
+        
+        
+        
+    }
+    totalmessage=[msgfrom count];
+    
     HUD.labelText = @"Completed.";
     HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	HUD.mode = MBProgressHUDModeCustomView;
     [HUD hide:YES afterDelay:0];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
+    
+}
+-(NSString *)HttpPostEntityFirstreadsms:(NSString*)firstEntity ForValue1:(NSString*)value1  EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
+{
+    
+    //getting provider details
+    HUD.labelText = @"Fetching usermessages...";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
+    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/twilioservice.php?service=readmessage"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+    //  NSLog(@" post %@ ",post);
+    
+    // NSLog(@"%@ ",data);
+    
+    return data;
     
 }
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
@@ -689,6 +768,95 @@
     
 	// Do any additional setup after loading the view.
 }
+-(void) viewWillAppear:(BOOL)animated
+{
+    //timer = [NSTimer scheduledTimerWithTimeInterval:1800  target:self  selector:@selector(daily)  userInfo:nil                                   repeats:YES];
+    // [self daily];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(total1:) name:@"readmessages" object:nil];
+    
+}
+-(void) total1:(NSNotification *) obj{
+    
+    
+    if ([[obj name]isEqualToString:@"readmessages"])
+    {
+        total2=(NSNumber *)[obj object];
+        NSLog(@"readmessages %d",[total2 intValue]);
+        NSLog(@"your unread messages %d",totalmessage-[total2 intValue ]);
+    }
+}
+-(void)daily
+{
+    NSLog(@"timer called");
+    NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    msgfrom=[[NSMutableArray alloc]init];
+    msgto=[[NSMutableArray alloc]init];
+    msgbody=[[NSMutableArray alloc]init];
+    msgdate=[[NSMutableArray alloc]init];
+    msgstatus=[[NSMutableArray alloc]init];
+    
+    
+    NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantmobile"]]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    
+    
+    
+    NSError *error5;
+    
+    SBJSON *parser = [[SBJSON new] autorelease];
+    NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
+    jsonstring = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    NSDictionary *jsonObject = [parser objectWithString:jsonstring error:&error5];
+    
+    
+    NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
+    NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
+    
+    
+    
+    NSDictionary *setHostName;
+    if ([[itemsApp21 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        for (id anUpdate1 in items1App21)
+        {
+            NSDictionary *setHostName=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            // 3 ...that contains a string for the key "stunde"
+            
+            [msgfrom addObject:[setHostName objectForKey:@"From_num"]];
+            [msgto addObject:[setHostName objectForKey:@"To_num"]];
+            [msgbody addObject:[setHostName objectForKey:@"contenttext"]];
+            [msgdate addObject:[setHostName objectForKey:@"date_time"]];
+            [msgstatus addObject:[setHostName objectForKey:@"status"]];
+            
+        }
+        
+        
+        
+        
+        
+    }
+    [recorddict setObject:msgfrom forKey:@"msgfrom"];
+    [recorddict setObject:msgto forKey:@"msgto"];
+    [recorddict setObject:msgbody forKey:@"msgbody"];
+    [recorddict setObject:msgdate forKey:@"msgdate"];
+    
+    
+    
+    
+    // NSLog(@"msgbody %@",msgbody);
+    //  NSLog(@"msgfrom %@",msgfrom);
+    //  NSLog(@"msgto %@",msgto);
+    // NSLog(@"msgstatus %@",msgstatus);
+    // NSLog(@"msgdate %@",msgdate);
+    
+    
+    
+    
+    
+}
+
 -(void)dailysync
 {
     
@@ -789,6 +957,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    if ([segue.identifier isEqualToString:@"daily"])
+    {
+        dailymsglistViewController *destViewController = [segue destinationViewController];
+        destViewController.to=msgto;
+        destViewController.from=msgfrom;
+        destViewController.date=msgdate;
+        destViewController.status=msgstatus;
+        destViewController.body=msgbody;
+        
+        //  NSLog(@"recorddict to daily %@",recorddict);
+        // destViewController.delegate=self;
+        
+    }
+    
+    
+    
+    
+}
+
+
 
 - (void)dealloc {
     [review release];
