@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     end.clipsToBounds = YES;
-    end.layer.cornerRadius = 10.0f;
+    end.layer.cornerRadius = 5.0f;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];

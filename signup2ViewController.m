@@ -48,11 +48,11 @@
     edu=@"School";
     gender.text=@"0";
     reset.clipsToBounds = YES;
-    reset.layer.cornerRadius = 10.0f;
+    reset.layer.cornerRadius = 5.0f;
     next.clipsToBounds = YES;
-    next.layer.cornerRadius = 10.0f;
+    next.layer.cornerRadius = 5.0f;
     medicaldetails.clipsToBounds = YES;
-    medicaldetails.layer.cornerRadius = 10.0f;
+    medicaldetails.layer.cornerRadius = 5.0f;
      [agepick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     agepick.delegate = self;

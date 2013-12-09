@@ -172,7 +172,7 @@
     HUD.labelText = @"Feteching Providerdetail...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=passwordSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=passwordSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -254,7 +254,7 @@
 {
     [super viewDidLoad];
     submit.clipsToBounds = YES;
-    submit.layer.cornerRadius = 10.0f;
+    submit.layer.cornerRadius = 5.0f;
     //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     
     

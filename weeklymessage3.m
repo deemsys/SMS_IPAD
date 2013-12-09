@@ -199,17 +199,17 @@ int a;
     
     // Disable Stop/Play button when application launches
     answer3.clipsToBounds = YES;
-    answer3.layer.cornerRadius = 10.0f;
+    answer3.layer.cornerRadius = 5.0f;
     nextbut.clipsToBounds = YES;
-    nextbut.layer.cornerRadius = 10.0f;
+    nextbut.layer.cornerRadius = 5.0f;
     play.clipsToBounds = YES;
-    play.layer.cornerRadius = 10.0f;
+    play.layer.cornerRadius = 5.0f;
     stop.clipsToBounds = YES;
-    stop.layer.cornerRadius = 10.0f;
+    stop.layer.cornerRadius = 5.0f;
     record.clipsToBounds = YES;
-    record.layer.cornerRadius = 10.0f;
+    record.layer.cornerRadius = 5.0f;
     saveButton.clipsToBounds = YES;
-    saveButton.layer.cornerRadius = 10.0f;
+    saveButton.layer.cornerRadius = 5.0f;
     
     
    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];

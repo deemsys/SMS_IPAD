@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     edit.clipsToBounds = YES;
-    edit.layer.cornerRadius = 10.0f;
+    edit.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     recorddict=[[NSMutableDictionary alloc]init];
     NSString*userid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
@@ -258,7 +258,7 @@
     HUD.labelText = @"Fetching Userdetail..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=participantSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -289,7 +289,7 @@
     HUD.labelText = @"Fetching groupdetail..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=getGroups"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=getGroups"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     

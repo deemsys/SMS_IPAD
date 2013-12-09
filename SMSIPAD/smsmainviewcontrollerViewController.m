@@ -25,11 +25,11 @@
 {
     
     signin.clipsToBounds = YES;
-    signin.layer.cornerRadius = 10.0f;
+    signin.layer.cornerRadius = 5.0f;
     signup.clipsToBounds = YES;
-    signup.layer.cornerRadius = 10.0f;
+    signup.layer.cornerRadius = 5.0f;
     forgot.clipsToBounds = YES;
-    forgot.layer.cornerRadius = 10.0f;
+    forgot.layer.cornerRadius = 5.0f;
     
     
     
@@ -282,7 +282,7 @@
     
     
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/loginresponse.php?service=login"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/loginresponse.php?service=login"];
     
     
     //////NSLog(post);

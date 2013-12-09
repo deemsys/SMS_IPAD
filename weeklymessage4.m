@@ -327,7 +327,7 @@ int a;
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&weeknum=%@&weekdate=%@&weeklogid=%@&countcol=%d&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],weeknum,weekdate,weekl,countcol,secondEntity,value2];
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
     
     
     
@@ -414,7 +414,7 @@ int a;
 - (void)viewDidLoad
 {
     next.clipsToBounds = YES;
-    next.layer.cornerRadius = 10.0f;
+    next.layer.cornerRadius = 5.0f;
     
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;

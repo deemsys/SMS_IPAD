@@ -104,9 +104,9 @@
 - (void)viewDidLoad
 {
     reset.clipsToBounds = YES;
-    reset.layer.cornerRadius = 10.0f;
+    reset.layer.cornerRadius = 5.0f;
     submit.clipsToBounds = YES;
-    submit.layer.cornerRadius = 10.0f;
+    submit.layer.cornerRadius = 5.0f;
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
@@ -702,7 +702,7 @@
     
     NSLog(@"%@",post);
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/twilioservice.php?service=sendmessage"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/twilioservice.php?service=sendmessage"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -779,7 +779,7 @@
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/participantregister.php?service=partinsert"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=partinsert"];
     
     
     

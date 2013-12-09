@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     update.clipsToBounds = YES;
-    update.layer.cornerRadius = 10.0f;
+    update.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     oldpaswrd.delegate=self;
     newpaswrd.delegate=self;
@@ -185,7 +185,7 @@
     
     // NSLog(@"%@",post);
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=passwordUpdate"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=passwordUpdate"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     

@@ -547,10 +547,10 @@
 {
     
     //getting provider details
-    HUD.labelText = @"Fetching usermessages...";
+    HUD.labelText = @"Synchronizing Data...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/twilioservice.php?service=readmessage"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/twilioservice.php?service=readmessage"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -577,10 +577,10 @@
 {
     
     //getting provider details
-    HUD.labelText = @"Feteching Providerdetail...";
+    HUD.labelText = @"Synchronizing Data...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=providerSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=providerSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -610,7 +610,7 @@
     HUD.labelText = @"Feteching Weekly evaluation...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=weeklyevaluationSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=weeklyevaluationSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -639,7 +639,7 @@
     HUD.labelText = @"Feteching Weekly evaluation...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=sequenceSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=sequenceSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -666,10 +666,10 @@
 {
     //Getting Participants detail
     
-    HUD.labelText = @"Fetching Userdetail..";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=participantSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -697,10 +697,10 @@
 {
     //manually start stop message stream
     
-    HUD.labelText = @"Feteching Messagestream...";
+    HUD.labelText = @"Synchronizing Data...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -728,9 +728,9 @@
 - (void)viewDidLoad
 {
     review.clipsToBounds = YES;
-    review.layer.cornerRadius = 10.0f;
+    review.layer.cornerRadius = 5.0f;
     survey.clipsToBounds = YES;
-    survey.layer.cornerRadius = 10.0f;
+    survey.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
     if ([mes isEqual:@"0"]) {

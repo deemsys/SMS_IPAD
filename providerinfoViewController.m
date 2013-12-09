@@ -101,9 +101,9 @@
 - (void)viewDidLoad
 {
     call.clipsToBounds = YES;
-    call.layer.cornerRadius = 10.0f;
+    call.layer.cornerRadius = 5.0f;
     email.clipsToBounds = YES;
-    email.layer.cornerRadius = 10.0f;
+    email.layer.cornerRadius = 5.0f;
     
     [super viewDidLoad];
     providername.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];

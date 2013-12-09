@@ -110,7 +110,7 @@
 - (void)viewDidLoad
 {
     submit.clipsToBounds = YES;
-    submit.layer.cornerRadius = 10.0f;
+    submit.layer.cornerRadius = 5.0f;
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
@@ -783,7 +783,7 @@
     
   //  NSLog(@"post %@",post);
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=patientupdate"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=patientupdate"];
     
     
     

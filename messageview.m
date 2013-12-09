@@ -35,7 +35,7 @@
     self.datetime1.text=readmessage.date;
 	// Do any additional setup after loading the view.
     mesagedetail1.clipsToBounds = YES;
-    mesagedetail1.layer.cornerRadius = 10.0f;
+    mesagedetail1.layer.cornerRadius = 5.0f;
   //  mesagedetail.backgroundColor = [UIColor clearColor];
     UIImageView *imageView = [[[UIImageView alloc] initWithFrame:mesagedetail1.frame] autorelease];
     imageView.image = [UIImage imageNamed:@"BG.png"];

@@ -150,7 +150,7 @@ int a;
 - (void)viewDidLoad
 {
     next.clipsToBounds = YES;
-    next.layer.cornerRadius = 10.0f;
+    next.layer.cornerRadius = 5.0f;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];

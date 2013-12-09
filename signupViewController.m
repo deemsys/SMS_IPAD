@@ -44,9 +44,9 @@
 - (void)viewDidLoad
 {
     reset.clipsToBounds = YES;
-    reset.layer.cornerRadius = 10.0f;
+    reset.layer.cornerRadius = 5.0f;
     next.clipsToBounds = YES;
-    next.layer.cornerRadius = 10.0f;
+    next.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     firstname.delegate=self;
     username.delegate=self;
@@ -418,7 +418,7 @@
     
     NSLog(@"%@",post);
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=simpleselect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=simpleselect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -451,7 +451,7 @@
     
     // NSLog(@"%@",post);
     
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericSelect.php?service=groupSelect"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=groupSelect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     

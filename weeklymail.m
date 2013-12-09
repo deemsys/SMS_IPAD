@@ -82,7 +82,7 @@ int a;
     HUD.labelText = @"Updating Weekly evaluation result...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
@@ -274,7 +274,7 @@ int a;
 - (void)viewDidLoad
 {
     next.clipsToBounds = YES;
-    next.layer.cornerRadius = 10.0f;
+    next.layer.cornerRadius = 5.0f;
     NSString*sequenceocc=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
   cont= [recorddict objectForKey:@"seq"];

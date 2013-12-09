@@ -34,9 +34,9 @@
 - (void)viewDidLoad
 {
     providerinfo.clipsToBounds = YES;
-    providerinfo.layer.cornerRadius = 10.0f;
+    providerinfo.layer.cornerRadius = 5.0f;
     changepass.clipsToBounds = YES;
-    changepass.layer.cornerRadius = 10.0f;
+    changepass.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
     if ([mes isEqual:@"0"]) {
@@ -69,10 +69,10 @@
 {
     //manually start stop message stream
     
-    HUD.labelText = @"Feteching Message stream...";
+    HUD.labelText = @"Syncronizing Data...";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
-    NSURL *url=[NSURL URLWithString:@"http://localhost:8888/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
+    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
