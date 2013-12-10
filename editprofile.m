@@ -251,7 +251,6 @@
     
 }
 
-
 - (void)pickerViewTapped
 {
     timepick1.hidden=YES;
@@ -378,6 +377,7 @@
     else
         time3.text= [timearray objectAtIndex:row];
     pickerView.hidden=YES;
+    
     //Let's print in the console what the user had chosen;
     // NSLog(@"Chosen item: %@", [itemsArray objectAtIndex:row]);
 }

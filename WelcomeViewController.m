@@ -474,16 +474,7 @@
         [alert show];
         
     }
-    //  NSLog(@"logid %@",week1);
-    // NSLog(@"week %@",week2);
-    // NSLog(@"date_time %@",week3);
-    // NSLog(@"continuous %@",week4);
-    // NSLog(@"count %@",week5);
-    // NSLog(@"status %@",week6);
-    //    NSLog(@"temp value %@",temp);
-    //  NSLog(@"temp1 value %@",temp1);
-    //NSLog(@"temp2 value %@",temp2);
-    // NSLog(@"temp3 value %@",temp3);
+    
     [[NSUserDefaults standardUserDefaults]setObject:temp forKey:@"Providerusername"];
     [[NSUserDefaults standardUserDefaults]setObject:temp1 forKey:@"Providerfirstname"];
     [[NSUserDefaults standardUserDefaults]setObject:temp2 forKey:@"Providermobile"];
@@ -549,12 +540,15 @@
             [msgdate addObject:[tempdate objectAtIndex:j]];
             [msgfrom addObject:[tempfrom objectAtIndex:j]];
             [flagvalue addObject:[tempflag objectAtIndex:j]];
+            [UIApplication sharedApplication].applicationIconBadgeNumber++;
+            
             
             
         }
     }
     else {
         int x=0;
+        [UIApplication sharedApplication].applicationIconBadgeNumber=0;
         for(int i=0;i<[tempdate count];i++)
         {
             x=0;
@@ -575,7 +569,7 @@
                     if(x==[msgdate count])
                     {
                         x=0;
-                        
+                        [UIApplication sharedApplication].applicationIconBadgeNumber++;
                         [msgbody addObject:[temptext objectAtIndex:i]];
                         [msgdate addObject:[tempdate objectAtIndex:i]];
                         [msgfrom addObject:[tempfrom objectAtIndex:i]];
@@ -619,11 +613,48 @@
     {
         dailymessagelabel.text=@"You havenot received any messages";
     }
+  /*  NSDate *date1=[NSDate date];
+    NSDateFormatter * dateFormatter1 = [[NSDateFormatter alloc]init];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
+    NSString * currentDate1 = [dateFormatter1 stringFromDate:date1];
+   // NSLog(@"current date %@",currentDate1);
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
     
+    for (int i=0; i<[msgdate count]; i++)
+    {
+        NSString *dateStr = [msgdate objectAtIndex:i];
+        
+        // Convert string to date object
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"EE, d LLL yyyy HH:mm:ss Z"];
+        NSDate *localdate = [dateFormat dateFromString:dateStr];
+        [dateFormat release];
+        
+        NSString *currentDate2=[dateFormatter1 stringFromDate:localdate];
+
+        //NSLog(@" date at index %d= %@",i,currentDate2 );
+        if ([currentDate1 compare:currentDate2] == NSOrderedDescending)
+        {
+            
+        }
+        if ([currentDate1 compare:currentDate2] == NSOrderedAscending)
+        {
+            
+        }
+        if ([currentDate1 compare:currentDate2] == NSOrderedSame)
+        {
+            if ([[flagvalue objectAtIndex:i] isEqual:@"0"])
+            {
+                [UIApplication sharedApplication].applicationIconBadgeNumber++;
+            }
+        }
+
+    }*/
+   NSLog(@"application badge number %@",[NSString stringWithFormat:@"%i", [UIApplication sharedApplication].applicationIconBadgeNumber]);
 
     //NSLog(@"from addres on welcome %@",msgfrom);
    // NSLog(@"from addres on welcome %@",msgbody);
-   // NSLog(@"from addres on welcome %@",msgdate);
+  NSLog(@"from addres on welcome %@",msgdate);
    NSLog(@"flag values in sync %@",flagvalue);
     
     [fileMngr saveDatapath:msgtextfile contentarray:msgbody];
@@ -1143,12 +1174,15 @@
             [msgdate addObject:[tempdate objectAtIndex:j]];
             [msgfrom addObject:[tempfrom objectAtIndex:j]];
             [flagvalue addObject:[tempflag objectAtIndex:j]];
+            [UIApplication sharedApplication].applicationIconBadgeNumber++;
+            
             
             
         }
     }
     else {
         int x=0;
+        [UIApplication sharedApplication].applicationIconBadgeNumber=0;
         for(int i=0;i<[tempdate count];i++)
         {
             x=0;
@@ -1169,7 +1203,7 @@
                     if(x==[msgdate count])
                     {
                         x=0;
-                        
+                        [UIApplication sharedApplication].applicationIconBadgeNumber++;
                         [msgbody addObject:[temptext objectAtIndex:i]];
                         [msgdate addObject:[tempdate objectAtIndex:i]];
                         [msgfrom addObject:[tempfrom objectAtIndex:i]];
@@ -1184,6 +1218,7 @@
         }
         
     }
+
     
     [recorddict setObject:msgfrom forKey:@"msgfrom"];
     [recorddict setObject:msgto forKey:@"msgto"];
