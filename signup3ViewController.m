@@ -405,7 +405,7 @@
         
         NSString * password1 = @"";
         // NSString*finaltext=@"Hi user,your password is";
-        NSString *letters=@"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789+@";
+        NSString *letters=@"abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789@";
         
         NSString *pw = @"";
         NSRange r;
@@ -461,7 +461,7 @@
     // NSLog(@"delegate - message sent");
     if (a==1)
     {
-         [self smssend];
+         //[self smssend];
     BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail and mobile number."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];

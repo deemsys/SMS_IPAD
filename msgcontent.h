@@ -13,4 +13,6 @@
 @property(nonatomic,retain)NSString *tonumber;
 @property(nonatomic,retain)NSString *message;
 @property(nonatomic,retain)NSString *date;
+@property(nonatomic,retain)NSString*flag;
+@property(nonatomic,retain)NSString*imagename;
 @end

@@ -13,5 +13,7 @@
 @synthesize tonumber;
 @synthesize date;
 @synthesize message;
+@synthesize flag;
+@synthesize imagename;
 
 @end

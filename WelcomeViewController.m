@@ -13,6 +13,7 @@
 #import "JSON.h"
 #import "BlockAlertView.h"
 #import "dailymsglistViewController.h"
+#import "fileMngr.h"
 @interface WelcomeViewController ()
 
 @end
@@ -489,12 +490,6 @@
     [[NSUserDefaults standardUserDefaults]setObject:temp3 forKey:@"Provideremail"];
     //Fetching Daily messages
     
-    msgfrom=[[NSMutableArray alloc]init];
-    msgto=[[NSMutableArray alloc]init];
-    msgbody=[[NSMutableArray alloc]init];
-    msgdate=[[NSMutableArray alloc]init];
-    msgstatus=[[NSMutableArray alloc]init];
-    
     
     NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error5;
@@ -510,6 +505,10 @@
     NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
     
     
+    NSMutableArray*temptext=[[NSMutableArray alloc]init];
+    NSMutableArray*tempdate=[[NSMutableArray alloc]init];
+    NSMutableArray*tempflag=[[NSMutableArray alloc]init];
+    NSMutableArray*tempfrom=[[NSMutableArray alloc]init];
     
     NSDictionary *setHostName;
     if ([[itemsApp21 objectForKey:@"success"] isEqualToString:@"Yes"])
@@ -520,26 +519,126 @@
             
             // 3 ...that contains a string for the key "stunde"
             
-            [msgfrom addObject:[setHostName objectForKey:@"From_num"]];
+            [tempfrom addObject:[setHostName objectForKey:@"From_num"]];
             [msgto addObject:[setHostName objectForKey:@"To_num"]];
-            [msgbody addObject:[setHostName objectForKey:@"contenttext"]];
-            [msgdate addObject:[setHostName objectForKey:@"date_time"]];
+            [temptext addObject:[setHostName objectForKey:@"contenttext"]];
+            [tempdate addObject:[setHostName objectForKey:@"date_time"]];
             [msgstatus addObject:[setHostName objectForKey:@"status"]];
+            [tempflag addObject:@"0"];
+            
             
         }
         
-        
-        
-        
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Failed to get messages."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+    }
+   // NSLog(@"from  %@",tempfrom);
+  //  NSLog(@"from addres on welcome %@",temptext);
+   /// NSLog(@"from addres on welcome %@",tempdate);
+   // NSLog(@"from addres on welcome %@",tempflag);
+    
+    if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
+    {
+        for(int j=0;j<[temptext count];j++)
+        {
+            [msgbody addObject:[temptext objectAtIndex:j]];
+            [msgdate addObject:[tempdate objectAtIndex:j]];
+            [msgfrom addObject:[tempfrom objectAtIndex:j]];
+            [flagvalue addObject:[tempflag objectAtIndex:j]];
+            
+            
+        }
+    }
+    else {
+        int x=0;
+        for(int i=0;i<[tempdate count];i++)
+        {
+            x=0;
+            for(int j=0;j<[msgdate count];j++)
+            {
+                
+                NSString*s=[tempdate objectAtIndex:i];
+                NSString*s1=[msgdate objectAtIndex:j];
+                
+                if([s isEqualToString:s1])
+                {
+                    
+                }
+                else {
+                    
+                    x++;
+                    
+                    if(x==[msgdate count])
+                    {
+                        x=0;
+                        
+                        [msgbody addObject:[temptext objectAtIndex:i]];
+                        [msgdate addObject:[tempdate objectAtIndex:i]];
+                        [msgfrom addObject:[tempfrom objectAtIndex:i]];
+                       [flagvalue addObject:[tempflag objectAtIndex:i]];
+                        
+                    }
+                }
+            }
+            
+            
+            
+        }
         
     }
-    totalmessage=[msgfrom count];
+    
+    count2=0;
+    for(int i=0;i<[flagvalue count];i++)
+    {
+        if ([[flagvalue objectAtIndex:i] isEqual:@"1"])
+        {
+            
+            count2++;
+            
+        }
+    }
+    if ([msgfrom count]>0)
+    {
+        
+        
+        if(count2>0)
+        {
+            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+            dailymessagelabel.text=labeltext;
+        }
+        else if(count2==[msgfrom count])
+        {
+            dailymessagelabel.text=@"You have viewed all your messages";
+        }
+    }
+    else
+    {
+        dailymessagelabel.text=@"You havenot received any messages";
+    }
+    
+
+    //NSLog(@"from addres on welcome %@",msgfrom);
+   // NSLog(@"from addres on welcome %@",msgbody);
+   // NSLog(@"from addres on welcome %@",msgdate);
+   NSLog(@"flag values in sync %@",flagvalue);
+    
+    [fileMngr saveDatapath:msgtextfile contentarray:msgbody];
+    [fileMngr saveDatapath:msgdatefile contentarray:msgdate];
+    [fileMngr saveDatapath:msgflagfile contentarray:flagvalue];
+    [fileMngr saveDatapath:msgfromfile contentarray:msgfrom];
     
     HUD.labelText = @"Completed.";
     HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	HUD.mode = MBProgressHUDModeCustomView;
     [HUD hide:YES afterDelay:0];
+    
     [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    
     
     
 }
@@ -566,9 +665,9 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //  NSLog(@" post %@ ",post);
+   // NSLog(@" post %@ ",post);
     
-    // NSLog(@"%@ ",data);
+  // NSLog(@"%@ ",data);
     
     return data;
     
@@ -732,6 +831,9 @@
     survey.clipsToBounds = YES;
     survey.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
+    [self sunc];
+    [self weekupdate];
+    [self sequencycheck];
     NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
     if ([mes isEqual:@"0"]) {
         [switch1 setOn:NO];
@@ -760,36 +862,225 @@
                                            userInfo:nil
                                             repeats:YES];
     
- [self sunc];
-    [self weekupdate];
-    [self sequencycheck];
+    count2=0;
+    msgbody=[[NSMutableArray alloc]init];
+    msgdate=[[NSMutableArray alloc]init];
     
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [path objectAtIndex:0];
+    
+	msgdatefile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgdateFile.hsa"]];
+    msgtextfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgtextFile.hsa"]];
+    msgflagfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgflagFile.hsa"]];
+    msgfromfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgfromFile.hsa"]];
+    
+    
+	if ([[NSFileManager defaultManager] fileExistsAtPath:msgdatefile])
+	{
+		msgdate=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgdatefile]];
+		
+	}
+	else
+	{
+		msgdate=[[NSMutableArray alloc]init];
+	}
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:msgtextfile])
+	{
+		msgbody=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgtextfile]];
+		
+	}
+	else
+	{
+		msgbody=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgflagfile])
+	{
+		flagvalue=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgflagfile]];
+        //  NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        flagvalue=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgfromfile])
+	{
+		msgfrom=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgfromfile]];
+        //  NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        msgfrom=[[NSMutableArray alloc]init];
+	}
+    for(int i=0;i<[flagvalue count];i++)
+    {
+        if ([[flagvalue objectAtIndex:i] isEqual:@"1"])
+        {
+            
+            count2++;
+            
+        }
+    }
+    if ([msgfrom count]>0)
+    {
+        
+    
+    if(count2>0)
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if(count2==[msgfrom count])    {
+        dailymessagelabel.text=@"You have viewed all your messages";
+    }
+    }
+    else
+    {
+       dailymessagelabel.text=@"You havenot received any messages";
+    }
     
     
 	// Do any additional setup after loading the view.
 }
 -(void) viewWillAppear:(BOOL)animated
 {
-    //timer = [NSTimer scheduledTimerWithTimeInterval:1800  target:self  selector:@selector(daily)  userInfo:nil                                   repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1800  target:self  selector:@selector(daily)  userInfo:nil                                   repeats:YES];
     // [self daily];
+    flagvalue=[[NSMutableArray alloc]init];
+    msgbody=[[NSMutableArray alloc]init];
+    msgdate=[[NSMutableArray alloc]init];
+    count2=0;
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [path objectAtIndex:0];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(total1:) name:@"readmessages" object:nil];
+	msgdatefile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgdateFile.hsa"]];
+    msgtextfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgtextFile.hsa"]];
+    msgflagfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgflagFile.hsa"]];
+    msgfromfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgfromFile.hsa"]];
     
-}
--(void) total1:(NSNotification *) obj{
     
+	if ([[NSFileManager defaultManager] fileExistsAtPath:msgdatefile])
+	{
+		msgdate=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgdatefile]];
+		
+	}
+	else
+	{
+		msgdate=[[NSMutableArray alloc]init];
+	}
     
-    if ([[obj name]isEqualToString:@"readmessages"])
+    if ([[NSFileManager defaultManager] fileExistsAtPath:msgtextfile])
+	{
+		msgbody=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgtextfile]];
+		
+	}
+	else
+	{
+		msgbody=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgflagfile])
+	{
+		flagvalue=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgflagfile]];
+        //NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        flagvalue=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgfromfile])
+	{
+		msgfrom=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgfromfile]];
+        //  NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        msgfrom=[[NSMutableArray alloc]init];
+	}
+    
+    for(int i=0;i<[flagvalue count];i++)
     {
-        total2=(NSNumber *)[obj object];
-        NSLog(@"readmessages %d",[total2 intValue]);
-        NSLog(@"your unread messages %d",totalmessage-[total2 intValue ]);
+        if ([[flagvalue objectAtIndex:i] isEqual:@"1"])
+        {
+            
+            count2++;
+            
+        }
     }
+    NSLog(@"read messages in view will appear%d",count2);
+    NSLog(@"unread messages %d",[msgfrom count]-count2);
+    NSLog(@"total messages %d",[msgfrom count]);
+    
+    if ([msgfrom count]>0)
+    {
+        
+        
+        if(count2>0)
+        {
+            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+            dailymessagelabel.text=labeltext;
+        }
+        else if(count2==[msgfrom count])
+        {
+            dailymessagelabel.text=@"You have viewed all your messages";
+        }
+       
+    }
+    else
+    {
+        dailymessagelabel.text=@"You havenot received any messages";
+    }
+    
+    
 }
+
 -(void)daily
 {
-    NSLog(@"timer called");
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+    NSString *resultResponse2=[self HttpPostEntityFirstparticipant:@"loginid" ForValue1:useridnumber  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *error2;
+    
+    SBJSON *json2 = [[SBJSON new] autorelease];
+    // NSLog(@"response %@",resultResponse);
+	NSDictionary *luckyNumbers2 = [json2 objectWithString:resultResponse2 error:&error2];
+    NSDictionary *itemsApp2 = [luckyNumbers2 objectForKey:@"serviceresponse"];
+    NSArray *items1App2=[itemsApp2 objectForKey:@"Patient info"];
+    
+    NSDictionary *arrayList3;
+    if ([[itemsApp2 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        for (id anUpdate1 in items1App2)
+        {
+            NSDictionary *arrayList3=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            firstname1=[arrayList3 objectForKey:@"firstname"];
+            username1 =[arrayList3 objectForKey:@"username"];
+            mobile1 =[arrayList3 objectForKey:@"mobilenum"];
+            email1 =[arrayList3 objectForKey:@"email"];
+            gender1 =[arrayList3 objectForKey:@"gender"];
+            city1 =[arrayList3 objectForKey:@"city"];
+            education1=[arrayList3 objectForKey:@"education"];
+            medical1 =[arrayList3 objectForKey:@"medical"];
+            time11 =[arrayList3 objectForKey:@"time1"];
+            time21 =[arrayList3 objectForKey:@"time2"];
+            time31 =[arrayList3 objectForKey:@"time3"];
+            provider1 =[arrayList3 objectForKey:@"providername"];
+            group1 =[arrayList3 objectForKey:@"group"];
+            age1 =[arrayList3 objectForKey:@"age"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            HUD.labelText = @"Completed.";
+            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+            HUD.mode = MBProgressHUDModeCustomView;
+            [HUD hide:YES afterDelay:0];
+            
+        }
+    }
+    
+    NSLog(@"timer called");
+    
     msgfrom=[[NSMutableArray alloc]init];
     msgto=[[NSMutableArray alloc]init];
     msgbody=[[NSMutableArray alloc]init];
@@ -797,7 +1088,7 @@
     msgstatus=[[NSMutableArray alloc]init];
     
     
-    NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantmobile"]]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1] EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     
     
     
@@ -816,6 +1107,14 @@
     
     
     NSDictionary *setHostName;
+    
+    
+    NSMutableArray*temptext=[[NSMutableArray alloc]init];
+    NSMutableArray*tempdate=[[NSMutableArray alloc]init];
+    NSMutableArray*tempflag=[[NSMutableArray alloc]init];
+    NSMutableArray*tempfrom=[[NSMutableArray alloc]init];
+    
+    
     if ([[itemsApp21 objectForKey:@"success"] isEqualToString:@"Yes"])
     {
         for (id anUpdate1 in items1App21)
@@ -824,23 +1123,98 @@
             
             // 3 ...that contains a string for the key "stunde"
             
-            [msgfrom addObject:[setHostName objectForKey:@"From_num"]];
+            [tempfrom addObject:[setHostName objectForKey:@"From_num"]];
             [msgto addObject:[setHostName objectForKey:@"To_num"]];
-            [msgbody addObject:[setHostName objectForKey:@"contenttext"]];
-            [msgdate addObject:[setHostName objectForKey:@"date_time"]];
+            [temptext addObject:[setHostName objectForKey:@"contenttext"]];
+            [tempdate addObject:[setHostName objectForKey:@"date_time"]];
             [msgstatus addObject:[setHostName objectForKey:@"status"]];
+            [tempflag addObject:@"0"];
+            
             
         }
         
-        
-        
-        
+    }
+    
+    if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
+    {
+        for(int j=0;j<[temptext count];j++)
+        {
+            [msgbody addObject:[temptext objectAtIndex:j]];
+            [msgdate addObject:[tempdate objectAtIndex:j]];
+            [msgfrom addObject:[tempfrom objectAtIndex:j]];
+            [flagvalue addObject:[tempflag objectAtIndex:j]];
+            
+            
+        }
+    }
+    else {
+        int x=0;
+        for(int i=0;i<[tempdate count];i++)
+        {
+            x=0;
+            for(int j=0;j<[msgdate count];j++)
+            {
+                
+                NSString*s=[tempdate objectAtIndex:i];
+                NSString*s1=[msgdate objectAtIndex:j];
+                
+                if([s isEqualToString:s1])
+                {
+                    
+                }
+                else {
+                    
+                    x++;
+                    
+                    if(x==[msgdate count])
+                    {
+                        x=0;
+                        
+                        [msgbody addObject:[temptext objectAtIndex:i]];
+                        [msgdate addObject:[tempdate objectAtIndex:i]];
+                        [msgfrom addObject:[tempfrom objectAtIndex:i]];
+                        [flagvalue addObject:[tempflag objectAtIndex:i]];
+                        
+                    }
+                }
+            }
+            
+            
+            
+        }
         
     }
+    
     [recorddict setObject:msgfrom forKey:@"msgfrom"];
     [recorddict setObject:msgto forKey:@"msgto"];
     [recorddict setObject:msgbody forKey:@"msgbody"];
     [recorddict setObject:msgdate forKey:@"msgdate"];
+    totalmessage=[msgfrom count];
+    
+    if ([msgfrom count]>0)
+    {
+        
+        
+        if(count2>0)
+        {
+            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+            dailymessagelabel.text=labeltext;
+        }
+       else if(count2==[msgfrom count])
+        {
+            dailymessagelabel.text=@"You have viewed all your messages";
+        }
+    }
+    else
+    {
+        dailymessagelabel.text=@"You havenot received any messages";
+    }
+    
+    
+    [fileMngr saveDatapath:msgtextfile contentarray:msgbody];
+    [fileMngr saveDatapath:msgdatefile contentarray:msgdate];
+    [fileMngr saveDatapath:msgflagfile contentarray:flagvalue];
+    [fileMngr saveDatapath:msgfromfile contentarray:msgfrom];
     
     
     
@@ -850,7 +1224,6 @@
     //  NSLog(@"msgto %@",msgto);
     // NSLog(@"msgstatus %@",msgstatus);
     // NSLog(@"msgdate %@",msgdate);
-    
     
     
     
@@ -964,14 +1337,9 @@
     if ([segue.identifier isEqualToString:@"daily"])
     {
         dailymsglistViewController *destViewController = [segue destinationViewController];
-        destViewController.to=msgto;
-        destViewController.from=msgfrom;
-        destViewController.date=msgdate;
-        destViewController.status=msgstatus;
-        destViewController.body=msgbody;
+       
         
-        //  NSLog(@"recorddict to daily %@",recorddict);
-        // destViewController.delegate=self;
+    
         
     }
     
@@ -985,6 +1353,7 @@
 - (void)dealloc {
     [review release];
     [survey release];
+    [dailymessagelabel release];
     [super dealloc];
 }
 @end

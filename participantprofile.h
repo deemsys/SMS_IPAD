@@ -31,6 +31,7 @@
     NSString *time21fm;
     NSString *time31fm;
     NSString *provider1;
+    IBOutlet UILabel *grouplistnames;
     NSString *group1;
     NSMutableArray *groupid,*groupdes;
     NSString *age1;

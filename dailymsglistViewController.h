@@ -13,11 +13,14 @@
     NSMutableArray *from;
     NSMutableArray *date;
     NSMutableArray *to;
-    NSMutableArray *status;
+    NSMutableArray *flagvalue;
     NSMutableArray *body;
     NSMutableDictionary *recorddict;
     NSMutableArray *msglist;
     IBOutlet UITableView *tableView;
+    NSString*msgtextfile;
+    NSString*msgdatefile,*msgflagfile,*msgfromfile;
+    
     int count,totalcount;
     NSNumber *numtotal,*numcount;
     int prev;

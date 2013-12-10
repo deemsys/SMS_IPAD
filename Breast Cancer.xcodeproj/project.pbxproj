@@ -137,6 +137,8 @@
 		0DE7E7BD1872E09100846356 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7BC1872E09100846356 /* background1.jpg */; };
 		0DE7E7BF18730D7500846356 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE7E7BE18730D7500846356 /* GameKit.framework */; };
 		0DE7E7C11873DB5F00846356 /* bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7C01873DB5F00846356 /* bg3.png */; };
+		0DFC02AD1856D6B60099DBBE /* unread_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC02AB1856D6B60099DBBE /* unread_message.png */; };
+		0DFC02AE1856D6B60099DBBE /* read_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC02AC1856D6B60099DBBE /* read_message.png */; };
 		0DFF82021852FBC1004D8CE6 /* dailymsglistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF82011852FBC1004D8CE6 /* dailymsglistViewController.m */; };
 		0DFF82051853000B004D8CE6 /* msgcontent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF82041853000B004D8CE6 /* msgcontent.m */; };
 /* End PBXBuildFile section */
@@ -316,6 +318,8 @@
 		0DE7E7BC1872E09100846356 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		0DE7E7BE18730D7500846356 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0DE7E7C01873DB5F00846356 /* bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg3.png; sourceTree = "<group>"; };
+		0DFC02AB1856D6B60099DBBE /* unread_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread_message.png; sourceTree = "<group>"; };
+		0DFC02AC1856D6B60099DBBE /* read_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read_message.png; sourceTree = "<group>"; };
 		0DFF82001852FBBD004D8CE6 /* dailymsglistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dailymsglistViewController.h; sourceTree = "<group>"; };
 		0DFF82011852FBC1004D8CE6 /* dailymsglistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dailymsglistViewController.m; sourceTree = "<group>"; };
 		0DFF82031853000B004D8CE6 /* msgcontent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgcontent.h; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				0D2F505818320F9F00056E53 /* BlockAlertView.h */,
+				0DFC02AB1856D6B60099DBBE /* unread_message.png */,
+				0DFC02AC1856D6B60099DBBE /* read_message.png */,
 				0D2F505C18320FB100056E53 /* BlockBackground.m */,
 				0D55AAA11833D2FE006DC806 /* alert-gray-button.png */,
 				0D55AAA71833D31D006DC806 /* alert-window@2x.png */,
@@ -833,6 +839,7 @@
 				0DD26E761847622F00E1CCE3 /* frame_right@2x.png in Resources */,
 				0D7AB9A9184713C9000A2343 /* BG1.jpg in Resources */,
 				0D2F50621832106300056E53 /* alert@2x.png in Resources */,
+				0DFC02AE1856D6B60099DBBE /* read_message.png in Resources */,
 				0D027206182D119F00C35B94 /* Images.xcassets in Resources */,
 				0DE7E7B91851AC1300846356 /* blue-teal-gradient.jpg in Resources */,
 				0D6C79BF183C817300C48D17 /* login.png in Resources */,
@@ -844,6 +851,7 @@
 				0D24CDEC1855AE48003062B5 /* largeappicon.png in Resources */,
 				0DE7E7AB1850C3A400846356 /* profileimage.png in Resources */,
 				0DE7E7C11873DB5F00846356 /* bg3.png in Resources */,
+				0DFC02AD1856D6B60099DBBE /* unread_message.png in Resources */,
 				0DD26E781847622F00E1CCE3 /* wheel_shadow@2x.png in Resources */,
 				0D55AAA61833D30B006DC806 /* alert-black-button@2x.png in Resources */,
 				0D55AAAA1833D326006DC806 /* alert-window.png in Resources */,
@@ -1061,7 +1069,7 @@
 				GCC_PREFIX_HEADER = "SMSIPAD/Breast Cancer-Prefix.pch";
 				INFOPLIST_FILE = "SMSIPAD/Breast Cancer-Info.plist";
 				PRODUCT_NAME = "Breast Cancer";
-				PROVISIONING_PROFILE = "DC292CD6-E4DF-4410-BE9D-336067D23BE6";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1069,13 +1077,13 @@
 		0D02721E182D119F00C35B94 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMSIPAD/Breast Cancer-Prefix.pch";
 				INFOPLIST_FILE = "SMSIPAD/Breast Cancer-Info.plist";
 				PRODUCT_NAME = "Breast Cancer";
-				PROVISIONING_PROFILE = "DC292CD6-E4DF-4410-BE9D-336067D23BE6";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

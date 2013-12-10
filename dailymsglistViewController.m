@@ -9,6 +9,7 @@
 #import "dailymsglistViewController.h"
 #import "messageview.h"
 #import "msgcontent.h"
+#import "fileMngr.h"
 @interface dailymsglistViewController ()
 
 @end
@@ -33,29 +34,88 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    count=1;
-    prev=0;
-    totalcount=[from count];
-    numtotal=[NSNumber numberWithInt:totalcount];
-   msglist=[[NSMutableArray alloc]init];
-   for (int i=0;i<[from count]; i++)
+    
+    
+    msglist=[[NSMutableArray alloc]init];
+    flagvalue=[[NSMutableArray alloc]init];
+    body=[[NSMutableArray alloc]init];
+    date=[[NSMutableArray alloc]init];
+    from=[[NSMutableArray alloc]init];
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [path objectAtIndex:0];
+    
+	msgdatefile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgdateFile.hsa"]];
+    msgtextfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgtextFile.hsa"]];
+    msgflagfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgflagFile.hsa"]];
+    msgfromfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgfromFile.hsa"]];
+    
+    
+    
+    
+	if ([[NSFileManager defaultManager] fileExistsAtPath:msgdatefile])
+	{
+		date=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgdatefile]];
+        // NSLog(@"date file in daily %@",date);
+		
+	}
+	else
+	{
+		date=[[NSMutableArray alloc]init];
+	}
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:msgtextfile])
+	{
+		body=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgtextfile]];
+		
+	}
+	else
+	{
+		body=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgflagfile])
+	{
+		flagvalue=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgflagfile]];
+        NSLog(@"flag values in daily %@",from);
+       	
+	}
+    else
+	{
+        flagvalue=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgfromfile])
+	{
+		from=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgfromfile]];
+        
+       	
+	}
+    else
+	{
+        from=[[NSMutableArray alloc]init];
+	}
+    for (int i=0;i<[body count]; i++)
     {
         msgcontent *content=[msgcontent new];
         content.fromnumber=[from objectAtIndex:i];
         content.tonumber=[to objectAtIndex:i];
         content.message=[body objectAtIndex:i];
         content.date=[date objectAtIndex:i];
+        content.flag=[flagvalue objectAtIndex:i];
+        if([[flagvalue objectAtIndex:i] isEqual:@"1"])
+        content.imagename=@"read_message.png";
+        else
+            content.imagename=@"unread_message.png";
         [msglist addObject:content];
         
     }
-  
     
-
+    
+    
 	[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-   // NSLog(@"msglist in dailymsglist %@",msglist);
-   // NSLog(@" from %@",from);
+    // NSLog(@"msglist in dailymsglist %@",msglist);
+    // NSLog(@" from %@",from);
     // Add padding to the top of the table view
     UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
     self.tableView.contentInset = inset;
@@ -97,12 +157,17 @@
     UILabel *fromcell=(UILabel *)[cell viewWithTag:101];
     fromcell.text=msg1.fromnumber;
     //fromcell.text=@"11";
-   // NSLog(@"from cell %@",msg1.fromnumber);
+    // NSLog(@"from cell %@",msg1.fromnumber);
     UILabel *tocell=(UILabel *)[cell viewWithTag:102];
     tocell.text=msg1.date;
     
     UILabel *msgcell=(UILabel *)[cell viewWithTag:103];
     msgcell.text=msg1.message;
+    
+    UIImageView *msgImageView = (UIImageView *)[cell viewWithTag:100];
+    msgImageView.image = [UIImage imageNamed:msg1.imagename];
+
+    
     UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
     
     UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
@@ -134,12 +199,25 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    if (indexPath.row!=prev)
-    {
-        count++;
-    }
-     prev=indexPath.row;
+    msgcontent *msg1=[msglist objectAtIndex:indexPath.row];
+    NSString *msg=msg1.message;
+    NSString *fromnumber=msg1.fromnumber;
+    NSString *date1=msg1.date;
+    
+    [msglist removeObjectAtIndex:indexPath.row];
+    msgcontent *msg2=[msgcontent new];
+    msg2.message=msg;
+    msg2.fromnumber=fromnumber;
+    msg2.date=date1;
+    msg2.flag=@"1";
+    msg2.imagename=@"read_messge.png";
+    [msglist insertObject:msg2 atIndex:indexPath.row];
+    [flagvalue replaceObjectAtIndex:indexPath.row withObject:@"1"];
+    
+    [fileMngr saveDatapath:msgflagfile contentarray:flagvalue];
+    [tableView reloadData];
+    [self viewDidLoad];
+    
     //[self performSegueWithIdentifier:@"message" sender:self];
 }
 
@@ -151,15 +229,14 @@
         NSLog(@"index %d",indexPath.row);
     }
 }
-      
 
 
-- (void)dealloc {
+
+- (void)dealloc
+{
     [tableView release];
     [super dealloc];
-    numcount=[NSNumber numberWithInt:count];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"totalmessages" object:numtotal];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"readmessages" object:numcount];
+    
 }
 @end
 

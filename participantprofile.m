@@ -53,7 +53,12 @@
     age.text=age1;
     if(![group1 isEqualToString:@""])
     {
+        grouplistnames.text=group1;
         grouplist = [group1 componentsSeparatedByString:@","];
+    }
+    else
+    {
+        [grouplist addObject:@" "];
     }
     NSLog(@"age %@",age.text);
     NSLog(@"group %@",grouplist);
@@ -233,7 +238,7 @@
     
 }
 
-#pragma mark - UIPickerView DataSource
+/*#pragma mark - UIPickerView DataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;// or the number of vertical "columns" the picker will show...
 }
@@ -250,7 +255,7 @@
         return [grouplist objectAtIndex:row];//assuming the array contains strings..
     }
     return @"";//or nil, depending how protective you are
-}
+}*/
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //reading user detail
@@ -341,6 +346,7 @@
 - (void)dealloc {
     [group release];
     [edit release];
+    [grouplistnames release];
     [super dealloc];
 }
 @end
