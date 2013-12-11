@@ -119,9 +119,17 @@
     // Add padding to the top of the table view
     UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
     self.tableView.contentInset = inset;
-    
+    if ([from count]==0)
+    {
+        somelabel.hidden=NO;
+    }
+    else
+    {
+        somelabel.hidden=YES;
+    }
     
 }
+
 // Table Cell Index Properties
 - (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -236,6 +244,7 @@
 - (void)dealloc
 {
     [tableView release];
+    [somelabel release];
     [super dealloc];
     
 }

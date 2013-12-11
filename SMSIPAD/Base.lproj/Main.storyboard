@@ -422,7 +422,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings.png" translatesAutoresizingMaskIntoConstraints="NO" id="m92-6R-Qqh">
-                                <rect key="frame" x="288" y="350" width="32" height="28"/>
+                                <rect key="frame" x="293" y="352" width="27" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Visualpharm-Icons8-Metro-Style-System-Logout.ico" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-l7-AvG">
@@ -502,6 +502,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twillo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sER-6f-WVi">
+                                <rect key="frame" x="13" y="423" width="91" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1623,7 +1627,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-8Q-1Jc">
-                                        <rect key="frame" x="108" y="370" width="104" height="24"/>
+                                        <rect key="frame" x="108" y="393" width="104" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2775,6 +2779,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no Messages in your Message Library." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" id="5gN-j9-fdE">
+                            <rect key="frame" x="0.0" y="109" width="320" height="106"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="87" id="l0n-Ag-gxZ">
                                 <rect key="frame" x="0.0" y="22" width="320" height="87"/>
@@ -2794,8 +2805,8 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5V-oM-dR0">
-                                            <rect key="frame" x="6" y="52" width="142" height="23"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="142" translatesAutoresizingMaskIntoConstraints="NO" id="m5V-oM-dR0">
+                                            <rect key="frame" x="6" y="34" width="142" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" red="0.99215692280000001" green="0.97647064920000004" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
@@ -2827,6 +2838,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Daily Messages" id="pSf-wK-c1w"/>
                     <connections>
+                        <outlet property="somelabel" destination="5gN-j9-fdE" id="ef3-KX-yuQ"/>
                         <outlet property="tableView" destination="EH7-Z8-BHi" id="Ovw-IR-rX2"/>
                     </connections>
                 </tableViewController>
@@ -2838,16 +2850,69 @@
     <resources>
         <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
+        <image name="bg3.png" width="640" height="960"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
         <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
+        <image name="twillo.jpg" width="389" height="129"/>
         <image name="unread_message.png" width="512" height="512"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

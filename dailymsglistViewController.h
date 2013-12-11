@@ -20,6 +20,7 @@
     IBOutlet UITableView *tableView;
     NSString*msgtextfile;
     NSString*msgdatefile,*msgflagfile,*msgfromfile;
+    IBOutlet UILabel *somelabel;
     
     int count,totalcount;
     NSNumber *numtotal,*numcount;
