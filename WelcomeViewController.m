@@ -595,9 +595,7 @@
             
         }
     }
-    if ([msgfrom count]>0)
-    {
-        
+    
         
         if(count2>0)
         {
@@ -608,12 +606,21 @@
         {
             dailymessagelabel.text=@"You have viewed all your messages";
         }
+    else if ((count2==0)&&([msgfrom count]!=0))
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
     }
     else
     {
-        dailymessagelabel.text=@"You havenot received any messages";
+        
+        dailymessagelabel.text=@"You didnot receive any messages";
     }
-  /*  NSDate *date1=[NSDate date];
+    
+    
+    
+
+    /*  NSDate *date1=[NSDate date];
     NSDateFormatter * dateFormatter1 = [[NSDateFormatter alloc]init];
     [dateFormatter1 setDateFormat:@"yyyy-MM-dd"];
     NSString * currentDate1 = [dateFormatter1 stringFromDate:date1];
@@ -954,23 +961,28 @@
             
         }
     }
-    if ([msgfrom count]>0)
-    {
         
     
-    if(count2>0)
-    {
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
-        dailymessagelabel.text=labeltext;
-    }
-    else if(count2==[msgfrom count])    {
-        dailymessagelabel.text=@"You have viewed all your messages";
-    }
-    }
-    else
-    {
-       dailymessagelabel.text=@"You havenot received any messages";
-    }
+        if(count2>0)
+        {
+            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+            dailymessagelabel.text=labeltext;
+        }
+        else if(count2==[msgfrom count])
+        {
+            dailymessagelabel.text=@"You have viewed all your messages";
+        }
+        else if ((count2==0)&&([msgfrom count]!=0))
+        {
+            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+            dailymessagelabel.text=labeltext;
+        }
+        else
+        {
+            
+            dailymessagelabel.text=@"You didnot receive any messages";
+        }
+
     
     
 	// Do any additional setup after loading the view.
@@ -1044,25 +1056,25 @@
     NSLog(@"read messages in view will appear%d",count2);
     NSLog(@"unread messages %d",[msgfrom count]-count2);
     NSLog(@"total messages %d",[msgfrom count]);
-    
-    if ([msgfrom count]>0)
+  
+    if(count2>0)
     {
-        
-        
-        if(count2>0)
-        {
-            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
-            dailymessagelabel.text=labeltext;
-        }
-        else if(count2==[msgfrom count])
-        {
-            dailymessagelabel.text=@"You have viewed all your messages";
-        }
-       
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if(count2==[msgfrom count])
+    {
+        dailymessagelabel.text=@"You have viewed all your messages";
+    }
+    else if ((count2==0)&&([msgfrom count]!=0))
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
     }
     else
     {
-        dailymessagelabel.text=@"You havenot received any messages";
+        
+        dailymessagelabel.text=@"You didnot receive any messages";
     }
     
     
@@ -1226,23 +1238,24 @@
     [recorddict setObject:msgdate forKey:@"msgdate"];
     totalmessage=[msgfrom count];
     
-    if ([msgfrom count]>0)
+    if(count2>0)
     {
-        
-        
-        if(count2>0)
-        {
-            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
-            dailymessagelabel.text=labeltext;
-        }
-       else if(count2==[msgfrom count])
-        {
-            dailymessagelabel.text=@"You have viewed all your messages";
-        }
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if(count2==[msgfrom count])
+    {
+        dailymessagelabel.text=@"You have viewed all your messages";
+    }
+    else if ((count2==0)&&([msgfrom count]!=0))
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
     }
     else
     {
-        dailymessagelabel.text=@"You havenot received any messages";
+        
+        dailymessagelabel.text=@"You didnot receive any messages";
     }
     
     
