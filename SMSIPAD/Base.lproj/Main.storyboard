@@ -474,8 +474,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:30 PM, 17 Nov" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xu6-6v-vwp">
-                                <rect key="frame" x="124" y="273" width="176" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:30 PM, 17 Nov" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="176" translatesAutoresizingMaskIntoConstraints="NO" id="Xu6-6v-vwp">
+                                <rect key="frame" x="124" y="273" width="176" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,8 +488,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date &amp; Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUM-Iu-VhD">
-                                <rect key="frame" x="23" y="272" width="93" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date &amp; Time:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="93" translatesAutoresizingMaskIntoConstraints="NO" id="AUM-Iu-VhD">
+                                <rect key="frame" x="23" y="294" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2780,29 +2780,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9k-hT-QgM">
-                                            <rect key="frame" x="50" y="23" width="142" height="30"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-ZH-DbG">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="121"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9k-hT-QgM">
+                                            <rect key="frame" x="147" y="54" width="131" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5V-oM-dR0">
-                                            <rect key="frame" x="20" y="52" width="167" height="26"/>
+                                            <rect key="frame" x="6" y="52" width="142" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" red="0.99215692280000001" green="0.97647064920000004" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39Z-ID-nKX">
-                                            <rect key="frame" x="5" y="0.0" width="157" height="19"/>
+                                            <rect key="frame" x="6" y="6" width="157" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" red="0.99215692280000001" green="0.97647064920000004" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unread_message.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPL-qx-X0r">
-                                            <rect key="frame" x="250" y="15" width="37" height="27"/>
+                                            <rect key="frame" x="249" y="15" width="37" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -2831,16 +2835,68 @@
     <resources>
         <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
+        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
+        <image name="bg3.png" width="640" height="960"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
         <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
+        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="unread_message.png" width="512" height="512"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

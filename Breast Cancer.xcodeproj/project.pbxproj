@@ -21,6 +21,7 @@
 		0D02720F182D119F00C35B94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0271F1182D119F00C35B94 /* UIKit.framework */; };
 		0D027217182D119F00C35B94 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D027215182D119F00C35B94 /* InfoPlist.strings */; };
 		0D027219182D119F00C35B94 /* SMSIPADTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D027218182D119F00C35B94 /* SMSIPADTests.m */; };
+		0D0E55231858538000A3B41F /* messageunread.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E55221858538000A3B41F /* messageunread.png */; };
 		0D24CDE81855AE3E003062B5 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE71855AE3E003062B5 /* icon58.png */; };
 		0D24CDEA1855AE42003062B5 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE91855AE42003062B5 /* icon80.png */; };
 		0D24CDEC1855AE48003062B5 /* largeappicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDEB1855AE48003062B5 /* largeappicon.png */; };
@@ -173,6 +174,7 @@
 		0D027214182D119F00C35B94 /* Breast CancerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Breast CancerTests-Info.plist"; sourceTree = "<group>"; };
 		0D027216182D119F00C35B94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0D027218182D119F00C35B94 /* SMSIPADTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMSIPADTests.m; sourceTree = "<group>"; };
+		0D0E55221858538000A3B41F /* messageunread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageunread.png; sourceTree = "<group>"; };
 		0D24CDE71855AE3E003062B5 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
 		0D24CDE91855AE42003062B5 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
 		0D24CDEB1855AE48003062B5 /* largeappicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = largeappicon.png; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 				0D9919BE184CC03200589D3B /* loginbg.png */,
 				0D9919C0184CC03C00589D3B /* register.png */,
 				0D6C79D2183DFAC500C48D17 /* week.png */,
+				0D0E55221858538000A3B41F /* messageunread.png */,
 				0DE7E7AE1850CB6300846356 /* settings.png */,
 				0DE7E7AC1850C78300846356 /* Visualpharm-Icons8-Metro-Style-System-Logout.ico */,
 				0DE7E7B81851AC1300846356 /* blue-teal-gradient.jpg */,
@@ -812,6 +815,7 @@
 				0DD26E721847622F00E1CCE3 /* check_selected@2x.png in Resources */,
 				0D952EAF1835291400053B45 /* edit.png in Resources */,
 				0DE7E7AF1850CB6300846356 /* settings.png in Resources */,
+				0D0E55231858538000A3B41F /* messageunread.png in Resources */,
 				0D952EB01835291400053B45 /* next.png in Resources */,
 				0D9919C1184CC03C00589D3B /* register.png in Resources */,
 				0D24CDF01855AE52003062B5 /* icon120.png in Resources */,

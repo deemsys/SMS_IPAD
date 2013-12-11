@@ -102,7 +102,7 @@
         content.date=[date objectAtIndex:i];
         content.flag=[flagvalue objectAtIndex:i];
         if([[flagvalue objectAtIndex:i] isEqual:@"1"])
-        content.imagename=@"read_message.png";
+        content.imagename=@"messageunread.png";
         else
             content.imagename=@"unread_message.png";
         [msglist addObject:content];
@@ -210,7 +210,7 @@
     msg2.fromnumber=fromnumber;
     msg2.date=date1;
     msg2.flag=@"1";
-    msg2.imagename=@"read_messge.png";
+    msg2.imagename=@"messageunread.png";
     [msglist insertObject:msg2 atIndex:indexPath.row];
     [flagvalue replaceObjectAtIndex:indexPath.row withObject:@"1"];
     
