@@ -611,7 +611,7 @@
             }
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Registration failed!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed!"];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -626,7 +626,7 @@
                     
                     
                     
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"E-mail id Already Exits and active."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id Already Exits and active."];
                     
                     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -643,7 +643,7 @@
         {
             // NSLog(@"fail");
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Failed!" message:@"Registration Failed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO" message:@"Registration Failed."];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -654,7 +654,7 @@
         {
             
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"password!" message:@"Incorrect Password."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Incorrect Password."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

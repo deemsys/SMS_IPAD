@@ -83,19 +83,23 @@
 {
     if([segedu selectedSegmentIndex]==0)
     {
-        education=@"School";
+        education=@"Did not complete High School";
     }
     if([segedu selectedSegmentIndex]==1)
     {
-          education=@"Some College";
+          education=@"High School or GED";
     }
     if([segedu selectedSegmentIndex]==2)
     {
-        education=@"Professional Degree";
+        education=@"Some College";
     }
     if([segedu selectedSegmentIndex]==3)
     {
-          education=@"Master Degree";
+          education=@"Under Graduate";
+    }
+    if([segedu selectedSegmentIndex]==4)
+    {
+        education=@"Post Graduate";
     }
 }
 -(IBAction)seggenderselected:(id)sender
@@ -114,7 +118,6 @@
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
-    [provider setBackgroundColor:([UIColor whiteColor])];
     [grouppick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     timepick1.hidden=YES;
@@ -431,6 +434,7 @@
     [multiPickerView pickerShow];
     
 }
+// returns picker view selected string
 #pragma mark - Delegate
 -(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
 {
@@ -441,6 +445,9 @@
     showLbl.text = dataStr;
     grouppicker.text=dataStr;
     entriesSelected = [[NSArray arrayWithArray:selectedEntriesArr] retain];
+    if([selectedEntriesArr count]<=4)
+    {
+        grouppicker.text=dataStr;
     for (int i=0; i<[selectedEntriesArr count]; i++)
     {
         int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
@@ -453,7 +460,16 @@
     // NSLog(@"selectedgroupid %@",selectedgroupid);
     [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
     [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
-    
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
+        
+        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+    }
+
     
     
 }
@@ -505,7 +521,7 @@
     return [mobileTest1 evaluateWithObject:mobilenumber];
     
 }
-
+// Submission action using http posting json data & json parsing
 - (IBAction)submit:(id)sender
 {
     if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0)&&(![grouppicker.text isEqualToString:@"Select group"]))
@@ -692,7 +708,7 @@
             
             //NSLog(@"success");
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"successfully updated!"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"successfully updated!"];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -704,7 +720,7 @@
         else if ([[menu objectForKey:@"success"] isEqualToString:@"No"]&&[[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
         {
             // NSLog(@"Start Sending in email exist");
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Emailid already exist!"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Emailid already exist!"];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -714,7 +730,7 @@
         else
         {
             // NSLog(@"else Start Sending");
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Updation Failed!"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Updation Failed!"];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

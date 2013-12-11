@@ -24,7 +24,7 @@
     }
     return self;
 }
-
+// Page Load Conditions
 - (void)viewDidLoad
 {
     edit.clipsToBounds = YES;
@@ -92,9 +92,11 @@
     
     [recorddict setValue:gender.text forKey:@"gender"];
     
-    // Generate content for our scroll view using the frame height and width as the reference point
+// Generate content for our scroll view using the frame height and width as the reference point
     
 }
+
+// Check Network Status
 -(void)getparticipantdetail:(NSString*)userid
 {
     
@@ -192,7 +194,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"User id not found."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"User id not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
@@ -225,7 +227,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Provider value is empty."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Provider value is empty."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
@@ -257,11 +259,12 @@
     }
     return @"";//or nil, depending how protective you are
 }*/
+// HTTP post JSON Data
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //reading user detail
     
-    HUD.labelText = @"Fetching Userdetail..";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantSelect"];
@@ -292,7 +295,7 @@
     
     
     //reading groups based on provider detail
-    HUD.labelText = @"Fetching groupdetail..";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=getGroups"];

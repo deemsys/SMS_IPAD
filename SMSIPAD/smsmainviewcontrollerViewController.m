@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad
 {
-    
+    //Corner Radius Round Rectangled
     signin.clipsToBounds = YES;
     signin.layer.cornerRadius = 5.0f;
     signup.clipsToBounds = YES;
@@ -68,7 +68,7 @@
 }
 -(BOOL)alphanumericvalidation:(NSString *)country1
 {
-    NSString *countryFormat1 = @"(?:[A-Za-z0-9]+)";
+    NSString *countryFormat1 = @"(?:[A-Za-z0-9_-]+)";
     
     // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -109,7 +109,7 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Password."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Password."];
                 
                 //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -118,7 +118,7 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid Username."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Username."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -127,7 +127,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter login Credentials."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter login Credentials."];
         
         // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
@@ -252,7 +252,7 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Invalid Username And Password."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Invalid Username And Password."];
             
             [HUD hide:YES];
             
@@ -357,7 +357,7 @@
     //  self.view.frame=CGRectMake(0,0,50,50);
 }
 
-
+// Memory de-allocation
 - (void)dealloc {
     [signin release];
     [signup release];

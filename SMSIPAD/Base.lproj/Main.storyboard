@@ -1430,56 +1430,56 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Education:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uha-qX-so6">
-                                        <rect key="frame" x="30" y="194" width="69" height="19"/>
+                                        <rect key="frame" x="33" y="194" width="69" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medical Details:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4n-MW-YL2">
-                                        <rect key="frame" x="4" y="227" width="103" height="21"/>
+                                        <rect key="frame" x="4" y="254" width="103" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dln-GS-VIA">
-                                        <rect key="frame" x="44" y="262" width="56" height="21"/>
+                                        <rect key="frame" x="44" y="285" width="56" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time2:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuD-RS-dXQ">
-                                        <rect key="frame" x="44" y="288" width="51" height="21"/>
+                                        <rect key="frame" x="44" y="315" width="51" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time3:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgo-b8-oCw">
-                                        <rect key="frame" x="46" y="319" width="46" height="19"/>
+                                        <rect key="frame" x="46" y="343" width="46" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Provider:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndx-bP-5SR">
-                                        <rect key="frame" x="33" y="346" width="63" height="21"/>
+                                        <rect key="frame" x="33" y="368" width="63" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hj0-hW-Kdz">
-                                        <rect key="frame" x="37" y="365" width="55" height="22"/>
+                                        <rect key="frame" x="37" y="392" width="55" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-dj-1fl">
-                                        <rect key="frame" x="52" y="387" width="56" height="21"/>
+                                        <rect key="frame" x="52" y="416" width="56" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1526,7 +1526,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Fever" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kM-e1-Iqt">
-                                        <rect key="frame" x="115" y="224" width="176" height="30"/>
+                                        <rect key="frame" x="115" y="250" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1544,14 +1544,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="david" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-yQ-Ubf">
-                                        <rect key="frame" x="115" y="346" width="110" height="21"/>
+                                        <rect key="frame" x="115" y="367" width="110" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.99215692280000001" green="0.97647064920000004" blue="0.97647064920000004" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-sS-JCw">
-                                        <rect key="frame" x="226" y="385" width="74" height="20"/>
+                                        <rect key="frame" x="119" y="452" width="74" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Submit" backgroundImage="blue-teal-gradient.jpg">
@@ -1563,35 +1563,35 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsc-s3-N16">
-                                        <rect key="frame" x="119" y="387" width="99" height="19"/>
+                                        <rect key="frame" x="119" y="416" width="99" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8C-lz-Exv">
-                                        <rect key="frame" x="112" y="262" width="39" height="18"/>
+                                        <rect key="frame" x="106" y="289" width="39" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yP-uA-x6m">
-                                        <rect key="frame" x="112" y="288" width="52" height="24"/>
+                                        <rect key="frame" x="108" y="315" width="52" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0L-dx-pnl">
-                                        <rect key="frame" x="113" y="319" width="50" height="19"/>
+                                        <rect key="frame" x="106" y="346" width="50" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-P4-XIU">
-                                        <rect key="frame" x="92" y="261" width="63" height="20"/>
+                                        <rect key="frame" x="93" y="292" width="63" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <state key="normal">
@@ -1602,7 +1602,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TId-9Y-5OI">
-                                        <rect key="frame" x="96" y="289" width="62" height="17"/>
+                                        <rect key="frame" x="94" y="317" width="62" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1612,7 +1612,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-fV-8Bv">
-                                        <rect key="frame" x="92" y="319" width="63" height="19"/>
+                                        <rect key="frame" x="96" y="344" width="62" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <state key="normal">
@@ -1623,7 +1623,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-8Q-1Jc">
-                                        <rect key="frame" x="108" y="366" width="104" height="24"/>
+                                        <rect key="frame" x="108" y="370" width="104" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1633,7 +1633,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFm-my-bpl">
-                                        <rect key="frame" x="111" y="387" width="52" height="18"/>
+                                        <rect key="frame" x="111" y="420" width="52" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <state key="normal">
@@ -1644,56 +1644,22 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-Ae-pTD">
-                                        <rect key="frame" x="115" y="368" width="185" height="18"/>
+                                        <rect key="frame" x="115" y="397" width="185" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gE9-6F-lfx">
-                                        <rect key="frame" x="206" y="169" width="94" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="NQ3-ZS-EhL"/>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="Vxp-jH-QB5"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x23-y0-XZi">
-                                        <rect key="frame" x="203" y="186" width="102" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="u6L-1N-jXn"/>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="P61-uc-vGj"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLp-9p-YyE">
-                                        <rect key="frame" x="203" y="153" width="88" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="qTM-jB-vSw"/>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="6Ws-Uh-WyW"/>
-                                        </connections>
-                                    </pickerView>
-                                    <pickerView tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOo-JU-GXz">
-                                        <rect key="frame" x="200" y="229" width="94" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="XnB-lH-LnV"/>
-                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="zUG-Go-hw8"/>
-                                        </connections>
-                                    </pickerView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-aD-tZ3">
-                                        <rect key="frame" x="104" y="194" width="211" height="29"/>
+                                        <rect key="frame" x="9" y="214" width="303" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="School"/>
+                                            <segment title="High School iincomplete"/>
+                                            <segment title="GED"/>
                                             <segment title="Some College"/>
-                                            <segment title="Professional Degree"/>
                                             <segment title="Master Degree"/>
+                                            <segment title="UG"/>
+                                            <segment title="PG"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -1713,7 +1679,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U7E-V3-Vxi">
-                                        <rect key="frame" x="159" y="258" width="59" height="29"/>
+                                        <rect key="frame" x="159" y="282" width="59" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="AM"/>
@@ -1725,7 +1691,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ufq-TQ-yHH">
-                                        <rect key="frame" x="159" y="287" width="59" height="29"/>
+                                        <rect key="frame" x="159" y="312" width="59" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="AM"/>
@@ -1737,7 +1703,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xn6-zI-Jid">
-                                        <rect key="frame" x="159" y="316" width="59" height="29"/>
+                                        <rect key="frame" x="159" y="342" width="59" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="AM"/>
@@ -1748,6 +1714,42 @@
                                             <action selector="changetimeset3:" destination="WQZ-3Y-SQ4" eventType="valueChanged" id="eh5-kP-YhK"/>
                                         </connections>
                                     </segmentedControl>
+                                    <pickerView tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOo-JU-GXz">
+                                        <rect key="frame" x="206" y="322" width="94" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="XnB-lH-LnV"/>
+                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="zUG-Go-hw8"/>
+                                        </connections>
+                                    </pickerView>
+                                    <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gE9-6F-lfx">
+                                        <rect key="frame" x="206" y="197" width="94" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="NQ3-ZS-EhL"/>
+                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="Vxp-jH-QB5"/>
+                                        </connections>
+                                    </pickerView>
+                                    <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLp-9p-YyE">
+                                        <rect key="frame" x="211" y="246" width="88" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="qTM-jB-vSw"/>
+                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="6Ws-Uh-WyW"/>
+                                        </connections>
+                                    </pickerView>
+                                    <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x23-y0-XZi">
+                                        <rect key="frame" x="212" y="288" width="102" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WQZ-3Y-SQ4" id="u6L-1N-jXn"/>
+                                            <outlet property="delegate" destination="WQZ-3Y-SQ4" id="P61-uc-vGj"/>
+                                        </connections>
+                                    </pickerView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2316,7 +2318,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5O-wV-ZMy">
                                 <rect key="frame" x="251" y="100" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.031372550874948502" green="0.9803922176361084" blue="0.90980398654937744" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="onTintColor" red="0.039215687662363052" green="0.83921575546264648" blue="0.97254908084869385" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <action selector="settingstoggle:" destination="Yxi-Qa-ZGU" eventType="valueChanged" id="Jqc-BG-woM"/>
                                 </connections>
@@ -2505,7 +2507,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="faO-zm-QIX">
-                                        <rect key="frame" x="126" y="159" width="187" height="85"/>
+                                        <rect key="frame" x="126" y="188" width="187" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2557,15 +2559,6 @@
                                             <action selector="changeage:" destination="lcf-wr-ts9" eventType="touchUpInside" id="zLh-zd-VRh"/>
                                         </connections>
                                     </button>
-                                    <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9N-ds-Dc4">
-                                        <rect key="frame" x="225" y="-41" width="88" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="lcf-wr-ts9" id="net-cb-atX"/>
-                                            <outlet property="delegate" destination="lcf-wr-ts9" id="SAE-WU-1RM"/>
-                                        </connections>
-                                    </pickerView>
                                     <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-XO-XWC">
                                         <rect key="frame" x="143" y="81" width="129" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2584,14 +2577,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medical Details:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfR-cD-pjl">
-                                        <rect key="frame" x="5" y="181" width="115" height="31"/>
+                                        <rect key="frame" x="5" y="213" width="115" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v99-wt-TeG">
-                                        <rect key="frame" x="49" y="265" width="80" height="25"/>
+                                        <rect key="frame" x="49" y="309" width="80" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Reset" backgroundImage="blue-teal-gradient.jpg">
@@ -2602,7 +2595,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-GR-4lp">
-                                        <rect key="frame" x="170" y="265" width="80" height="25"/>
+                                        <rect key="frame" x="170" y="309" width="80" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Next" backgroundImage="blue-teal-gradient.jpg">
@@ -2627,19 +2620,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gvs-Tr-hag">
-                                        <rect key="frame" x="125" y="119" width="188" height="29"/>
+                                        <rect key="frame" x="13" y="146" width="295" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="School"/>
+                                            <segment title="High School"/>
+                                            <segment title="GED"/>
                                             <segment title="Some College"/>
-                                            <segment title="Professional Degree"/>
-                                            <segment title="Master Degree"/>
+                                            <segment title="UG"/>
+                                            <segment title="PG"/>
                                         </segments>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segeduclicked:" destination="lcf-wr-ts9" eventType="valueChanged" id="3YG-27-7Ix"/>
                                         </connections>
                                     </segmentedControl>
+                                    <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9N-ds-Dc4">
+                                        <rect key="frame" x="225" y="-41" width="88" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="lcf-wr-ts9" id="net-cb-atX"/>
+                                            <outlet property="delegate" destination="lcf-wr-ts9" id="SAE-WU-1RM"/>
+                                        </connections>
+                                    </pickerView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2835,68 +2838,16 @@
     <resources>
         <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
-        <image name="bg3.png" width="640" height="960"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
         <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="unread_message.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -79,7 +79,7 @@ int a;
 -(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //getting weekly evaluation sequence occurence
-    HUD.labelText = @"Updating Weekly evaluation result...";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
@@ -110,6 +110,7 @@ int a;
     //  NSLog(@"hideKeyboard");
     [sender resignFirstResponder];
 }
+// Includes Mail Template and data insertion
 -(IBAction)send:(id)sender
 {
     [self updatetable];

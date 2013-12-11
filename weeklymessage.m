@@ -20,7 +20,7 @@
 @implementation weeklymessage
 @synthesize recorddict;
 int a;
-
+// Regular Expressions
 -(BOOL)numbers:(NSString *)country1
 {
     NSString *countryFormat1 = @"[0-7]{1}";
@@ -55,7 +55,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Invalid answer!Enter a valid number within (0-7)"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Invalid answer!Enter a valid number within (0-7)"];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -64,7 +64,7 @@ int a;
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Field should not be empty."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Field should not be empty."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -88,6 +88,8 @@ int a;
     
     
 }
+
+// Reset Actions
 -(IBAction)clear:(id)sender
 {
     answer1.text=@"";
@@ -130,6 +132,7 @@ int a;
     
     
 }
+// Keyboard Dismissal
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [answer1 resignFirstResponder];
@@ -175,7 +178,7 @@ int a;
 	// Do any additional setup after loading the view.
 }
 
-
+//Data passing to another view controller
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

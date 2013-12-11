@@ -183,14 +183,14 @@
                     }
                     else
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid E-mail id."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Number."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -199,21 +199,21 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid User Name."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid First Name."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter all the required fields."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter all the required fields."];
         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
         [alert show];
         
@@ -412,7 +412,7 @@
 {
     
     //Reading all providers detail
-    HUD.labelText = @"Feteching ProvidersRequests..";
+    HUD.labelText = @"Synchronizing Data..";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
     
@@ -445,7 +445,7 @@
 {
     
     //Reading group names
-    HUD.labelText = @"Feteching Groupnames..";
+    HUD.labelText = @"Synchronizing Data..";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
     

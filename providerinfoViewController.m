@@ -16,7 +16,7 @@
 @end
 
 @implementation providerinfoViewController
-
+//Calling Provider
 -(IBAction)callprovider:(id)sender
 {
     NSLog(@"Phone calling...");
@@ -41,6 +41,7 @@
         
     }
 }
+// Mailing Provider
 -(IBAction)emailprovider:(id)sender
 {
     if ([MFMailComposeViewController canSendMail])
@@ -64,6 +65,7 @@
     }
     
 }
+// Composer sheet conditions
 -(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     

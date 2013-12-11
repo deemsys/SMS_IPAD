@@ -45,7 +45,7 @@
 }
 - (void)viewDidLoad
 {
-    edu=@"School";
+    edu=@"High School Imcomplete";
     gender.text=@"0";
     reset.clipsToBounds = YES;
     reset.layer.cornerRadius = 5.0f;
@@ -53,7 +53,7 @@
     next.layer.cornerRadius = 5.0f;
     medicaldetails.clipsToBounds = YES;
     medicaldetails.layer.cornerRadius = 5.0f;
-     [agepick setBackgroundColor:([UIColor whiteColor])];
+    [agepick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     agepick.delegate = self;
     agepick.dataSource = self;
@@ -191,20 +191,25 @@
 {
     if([educationseg selectedSegmentIndex]==0)
         {
-           edu=@"School";
+           edu=@"Did not complete High School";
         }
     else if([educationseg selectedSegmentIndex]==1)
     {
-        edu=@"Some College";
+        edu=@"Hight School or GED";
     }
     else if([educationseg selectedSegmentIndex]==2)
     {
-        edu=@"Professional Degree";
+        edu=@"Some College";
     }
     else if([educationseg selectedSegmentIndex]==3)
     {
-        edu=@"Master Degree";
+        edu=@"Under Graduate";
     }
+    else if([educationseg selectedSegmentIndex]==4)
+    {
+        edu=@"Post Graduate";
+    }
+
 }
 -(IBAction)next:(id)sender
 {

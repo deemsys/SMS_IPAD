@@ -49,7 +49,7 @@ int a;
 }
 
 
-
+//Mail templates, Submit Actions, JSON Post Data
 
 -(IBAction)send:(id)sender
 {
@@ -147,7 +147,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Answer you submitted is Invalid."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is Invalid."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -156,7 +156,7 @@ int a;
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Field should not be empty."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Field should not be empty."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -203,7 +203,7 @@ int a;
     // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
     
 }
-
+// Network Status Check
 -(void)signUpMethod
 {
     // NSString*email=[recorddict objectForKey:@"email"];

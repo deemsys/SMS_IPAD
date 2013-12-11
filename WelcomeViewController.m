@@ -191,7 +191,7 @@
         if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
         {
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation successful."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updation successful."];
             
             [HUD hide:YES];
             
@@ -202,7 +202,7 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation failed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updation failed."];
             
             [HUD hide:YES];
             
@@ -469,7 +469,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"userid not found."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"userid not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
@@ -523,7 +523,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Failed to get messages."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Failed to get messages."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
@@ -744,7 +744,7 @@
 {
     //getting weekly evaluation unfilled dates
     
-    HUD.labelText = @"Feteching Weekly evaluation...";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=weeklyevaluationSelect"];
@@ -773,7 +773,7 @@
 -(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //getting weekly evaluation sequence occurence
-    HUD.labelText = @"Feteching Weekly evaluation...";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=sequenceSelect"];

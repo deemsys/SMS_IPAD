@@ -63,21 +63,21 @@
             }
             else
             {
-                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap!" message:@"New password,confirm password not same"];
+                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"New password,confirm password not same"];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap!" message:@"Enter correct oldpassword"];
+            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter correct oldpassword"];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
     }
     else
     {
-        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap!" message:@"Enter all the required fields"];
+        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter all the required fields"];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
@@ -179,7 +179,7 @@
     //updating password
     
     
-    HUD.labelText = @"Updating Password..";
+    HUD.labelText = @"Synchronizing Data..";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,fourthEntity,value4,thirdEntity,value3];
     
     

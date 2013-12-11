@@ -65,11 +65,12 @@
     [changepass release];
     [super dealloc];
 }
+// Json posting data for message stream
 -(NSString *)HttpPostEntityFirstmessagestream:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //manually start stop message stream
     
-    HUD.labelText = @"Syncronizing Data...";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
@@ -95,6 +96,7 @@
     return data;
     
 }
+//Actions Conditions
 
 - (IBAction)settingstoggle:(id)sender
 {
@@ -134,7 +136,7 @@
         if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
         {
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation successful."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updated successfully."];
             
             [HUD hide:YES];
             
@@ -145,7 +147,7 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Message stream updation failed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updated failed."];
             
             [HUD hide:YES];
             

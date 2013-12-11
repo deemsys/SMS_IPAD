@@ -169,7 +169,7 @@
 {
     
     //Sending user forgot password
-    HUD.labelText = @"Feteching Providerdetail...";
+    HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=passwordSelect"];
