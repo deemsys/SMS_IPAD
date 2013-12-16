@@ -14,8 +14,7 @@
 
 @interface weeklymessage3 ()
 {
-    AVAudioRecorder *recorder;
-    AVAudioPlayer *player;
+   
 
 }
 
@@ -24,7 +23,7 @@
 
 @implementation weeklymessage3
 @synthesize recorddict;
-@synthesize stopButton, playButton, recordButton;
+@synthesize stop,record,play,save;
 
 
 
@@ -38,10 +37,34 @@ int a;
 
 -(IBAction)stop:(id)sender
 {
-    [recorder stop];
+    [play setEnabled:YES];
+    [save setEnabled:YES];
+    [stop setEnabled:NO];
+
+    [self.audioPlayer stop];
+    [self.audioRecorder stop];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    int flags = AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation;
+    [session setActive:NO withFlags:flags error:nil];
     
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSDate *date=[NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString * currentDate = [dateFormatter stringFromDate:date];
+    NSLog(@"current date %@",currentDate);
+
+    NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+   audioname=[NSString stringWithFormat:@"%@_%@_audiofile",currentDate,name];
+    [recorddict setObject:audioname forKey:@"audioname"];
+
+    NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
+   // NSLog(@"%@ audio url",audioFileURL);
+    [recorddict setObject:audioFileURL forKey:@"audiourl"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:nil];
+
+   
     recording.hidden=TRUE;
 }
 
@@ -58,6 +81,7 @@ int a;
 -(IBAction)save:(id)sender
 {
     a=0;
+    recording.hidden=YES;
     [recorddict addEntriesFromDictionary:temp];
     recorddict=[[NSMutableDictionary alloc]init];
     
@@ -103,66 +127,31 @@ int a;
 }
 -(IBAction)record:(id)sender
 {
-    if (player.playing) {
-        [player stop];
-        
-    }
-    NSLog(@"player%@",player);
+    recording.hidden=FALSE;
     
-    if (!recorder.recording) {
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setActive:YES error:nil];
-        
-        // Start recording
-        [recorder record];
-        [recordButton setTitle:@"Pause" forState:UIControlStateNormal];
-        recording.hidden=FALSE;
-        recording.text=@"Recording..";
-        
-    } else {
-        
-        // Pause recording
-        [recorder pause];
-        [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-        recording.hidden=TRUE;
-    }
+    recording.text=@"Recording..";
+    [self.audioRecorder prepareToRecord];
+    [self.audioRecorder record];
+    [stop setEnabled:YES];
+    [record setEnabled:NO];
     
-    [stopButton setEnabled:YES];
-    [playButton setEnabled:NO];
-   
+    
 }
 -(IBAction)play:(id)sender
 {
     
-    if (!recorder.recording){
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
-        [player setDelegate:self];
-        [player play];
-        recording.text=@"Playing..";
+    
         recording.hidden=FALSE;
-    }
+        
+       recording.text=@"Playing..";
+        
     
+    [stop setEnabled:NO];
+    [record setEnabled:NO];
+    [self.audioPlayer play];
     
 }
 
-#pragma mark - AVAudioRecorderDelegate
-
-- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
-    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-    [stopButton setEnabled:NO];
-    [playButton setEnabled:YES];
-}
-
-#pragma mark - AVAudioPlayerDelegate
-
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
-                                                    message: @"Finish playing the recording!"
-                                                   delegate: nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
 
 
 -(void)dismissKeyboard {
@@ -192,6 +181,14 @@ int a;
 }
 
 
+#pragma mark - AVAudioPlayerDelegate
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    recording.hidden=TRUE;
+    
+    BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Done" message:@"Finish playing the recording!"];
+[alert show];
+}
 
 
 - (void)viewDidLoad
@@ -208,8 +205,8 @@ int a;
     stop.layer.cornerRadius = 5.0f;
     record.clipsToBounds = YES;
     record.layer.cornerRadius = 5.0f;
-    saveButton.clipsToBounds = YES;
-    saveButton.layer.cornerRadius = 5.0f;
+save.clipsToBounds = YES;
+    save.layer.cornerRadius = 5.0f;
     
     
    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -226,37 +223,41 @@ int a;
     
     
     // Disable Stop/Play button when application launches
-    [stopButton setEnabled:NO];
-    [playButton setEnabled:NO];
+    [stop setEnabled:NO];
+    [play setEnabled:NO];
+    [save setEnabled:NO];
     
     // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
-                               nil];
-    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSDate *date=[NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString * currentDate = [dateFormatter stringFromDate:date];
+    NSLog(@"current date %@",currentDate);
+
+   NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    audioname=[NSString stringWithFormat:@"%@_%@_audiofile",currentDate,name];
+    [recorddict setObject:audioname forKey:@"audioname"];
+
+    NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
+    NSDictionary *audioSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSNumber numberWithFloat:44100],AVSampleRateKey,
+                                   [NSNumber numberWithInt: kAudioFormatAppleLossless],AVFormatIDKey,
+                                   [NSNumber numberWithInt: 1],AVNumberOfChannelsKey,
+                                   [NSNumber numberWithInt:AVAudioQualityMedium],AVEncoderAudioQualityKey,nil];
+    NSError *error = nil;
+  [recorddict setObject:audioFileURL forKey:@"audiourl"];
+    self.audioRecorder = [[AVAudioRecorder alloc]
+                          initWithURL:audioFileURL
+                          settings:audioSettings
+                          error:&error];
     
-    // Setup audio session
+    [super viewDidLoad];
     AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    
-    // Define the recorder setting
-    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
-    
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
-    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
-    
-    // Initiate and prepare the recorder
-    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:nil];
-    recorder.delegate = self;
-    recorder.meteringEnabled = YES;
-   // [recorder prepareToRecord];
-    
-    
-    
-    
-    
+    [session setCategory:AVAudioSessionCategoryRecord error:nil];
+    [session setActive:YES error:nil];
+	// Do any additional setup after loading the view, typically from a nib.
     
     
     
@@ -281,11 +282,12 @@ int a;
         
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
-        playButton.hidden=TRUE;
-        recordButton.hidden=TRUE;
-        stopButton.hidden=TRUE;
-        saveButton.hidden=TRUE;
-        
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
         
     }
     else if([aaa isEqual:@"I Had side effects"])
@@ -300,10 +302,12 @@ int a;
         
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
-        playButton.hidden=TRUE;
-        recordButton.hidden=TRUE;
-        stopButton.hidden=TRUE;
-        saveButton.hidden=TRUE;
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+         [recorddict setObject:@"" forKey:@"audioname"];
+          [recorddict setObject:@"" forKey:@"audiourl"];
         
     }
     else if([aaa isEqual:@"I ran out of Medication"])
@@ -317,10 +321,13 @@ int a;
         
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
-        playButton.hidden=TRUE;
-        recordButton.hidden=TRUE;
-        stopButton.hidden=TRUE;
-        saveButton.hidden=TRUE;    }
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+         [recorddict setObject:@"" forKey:@"audioname"];
+          [recorddict setObject:@"" forKey:@"audiourl"];
+    }
     else
     {
         tipsimprove.hidden=TRUE;
@@ -328,10 +335,10 @@ int a;
         
         pleaseexplain.hidden=FALSE;
         answer3.hidden=FALSE;
-        playButton.hidden=FALSE;
-        recordButton.hidden=FALSE;
-        stopButton.hidden=FALSE;
-        saveButton.hidden=FALSE;
+        play.hidden=FALSE;
+        record.hidden=FALSE;
+        stop.hidden=FALSE;
+        save.hidden=FALSE;
     }
     
     

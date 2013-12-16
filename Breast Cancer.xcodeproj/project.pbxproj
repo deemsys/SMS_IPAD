@@ -21,6 +21,8 @@
 		0D02720F182D119F00C35B94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0271F1182D119F00C35B94 /* UIKit.framework */; };
 		0D027217182D119F00C35B94 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D027215182D119F00C35B94 /* InfoPlist.strings */; };
 		0D027219182D119F00C35B94 /* SMSIPADTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D027218182D119F00C35B94 /* SMSIPADTests.m */; };
+		0D05E74F1886ADA9004497A6 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19BE1837C478001389C1 /* SKPSMTPMessage.m */; };
+		0D05E7501886BBD4004497A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F19C41837CDFB001389C1 /* CFNetwork.framework */; };
 		0D0E55231858538000A3B41F /* messageunread.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E55221858538000A3B41F /* messageunread.png */; };
 		0D0E552518589A4400A3B41F /* twillo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E552418589A4400A3B41F /* twillo.jpg */; };
 		0D24CDE81855AE3E003062B5 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE71855AE3E003062B5 /* icon58.png */; };
@@ -103,8 +105,6 @@
 		0D9F19C01837C478001389C1 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19B81837C478001389C1 /* HSK_CFUtilities.m */; };
 		0D9F19C11837C478001389C1 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19BA1837C478001389C1 /* NSData+Base64Additions.m */; };
 		0D9F19C21837C478001389C1 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19BC1837C478001389C1 /* NSStream+SKPSMTPExtensions.m */; };
-		0D9F19C31837C478001389C1 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19BE1837C478001389C1 /* SKPSMTPMessage.m */; };
-		0D9F19C51837CDFB001389C1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F19C41837CDFB001389C1 /* CFNetwork.framework */; };
 		0DA1ABC7183A00180063C29F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA1ABC6183A00180063C29F /* SystemConfiguration.framework */; };
 		0DA1ABC9183A00380063C29F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA1ABC8183A00380063C29F /* MessageUI.framework */; };
 		0DA1ABCB183A00450063C29F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA1ABCA183A00450063C29F /* OpenGLES.framework */; };
@@ -335,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D05E7501886BBD4004497A6 /* CFNetwork.framework in Frameworks */,
 				0DB9A9F91845DE7500C55C98 /* CoreAudio.framework in Frameworks */,
 				0DA1ABD1183A014F0063C29F /* AVFoundation.framework in Frameworks */,
 				0D0271F0182D119F00C35B94 /* CoreGraphics.framework in Frameworks */,
@@ -345,7 +346,6 @@
 				0DA1ABCB183A00450063C29F /* OpenGLES.framework in Frameworks */,
 				0DA1ABC9183A00380063C29F /* MessageUI.framework in Frameworks */,
 				0DA1ABC7183A00180063C29F /* SystemConfiguration.framework in Frameworks */,
-				0D9F19C51837CDFB001389C1 /* CFNetwork.framework in Frameworks */,
 				0D0271EE182D119F00C35B94 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,6 +902,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D05E74F1886ADA9004497A6 /* SKPSMTPMessage.m in Sources */,
 				0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */,
 				0D6C79DB183E581700C48D17 /* editprofile.m in Sources */,
 				0DFF82051853000B004D8CE6 /* msgcontent.m in Sources */,
@@ -938,7 +939,6 @@
 				0DFF82021852FBC1004D8CE6 /* dailymsglistViewController.m in Sources */,
 				0DA1ABE4183A018F0063C29F /* SBJsonWriter.m in Sources */,
 				0D0271FA182D119F00C35B94 /* main.m in Sources */,
-				0D9F19C31837C478001389C1 /* SKPSMTPMessage.m in Sources */,
 				0DA1ABE0183A018F0063C29F /* NSString+SBJSON.m in Sources */,
 				0DA1ABE3183A018F0063C29F /* SBJsonParser.m in Sources */,
 				0DD26E671847620700E1CCE3 /* ALPickerViewCell.m in Sources */,

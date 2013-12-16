@@ -8,11 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface weeklymessage5 : UIViewController
+#import <UIKit/UIKit.h>
+#import <CFNetwork/CFNetwork.h>
+#import "SKPSMTPMessage.h"
+#import "NSData+Base64Additions.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+#import "BlockAlertView.h"
+#import "JSON.h"
+#import "SKPSMTPMessage.h"
+#import "NSData+Base64Additions.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
+@interface weeklymessage5 : UIViewController<MBProgressHUDDelegate>
 {
-    NSMutableDictionary * recordict;
+    NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;
-    
+    MBProgressHUD *HUD;
+    BOOL isConnect;
     IBOutlet UIButton *end;
     
 }

@@ -14,9 +14,10 @@
 #import "Reachability.h"
 #import "BlockAlertView.h"
 #import "JSON.h"
-
-
-
+#import "SKPSMTPMessage.h"
+#import "NSData+Base64Additions.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
 
 #define FROM_EMAIL_PREF_KEY @"kFromEmailPreferenceKey"
 #define TO_EMAIL_PREF_KEY @"kToEmailPreferenceKey"
@@ -31,7 +32,6 @@
 #define SEND_IMAGE_BOOL_PREF_KEY @"kSendImageBoolPreferenceKey"
 #define SEND_VCARD_BOOL_PREF_KEY @"kSendVcardBoolPreferenceKey"
 
-
 @interface weeklymessage4 : UIViewController<SKPSMTPMessageDelegate,MBProgressHUDDelegate,UITextFieldDelegate>
 {
    
@@ -39,8 +39,30 @@
     IBOutlet UITextField * answer4;
     NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;
+    int move;
+    SKPSMTPState HighestState;
+    IBOutlet UITextField *fromEmail;
+    IBOutlet UITextField *toEmail;
+    IBOutlet UITextField *relayHost;
+    IBOutlet UISwitch *SSLSwitch;
     
+    IBOutlet UISwitch *useAuthSwitch;
+    IBOutlet UITextField *login;
+    IBOutlet UITextField *password,*username;
     
+    IBOutlet UITextField *subject;
+    IBOutlet UITextField *messageBody;
+    IBOutlet UITextField *sig;
+    IBOutlet UISwitch *sendImageSwitch;
+    IBOutlet UISwitch *sendVCFSwitch;
+    
+    IBOutlet UIActivityIndicatorView *Spinner;
+    IBOutlet UIProgressView *ProgressBar;
+    
+    NSDictionary *prefKeyDictionary;
+    
+    IBOutlet UITextField*emailid;
+
     MBProgressHUD *HUD;
     BOOL isConnect;
     IBOutlet UIButton *yesbutton;
@@ -54,6 +76,6 @@
 - (IBAction)yesselected:(id)sender;
 - (IBAction)noselected:(id)sender;
 
-
+@property(nonatomic)int move;
 @property (nonatomic,retain) NSMutableDictionary * recorddict;
 @end

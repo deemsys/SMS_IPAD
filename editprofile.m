@@ -445,7 +445,7 @@
     showLbl.text = dataStr;
     grouppicker.text=dataStr;
     entriesSelected = [[NSArray arrayWithArray:selectedEntriesArr] retain];
-    if([selectedEntriesArr count]<=4)
+    if(([selectedEntriesArr count]<=4)&&([selectedEntriesArr count]!=0))
     {
         grouppicker.text=dataStr;
     for (int i=0; i<[selectedEntriesArr count]; i++)
@@ -463,6 +463,7 @@
     }
     else
     {
+         grouppicker.text=@"Select group";
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];

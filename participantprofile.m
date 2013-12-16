@@ -58,7 +58,7 @@
     }
     else
     {
-        [grouplist addObject:@" "];
+        [grouplist addObject:@""];
     }
     NSLog(@"age %@",age.text);
     NSLog(@"group %@",grouplist);
@@ -77,7 +77,7 @@
     [recorddict setValue:time31fm forKey:@"time31fm"];
     [recorddict setValue:provider1 forKey:@"provider"];
     [recorddict setValue:age1 forKey:@"age"];
-    [recorddict setObject:grouplist forKey:@"selectedgrouplist"];
+   // [recorddict setObject:grouplist forKey:@"selectedgrouplist"];
     
     
     

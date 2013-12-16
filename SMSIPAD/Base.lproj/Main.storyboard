@@ -2087,14 +2087,11 @@
                         <outlet property="answer3" destination="RlT-Kq-E3A" id="yG8-pw-MCk"/>
                         <outlet property="nextbut" destination="FsP-sD-pNZ" id="oz5-UG-ToS"/>
                         <outlet property="play" destination="tFN-U2-zzj" id="c19-Xm-nVb"/>
-                        <outlet property="playButton" destination="tFN-U2-zzj" id="CZw-QD-E2a"/>
                         <outlet property="pleaseexplain" destination="kup-de-GYi" id="BUA-1o-zfu"/>
                         <outlet property="record" destination="8P0-MU-6O7" id="sgA-Nj-HIh"/>
-                        <outlet property="recordButton" destination="8P0-MU-6O7" id="IqB-hE-C0h"/>
                         <outlet property="recording" destination="oPN-WY-5tm" id="MOD-zi-6VN"/>
-                        <outlet property="saveButton" destination="CVg-OA-7Gz" id="t71-4j-Yk8"/>
+                        <outlet property="save" destination="CVg-OA-7Gz" id="tof-W9-EaQ"/>
                         <outlet property="stop" destination="E9C-Fj-CfY" id="dKe-gg-AxA"/>
-                        <outlet property="stopButton" destination="E9C-Fj-CfY" id="lRN-6B-ryo"/>
                         <outlet property="tipsimprove" destination="1K4-FR-r9X" id="0MM-py-1Wc"/>
                         <segue destination="4Jx-nq-F7F" kind="push" identifier="sms8" id="ONR-yB-HFl"/>
                     </connections>
@@ -2780,7 +2777,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no Messages in your Message Library." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" id="5gN-j9-fdE">
-                            <rect key="frame" x="0.0" y="109" width="320" height="106"/>
+                            <rect key="frame" x="0.0" y="173" width="320" height="106"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2788,7 +2785,7 @@
                         </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="87" id="l0n-Ag-gxZ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="87"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l0n-Ag-gxZ" id="bdL-36-QUQ">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="86"/>
@@ -2850,69 +2847,17 @@
     <resources>
         <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
-        <image name="bg3.png" width="640" height="960"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
-        <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="twillo.jpg" width="389" height="129"/>
         <image name="unread_message.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2921,7 +2866,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Js-Lx-Uc6"/>
+        <segue reference="LhH-3a-ZP2"/>
         <segue reference="zJw-5E-t9R"/>
         <segue reference="Vcd-52-NTG"/>
         <segue reference="ONR-yB-HFl"/>

@@ -531,7 +531,8 @@
   //  NSLog(@"from addres on welcome %@",temptext);
    /// NSLog(@"from addres on welcome %@",tempdate);
    // NSLog(@"from addres on welcome %@",tempflag);
-    
+    if([tempfrom count]!=0)
+    {
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
     {
         for(int j=0;j<[temptext count];j++)
@@ -583,6 +584,16 @@
             
         }
         
+    }
+    }
+    else
+    {
+        msgbody=[[NSMutableArray alloc]init];
+        msgdate=[[NSMutableArray alloc]init];
+        msgfrom=[[NSMutableArray alloc]init];
+        flagvalue=[[NSMutableArray alloc]init];
+        
+        NSLog(@"no datas for this user");
     }
     
     count2=0;
@@ -1177,6 +1188,9 @@
         }
         
     }
+    NSLog(@"from temp %@",tempfrom);
+    if ([tempfrom count]!=0) {
+        
     
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
     {
@@ -1230,7 +1244,18 @@
         }
         
     }
-
+    }
+    else
+    {
+        msgbody=[[NSMutableArray alloc]init];
+        msgdate=[[NSMutableArray alloc]init];
+        msgfrom=[[NSMutableArray alloc]init];
+        flagvalue=[[NSMutableArray alloc]init];
+        [fileMngr saveDatapath:msgtextfile contentarray:msgbody];
+        [fileMngr saveDatapath:msgdatefile contentarray:msgdate];
+        [fileMngr saveDatapath:msgflagfile contentarray:flagvalue];
+        [fileMngr saveDatapath:msgfromfile contentarray:msgfrom];
+    }
     
     [recorddict setObject:msgfrom forKey:@"msgfrom"];
     [recorddict setObject:msgto forKey:@"msgto"];

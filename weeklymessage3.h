@@ -14,30 +14,27 @@
     IBOutlet UILabel * pleaseexplain;
     IBOutlet UITextView * answer3;
     IBOutlet UILabel *tipsimprove;
-  
+    NSString *audioname;
     IBOutlet UILabel * recording;
     NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;
     IBOutlet UIButton *nextbut;
-    IBOutlet UIButton *saveButton;
+   // IBOutlet UIButton *saveButton;
     
     IBOutlet UIToolbar *toolbar;
     
     IBOutlet UIButton *play;
     
     IBOutlet UIButton *stop;
-    
-
+    IBOutlet UIButton *save;
     IBOutlet UIButton *record;
 }
--(IBAction)record:(id)sender;
--(IBAction)stop:(id)sender;
--(IBAction)play:(id)sender;
--(IBAction)save:(id)sender;
 - (IBAction)next:(id)sender;
-
+@property (strong, nonatomic) AVAudioRecorder *audioRecorder;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 @property (nonatomic , retain) NSMutableDictionary * recorddict;
-@property (strong, nonatomic) IBOutlet UIButton * playButton;
-@property (strong, nonatomic) IBOutlet UIButton * recordButton;
-@property (strong, nonatomic) IBOutlet UIButton * stopButton;
+@property (strong, nonatomic) IBOutlet UIButton * play;
+@property (strong, nonatomic) IBOutlet UIButton * record;
+@property (strong, nonatomic) IBOutlet UIButton * stop;
+@property(strong,nonatomic)IBOutlet UIButton *save;
 @end

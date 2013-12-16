@@ -15,8 +15,7 @@
 #import "NSData+Base64Additions.h"
 #import "Reachability.h"
 #import "MBProgressHUD.h"
-
-
+#import "JSON.h"
 #define FROM_EMAIL_PREF_KEY @"kFromEmailPreferenceKey"
 #define TO_EMAIL_PREF_KEY @"kToEmailPreferenceKey"
 #define RELAY_HOST_PREF_KEY @"kRelayHostPreferenceKey"
@@ -37,6 +36,7 @@
 @implementation weeklymessage4
 @synthesize recorddict;
 int a;
+@synthesize move;
 
 -(BOOL)numbers:(NSString *)country1
 {
@@ -48,12 +48,105 @@ int a;
     
 }
 
+-(void)sendacknowledgement
+{
+    
+    SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+    emailMessage.fromEmail = @"learnguild@gmail.com";
+    
+    emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
+   // @"silviyarani159@gmail.com";
+    //[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];//receiver email address
+    emailMessage.relayHost = @"smtp.gmail.com";
+    NSLog(@"participant mail %@",emailMessage.toEmail);
+    emailMessage.requiresAuth = YES;
+    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+    emailMessage.pass = @"deemsys@123"; //sender email password
+    emailMessage.subject =@"BCResearch App Weekly Message Details";
+    //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+    emailMessage.wantsSecure = YES;
+    emailMessage.delegate = self;
+    
+    [recorddict objectForKey:@"pass"];
+    
+    // you must include <SKPSMTPMessageDelegate> to your class
+    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Your Weekly Message Details has been Submitted to your respective Provider Successfully..\n\n Keep on Answering your Weekly Assessments.\n\n Thankyou. ",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+    
+    NSDictionary *plainMsg = [NSDictionary
+                              dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                              messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+    emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+    HighestState=0;
+    move=1;
+    [emailMessage send];
+    
+    
+    }
 
+-(void)sendprovider
+{
+    SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
+    emailMessage.fromEmail = @"learnguild@gmail.com";
+    
+    emailMessage.toEmail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];//receiver email address
+    //@"silviyarani159@gmail.com"[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+    emailMessage.relayHost = @"smtp.gmail.com";
+    
+    emailMessage.requiresAuth = YES;
+    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+    emailMessage.pass = @"deemsys@123"; //sender email password
+    emailMessage.subject =@"BCResearch App WeeklyEvaluation Result";
+    //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
+    emailMessage.wantsSecure = YES;
+    emailMessage.delegate = self;
+    
+    NSMutableArray *parts_to_send = [NSMutableArray array];
+    
+    // you must include <SKPSMTPMessageDelegate> to your class
+    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Weekly Message Details for the BCResearch App Participants.\n\n Participant Name: %@\n\n Week Number : %@ \n\n Over for the past seven days on how many days did you take a dose of your AHT medication? : %@ \n\n What made you miss some doses? : %@ \n\n Would you like the app to send an email to your provider? : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"],[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"]];
+    
+    NSDictionary *plainMsg = [NSDictionary
+                              dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                              messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+    [parts_to_send addObject:plainMsg];
+    //emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
+    if (![[recorddict objectForKey:@"audioname"] isEqual:@""])
+    {
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+        NSString *pathname=[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",[recorddict objectForKey:@"audioname"]]];
+        NSString *audioname1=[NSString stringWithFormat:@"inline;\r\n\tfilename=\"%@.m4a\"",[recorddict objectForKey:@"audioname"]];
+        NSString *audioname2=[NSString stringWithFormat:@"m4a;\r\n\tname=%@.m4a;\r\n\tx-unix-mode=0666",[recorddict objectForKey:@"audioname"]];
+        
+        NSData *image_data = [NSData dataWithContentsOfFile:pathname];
+        NSDictionary *audio_part = [NSDictionary dictionaryWithObjectsAndKeys:audioname1,kSKPSMTPPartContentDispositionKey,
+                                    @"base64",kSKPSMTPPartContentTransferEncodingKey,
+                                    audioname2,kSKPSMTPPartContentTypeKey,
+                                    [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
+                                    nil];
+        [parts_to_send addObject:audio_part];
+        NSLog(@"audio add%@",pathname);
+    }
+    emailMessage.parts=parts_to_send;
+    HighestState = 0;
+    move=0;
+    [emailMessage send];
+    
+     [self sendacknowledgement];
+    NSLog(@"mail sent to pro");
+
+//Acknowledgement for participants
+}
 //Mail templates, Submit Actions, JSON Post Data
 
 -(IBAction)send:(id)sender
 {
-    NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.delegate = self;
+    HUD.labelText = @"Sending....";
+    [HUD show:YES];
+     NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
     NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
     NSString*patientemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
     NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
@@ -82,68 +175,22 @@ int a;
             [recorddict setValue:answer4.text forKey:@"answer3"];
            
             NSLog(@"answer4 value%@",answer4.text);
+            
+
             if ([answer4.text isEqualToString:@"Yes"])
             {
-                //mail compose
+               
                 
-                 NSLog(@"Start Sending");
-                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"learnguild@gmail.com";
+                [self sendprovider];
                 
-                emailMessage.toEmail = [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
-                //receiver email address
-                emailMessage.relayHost = @"smtp.gmail.com";
                 
-                emailMessage.requiresAuth = YES;
-                emailMessage.login = @"learnguild@gmail.com"; //sender email address
-                emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Weekly Message Details";
-                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-                emailMessage.wantsSecure = YES;
-                emailMessage.delegate = self;
-                
-                [recorddict objectForKey:@"pass"];
-                
-                // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Weekly Message Details for the BCResearch App Participants.\n\n Participant Name: %@\n\n Week Number : %@ \n\n Over for the past seven days on how many days did you take a dose of your AHT medication? : %@ \n\n What made you miss some doses? : %@ \n\n Would you like the app to send an email to your provider? : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"],[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"]];
-                
-                NSDictionary *plainMsg = [NSDictionary
-                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-                [emailMessage send];
-                NSLog(@"mail sent to pro");
             }
-            //Acknowledgement for participants
-            {
-                SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"learnguild@gmail.com";
-                
-                emailMessage.toEmail = [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];;//receiver email address
-                emailMessage.relayHost = @"smtp.gmail.com";
-                
-                emailMessage.requiresAuth = YES;
-                emailMessage.login = @"learnguild@gmail.com"; //sender email address
-                emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Weekly Message Details";
-                //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
-                emailMessage.wantsSecure = YES;
-                emailMessage.delegate = self;
-                
-                [recorddict objectForKey:@"pass"];
-                
-                // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Your Weekly Message Details has been Submitted to your respective Provider Successfully..\n\n Keep on Answering your Weekly Assessments.\n\n Thankyou. ",@"Uday"];
-                
-                NSDictionary *plainMsg = [NSDictionary
-                                          dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                                          messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-                emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
-                [emailMessage send];
-                
-                NSLog(@"mail sent to pat");
-            }
-            
+           else
+           {
+               [self performSegueWithIdentifier:@"sms10" sender:self];
+               [HUD hide:YES];
+ 
+           }
         }
         else
         {
@@ -162,30 +209,24 @@ int a;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if (a==1)
-    {
-        NSLog(@"recorddict in answer3 %@",recorddict);
-        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        [self.navigationController.view addSubview:HUD];
-        HUD.delegate = self;
-        HUD.labelText = @"Saving....";
-        [HUD show:YES];
-        [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+   
         
-        
-        [self performSegueWithIdentifier:@"sms10" sender:self];
-    }
-    else
-    {
-        NULL;
-    }
+    
+         // [[NSRunLoop currentRunLoop] run];
+       
+    
     
 }
 #pragma mark SKPSMTPMessage Delegate Methods
-- (void)messageState:(SKPSMTPState)messageState;
+- (void)messageState:(SKPSMTPState)messageState
 {
     
     
+    NSLog(@"HighestState:%d", HighestState);
+    if (messageState > HighestState)
+        HighestState = messageState;
+    
+    ProgressBar.progress = (float)HighestState/(float)kSKPSMTPWaitingSendSuccess;
     //insert into database
     
     
@@ -195,12 +236,36 @@ int a;
 -(void)messageSent:(SKPSMTPMessage *)message
 {
     
+
+    
+    if (move==2)
+    {
+        [HUD hide:YES];
+        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Info" message:@"Mail has been sent to provider & participant."];
+        [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert1 show];
+        move=0;
+     
+        [self performSegueWithIdentifier:@"sms10" sender:self];
+    }
+    move++;
+    // [HUD hide:YES];
+    
+
+
 }
 // On Failure
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
     // open an alert with just an OK button
-    
-    // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
+    [HUD hide:YES];
+
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Info" message:[error localizedDescription]];
+    [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
+    [alert1 show];
+
+     NSLog(@"delegate - error(%ld): %@", (long)[error code], [error localizedDescription]);
+        [self performSegueWithIdentifier:@"sms10" sender:self];
+
     
 }
 // Network Status Check
@@ -284,9 +349,10 @@ int a;
             [HUD hide:YES];
             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
             
-            
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
+            move=1;
+            
         }
         else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
         {
@@ -300,6 +366,7 @@ int a;
             
         }
         
+             
         [HUD hide:YES];
         
     }
