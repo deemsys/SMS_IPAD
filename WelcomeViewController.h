@@ -43,7 +43,7 @@
     NSString *time31;
     NSString *provider1;
     NSString *group1;
-    NSString *age1;
+    NSString *age1,*msgstream;
     NSTimer *timer;
     int count2;
     IBOutlet UIButton *review;

@@ -112,6 +112,8 @@
         select=@"0";
         settingslabel.text = @"Off";
     }
+    [[NSUserDefaults standardUserDefaults]setObject:select forKey:@"messagestream"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     NSString *resultResponse=[self HttpPostEntityFirstmessagestream:@"patientid" ForValue1:[[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"] EntitySecond:@"messagestream" ForValue2:select EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     
     

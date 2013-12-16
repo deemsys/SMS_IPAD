@@ -236,7 +236,7 @@
 -(IBAction)sunc1
 {
     
-    NSLog(@"Sunc called automatically");
+    //NSLog(@"Sunc called automatically");
     
     // [[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
@@ -367,7 +367,7 @@
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString * currentDate = [dateFormatter stringFromDate:date];
-    NSLog(@"current date %@",currentDate);
+  //  NSLog(@"current date %@",currentDate);
     int count=0;
     for(int i=0;i<[week3 count];i++)
     {
@@ -454,6 +454,7 @@
             provider1 =[arrayList3 objectForKey:@"providername"];
             group1 =[arrayList3 objectForKey:@"group"];
             age1 =[arrayList3 objectForKey:@"age"];
+            msgstream=[arrayList3 objectForKey:@"messagestream"];
              [[NSUserDefaults standardUserDefaults]synchronize];
             HUD.labelText = @"Completed.";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
@@ -464,8 +465,11 @@
         
         [[NSUserDefaults standardUserDefaults]setObject:username1 forKey:@"Participantusername"];
         [[NSUserDefaults standardUserDefaults]setObject:email1 forKey:@"Participantemail"];
-        NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
-         [[NSUserDefaults standardUserDefaults]synchronize];
+       // NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
+        NSLog(@"message stream %@",msgstream);
+        [[NSUserDefaults standardUserDefaults]setObject:msgstream forKey:@"messagestream"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+         
     }
     else
     {
@@ -1000,6 +1004,9 @@
 }
 -(void) viewWillAppear:(BOOL)animated
 {
+   // [self sunc];
+   // [self weekupdate];
+   // [self sequencycheck];
     timer = [NSTimer scheduledTimerWithTimeInterval:1800  target:self  selector:@selector(daily)  userInfo:nil                                   repeats:YES];
     // [self daily];
     flagvalue=[[NSMutableArray alloc]init];
@@ -1124,6 +1131,7 @@
             provider1 =[arrayList3 objectForKey:@"providername"];
             group1 =[arrayList3 objectForKey:@"group"];
             age1 =[arrayList3 objectForKey:@"age"];
+            msgstream=[arrayList3 objectForKey:@"messagestream"];
             [[NSUserDefaults standardUserDefaults]synchronize];
             HUD.labelText = @"Completed.";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
@@ -1131,6 +1139,8 @@
             [HUD hide:YES afterDelay:0];
             
         }
+        [[NSUserDefaults standardUserDefaults]setObject:msgstream forKey:@"messagestream"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
     }
     
     NSLog(@"timer called");
