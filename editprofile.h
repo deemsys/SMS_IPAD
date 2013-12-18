@@ -56,7 +56,10 @@
     IBOutlet UISegmentedControl*time2seg;
     IBOutlet UISegmentedControl*time3seg;
     NSString *t1,*t2,*t3;
-    
+    NSArray *arrayWithIDs;
+    NSArray *arrayWithIDvalues;
+    NSString *postVarArrayString;
+    NSString *postVarArrayStringid;
     IBOutlet UIButton *submit;
     
 }

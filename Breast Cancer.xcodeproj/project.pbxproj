@@ -25,6 +25,7 @@
 		0D05E7501886BBD4004497A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F19C41837CDFB001389C1 /* CFNetwork.framework */; };
 		0D0E55231858538000A3B41F /* messageunread.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E55221858538000A3B41F /* messageunread.png */; };
 		0D0E552518589A4400A3B41F /* twillo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E552418589A4400A3B41F /* twillo.jpg */; };
+		0D1E770418618833008C17DA /* logo (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E770318618833008C17DA /* logo (1).png */; };
 		0D24CDE81855AE3E003062B5 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE71855AE3E003062B5 /* icon58.png */; };
 		0D24CDEA1855AE42003062B5 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE91855AE42003062B5 /* icon80.png */; };
 		0D24CDEC1855AE48003062B5 /* largeappicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDEB1855AE48003062B5 /* largeappicon.png */; };
@@ -177,6 +178,7 @@
 		0D027218182D119F00C35B94 /* SMSIPADTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMSIPADTests.m; sourceTree = "<group>"; };
 		0D0E55221858538000A3B41F /* messageunread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageunread.png; sourceTree = "<group>"; };
 		0D0E552418589A4400A3B41F /* twillo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twillo.jpg; sourceTree = "<group>"; };
+		0D1E770318618833008C17DA /* logo (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo (1).png"; sourceTree = "<group>"; };
 		0D24CDE71855AE3E003062B5 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
 		0D24CDE91855AE42003062B5 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
 		0D24CDEB1855AE48003062B5 /* largeappicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = largeappicon.png; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				0D9919C0184CC03C00589D3B /* register.png */,
 				0D6C79D2183DFAC500C48D17 /* week.png */,
 				0D0E55221858538000A3B41F /* messageunread.png */,
+				0D1E770318618833008C17DA /* logo (1).png */,
 				0DE7E7AE1850CB6300846356 /* settings.png */,
 				0DE7E7AC1850C78300846356 /* Visualpharm-Icons8-Metro-Style-System-Logout.ico */,
 				0D0E552418589A4400A3B41F /* twillo.jpg */,
@@ -816,6 +819,7 @@
 				0D952EC01835316C00053B45 /* back_btn@2x.png in Resources */,
 				0D952EB918352BAA00053B45 /* forgotpass.png in Resources */,
 				0DD26E721847622F00E1CCE3 /* check_selected@2x.png in Resources */,
+				0D1E770418618833008C17DA /* logo (1).png in Resources */,
 				0D952EAF1835291400053B45 /* edit.png in Resources */,
 				0DE7E7AF1850CB6300846356 /* settings.png in Resources */,
 				0D0E55231858538000A3B41F /* messageunread.png in Resources */,

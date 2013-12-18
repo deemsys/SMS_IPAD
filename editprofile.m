@@ -41,6 +41,22 @@
     }
     return self;
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag==5) {
+        
+        NSUInteger newLength = [mobile.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    else if (textField.tag==6) {
+        
+        NSUInteger newLength = [city.text length] + [string length] - range.length;
+        return (newLength > 6) ? NO : YES;
+    }
+    else
+        return YES;
+}
+
 - (void)pickerViewTappedage
 {
     agepick.hidden=YES;
@@ -205,7 +221,7 @@
     
     timearray=[[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12", nil];
     
-    grouppicker.text=@"Select group";
+    grouppicker.text=[recorddict objectForKey:@"groupname"];
     grouparray=[recorddict objectForKey:@"Grouplist"];
     entries=[[NSArray alloc]init];
     entriesSelected=[[NSArray alloc]init];
@@ -438,7 +454,7 @@
 #pragma mark - Delegate
 -(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
 {
-   // NSLog(@"selectedArray=%@",selectedEntriesArr);
+    NSLog(@"selectedArray=%@",selectedEntriesArr);
     groupidlist=[recorddict objectForKey:@"groupid"];
     NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
     selectedgroupid=[[NSMutableArray alloc]init];
@@ -448,33 +464,36 @@
     if(([selectedEntriesArr count]<=4)&&([selectedEntriesArr count]!=0))
     {
         grouppicker.text=dataStr;
-    for (int i=0; i<[selectedEntriesArr count]; i++)
-    {
-        int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
-        //NSLog(@"%d %@ %lu",indexValue,[selectedEntriesArr objectAtIndex:i],(unsigned long)
-        //[grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]]);
-        [selectedgroupid addObject:[groupidlist objectAtIndex:indexValue]];
+        for (int i=0; i<[selectedEntriesArr count]; i++)
+        {
+            int indexValue = [grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]];
+            //NSLog(@"%d %@ %lu",indexValue,[selectedEntriesArr objectAtIndex:i],(unsigned long)
+            //[grouparray indexOfObject:[selectedEntriesArr objectAtIndex:i]]);
+            [selectedgroupid addObject:[groupidlist objectAtIndex:indexValue]];
+        }
+        
+        // NSLog(@"index %d",indexValue);
+        // NSLog(@"selectedgroupid %@",selectedgroupid);
+        [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
+        [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
     }
-    
-    // NSLog(@"index %d",indexValue);
-    // NSLog(@"selectedgroupid %@",selectedgroupid);
-    [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
-    [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
-    }
-    else
+    else if([selectedEntriesArr count]>4)
     {
-         grouppicker.text=@"Select group";
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Please select maximum 4 groups."];
+        grouppicker.text=[recorddict objectForKey:@"groupname"];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-
+    else if([selectedEntriesArr count]==0)
+    {
+        grouppicker.text=[recorddict objectForKey:@"groupname"];
+    }
+    
     
     
 }
-
 -(IBAction)changeage:(id)sender
 {
     if(agepick.hidden==YES)
@@ -525,7 +544,7 @@
 // Submission action using http posting json data & json parsing
 - (IBAction)submit:(id)sender
 {
-    if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0)&&(![grouppicker.text isEqualToString:@"Select group"]))
+    if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0)&&(![grouppicker.text isEqualToString:@""]))
     {
         
         if ([self alphabeticvalidation:fname.text]==1)
@@ -770,27 +789,66 @@
     NSString *tf2=[recorddict objectForKey:@"Preferred Time2 format"];
     NSString *tf3=[recorddict objectForKey:@"Preferred Time3 format"];
     NSString*prov=provider.text;
-    NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
-    NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
-    NSString *postVarArrayString = @"";
-    NSString *postVarArrayStringid = @"";
-    int j=[arrayWithIDs count];
-    //NSString *separator= @"&";;
-    for (int i=0; i<[arrayWithIDs count]; i++) {
-        postVarArrayString = [NSString stringWithFormat:@"%@%@", postVarArrayString, [arrayWithIDs objectAtIndex:i] ];
-        postVarArrayStringid = [NSString stringWithFormat:@"%@%d", postVarArrayStringid, [[arrayWithIDvalues objectAtIndex:i] integerValue]];
-        if(i==j-1)
-        {
-            postVarArrayString = [NSString stringWithFormat:@"%@", postVarArrayString];
-            postVarArrayStringid =  [NSString stringWithFormat:@"%@", postVarArrayStringid];
+    if(![grouppicker.text isEqual:[recorddict objectForKey:@"groupname"]])
+    {
+        NSLog(@"changed the group");
+        arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
+        arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
+        postVarArrayString = @"";
+        postVarArrayStringid = @"";
+        int j=[arrayWithIDs count];
+        //NSString *separator= @"&";;
+        for (int i=0; i<[arrayWithIDs count]; i++) {
+            postVarArrayString = [NSString stringWithFormat:@"%@%@", postVarArrayString, [arrayWithIDs objectAtIndex:i] ];
+            postVarArrayStringid = [NSString stringWithFormat:@"%@%d", postVarArrayStringid, [[arrayWithIDvalues objectAtIndex:i] integerValue]];
+            if(i==j-1)
+            {
+                postVarArrayString = [NSString stringWithFormat:@"%@", postVarArrayString];
+                postVarArrayStringid =  [NSString stringWithFormat:@"%@", postVarArrayStringid];
+            }
+            else
+            {
+                postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
+                postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+            }
+            
+            
         }
-        else
+        NSLog(@"%@ group",postVarArrayString);
+        NSLog(@"%@ groupid",postVarArrayStringid);
+        
+    }
+    else
+    {
+        NSLog(@"doesnot selected groups");
+        arrayWithIDs=[recorddict objectForKey:@"participantgroupname"];
+        arrayWithIDvalues=[recorddict objectForKey:@"participantgroupid"];
+        NSLog(@"arraynames %@",arrayWithIDs);
+        NSLog(@"arrayidvalues %@",arrayWithIDvalues);
+        
+        postVarArrayString = @"";
+        postVarArrayStringid = @"";
+        int j=[arrayWithIDs count];
+        //NSString *separator= @"&";;
+        for (int i=0; i<[arrayWithIDs count]; i++)
         {
-            postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
-            postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+            postVarArrayString = [NSString stringWithFormat:@"%@%@", postVarArrayString, [arrayWithIDs objectAtIndex:i] ];
+            postVarArrayStringid = [NSString stringWithFormat:@"%@%d", postVarArrayStringid, [[arrayWithIDvalues objectAtIndex:i] integerValue]];
+            if(i==j-1)
+            {
+                postVarArrayString = [NSString stringWithFormat:@"%@", postVarArrayString];
+                postVarArrayStringid =  [NSString stringWithFormat:@"%@", postVarArrayStringid];
+            }
+            else
+            {
+                postVarArrayString = [NSString stringWithFormat:@"%@-", postVarArrayString];
+                postVarArrayStringid =  [NSString stringWithFormat:@"%@-", postVarArrayStringid];
+            }
+            
+            
         }
-        
-        
+        NSLog(@"%@ group",postVarArrayString);
+        NSLog(@"%@ groupid",postVarArrayStringid);
     }
     
     // NSLog(@"%@ selected groupid",selectedgroupid);

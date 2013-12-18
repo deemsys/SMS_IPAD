@@ -139,19 +139,26 @@ int a;
 }
 -(IBAction)play:(id)sender
 {
-    
-    
         recording.hidden=FALSE;
         
        recording.text=@"Playing..";
         
     
-    [stop setEnabled:NO];
+    [stop setEnabled:YES];
     [record setEnabled:NO];
     [self.audioPlayer play];
     
 }
 
+#pragma mark - AVAudioPlayerDelegate
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    recording.hidden=TRUE;
+    
+    BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Done" message:@"Finish playing the recording!"];
+    [alert show];
+}
 
 
 -(void)dismissKeyboard {
@@ -181,14 +188,6 @@ int a;
 }
 
 
-#pragma mark - AVAudioPlayerDelegate
-
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    recording.hidden=TRUE;
-    
-    BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Done" message:@"Finish playing the recording!"];
-[alert show];
-}
 
 
 - (void)viewDidLoad

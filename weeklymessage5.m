@@ -44,6 +44,7 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
    // NSLog(@"recorddict in welcome 5 %@",recorddict);
     [super viewDidLoad];
+    end.hidden=TRUE;
   [self performSelector:@selector(signUpMethod) withObject:nil afterDelay:1];
     
 	// Do any additional setup after loading the view.
@@ -144,7 +145,7 @@
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
                 [HUD hide:YES];
-                
+                end.hidden=FALSE;
                 
             }
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
@@ -156,6 +157,7 @@
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
                 [HUD hide:YES];
+                end.hidden=FALSE;
                 
             }
             
@@ -193,12 +195,12 @@
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+          NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             NSDictionary* menuaudio = [luckyNumbersaudio objectForKey:@"serviceresponse"];
+                NSLog(@"Menu id: %@", [menuaudio objectForKey:@"servicename"]);
             
             
-            
-            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"]&&[[menuaudio objectForKey:@"success"] isEqualToString:@"Yes"])
+            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
             {
                 
                 
@@ -207,10 +209,13 @@
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
                 [HUD hide:YES];
+                end.hidden=FALSE;
+                
+
                 
                 
             }
-            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"]&&[[menuaudio objectForKey:@"success"] isEqualToString:@"No"])
+            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
             {
                 
                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
@@ -219,6 +224,9 @@
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
                 [HUD hide:YES];
+                end.hidden=FALSE;
+                
+
                 
             }
             
@@ -357,7 +365,7 @@
         
         [url release];
         [req release];
-      //  NSLog(@"response for audio insertion %@",result);
+    NSLog(@"response for audio insertion %@",result);
         
         
         return result;

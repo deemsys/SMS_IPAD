@@ -32,7 +32,7 @@
     [super viewDidLoad];
     recorddict=[[NSMutableDictionary alloc]init];
     NSString*userid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
-    // NSString*userid=@"56";
+    NSLog(@"userid in partview %@",userid);
     group.delegate=self;
     group.dataSource=self;
     [self getparticipantdetail:userid];
@@ -53,6 +53,8 @@
     age.text=age1;
     if(![group1 isEqualToString:@""])
     {
+        [recorddict setObject:group1 forKey:@"groupname"];
+
         grouplistnames.text=group1;
         grouplist = [group1 componentsSeparatedByString:@","];
     }
@@ -231,9 +233,49 @@
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
+    NSString*userid1=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
+    NSString *resultResponseparticipantgroup=[self HttpPostEntityFirstparticipantgroup:@"loginid" ForValue1:userid1  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
+    NSError *errorpar1;
+    SBJSON *jsonpar1 = [[SBJSON new] autorelease];
+    NSLog(@"response %@",resultResponseparticipantgroup);
+	NSDictionary *luckyNumberspar1 = [jsonpar1 objectWithString:resultResponseparticipantgroup error:&errorpar1];
+    NSDictionary *itemsApppar1 = [luckyNumberspar1 objectForKey:@"serviceresponse"];
+    NSArray *items1Apppar1=[itemsApppar1 objectForKey:@"Participants_groups List"];
+    participantgroupname=[[NSMutableArray alloc]init];
+    participantgroupid=[[NSMutableArray alloc]init];
+    partid=[[NSMutableArray alloc]init];
+    NSDictionary *arrayListpar2;
+    if ([[itemsApppar1 objectForKey:@"success"] isEqualToString:@"Yes"])
+    {
+        
+        for (id anUpdate1 in items1Apppar1)
+        {
+            NSDictionary *arrayListpar2=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
+            
+            [participantgroupname addObject:[arrayListpar2 objectForKey:@"group_name"]];
+            [participantgroupid addObject:[arrayListpar2 objectForKey:@"group_id"]];
+            [partid addObject:[arrayListpar2 objectForKey:@"participant_id"]];
+            
+            
+        }
+        [recorddict setObject:participantgroupid forKey:@"participantgroupid"];
+        [recorddict setObject:participantgroupname forKey:@"participantgroupname"];
+        
+        
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Failed to get participants grouplist."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+    }
     [recorddict setObject:groupid forKey:@"groupid"];
     [recorddict setObject:groupname forKey:@"Grouplist"];
     [recorddict setObject:createdby forKey:@"createdby"];
+    NSLog(@"pargroupname %@",participantgroupname);
+    NSLog(@"pargroupid %@",participantgroupid);
+    NSLog(@"partid %@",partid);
+
     //  NSLog(@"items1app %@",luckyNumbers);
   //  NSLog(@"group name %@",groupname);
   //  NSLog(@"group id %@",groupid);
@@ -321,7 +363,36 @@
     return data;
     
 }
-
+-(NSString *)HttpPostEntityFirstparticipantgroup:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
+{
+    //reading user detail
+    
+    HUD.labelText = @"Synchronizing Data..";
+    
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
+    NSURL *url=[NSURL URLWithString:@"http://medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantsgrouplist"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+NSLog(@" post %@ ",post);
+    
+   NSLog(@" data %@ ",data);
+    
+    return data;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

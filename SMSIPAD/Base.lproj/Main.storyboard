@@ -502,8 +502,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twillo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sER-6f-WVi">
-                                <rect key="frame" x="13" y="423" width="91" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo (1).png" translatesAutoresizingMaskIntoConstraints="NO" id="sER-6f-WVi">
+                                <rect key="frame" x="13" y="387" width="91" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -535,7 +535,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="42K-2y-Rct">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="42K-2y-Rct">
                                 <rect key="frame" x="0.0" y="0.0" width="327" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -608,7 +608,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="s11-7h-hT3">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s11-7h-hT3">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -728,7 +728,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="register.png" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-uV-7zS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-uV-7zS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1426,8 +1426,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-9V-dPe">
-                                        <rect key="frame" x="70" y="163" width="38" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zipcode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-9V-dPe">
+                                        <rect key="frame" x="48" y="163" width="59" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1499,7 +1499,7 @@
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="6Pc-bK-upw"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="963258741" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPJ-tT-8jz">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="963258741" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPJ-tT-8jz">
                                         <rect key="frame" x="115" y="66" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
@@ -1519,7 +1519,7 @@
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="4eM-1d-7Ab"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chennai" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o45-iX-dBL">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chennai" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o45-iX-dBL">
                                         <rect key="frame" x="115" y="163" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
@@ -1555,7 +1555,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-sS-JCw">
-                                        <rect key="frame" x="108" y="448" width="74" height="20"/>
+                                        <rect key="frame" x="225" y="138" width="74" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Submit" backgroundImage="blue-teal-gradient.jpg">
@@ -1792,7 +1792,7 @@
             </objects>
             <point key="canvasLocation" x="3436" y="873"/>
         </scene>
-        <!--Weekmessage2 - Weekly Message-->
+        <!--Weekmessage2 - Weekly Survey-->
         <scene sceneID="Zh3-es-lEV">
             <objects>
                 <viewController id="CdN-Hy-moe" customClass="weekmessage2" sceneMemberID="viewController">
@@ -1804,7 +1804,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sni-yp-haW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sni-yp-haW">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="486"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -1936,7 +1936,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Weekly Message" id="8sf-u3-eN2">
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="8sf-u3-eN2">
                         <barButtonItem key="backBarButtonItem" title="back" id="Fiy-WM-czU"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1963,7 +1963,7 @@
             </objects>
             <point key="canvasLocation" x="4098" y="-101"/>
         </scene>
-        <!--Weeklymessage3 - Weekly Message-->
+        <!--Weeklymessage3 - Weekly Survey-->
         <scene sceneID="Afo-ha-uVc">
             <objects>
                 <viewController id="Q1P-2b-Rt9" customClass="weeklymessage3" sceneMemberID="viewController">
@@ -2079,7 +2079,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Weekly Message" id="Jzl-Qy-L1s">
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="Jzl-Qy-L1s">
                         <barButtonItem key="backBarButtonItem" title="back" id="fyz-ma-lfp"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -2100,7 +2100,7 @@
             </objects>
             <point key="canvasLocation" x="4746" y="-1098"/>
         </scene>
-        <!--Weeklymessage5-->
+        <!--Weeklymessage5 - Weekly Survey-->
         <scene sceneID="LwP-gr-BHy">
             <objects>
                 <viewController id="bgu-a2-w5H" customClass="weeklymessage5" sceneMemberID="viewController">
@@ -2112,7 +2112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lWJ-wH-qm7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lWJ-wH-qm7">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="485"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -2144,7 +2144,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foS-Lq-sLE">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foS-Lq-sLE">
                                 <rect key="frame" x="81" y="163" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2159,7 +2159,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QIr-sz-EtL"/>
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="QIr-sz-EtL"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="end" destination="foS-Lq-sLE" id="2cI-dG-7QZ"/>
@@ -2169,7 +2169,7 @@
             </objects>
             <point key="canvasLocation" x="4890" y="756"/>
         </scene>
-        <!--Weeklymessage4 - Weekly Message-->
+        <!--Weeklymessage4 - Weekly Survey-->
         <scene sceneID="VHI-0n-X2l">
             <objects>
                 <viewController id="4Jx-nq-F7F" customClass="weeklymessage4" sceneMemberID="viewController">
@@ -2181,7 +2181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eRv-NU-IDr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eRv-NU-IDr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="489"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -2252,7 +2252,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Weekly Message" id="WMS-3s-daE">
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="WMS-3s-daE">
                         <barButtonItem key="backBarButtonItem" title="back" id="VIi-Yd-ZHf"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -2358,7 +2358,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="register.png" translatesAutoresizingMaskIntoConstraints="NO" id="nx1-3S-44C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nx1-3S-44C">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2499,7 +2499,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="register.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rnl-fa-E2J">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Rnl-fa-E2J">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2670,7 +2670,7 @@
             </objects>
             <point key="canvasLocation" x="1162" y="865"/>
         </scene>
-        <!--Weeklymail-->
+        <!--Weeklymail - Weekly Survey-->
         <scene sceneID="nuF-dr-vfA">
             <objects>
                 <viewController id="fRF-I4-4KV" customClass="weeklymail" sceneMemberID="viewController">
@@ -2682,7 +2682,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U84-eK-HAr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U84-eK-HAr">
                                 <rect key="frame" x="0.0" y="0.0" width="330" height="488"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -2754,7 +2754,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fkg-ZN-ldT"/>
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="Fkg-ZN-ldT"/>
                     <connections>
                         <outlet property="mailanswer" destination="rby-Ll-9tE" id="NF3-9V-dMV"/>
                         <outlet property="next" destination="wXc-hD-l0S" id="IOp-ou-beK"/>
@@ -2777,7 +2777,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no Messages in your Message Library." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" id="5gN-j9-fdE">
-                            <rect key="frame" x="0.0" y="173" width="320" height="106"/>
+                            <rect key="frame" x="0.0" y="109" width="320" height="106"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2785,7 +2785,7 @@
                         </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="87" id="l0n-Ag-gxZ">
-                                <rect key="frame" x="0.0" y="86" width="320" height="87"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l0n-Ag-gxZ" id="bdL-36-QUQ">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="86"/>
@@ -2845,18 +2845,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="logo (1).png" width="202" height="200"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
-        <image name="twillo.jpg" width="389" height="129"/>
         <image name="unread_message.png" width="512" height="512"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
@@ -2866,9 +2864,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="LhH-3a-ZP2"/>
-        <segue reference="zJw-5E-t9R"/>
-        <segue reference="blN-DC-lSG"/>
+        <segue reference="KlT-rp-OLs"/>
+        <segue reference="DkS-WN-iHq"/>
         <segue reference="ONR-yB-HFl"/>
+        <segue reference="Vcd-52-NTG"/>
     </inferredMetricsTieBreakers>
 </document>

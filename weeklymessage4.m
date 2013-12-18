@@ -241,9 +241,6 @@ int a;
     if (move==2)
     {
         [HUD hide:YES];
-        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Info" message:@"Mail has been sent to provider & participant."];
-        [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
-        [alert1 show];
         move=0;
      
         [self performSegueWithIdentifier:@"sms10" sender:self];

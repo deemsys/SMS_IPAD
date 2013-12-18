@@ -222,6 +222,7 @@
             
             [[NSUserDefaults standardUserDefaults] setObject:phonenumber.text forKey:@"username"];
             [[NSUserDefaults standardUserDefaults]synchronize];
+            NSLog(@"loginid %@",LoginId);
             //name.text=Nil;
             //password.text=nil;
             

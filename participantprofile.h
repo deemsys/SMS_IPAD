@@ -33,7 +33,8 @@
     NSString *provider1;
     IBOutlet UILabel *grouplistnames;
     NSString *group1;
-    NSMutableArray *groupid,*groupdes;
+      NSMutableArray *groupid,*groupdes,*participantgroupname,*participantgroupid,*partid;
+   
     NSString *age1;
     NSMutableDictionary*recorddict;
     NSMutableArray*groupname,*createdby;

@@ -1002,7 +1002,7 @@
     
 	// Do any additional setup after loading the view.
 }
--(void) viewWillAppear:(BOOL)animated
+/*-(void) viewWillAppear:(BOOL)animated
 {
    // [self sunc];
    // [self weekupdate];
@@ -1097,7 +1097,7 @@
     
     
 }
-
+*/
 -(void)daily
 {
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
