@@ -429,6 +429,16 @@
                                 <rect key="frame" x="288" y="24" width="32" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd2-FV-bfz">
+                                <rect key="frame" x="146" y="47" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh:" destination="Oja-Bk-TjT" eventType="touchUpInside" id="Hqq-0o-4ZT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2864,9 +2874,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KlT-rp-OLs"/>
         <segue reference="DkS-WN-iHq"/>
         <segue reference="ONR-yB-HFl"/>
         <segue reference="Vcd-52-NTG"/>
+        <segue reference="0Js-Lx-Uc6"/>
     </inferredMetricsTieBreakers>
 </document>

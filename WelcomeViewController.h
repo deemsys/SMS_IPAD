@@ -55,6 +55,7 @@
     
     
 }
+- (IBAction)refresh:(id)sender;
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;
 @property (nonatomic, retain) UILabel *resLabel1;

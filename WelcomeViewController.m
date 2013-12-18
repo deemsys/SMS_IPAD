@@ -153,6 +153,102 @@
     }
     
 }
+- (IBAction)refresh:(id)sender
+{
+    // [self sunc];
+    // [self weekupdate];
+    // [self sequencycheck];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1800  target:self  selector:@selector(daily)  userInfo:nil                                   repeats:YES];
+    // [self daily];
+    flagvalue=[[NSMutableArray alloc]init];
+    msgbody=[[NSMutableArray alloc]init];
+    msgdate=[[NSMutableArray alloc]init];
+    count2=0;
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docDirectory = [path objectAtIndex:0];
+    
+	msgdatefile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgdateFile.hsa"]];
+    msgtextfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgtextFile.hsa"]];
+    msgflagfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgflagFile.hsa"]];
+    msgfromfile=[[NSString alloc] initWithString:[docDirectory stringByAppendingPathComponent:@"msgfromFile.hsa"]];
+    
+    
+	if ([[NSFileManager defaultManager] fileExistsAtPath:msgdatefile])
+	{
+		msgdate=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgdatefile]];
+		
+	}
+	else
+	{
+		msgdate=[[NSMutableArray alloc]init];
+	}
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:msgtextfile])
+	{
+		msgbody=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath:msgtextfile]];
+		
+	}
+	else
+	{
+		msgbody=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgflagfile])
+	{
+		flagvalue=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgflagfile]];
+        //NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        flagvalue=[[NSMutableArray alloc]init];
+	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath: msgfromfile])
+	{
+		msgfrom=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgfromfile]];
+        //  NSLog(@"flag values %@",flagvalue);
+       	
+	}
+    else
+	{
+        msgfrom=[[NSMutableArray alloc]init];
+	}
+    
+    for(int i=0;i<[flagvalue count];i++)
+    {
+        if ([[flagvalue objectAtIndex:i] isEqual:@"1"])
+        {
+            
+            count2++;
+            
+        }
+    }
+    if(count2>0)
+    {
+         [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if((count2==[msgfrom count])&&([msgfrom count]!=0))
+    {
+         [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        dailymessagelabel.text=@"You have viewed all your messages";
+    }
+    else if ((count2==0)&&([msgfrom count]!=0))
+    {
+         [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if([msgfrom count]==0)    {
+         [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        dailymessagelabel.text=@"You didnot receive any messages";
+    }
+    
+
+    
+
+}
+
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender
 {
     NSString*select;
@@ -614,21 +710,23 @@
         
         if(count2>0)
         {
+            
             NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
             dailymessagelabel.text=labeltext;
         }
-        else if(count2==[msgfrom count])
+        else if((count2==[msgfrom count])&&([msgfrom count]!=0))
         {
+            
             dailymessagelabel.text=@"You have viewed all your messages";
         }
     else if ((count2==0)&&([msgfrom count]!=0))
     {
+         
         NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
-    else
-    {
-        
+     else if([msgfrom count]==0)    {
+          [UIApplication sharedApplication].applicationIconBadgeNumber=0;
         dailymessagelabel.text=@"You didnot receive any messages";
     }
     
@@ -978,25 +1076,25 @@
     }
         
     
-        if(count2>0)
-        {
-            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
-            dailymessagelabel.text=labeltext;
-        }
-        else if(count2==[msgfrom count])
-        {
-            dailymessagelabel.text=@"You have viewed all your messages";
-        }
-        else if ((count2==0)&&([msgfrom count]!=0))
-        {
-            NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
-            dailymessagelabel.text=labeltext;
-        }
-        else
-        {
-            
-            dailymessagelabel.text=@"You didnot receive any messages";
-        }
+    
+    if(count2>0)
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if((count2==[msgfrom count])&&([msgfrom count]!=0))
+    {
+        dailymessagelabel.text=@"You have viewed all your messages";
+    }
+    else if ((count2==0)&&([msgfrom count]!=0))
+    {
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        dailymessagelabel.text=labeltext;
+    }
+    else if([msgfrom count]==0)    {
+          [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        dailymessagelabel.text=@"You didnot receive any messages";
+    }
 
     
     
@@ -1204,6 +1302,7 @@
     
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
     {
+        [UIApplication sharedApplication].applicationIconBadgeNumber=0;
         for(int j=0;j<[temptext count];j++)
         {
             [msgbody addObject:[temptext objectAtIndex:j]];
@@ -1273,12 +1372,13 @@
     [recorddict setObject:msgdate forKey:@"msgdate"];
     totalmessage=[msgfrom count];
     
+    
     if(count2>0)
     {
         NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
-    else if(count2==[msgfrom count])
+    else if((count2==[msgfrom count])&&([msgfrom count]!=0))
     {
         dailymessagelabel.text=@"You have viewed all your messages";
     }
@@ -1287,8 +1387,7 @@
         NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
-    else
-    {
+    else if([msgfrom count]==0)    {
         
         dailymessagelabel.text=@"You didnot receive any messages";
     }
