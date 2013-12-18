@@ -321,7 +321,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e3-1W-t35">
-                                <rect key="frame" x="242" y="28" width="45" height="18"/>
+                                <rect key="frame" x="236" y="28" width="45" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <state key="normal" title="Signout">
@@ -426,9 +426,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd2-FV-bfz">
-                                <rect key="frame" x="285" y="22" width="35" height="29"/>
+                                <rect key="frame" x="282" y="18" width="35" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh" image="Rafiqul-Hassan-Blogger-Refresh-2.ico">
+                                <state key="normal" title="Refresh" image="009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2851,56 +2851,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png" width="256" height="256"/>
         <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="Rafiqul-Hassan-Blogger-Refresh-2.ico" width="256" height="256"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
-        <image name="bg3.png" width="640" height="960"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="logo (1).png" width="202" height="200"/>
         <image name="next.png" width="98" height="36"/>
@@ -2908,13 +2862,6 @@
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="unread_message.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

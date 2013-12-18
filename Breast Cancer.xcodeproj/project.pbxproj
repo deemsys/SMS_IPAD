@@ -27,6 +27,7 @@
 		0D0E552518589A4400A3B41F /* twillo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E552418589A4400A3B41F /* twillo.jpg */; };
 		0D1E770418618833008C17DA /* logo (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E770318618833008C17DA /* logo (1).png */; };
 		0D1E77061861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E77051861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico */; };
+		0D1E77091861B52A008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E77071861B33C008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png */; };
 		0D24CDE81855AE3E003062B5 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE71855AE3E003062B5 /* icon58.png */; };
 		0D24CDEA1855AE42003062B5 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDE91855AE42003062B5 /* icon80.png */; };
 		0D24CDEC1855AE48003062B5 /* largeappicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D24CDEB1855AE48003062B5 /* largeappicon.png */; };
@@ -181,6 +182,7 @@
 		0D0E552418589A4400A3B41F /* twillo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twillo.jpg; sourceTree = "<group>"; };
 		0D1E770318618833008C17DA /* logo (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo (1).png"; sourceTree = "<group>"; };
 		0D1E77051861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "Rafiqul-Hassan-Blogger-Refresh-2.ico"; sourceTree = "<group>"; };
+		0D1E77071861B33C008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png"; sourceTree = "<group>"; };
 		0D24CDE71855AE3E003062B5 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
 		0D24CDE91855AE42003062B5 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
 		0D24CDEB1855AE48003062B5 /* largeappicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = largeappicon.png; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 				0D1E77051861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico */,
 				0D952EA2183528F900053B45 /* next.png */,
 				0D952EA3183528F900053B45 /* reset.png */,
+				0D1E77071861B33C008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png */,
 				0D952EA4183528F900053B45 /* signin.png */,
 				0D6BE9C21850893800AE72F0 /* select.png */,
 				0D6BE9C31850893800AE72F0 /* unselect.png */,
@@ -816,6 +819,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D1E77091861B52A008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png in Resources */,
 				0D952EC21835317700053B45 /* cancel.png in Resources */,
 				0DE7E7BB1872DF8000846356 /* background.jpg in Resources */,
 				0D952EC11835317200053B45 /* back_btn.png in Resources */,
