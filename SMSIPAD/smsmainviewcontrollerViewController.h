@@ -30,7 +30,6 @@
     
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
-@property (strong, nonatomic) NSTimer *timer;
 -(IBAction)signin:(id)sender;
 - (IBAction)signup:(id)sender;
 

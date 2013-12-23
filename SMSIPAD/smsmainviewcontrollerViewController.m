@@ -30,7 +30,6 @@
     signup.layer.cornerRadius = 5.0f;
     forgot.clipsToBounds = YES;
     forgot.layer.cornerRadius = 5.0f;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(toggleLabelAlpha) userInfo:nil repeats:YES];
     
     
     [super viewDidLoad];
@@ -130,7 +129,7 @@
 
 - (IBAction)signup:(id)sender
 {
-    
+    notregisterd.text=@"Please Wait...";
     
 }
 
