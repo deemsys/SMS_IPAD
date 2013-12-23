@@ -292,7 +292,7 @@ save.clipsToBounds = YES;
     aaa = [recorddict objectForKey:@"answer2"];
     if ([aaa isEqual:@"I Forgot"])
     {
-        NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 1", @"tip 2 for option 1", @"tip 3 for option 1",@"tip 4 for option 1",@"tip 5 for option 1", nil ];
+        NSArray *words = [NSArray arrayWithObjects: @"Forgot Tip 1", @"Forgot Tip 2", @"Forgot Tip 3",@"Forgot Tip 4",@"Forgot Tip 5", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
     //    NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;
@@ -311,7 +311,7 @@ save.clipsToBounds = YES;
     }
     else if([aaa isEqual:@"I Had side effects"])
     {
-        NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 2", @"tip 2 for option 2", @"tip 3 for option 2",@"tip 4 for option 2",@"tip 5 for option 2", nil ];
+        NSArray *words = [NSArray arrayWithObjects: @"Side Effects tip 1", @"Side Effects tip 2", @"Side Effects tip 3",@"Side Effects tip 4",@"Side Effects tip 5", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
      //   NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;
@@ -330,7 +330,7 @@ save.clipsToBounds = YES;
         
     }
     else if([aaa isEqual:@"I ran out of Medication"])
-    {NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 3", @"tip 2 for option 3", @"tip 3 for option 3",@"tip 4 for option 3",@"tip 5 for option 3", nil ];
+    {NSArray *words = [NSArray arrayWithObjects: @"Ran out of Medication tip 1", @"Ran out of Medication tip 2", @"Ran out of Medication tip 3",@"Ran out of Medication tip 4",@"Ran out of Medication tip 5", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
      //   NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;

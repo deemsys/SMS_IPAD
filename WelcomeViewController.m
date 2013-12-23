@@ -912,6 +912,8 @@
 
 - (void)viewDidLoad
 {
+    syncing.clipsToBounds = YES;
+    syncing.layer.cornerRadius = 5.0f;
     review.clipsToBounds = YES;
     review.layer.cornerRadius = 5.0f;
     survey.clipsToBounds = YES;
@@ -1460,6 +1462,7 @@
     [review release];
     [survey release];
     [dailymessagelabel release];
+    [syncing release];
     [super dealloc];
 }
 @end

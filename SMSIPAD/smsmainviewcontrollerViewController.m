@@ -30,7 +30,7 @@
     signup.layer.cornerRadius = 5.0f;
     forgot.clipsToBounds = YES;
     forgot.layer.cornerRadius = 5.0f;
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(toggleLabelAlpha) userInfo:nil repeats:YES];
     
     
     [super viewDidLoad];
@@ -126,6 +126,12 @@
         [alert show];
         
     }
+}
+
+- (IBAction)signup:(id)sender
+{
+    
+    
 }
 
 
@@ -355,6 +361,7 @@
     [signin release];
     [signup release];
     [forgot release];
+    [notregisterd release];
     [super dealloc];
 }
 @end

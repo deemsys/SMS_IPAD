@@ -21,6 +21,7 @@
     IBOutlet UIButton *signin;
     IBOutlet UIButton *signup;
     IBOutlet UIButton *forgot;
+    IBOutlet UILabel *notregisterd;
     
     
     
@@ -29,7 +30,9 @@
     
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
+@property (strong, nonatomic) NSTimer *timer;
 -(IBAction)signin:(id)sender;
+- (IBAction)signup:(id)sender;
 
 
 @end

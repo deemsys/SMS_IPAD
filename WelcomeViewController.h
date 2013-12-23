@@ -52,6 +52,7 @@
     NSNumber *total2;
     IBOutlet UIButton *survey;
     IBOutlet UILabel *dailymessagelabel;
+    IBOutlet UIButton *syncing;
     
     
 }
