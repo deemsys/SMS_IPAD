@@ -43,6 +43,10 @@
 
 - (void)viewDidLoad
 {
+    reset.clipsToBounds = YES;
+    reset.layer.cornerRadius = 10.0f;
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 10.0f;
     [super viewDidLoad];
     firstname.delegate=self;
     username.delegate=self;
@@ -475,6 +479,8 @@
 
 - (void)dealloc {
    
+    [reset release];
+    [next release];
     [super dealloc];
 }
 @end

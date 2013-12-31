@@ -84,6 +84,9 @@
     IBOutlet UISegmentedControl*time3;
     NSString *t1,*t2,*t3;
     
+    IBOutlet UIButton *reset;
+    
+    IBOutlet UIButton *submit;
     
 }
 @property(nonatomic,retain)NSMutableDictionary *recorddict;

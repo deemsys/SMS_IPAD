@@ -109,6 +109,8 @@
 }
 - (void)viewDidLoad
 {
+    submit.clipsToBounds = YES;
+    submit.layer.cornerRadius = 10.0f;
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
@@ -819,4 +821,8 @@
     
 }
 
+- (void)dealloc {
+    [submit release];
+    [super dealloc];
+}
 @end

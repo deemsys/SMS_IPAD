@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad
 {
+    edit.clipsToBounds = YES;
+    edit.layer.cornerRadius = 10.0f;
     [super viewDidLoad];
     recorddict=[[NSMutableDictionary alloc]init];
     NSString*userid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
@@ -338,6 +340,7 @@
 
 - (void)dealloc {
     [group release];
+    [edit release];
     [super dealloc];
 }
 @end

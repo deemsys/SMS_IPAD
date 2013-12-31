@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface messageview : UIViewController
+{
+    
+    IBOutlet UITextView *mesagedetail;
+}
 
 @end

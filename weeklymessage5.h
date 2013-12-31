@@ -12,6 +12,9 @@
 {
     NSMutableDictionary * recordict;
     NSMutableDictionary * temp;
+    
+    IBOutlet UIButton *end;
+    
 }
 @property (nonatomic, retain) NSMutableDictionary * recorddict;
 @property (nonatomic, retain) NSMutableDictionary * temp;

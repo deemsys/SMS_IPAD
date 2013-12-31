@@ -17,6 +17,10 @@
     IBOutlet UILabel*provideremail;
     IBOutlet UILabel*providerfirstname;
     
+    IBOutlet UIButton *call;
+    
+    IBOutlet UIButton *email;
+    
 }
 -(IBAction)callprovider:(id)sender;
 -(IBAction)emailprovider:(id)sender;

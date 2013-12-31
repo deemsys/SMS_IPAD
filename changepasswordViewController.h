@@ -24,6 +24,8 @@
     IBOutlet UITextField*newpaswrd;
     IBOutlet UITextField*confirmpawrd;
     
+    IBOutlet UIButton *update;
+    
 }
 - (IBAction)changepassword:(id)sender;
 

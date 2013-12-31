@@ -103,6 +103,10 @@
 
 - (void)viewDidLoad
 {
+    reset.clipsToBounds = YES;
+    reset.layer.cornerRadius = 10.0f;
+    submit.clipsToBounds = YES;
+    submit.layer.cornerRadius = 10.0f;
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
@@ -457,7 +461,7 @@
     // NSLog(@"delegate - message sent");
     if (a==1)
     {
-         [self smssend];
+        // [self smssend];
     BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail and mobile number."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
@@ -853,5 +857,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)dealloc {
+    [reset release];
+    [submit release];
+    [super dealloc];
 }
 @end

@@ -100,6 +100,11 @@
 
 - (void)viewDidLoad
 {
+    call.clipsToBounds = YES;
+    call.layer.cornerRadius = 10.0f;
+    email.clipsToBounds = YES;
+    email.layer.cornerRadius = 10.0f;
+    
     [super viewDidLoad];
     providername.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
     providerphonebook.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"Providermobile"];
@@ -119,4 +124,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [call release];
+    [email release];
+    [super dealloc];
+}
 @end

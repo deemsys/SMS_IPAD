@@ -56,6 +56,8 @@
     NSDictionary *prefKeyDictionary;
     
     IBOutlet UITextField*emailid;
+    IBOutlet UIButton *submit;
+    
     
 }
 

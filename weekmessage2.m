@@ -175,6 +175,10 @@ int a;
 }
 - (void)viewDidLoad
 {
+    send.clipsToBounds = YES;
+    send.layer.cornerRadius = 10.0f;
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 10.0f;
     a=0;
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;

@@ -22,7 +22,9 @@
     
     int c;
 
+    IBOutlet UIButton *reset;
     
+    IBOutlet UIButton *next;
 }
 @property (nonatomic, strong) IBOutlet UIPickerView *agepick;
 @property(assign)NSMutableDictionary *recorddict;

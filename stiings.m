@@ -33,6 +33,10 @@
 
 - (void)viewDidLoad
 {
+    providerinfo.clipsToBounds = YES;
+    providerinfo.layer.cornerRadius = 10.0f;
+    changepass.clipsToBounds = YES;
+    changepass.layer.cornerRadius = 10.0f;
     [super viewDidLoad];
     NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
     if ([mes isEqual:@"0"]) {
@@ -57,6 +61,8 @@
 - (void)dealloc {
     [settingslabel release];
     [switch1 release];
+    [providerinfo release];
+    [changepass release];
     [super dealloc];
 }
 -(NSString *)HttpPostEntityFirstmessagestream:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2 EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3

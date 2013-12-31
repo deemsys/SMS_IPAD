@@ -18,6 +18,15 @@
     int a,c;
     MBProgressHUD *HUD;
     BOOL isConnect;
+    IBOutlet UIButton *signin;
+    IBOutlet UIButton *signup;
+    IBOutlet UIButton *forgot;
+    
+    
+    
+    
+    
+    
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 -(IBAction)signin:(id)sender;

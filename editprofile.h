@@ -57,6 +57,8 @@
     IBOutlet UISegmentedControl*time3seg;
     NSString *t1,*t2,*t3;
     
+    IBOutlet UIButton *submit;
+    
 }
 - (IBAction)submit:(id)sender;
 -(IBAction)changetimeset1:(id)sender;

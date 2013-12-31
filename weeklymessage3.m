@@ -198,7 +198,18 @@ int a;
 {
     
     // Disable Stop/Play button when application launches
-    
+    answer3.clipsToBounds = YES;
+    answer3.layer.cornerRadius = 10.0f;
+    nextbut.clipsToBounds = YES;
+    nextbut.layer.cornerRadius = 10.0f;
+    play.clipsToBounds = YES;
+    play.layer.cornerRadius = 10.0f;
+    stop.clipsToBounds = YES;
+    stop.layer.cornerRadius = 10.0f;
+    record.clipsToBounds = YES;
+    record.layer.cornerRadius = 10.0f;
+    saveButton.clipsToBounds = YES;
+    saveButton.layer.cornerRadius = 10.0f;
     
     
    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -354,6 +365,9 @@ int a;
     [nextbut release];
     [toolbar release];
     [tipsimprove release];
+    [play release];
+    [stop release];
+    [record release];
     [super dealloc];
 }
 @end

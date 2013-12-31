@@ -29,6 +29,8 @@
 
 - (void)viewDidLoad
 {
+    update.clipsToBounds = YES;
+    update.layer.cornerRadius = 10.0f;
     [super viewDidLoad];
     oldpaswrd.delegate=self;
     newpaswrd.delegate=self;
@@ -207,5 +209,9 @@
     
 }
 
+- (void)dealloc {
+    [update release];
+    [super dealloc];
+}
 @end
 

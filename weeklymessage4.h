@@ -45,6 +45,9 @@
     BOOL isConnect;
     IBOutlet UIButton *yesbutton;
     IBOutlet UIButton *nobutton;
+    
+    IBOutlet UIButton *next;
+    
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;

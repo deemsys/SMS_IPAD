@@ -23,6 +23,12 @@
     
     IBOutlet UIToolbar *toolbar;
     
+    IBOutlet UIButton *play;
+    
+    IBOutlet UIButton *stop;
+    
+
+    IBOutlet UIButton *record;
 }
 -(IBAction)record:(id)sender;
 -(IBAction)stop:(id)sender;

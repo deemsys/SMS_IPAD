@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad
 {
+    end.clipsToBounds = YES;
+    end.layer.cornerRadius = 10.0f;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -50,4 +52,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [end release];
+    [super dealloc];
+}
 @end

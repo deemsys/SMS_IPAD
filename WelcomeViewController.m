@@ -648,6 +648,10 @@
 
 - (void)viewDidLoad
 {
+    review.clipsToBounds = YES;
+    review.layer.cornerRadius = 10.0f;
+    survey.clipsToBounds = YES;
+    survey.layer.cornerRadius = 10.0f;
     [super viewDidLoad];
     NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
     if ([mes isEqual:@"0"]) {
@@ -786,4 +790,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [review release];
+    [survey release];
+    [super dealloc];
+}
 @end

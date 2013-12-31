@@ -51,6 +51,8 @@
     IBOutlet UIPickerView *group;
     IBOutlet UILabel * age;
     IBOutlet UILabel*emailid; NSMutableArray *grouplist;
+    
+    IBOutlet UIButton *edit;
 }
 -(IBAction)edit:(id)sender;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;

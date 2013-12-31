@@ -40,6 +40,11 @@
     NSString *group1;
     NSString *age1;
     NSTimer *timer;
+    IBOutlet UIButton *review;
+    
+    IBOutlet UIButton *survey;
+    
+    
 }
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 @property (nonatomic, retain) UISwitch *switch1;

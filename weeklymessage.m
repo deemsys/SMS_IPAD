@@ -149,7 +149,8 @@ int a;
 }
 - (void)viewDidLoad
 {
-    
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 10.0f;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -219,6 +220,7 @@ int a;
 - (void)dealloc {
     [seg release];
     [question1 release];
+    [next release];
     [super dealloc];
 }
 @end

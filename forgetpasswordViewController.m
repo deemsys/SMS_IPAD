@@ -253,7 +253,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    submit.clipsToBounds = YES;
+    submit.layer.cornerRadius = 10.0f;
     //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     
     
@@ -275,6 +276,7 @@
 
 - (void)dealloc {
     
+    [submit release];
     [super dealloc];
 }
 

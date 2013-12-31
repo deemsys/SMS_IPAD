@@ -16,6 +16,10 @@
     IBOutlet UILabel *settingslabel;
     IBOutlet UISwitch *switch1;
     MBProgressHUD *HUD;
+    IBOutlet UIButton *providerinfo;
+    IBOutlet UIButton *changepass;
+    
+    
 }
 
 

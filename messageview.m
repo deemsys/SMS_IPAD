@@ -7,6 +7,7 @@
 //
 
 #import "messageview.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface messageview ()
 
@@ -27,6 +28,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    mesagedetail.clipsToBounds = YES;
+    mesagedetail.layer.cornerRadius = 10.0f;
+  //  mesagedetail.backgroundColor = [UIColor clearColor];
+    UIImageView *imageView = [[[UIImageView alloc] initWithFrame:mesagedetail.frame] autorelease];
+    imageView.image = [UIImage imageNamed:@"BG.png"];
+    [self.view addSubview:mesagedetail];
+    [self.view bringSubviewToFront:mesagedetail];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +43,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [mesagedetail release];
+    [super dealloc];
+}
 @end

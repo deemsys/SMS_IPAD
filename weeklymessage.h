@@ -17,6 +17,8 @@
     NSString*seq;
     NSString*seqmorethan3;
     IBOutlet UISegmentedControl *seg;
+    
+    IBOutlet UIButton *next;
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;

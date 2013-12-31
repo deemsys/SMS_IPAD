@@ -19,9 +19,20 @@
 @end
 
 @implementation smsmainviewcontrollerViewController
+@synthesize recorddict;
 
 - (void)viewDidLoad
 {
+    
+    signin.clipsToBounds = YES;
+    signin.layer.cornerRadius = 10.0f;
+    signup.clipsToBounds = YES;
+    signup.layer.cornerRadius = 10.0f;
+    forgot.clipsToBounds = YES;
+    forgot.layer.cornerRadius = 10.0f;
+    
+    
+    
     [super viewDidLoad];
     password.delegate=self;
     phonenumber.delegate=self;
@@ -347,4 +358,10 @@
 }
 
 
+- (void)dealloc {
+    [signin release];
+    [signup release];
+    [forgot release];
+    [super dealloc];
+}
 @end

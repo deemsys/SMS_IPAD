@@ -26,14 +26,19 @@
     NSMutableDictionary * recordict;
     NSString * cont;
     NSString * count;
-    IBOutlet UIButton *yesbutton;
-    IBOutlet UIButton *nobutton;
     
+    IBOutlet UIButton *yesb;
+    IBOutlet UIButton *nob;
+    
+    IBOutlet UIButton *next;
+  
 }
 -(IBAction)send:(id)sender;
--(IBAction)clear:(id)sender;
-- (IBAction)yesselected:(id)sender;
-- (IBAction)noselected:(id)sender;
+
+- (IBAction)yesact:(id)sender;
+- (IBAction)noact:(id)sender;
+
+
 
 
 @property (nonatomic,retain)NSMutableDictionary * recorddict;

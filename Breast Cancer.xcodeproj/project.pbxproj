@@ -132,6 +132,8 @@
 		0DE7E7B318518AC400846356 /* stiings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7E7B218518AC400846356 /* stiings.m */; };
 		0DE7E7B71851AB4400846356 /* bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7B61851AB4400846356 /* bg3.png */; };
 		0DE7E7B91851AC1300846356 /* blue-teal-gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7B81851AC1300846356 /* blue-teal-gradient.jpg */; };
+		0DE7E7BB1872DF8000846356 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7BA1872DF8000846356 /* background.jpg */; };
+		0DE7E7BD1872E09100846356 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7BC1872E09100846356 /* background1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +304,8 @@
 		0DE7E7B218518AC400846356 /* stiings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stiings.m; sourceTree = "<group>"; };
 		0DE7E7B61851AB4400846356 /* bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg3.png; sourceTree = "<group>"; };
 		0DE7E7B81851AC1300846356 /* blue-teal-gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-teal-gradient.jpg"; sourceTree = "<group>"; };
+		0DE7E7BA1872DF8000846356 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		0DE7E7BC1872E09100846356 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -591,9 +595,11 @@
 				0D952EA1183528F900053B45 /* edit.png */,
 				0DE7E7AA1850C3A400846356 /* profileimage.png */,
 				0D952EB718352B2D00053B45 /* forgotpass.png */,
+				0DE7E7BA1872DF8000846356 /* background.jpg */,
 				0D952EBE1835314D00053B45 /* back_btn@2x.png */,
 				0D6C79BE183C817200C48D17 /* login.png */,
 				0D952EBC1835314B00053B45 /* back_btn.png */,
+				0DE7E7BC1872E09100846356 /* background1.jpg */,
 				0D952EA2183528F900053B45 /* next.png */,
 				0D952EA3183528F900053B45 /* reset.png */,
 				0D952EA4183528F900053B45 /* signin.png */,
@@ -761,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D952EC21835317700053B45 /* cancel.png in Resources */,
+				0DE7E7BB1872DF8000846356 /* background.jpg in Resources */,
 				0D952EC11835317200053B45 /* back_btn.png in Resources */,
 				0D952EC01835316C00053B45 /* back_btn@2x.png in Resources */,
 				0D952EB918352BAA00053B45 /* forgotpass.png in Resources */,
@@ -810,6 +817,7 @@
 				0D027201182D119F00C35B94 /* Main.storyboard in Resources */,
 				0DD26E741847622F00E1CCE3 /* frame_left@2x.png in Resources */,
 				0D55AA9118339E83006DC806 /* alert_bg@2x.png in Resources */,
+				0DE7E7BD1872E09100846356 /* background1.jpg in Resources */,
 				0D55AA9E1833D2F4006DC806 /* alert-red-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

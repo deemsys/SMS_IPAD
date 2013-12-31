@@ -214,24 +214,28 @@ int a;
     
 }
 
+- (IBAction)yesact:(id)sender
+{
+    mailanswer.text=@"1";
+    [yesb setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    
+    [nob setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+}
+
+- (IBAction)noact:(id)sender
+{
+    mailanswer.text=@"1";
+    [yesb setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    
+    [nob setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+}
+
 -(IBAction)clear:(id)sender
 {
     mailanswer.text=@"";
 }
 
-- (IBAction)yesselected:(id)sender
-{
-    [yesbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
-    mailanswer.text=@"1";
-    [nobutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-}
 
-- (IBAction)noselected:(id)sender
-{
-    [yesbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-    mailanswer.text=@"2";
-    [nobutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
-}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -269,6 +273,8 @@ int a;
 
 - (void)viewDidLoad
 {
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 10.0f;
     NSString*sequenceocc=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
   cont= [recorddict objectForKey:@"seq"];
@@ -315,8 +321,10 @@ int a;
 }
 
 - (void)dealloc {
-    [yesbutton release];
-    [nobutton release];
+    
+    [yesb release];
+    [nob release];
+    [next release];
     [super dealloc];
 }
 @end

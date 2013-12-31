@@ -413,7 +413,8 @@ int a;
 }
 - (void)viewDidLoad
 {
-       
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 10.0f;
     
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
@@ -461,6 +462,7 @@ int a;
     [yesbutton release];
     [nobutton release];
     [question4 release];
+    [next release];
     [super dealloc];
 }
 @end

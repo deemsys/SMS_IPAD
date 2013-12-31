@@ -33,7 +33,9 @@
     NSMutableArray*temp2,*temp3,*temp4;
     BOOL isConnect;
     
+    IBOutlet UIButton *reset;
 
+    IBOutlet UIButton *next;
     
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
