@@ -134,6 +134,7 @@
 		0DE7E7B91851AC1300846356 /* blue-teal-gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7B81851AC1300846356 /* blue-teal-gradient.jpg */; };
 		0DE7E7BB1872DF8000846356 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7BA1872DF8000846356 /* background.jpg */; };
 		0DE7E7BD1872E09100846356 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7E7BC1872E09100846356 /* background1.jpg */; };
+		0DE7E7BF18730D7500846356 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE7E7BE18730D7500846356 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,7 @@
 		0DE7E7B81851AC1300846356 /* blue-teal-gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-teal-gradient.jpg"; sourceTree = "<group>"; };
 		0DE7E7BA1872DF8000846356 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		0DE7E7BC1872E09100846356 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		0DE7E7BE18730D7500846356 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 				0DB9A9F91845DE7500C55C98 /* CoreAudio.framework in Frameworks */,
 				0DA1ABD1183A014F0063C29F /* AVFoundation.framework in Frameworks */,
 				0D0271F0182D119F00C35B94 /* CoreGraphics.framework in Frameworks */,
+				0DE7E7BF18730D7500846356 /* GameKit.framework in Frameworks */,
 				0D0271F2182D119F00C35B94 /* UIKit.framework in Frameworks */,
 				0DA1ABCF183A00570063C29F /* QuartzCore.framework in Frameworks */,
 				0DA1ABCD183A004D0063C29F /* AudioToolbox.framework in Frameworks */,
@@ -384,6 +387,7 @@
 		0D0271EC182D119F00C35B94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DE7E7BE18730D7500846356 /* GameKit.framework */,
 				0DB9A9F81845DE7500C55C98 /* CoreAudio.framework */,
 				0DA1ABCE183A00570063C29F /* QuartzCore.framework */,
 				0DA1ABCC183A004D0063C29F /* AudioToolbox.framework */,
@@ -737,6 +741,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = DeemSysInc;
 				TargetAttributes = {
+					0D0271E9182D119F00C35B94 = {
+						DevelopmentTeam = 6N5EE6FZH9;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
+					};
 					0D02720A182D119F00C35B94 = {
 						TestTargetID = 0D0271E9182D119F00C35B94;
 					};
@@ -1021,10 +1033,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMSIPAD/Breast Cancer-Prefix.pch";
 				INFOPLIST_FILE = "SMSIPAD/Breast Cancer-Info.plist";
 				PRODUCT_NAME = "Breast Cancer";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1034,10 +1049,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMSIPAD/Breast Cancer-Prefix.pch";
 				INFOPLIST_FILE = "SMSIPAD/Breast Cancer-Info.plist";
 				PRODUCT_NAME = "Breast Cancer";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
