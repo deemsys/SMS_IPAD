@@ -45,6 +45,8 @@
 }
 - (void)viewDidLoad
 {
+    edu=@"School";
+    gender.text=@"0";
     reset.clipsToBounds = YES;
     reset.layer.cornerRadius = 10.0f;
     next.clipsToBounds = YES;
