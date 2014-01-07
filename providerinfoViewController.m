@@ -31,7 +31,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     } else {
         
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Your device doesn't support calling feature.."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Feature not supported"];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         // [alert setDestructiveButtonWithTitle:@"ok" block:nil];

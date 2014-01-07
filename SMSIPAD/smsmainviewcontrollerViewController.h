@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BlockAlertView.h"
 #import "UITextfieldScrollViewController.h"
 #import "MBProgressHUD.h"
 

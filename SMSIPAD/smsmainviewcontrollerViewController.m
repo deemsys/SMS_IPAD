@@ -129,7 +129,7 @@
 
 - (IBAction)signup:(id)sender
 {
-    notregisterd.text=@"Please Wait...";
+    //notregisterd.text=@"Please Wait...";
     
 }
 

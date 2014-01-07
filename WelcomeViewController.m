@@ -561,11 +561,11 @@
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-   // NSLog(@"from  %@",tempfrom);
-  //  NSLog(@"from addres on welcome %@",temptext);
-   /// NSLog(@"from addres on welcome %@",tempdate);
-   // NSLog(@"from addres on welcome %@",tempflag);
-    // NSLog(@"crossed 3");
+   NSLog(@"from  %@",tempfrom);
+   NSLog(@"from addres on welcome %@",temptext);
+    NSLog(@"from addres on welcome %@",tempdate);
+   NSLog(@"from addres on welcome %@",tempflag);
+    NSLog(@"crossed 3");
     if([tempfrom count]!=0)
     {
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
