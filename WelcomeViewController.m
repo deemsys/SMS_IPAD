@@ -520,14 +520,13 @@
     NSError *error5;
     // NSLog(@"msgresponse %@",resultResponse5);
     SBJSON *parser = [[SBJSON new] autorelease];
-   // NSString *jsonstring = [resultResponse5 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  
     NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
     NSString *jsonstring1 = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+       NSDictionary *jsonObject = [parser objectWithString:jsonstring2 error:&error5];
     
-    NSDictionary *jsonObject = [parser objectWithString:jsonstring2 error:&error5];
-      
-   // NSLog(@"patient details json object %@",jsonObject);
+   //NSLog(@"patient details json object %@",jsonObject);
     
     NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
     NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
@@ -1187,11 +1186,11 @@
     NSError *error5;
     
     SBJSON *parser = [[SBJSON new] autorelease];
-   // NSString *jsonstring = [resultResponse5 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  
     NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
     NSString *jsonstring1 = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
+    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+   
     NSDictionary *jsonObject = [parser objectWithString:jsonstring2 error:&error5];
     
     
