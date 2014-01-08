@@ -518,18 +518,21 @@
     
     NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error5;
-    
+    // NSLog(@"msgresponse %@",resultResponse5);
     SBJSON *parser = [[SBJSON new] autorelease];
+   // NSString *jsonstring = [resultResponse5 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
-    jsonstring = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *jsonstring1 = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
-    NSDictionary *jsonObject = [parser objectWithString:jsonstring error:&error5];
-    
+    NSDictionary *jsonObject = [parser objectWithString:jsonstring2 error:&error5];
+      
+   // NSLog(@"patient details json object %@",jsonObject);
     
     NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
     NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
     
-    // NSLog(@"crossed 2");
+ //NSLog(@"patient details %@",items1App21);
     NSMutableArray*temptext=[[NSMutableArray alloc]init];
     NSMutableArray*tempdate=[[NSMutableArray alloc]init];
     NSMutableArray*tempflag=[[NSMutableArray alloc]init];
@@ -561,11 +564,11 @@
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-   NSLog(@"from  %@",tempfrom);
-   NSLog(@"from addres on welcome %@",temptext);
-    NSLog(@"from addres on welcome %@",tempdate);
-   NSLog(@"from addres on welcome %@",tempflag);
-    NSLog(@"crossed 3");
+ //  NSLog(@"from  %@",tempfrom);
+ ///  NSLog(@"from addres on welcome %@",temptext);
+  //  NSLog(@"from addres on welcome %@",tempdate);
+  // NSLog(@"from addres on welcome %@",tempflag);
+   // NSLog(@"crossed 3");
     if([tempfrom count]!=0)
     {
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
@@ -667,6 +670,7 @@
     
     
     
+
 
     /*  NSDate *date1=[NSDate date];
     NSDateFormatter * dateFormatter1 = [[NSDateFormatter alloc]init];
@@ -1178,15 +1182,17 @@
     
     NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1] EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     
-    
+  //  NSLog(@"msgresponse %@",resultResponse5);
     
     NSError *error5;
     
     SBJSON *parser = [[SBJSON new] autorelease];
+   // NSString *jsonstring = [resultResponse5 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *jsonstring = [resultResponse5 stringByReplacingOccurrencesOfString:@"\n\n" withString:@""];
-    jsonstring = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *jsonstring1 = [jsonstring stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString* jsonstring2 = [jsonstring1 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
-    NSDictionary *jsonObject = [parser objectWithString:jsonstring error:&error5];
+    NSDictionary *jsonObject = [parser objectWithString:jsonstring2 error:&error5];
     
     
     NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];

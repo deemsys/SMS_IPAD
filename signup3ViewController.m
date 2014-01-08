@@ -575,7 +575,7 @@
                 emailMessage.requiresAuth = YES;
                 emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Registration";
+                emailMessage.subject =@"Adhere To Medication App Registration";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
                 emailMessage.wantsSecure = YES;
                 emailMessage.delegate = self;
@@ -583,7 +583,7 @@
                 [recorddict objectForKey:@"pass"];
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
                                         [recorddict objectForKey:@"pass"]];
                
                 NSDictionary *plainMsg = [NSDictionary
@@ -672,7 +672,7 @@
 }
 -(void)smssend
 {
-    NSString *body=[NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+    NSString *body=[NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
                     [recorddict objectForKey:@"pass"]];;
     NSString *resultResponse2=[self HttpPostEntityFirstSms:@"to" ForValue1:[recorddict objectForKey:@"Mobilenum"]  EntitySecond:@"msgbody" ForValue2:body EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV" ];
     NSError *error2;

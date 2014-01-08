@@ -140,13 +140,13 @@ int a;
                 emailMessage.requiresAuth = YES;
                 emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Weekly Message Details";
+                emailMessage.subject =@"Adhere To Medication App Weekly Message Details";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
                 emailMessage.wantsSecure = YES;
                 emailMessage.delegate = self;
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment had misses his/her medications frequently thrice in a row entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n The participant %@ under your treatment had misses his/her medications frequently thrice in a row entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
                 
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -168,13 +168,13 @@ int a;
                 emailMessage.requiresAuth = YES;
                 emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
-                emailMessage.subject =@"BCResearch App Weekly Message Details";
+                emailMessage.subject =@"Adhere To Medication App Weekly Message Details";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
                 emailMessage.wantsSecure = YES;
                 emailMessage.delegate = self;
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment had misses his/her medications 4 times out of 12 weekly assessments entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n The participant %@ under your treatment had misses his/her medications 4 times out of 12 weekly assessments entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
                 
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
