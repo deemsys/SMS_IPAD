@@ -563,7 +563,6 @@
                         [recorddict setValue:fname.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
                         [recorddict setValue:mobile.text forKey:@"Mobilenum"];
-                        [recorddict setValue:email.text forKey:@"email"];
                         [recorddict setValue:age.text forKey:@"age"];
                         if ([medical.text  isEqual: @""]) {
                             medical.text=@"null";
