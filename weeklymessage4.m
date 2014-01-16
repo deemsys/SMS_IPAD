@@ -58,7 +58,7 @@ int a;
    // @"silviyarani159@gmail.com";
     //[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];//receiver email address
     emailMessage.relayHost = @"smtp.gmail.com";
-    NSLog(@"participant mail %@",emailMessage.toEmail);
+  //  NSLog(@"participant mail %@",emailMessage.toEmail);
     emailMessage.requiresAuth = YES;
     emailMessage.login = @"learnguild@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
@@ -67,7 +67,6 @@ int a;
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self;
     
-    [recorddict objectForKey:@"pass"];
     
     // you must include <SKPSMTPMessageDelegate> to your class
     NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n Your Weekly Message Details has been Submitted to your respective Provider Successfully..\n\n Keep on Answering your Weekly Assessments.\n\n Thankyou. ",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
@@ -99,7 +98,7 @@ int a;
     //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self;
-    
+   // NSLog(@"recorddict in send provider %@",recorddict);
     NSMutableArray *parts_to_send = [NSMutableArray array];
     
     // you must include <SKPSMTPMessageDelegate> to your class
@@ -125,7 +124,7 @@ int a;
                                     [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
                                     nil];
         [parts_to_send addObject:audio_part];
-        NSLog(@"audio add%@",[recorddict objectForKey:@"audiourl"]);
+      //  NSLog(@"audio add%@",[recorddict objectForKey:@"audiourl"]);
     }
     emailMessage.parts=parts_to_send;
     HighestState = 0;
@@ -133,7 +132,7 @@ int a;
     [emailMessage send];
     
      [self sendacknowledgement];
-    NSLog(@"mail sent to pro");
+   // NSLog(@"mail sent to pro");
 
 //Acknowledgement for participants
 }
@@ -212,8 +211,7 @@ int a;
    
         
     
-         // [[NSRunLoop currentRunLoop] run];
-       
+   // NSLog(@"selected dict %@",recorddict);
     
     
 }
@@ -410,7 +408,7 @@ int a;
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+          //  NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
            
             
             

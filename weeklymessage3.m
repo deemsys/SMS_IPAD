@@ -40,11 +40,11 @@ int a;
     [play setEnabled:YES];
     [save setEnabled:YES];
     [stop setEnabled:NO];
-    // [self.audioPlayer stop];
+  [self.audioPlayer stop];
     [self.audioRecorder stop];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
-    NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
+  //  NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
     recording.hidden=TRUE;
 }
 

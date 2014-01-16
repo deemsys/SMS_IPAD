@@ -62,7 +62,7 @@
 #pragma mark SKPSMTPMessage Delegate Methods
 - (void)messageState:(SKPSMTPState)messageState;
 {
-    NSLog(@"HighestState:%d", HighestState);
+   // NSLog(@"HighestState:%d", HighestState);
     if (messageState > HighestState)
         HighestState = messageState;
     
@@ -96,20 +96,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			NSLog(@"Access Not Available");
+			//NSLog(@"Access Not Available");
 			break;
 		}
 			
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			NSLog(@"Reachable WWAN");
+			//NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-            NSLog(@"Reachable WiFi");
+           // NSLog(@"Reachable WiFi");
 			break;
 		}
 	}

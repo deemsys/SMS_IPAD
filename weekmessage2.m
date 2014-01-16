@@ -49,11 +49,11 @@ int a;
     if(([answer2.text length]!=0))
     {
         a=0;
-        NSLog(@"a value %i",a);
+       // NSLog(@"a value %i",a);
         if([self numbers:[answer2 text]]==1)
         {
             a=1;
-            NSLog(@"a value %i",a);
+           // NSLog(@"a value %i",a);
             if ([answer2.text isEqual:@"1"])
             {
                 answer2.text=@"I Forgot";
@@ -104,7 +104,8 @@ int a;
 {
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
-    
+     [recorddict setValue:@"novalue" forKey:@"answer2"];
+     [recorddict setValue:@"" forKey:@"audioname"];
   //  NSLog(@"recorddict in answer2 %@",recorddict);
     [self performSegueWithIdentifier:@"sms4" sender:self];
     

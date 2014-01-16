@@ -19,7 +19,7 @@
 //Calling Provider
 -(IBAction)callprovider:(id)sender
 {
-    NSLog(@"Phone calling...");
+  //  NSLog(@"Phone calling...");
     
     UIDevice *device = [UIDevice currentDevice];
     

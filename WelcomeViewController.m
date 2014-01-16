@@ -96,7 +96,7 @@
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString * currentDate = [dateFormatter stringFromDate:date];
-    NSLog(@"current date %@",currentDate);
+   // NSLog(@"current date %@",currentDate);
     int count=0;
     for(int i=0;i<[week3 count];i++)
     {
@@ -128,7 +128,7 @@
         }
         
     }
-    NSLog(@"no of pending weeks %d",count);
+   // NSLog(@"no of pending weeks %d",count);
     if(count==0)
     {
         eval.hidden=YES;
@@ -139,9 +139,9 @@
         eval.hidden=NO;
         weekremaining.text=[NSString stringWithFormat:@"You have %d Surveys that is overdue.",count];
     }
-    NSLog(@"filtered date %@",filtereddate);
-    NSLog(@"filtered logid %@",filteredlogid);
-    NSLog(@"filtered week%@",filteredweek);
+   // NSLog(@"filtered date %@",filtereddate);
+   // NSLog(@"filtered logid %@",filteredlogid);
+   // NSLog(@"filtered week%@",filteredweek);
     if([filteredlogid count]>0)
     {
         [[NSUserDefaults standardUserDefaults]setObject:[filtereddate objectAtIndex:0] forKey:@"Weekdate"];
@@ -285,20 +285,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			NSLog(@"Access Not Available");
+			//NSLog(@"Access Not Available");
 			break;
 		}
 			
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			NSLog(@"Reachable WWAN");
+			//NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-            NSLog(@"Reachable WiFi");
+           // NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -433,7 +433,7 @@
         }
         
     }
-    NSLog(@"no of pending weeks %d",count);
+  //  NSLog(@"no of pending weeks %d",count);
     if(count==0)
     {
         eval.hidden=YES;
@@ -444,9 +444,9 @@
         eval.hidden=NO;
         weekremaining.text=[NSString stringWithFormat:@"You have %d evaluations that is overdue",count];
     }
-    NSLog(@"filtered date %@",filtereddate);
-    NSLog(@"filtered logid %@",filteredlogid);
-    NSLog(@"filtered week%@",filteredweek);
+   // NSLog(@"filtered date %@",filtereddate);
+   // NSLog(@"filtered logid %@",filteredlogid);
+   // NSLog(@"filtered week%@",filteredweek);
     if([filteredlogid count]>0)
     {
         [[NSUserDefaults standardUserDefaults]setObject:[filtereddate objectAtIndex:0] forKey:@"Weekdate"];
@@ -496,7 +496,7 @@
         [[NSUserDefaults standardUserDefaults]setObject:username1 forKey:@"Participantusername"];
         [[NSUserDefaults standardUserDefaults]setObject:email1 forKey:@"Participantemail"];
        // NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
-        NSLog(@"message stream in welcome %@",msgstream);
+       // NSLog(@"message stream in welcome %@",msgstream);
       
        
          
@@ -514,7 +514,7 @@
     [[NSUserDefaults standardUserDefaults]setObject:temp2 forKey:@"Providermobile"];
     [[NSUserDefaults standardUserDefaults]setObject:temp3 forKey:@"Provideremail"];
     //Fetching Daily messages
-    NSLog(@"crossed 1");
+   // NSLog(@"crossed 1");
     
     NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error5;
@@ -529,7 +529,7 @@
     NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
     NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
     
-     NSLog(@"crossed 2");
+    // NSLog(@"crossed 2");
     NSMutableArray*temptext=[[NSMutableArray alloc]init];
     NSMutableArray*tempdate=[[NSMutableArray alloc]init];
     NSMutableArray*tempflag=[[NSMutableArray alloc]init];
@@ -565,7 +565,7 @@
   //  NSLog(@"from addres on welcome %@",temptext);
    /// NSLog(@"from addres on welcome %@",tempdate);
    // NSLog(@"from addres on welcome %@",tempflag);
-     NSLog(@"crossed 3");
+    // NSLog(@"crossed 3");
     if([tempfrom count]!=0)
     {
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
@@ -628,7 +628,7 @@
         msgfrom=[[NSMutableArray alloc]init];
         flagvalue=[[NSMutableArray alloc]init];
         
-        NSLog(@"no datas for this user");
+       // NSLog(@"no datas for this user");
     }
     
     count2=0;
@@ -1165,7 +1165,7 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
     
-    NSLog(@"timer called");
+   // NSLog(@"timer called");
     
     msgfrom=[[NSMutableArray alloc]init];
     msgto=[[NSMutableArray alloc]init];
@@ -1220,7 +1220,7 @@
         }
         
     }
-    NSLog(@"from temp %@",tempfrom);
+   // NSLog(@"from temp %@",tempfrom);
     if ([tempfrom count]!=0) {
         
     
@@ -1395,13 +1395,13 @@
     
     if (seq==1) {
         occ=@"1";
-        NSLog(@"occ %@ ",occ);
+       // NSLog(@"occ %@ ",occ);
         [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccured"];
     }
     else
     {
         occ=@"0";
-        NSLog(@"occ %@",occ);
+      //  NSLog(@"occ %@",occ);
         [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccured"];
     }
     // NSLog(@"couvt %@",seqweek5);
@@ -1419,13 +1419,13 @@
     if (count1>=3)
     {
         occ=@"1";
-        NSLog(@"occ more than 3 %@",occ);
+       // NSLog(@"occ more than 3 %@",occ);
         [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccuredmorethan3"];
     }
     else
     {
         occ=@"0";
-        NSLog(@"occ not more than 3 %@",occ);
+       // NSLog(@"occ not more than 3 %@",occ);
         [[NSUserDefaults standardUserDefaults]setObject:occ forKey:@"Sequenceoccuredmorethan3"];
     }
     [[NSUserDefaults standardUserDefaults]synchronize];

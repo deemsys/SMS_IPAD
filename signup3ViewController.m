@@ -353,7 +353,7 @@
 }
 -(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
 {
-    NSLog(@"selectedArray=%@",selectedEntriesArr);
+  //  NSLog(@"selectedArray=%@",selectedEntriesArr);
     
     NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
     selectedgroupid=[[NSMutableArray alloc]init];
@@ -401,7 +401,7 @@
         [recorddict setValue:t3 forKey:@"Preferred Time3 format"];
         [recorddict setValue:providerpicker.text forKey:@"Provider"];
         // [recorddict setValue:grouppicker.text forKey:@"group"];
-        NSLog(@"complete list %@",recorddict);
+      //  NSLog(@"complete list %@",recorddict);
         
         
         NSString * password1 = @"";
@@ -775,8 +775,8 @@
     NSString*prov=[recorddict objectForKey:@"Provider"];
     // NSString*group=[recorddict objectForKey:@"group"];
     NSString*password1=[recorddict objectForKey:@"pass"];
-    NSLog(@"%@ group",postVarArrayString);
-    NSLog(@"%@ groupid",postVarArrayStringid);
+   // NSLog(@"%@ group",postVarArrayString);
+   // NSLog(@"%@ groupid",postVarArrayStringid);
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
     

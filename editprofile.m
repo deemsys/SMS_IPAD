@@ -454,7 +454,7 @@
 #pragma mark - Delegate
 -(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
 {
-    NSLog(@"selectedArray=%@",selectedEntriesArr);
+   // NSLog(@"selectedArray=%@",selectedEntriesArr);
     groupidlist=[recorddict objectForKey:@"groupid"];
     NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
     selectedgroupid=[[NSMutableArray alloc]init];
@@ -791,7 +791,7 @@
     NSString*prov=provider.text;
     if(![grouppicker.text isEqual:[recorddict objectForKey:@"groupname"]])
     {
-        NSLog(@"changed the group");
+       // NSLog(@"changed the group");
         arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
         arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
         postVarArrayString = @"";
@@ -814,17 +814,17 @@
             
             
         }
-        NSLog(@"%@ group",postVarArrayString);
-        NSLog(@"%@ groupid",postVarArrayStringid);
+       // NSLog(@"%@ group",postVarArrayString);
+       // NSLog(@"%@ groupid",postVarArrayStringid);
         
     }
     else
     {
-        NSLog(@"doesnot selected groups");
+       // NSLog(@"doesnot selected groups");
         arrayWithIDs=[recorddict objectForKey:@"participantgroupname"];
         arrayWithIDvalues=[recorddict objectForKey:@"participantgroupid"];
-        NSLog(@"arraynames %@",arrayWithIDs);
-        NSLog(@"arrayidvalues %@",arrayWithIDvalues);
+       // NSLog(@"arraynames %@",arrayWithIDs);
+       // NSLog(@"arrayidvalues %@",arrayWithIDvalues);
         
         postVarArrayString = @"";
         postVarArrayStringid = @"";
@@ -847,8 +847,8 @@
             
             
         }
-        NSLog(@"%@ group",postVarArrayString);
-        NSLog(@"%@ groupid",postVarArrayStringid);
+       // NSLog(@"%@ group",postVarArrayString);
+       // NSLog(@"%@ groupid",postVarArrayStringid);
     }
     
     // NSLog(@"%@ selected groupid",selectedgroupid);

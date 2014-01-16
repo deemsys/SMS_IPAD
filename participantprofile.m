@@ -32,7 +32,7 @@
     [super viewDidLoad];
     recorddict=[[NSMutableDictionary alloc]init];
     NSString*userid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
-    NSLog(@"userid in partview %@",userid);
+   // NSLog(@"userid in partview %@",userid);
     group.delegate=self;
     group.dataSource=self;
     [self getparticipantdetail:userid];
@@ -237,7 +237,7 @@
     NSString *resultResponseparticipantgroup=[self HttpPostEntityFirstparticipantgroup:@"loginid" ForValue1:userid1  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     NSError *errorpar1;
     SBJSON *jsonpar1 = [[SBJSON new] autorelease];
-    NSLog(@"response %@",resultResponseparticipantgroup);
+  //  NSLog(@"response %@",resultResponseparticipantgroup);
 	NSDictionary *luckyNumberspar1 = [jsonpar1 objectWithString:resultResponseparticipantgroup error:&errorpar1];
     NSDictionary *itemsApppar1 = [luckyNumberspar1 objectForKey:@"serviceresponse"];
     NSArray *items1Apppar1=[itemsApppar1 objectForKey:@"Participants_groups List"];
@@ -272,9 +272,9 @@
     [recorddict setObject:groupid forKey:@"groupid"];
     [recorddict setObject:groupname forKey:@"Grouplist"];
     [recorddict setObject:createdby forKey:@"createdby"];
-    NSLog(@"pargroupname %@",participantgroupname);
-    NSLog(@"pargroupid %@",participantgroupid);
-    NSLog(@"partid %@",partid);
+   // NSLog(@"pargroupname %@",participantgroupname);
+   // NSLog(@"pargroupid %@",participantgroupid);
+   // NSLog(@"partid %@",partid);
 
     //  NSLog(@"items1app %@",luckyNumbers);
   //  NSLog(@"group name %@",groupname);
@@ -386,9 +386,9 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-NSLog(@" post %@ ",post);
+//NSLog(@" post %@ ",post);
     
-   NSLog(@" data %@ ",data);
+  // NSLog(@" data %@ ",data);
     
     return data;
     

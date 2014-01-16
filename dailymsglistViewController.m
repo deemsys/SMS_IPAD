@@ -76,7 +76,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath: msgflagfile])
 	{
 		flagvalue=[[NSMutableArray alloc]initWithArray:[fileMngr fetchDatafrompath: msgflagfile]];
-        NSLog(@"flag values in daily %@",from);
+       // NSLog(@"flag values in daily %@",from);
        	
 	}
     else
@@ -235,7 +235,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         messageview *destViewController = segue.destinationViewController;
         destViewController.readmessage = [msglist objectAtIndex:indexPath.row];
-        NSLog(@"index %d",indexPath.row);
+       // NSLog(@"index %d",indexPath.row);
     }
 }
 

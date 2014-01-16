@@ -174,7 +174,7 @@ int a;
     [alert show];
     seq=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     seqmorethan3=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
-    NSLog(@"sequence occured %@,count %@",seq,seqmorethan3);
+   // NSLog(@"sequence occured %@,count %@",seq,seqmorethan3);
 	// Do any additional setup after loading the view.
 }
 
@@ -200,7 +200,7 @@ int a;
         
        weeklymail *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in weekly first %@",recorddict);
+       // NSLog(@"recorddict in weekly first %@",recorddict);
         // destViewController.delegate=self;
         
     }
