@@ -56,7 +56,7 @@
 }
 // Network Status Check
 - (void)dealloc {
-    [end release];
+    
     [super dealloc];
 }
 @end

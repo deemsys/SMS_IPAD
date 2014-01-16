@@ -112,20 +112,20 @@ int a;
     //emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
     if (![[recorddict objectForKey:@"audioname"] isEqual:@""])
     {
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
-        NSString *pathname=[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",[recorddict objectForKey:@"audioname"]]];
-        NSString *audioname1=[NSString stringWithFormat:@"inline;\r\n\tfilename=\"%@.m4a\"",[recorddict objectForKey:@"audioname"]];
+        //NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+       // NSString *docsDir = [dirPaths objectAtIndex:0];
+       // NSString *pathname=[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",//[recorddict objectForKey:@"audioname"]]];
+       NSString *audioname1=[NSString stringWithFormat:@"inline;\r\n\tfilename=\"%@.m4a\"",[recorddict objectForKey:@"audioname"]];
         NSString *audioname2=[NSString stringWithFormat:@"m4a;\r\n\tname=%@.m4a;\r\n\tx-unix-mode=0666",[recorddict objectForKey:@"audioname"]];
         
-        NSData *image_data = [NSData dataWithContentsOfFile:pathname];
+        NSData *image_data = [NSData dataWithContentsOfFile:[recorddict objectForKey:@"audiourl"]];
         NSDictionary *audio_part = [NSDictionary dictionaryWithObjectsAndKeys:audioname1,kSKPSMTPPartContentDispositionKey,
                                     @"base64",kSKPSMTPPartContentTransferEncodingKey,
                                     audioname2,kSKPSMTPPartContentTypeKey,
                                     [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
                                     nil];
         [parts_to_send addObject:audio_part];
-        NSLog(@"audio add%@",pathname);
+        NSLog(@"audio add%@",[recorddict objectForKey:@"audiourl"]);
     }
     emailMessage.parts=parts_to_send;
     HighestState = 0;
@@ -387,7 +387,7 @@ int a;
         NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
         
         NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
-       [self HttpPostEntityFirstaudiosave:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    [self HttpPostEntityFirstaudiosave:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
         
         
         
@@ -564,7 +564,7 @@ int a;
         
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
-        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"patientaudio\"; filename=\"Record.caf\"\r\nContent-Type: audio/caf\r\n\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"patientaudio\"; filename=\"Record.m4a\"\r\nContent-Type: audio/m4a\r\n\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
         [body appendData:[NSData dataWithData:userImageData]];
         [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
         
@@ -579,8 +579,6 @@ int a;
         result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
       //  NSLog(@"response for audio insertion %@",result);
         
-        [url release];
-        [req release];
         
         
         
@@ -690,10 +688,10 @@ int a;
 }
 
 - (void)dealloc {
-    [yesbutton release];
-    [nobutton release];
-    [question4 release];
-    [next release];
+    //[yesbutton release];
+   // [nobutton release];
+    //[question4 release];
+    //[next release];
     [super dealloc];
 }
 @end

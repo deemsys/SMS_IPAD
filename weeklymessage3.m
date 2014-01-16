@@ -40,31 +40,11 @@ int a;
     [play setEnabled:YES];
     [save setEnabled:YES];
     [stop setEnabled:NO];
-
-    [self.audioPlayer stop];
+    // [self.audioPlayer stop];
     [self.audioRecorder stop];
     AVAudioSession *session = [AVAudioSession sharedInstance];
-    int flags = AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation;
-    [session setActive:NO withFlags:flags error:nil];
-    
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    NSDate *date=[NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString * currentDate = [dateFormatter stringFromDate:date];
-    NSLog(@"current date %@",currentDate);
-
-    NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-   audioname=[NSString stringWithFormat:@"%@_%@_audiofile",currentDate,name];
-    [recorddict setObject:audioname forKey:@"audioname"];
-
-    NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
-   // NSLog(@"%@ audio url",audioFileURL);
-    [recorddict setObject:audioFileURL forKey:@"audiourl"];
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileURL error:nil];
-
-   
+    [session setActive:NO error:nil];
+    NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
     recording.hidden=TRUE;
 }
 
@@ -128,10 +108,64 @@ int a;
 -(IBAction)record:(id)sender
 {
     recording.hidden=FALSE;
+    // Set the audio file
+    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSDate *date=[NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString * currentDate = [dateFormatter stringFromDate:date];
+    //  NSLog(@"current date %@",currentDate);
+    
+    NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    
+    int i=0+arc4random()%1000;
+   
+audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
+    [recorddict setObject:audioname forKey:@"audioname"];
+    
+    NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
+    [recorddict setObject:audioFileURL forKey:@"audiourl"];
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    
+    [prefs setURL:audioFileURL forKey:@"Test1"];
+    [prefs synchronize];
+
+    self.audioRecorder = [[AVAudioRecorder alloc]
+                          initWithURL:audioFileURL
+                          settings:recordSetting
+                          error:nil];
+
     recording.text=@"Recording..";
-    [self.audioRecorder prepareToRecord];
-    [self.audioRecorder record];
+    if (self.audioPlayer.playing) {
+        [self.audioPlayer stop];
+    }
+    
+    if (!self.audioRecorder.recording) {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setActive:YES error:nil];
+        [self.audioRecorder prepareToRecord];
+
+        // Start recording
+        [self.audioRecorder record];
+        [record setTitle:@"Pause" forState:UIControlStateNormal];
+        
+    } else {
+        
+        // Pause recording
+        [self.audioRecorder pause];
+        [record setTitle:@"Record" forState:UIControlStateNormal];
+    }
+    
+    
     [stop setEnabled:YES];
     [record setEnabled:NO];
     
@@ -142,11 +176,29 @@ int a;
         recording.hidden=FALSE;
         
        recording.text=@"Playing..";
-        
     
+
+        
+    if (!self.audioRecorder.recording){
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        
+        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        
+        [audioSession setActive:YES error:nil];
+        
+        
+        //Load recording path from preferences
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        
+        
+        
+
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[prefs URLForKey:@"Test1"] error:nil];
+        [self.audioPlayer setDelegate:self];
+        [self.audioPlayer play];
+    }
     [stop setEnabled:YES];
     [record setEnabled:NO];
-    [self.audioPlayer play];
     
 }
 
@@ -218,36 +270,12 @@ save.clipsToBounds = YES;
     [play setEnabled:NO];
     [save setEnabled:NO];
     
-    // Set the audio file
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    NSDate *date=[NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString * currentDate = [dateFormatter stringFromDate:date];
-  //  NSLog(@"current date %@",currentDate);
-
-   NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-    audioname=[NSString stringWithFormat:@"%@_%@_audiofile",currentDate,name];
-    [recorddict setObject:audioname forKey:@"audioname"];
-
-    NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
-    NSDictionary *audioSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   [NSNumber numberWithFloat:44100],AVSampleRateKey,
-                                   [NSNumber numberWithInt: kAudioFormatAppleLossless],AVFormatIDKey,
-                                   [NSNumber numberWithInt: 1],AVNumberOfChannelsKey,
-                                   [NSNumber numberWithInt:AVAudioQualityMedium],AVEncoderAudioQualityKey,nil];
-    NSError *error = nil;
-  [recorddict setObject:audioFileURL forKey:@"audiourl"];
-    self.audioRecorder = [[AVAudioRecorder alloc]
-                          initWithURL:audioFileURL
-                          settings:audioSettings
-                          error:&error];
+       AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
-    [super viewDidLoad];
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryRecord error:nil];
-    [session setActive:YES error:nil];
+       self.audioRecorder.delegate = self;
+    self.audioRecorder.meteringEnabled = YES;
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     
@@ -356,16 +384,36 @@ save.clipsToBounds = YES;
     
 }
 
+#pragma mark - AVAudioRecorderDelegate
+
+- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+    [record setTitle:@"Record" forState:UIControlStateNormal];
+    [stop setEnabled:NO];
+    [play setEnabled:YES];
+}
+
+#pragma mark - AVAudioPlayerDelegate
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
+                                                    message: @"Finish playing the recording!"
+                                                   delegate: nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
 
 
 
 - (void)dealloc {
-    [nextbut release];
-    [toolbar release];
-    [tipsimprove release];
-    [play release];
-    [stop release];
-    [record release];
+   // [nextbut release];
+   // [toolbar release];
+   // [tipsimprove release];
+    //[play release];
+    //[stop release];
+    //[record release];
     [super dealloc];
 }
 @end
