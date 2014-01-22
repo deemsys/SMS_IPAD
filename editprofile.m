@@ -151,22 +151,26 @@
     city.text=[recorddict objectForKey:@"city"];
      education=[recorddict objectForKey:@"education"];
     gend=[recorddict objectForKey:@"gender"];
-    if ([education isEqualToString:@"School"])
+    if ([education isEqualToString:@"Did not complete High School"])
     {
            [segedu setSelectedSegmentIndex:0];
     }
-    else if ([education isEqualToString:@"Some College"])
+    else if ([education isEqualToString:@"Hight School or GED"])
     {
         [segedu setSelectedSegmentIndex:1];
     }
-    else if ([education isEqualToString:@"Professional Degree"])
+    else if ([education isEqualToString:@"Some College"])
     {
       [segedu setSelectedSegmentIndex:2];
     }
-   else if ([education isEqualToString:@"Master Degree"])
+   else if ([education isEqualToString:@"Under Graduate"])
    {
        [segedu setSelectedSegmentIndex:3];
     }
+   else if([education isEqualToString:@"Post Graduate"])
+   {
+        [segedu setSelectedSegmentIndex:4];
+   }
 
     if ([gend isEqualToString:@"Male"])
     {
