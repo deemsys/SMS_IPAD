@@ -137,7 +137,7 @@
 }
 
 -(BOOL)validateMobile:(NSString*)mobilenumber{
-    NSString *mobileFormat1 =  @"[4-6]{1}[0-9]{9}?";
+    NSString *mobileFormat1 =  @"[0-9]{10}";
     //  NSString *mobileFormat1=@"((?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4}))";
     [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *mobileTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobileFormat1];

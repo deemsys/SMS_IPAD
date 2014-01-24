@@ -568,13 +568,13 @@
                 
                 // NSLog(@"Start Sending");
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
+                emailMessage.fromEmail = @"learnguild@gmail.com";
                 
                 emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
-                emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
                 emailMessage.subject =@"Adhere To Medication App Registration";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
@@ -617,15 +617,42 @@
                 {
                     
                     
-                    
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id or Username Already Exits."];
-                    
-                    //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                    [alert show];
-                    
-                    [HUD hide:YES];
-                    return;
+                    if ([[menu objectForKey:@"emaill"]  isEqualToString:@"emailexist"])
+                    {
+                        
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id Already Exists."];
+                        
+                        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                        [alert show];
+                        
+                        [HUD hide:YES];
+                        return;
+                    }
+                    else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"usernameexist"])
+                    {
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Username Already Exists."];
+                        
+                        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                        [alert show];
+                        
+                        [HUD hide:YES];
+                        return;
+                        
+                    }
+                    else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
+                    {
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number Already Exists."];
+                        
+                        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+                        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                        [alert show];
+                        
+                        [HUD hide:YES];
+                        return;
+                        
+                    }
                 }
                 else
                 {
@@ -809,7 +836,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
     
-   // NSLog(@"response %@",data);
+   //NSLog(@"response %@ file",data);
     
     
     

@@ -139,13 +139,13 @@ int a;
                 
                 // NSLog(@"Start Sending");
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
+                emailMessage.fromEmail = @"learnguild@gmail.com";
                 
                 emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
-                emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
                 emailMessage.subject =@"Adhere To Medication App Weekly Message Details";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
@@ -167,13 +167,13 @@ int a;
                 
                 // NSLog(@"Start Sending");
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
+                emailMessage.fromEmail = @"learnguild@gmail.com";
                 
                 emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
-                emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
+                emailMessage.login = @"learnguild@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
                 emailMessage.subject =@"Adhere To Medication App Weekly Message Details";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];

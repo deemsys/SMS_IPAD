@@ -539,7 +539,7 @@
 }
 
 -(BOOL)validateMobile:(NSString*)mobilenumber{
-    NSString *mobileFormat1 =  @"[4-6]{1}[0-9]{9}?";
+    NSString *mobileFormat1 =  @"[0-9]{10}";
     //  NSString *mobileFormat1=@"((?([0-9]{3}))?[-. ]?([0-9]{3})[-. ]?([0-9]{4}))";
     [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *mobileTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobileFormat1];
@@ -572,7 +572,6 @@
                         
                         [recorddict setValue:fname.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
-                        [recorddict setValue:mobile.text forKey:@"Mobilenum"];
                         [recorddict setValue:age.text forKey:@"age"];
                         if ([medical.text  isEqual: @""])
                         {
@@ -776,12 +775,24 @@
         }
         else if ([[menu objectForKey:@"success"] isEqualToString:@"No"]&&[[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
         {
-            // NSLog(@"Start Sending in email exist");
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Emailid already exist!"];
-            
-            
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
+            if ([[menu objectForKey:@"emaill"]  isEqualToString:@"emailexist"])
+            {
+                // NSLog(@"Start Sending in email exist");
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Emailid already exists!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+            }
+            else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
+            {
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number already exists!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+            }
+
             
         }
         else
@@ -819,6 +830,7 @@
     NSString*city1=city.text;
     NSString*edu=education;
     NSString *meddet=medical.text;
+        NSString *oldmobilenum=[recorddict objectForKey:@"mobile"];
     NSString*pt1=[recorddict objectForKey:@"Preferred Time1"];
     NSString*pt2=[recorddict objectForKey:@"Preferred Time2"];
     NSString*pt3=[recorddict objectForKey:@"Preferred Time3"];
@@ -891,7 +903,7 @@
     // NSLog(@"%@ selected groupid",selectedgroupid);
    // NSLog(@"%@ group",postVarArrayString);
    // NSLog(@"%@ groupid",postVarArrayStringid);
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&groupname=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid, grouppicker.text,emailid,oldemail,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&old_mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&groupname=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,oldmobilenum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid, grouppicker.text,emailid,oldemail,secondEntity,value2];
     
   //  NSLog(@"post %@",post);
     

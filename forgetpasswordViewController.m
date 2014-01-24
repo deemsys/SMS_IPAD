@@ -244,12 +244,12 @@
 -(void)sendmail:(NSString*)userpassword
 {
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-    emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
+    emailMessage.fromEmail = @"learnguild@gmail.com";
     
     emailMessage.toEmail = emailid.text;  //receiver email address
     emailMessage.relayHost = @"smtp.gmail.com";
     emailMessage.requiresAuth = YES;
-    emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
+    emailMessage.login = @"learnguild@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
     emailMessage.subject =@"Password Recovery";
     emailMessage.wantsSecure = YES;
