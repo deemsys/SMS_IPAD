@@ -72,18 +72,25 @@ int a;
     }
     
     
-    if (((([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))&&(([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||[answer1.text isEqual:@"0"]))||([answer1.text isEqual:@"5"]))
+    if (([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))
     {
-        [self performSegueWithIdentifier:@"sms21" sender:self];
-        
+        if(([answer1.text isEqual:@"0"])||([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
+        {
+            [self performSegueWithIdentifier:@"sms21" sender:self];
+            
+        }
     }
-    if ((a==1)&&(([answer1.text isEqual:@"0"])||([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"])))
+    if ((a==1)&&!(([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"])))
+        
+    {
+        if(([answer1.text isEqual:@"0"])||([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
             
         {
             NSLog(@"recorddict in answer1 %@",recorddict);
             
             [self performSegueWithIdentifier:@"sms1" sender:self];
         }
+    }
         if ((a==1)&&(([answer1.text isEqual:@"6"])||([answer1.text isEqual:@"7"])))
         {
             NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];

@@ -109,7 +109,7 @@ int a;
      NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms40" sender:self];
     }
-    else if(a==1)
+   if((a==1)&&!([answer2.text isEqual:@"I Had side effects"]))
     {
         NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms20" sender:self];
