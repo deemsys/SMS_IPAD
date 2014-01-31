@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D021440189A904100391898 /* sideeffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D02143F189A904100391898 /* sideeffectsViewController.m */; };
 		0D0271EE182D119F00C35B94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0271ED182D119F00C35B94 /* Foundation.framework */; };
 		0D0271F0182D119F00C35B94 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0271EF182D119F00C35B94 /* CoreGraphics.framework */; };
 		0D0271F2182D119F00C35B94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0271F1182D119F00C35B94 /* UIKit.framework */; };
@@ -159,6 +160,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D02143E189A904100391898 /* sideeffectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sideeffectsViewController.h; sourceTree = "<group>"; };
+		0D02143F189A904100391898 /* sideeffectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sideeffectsViewController.m; sourceTree = "<group>"; };
 		0D0271EA182D119F00C35B94 /* Breast Cancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Cancer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0271ED182D119F00C35B94 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0D0271EF182D119F00C35B94 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -372,6 +375,8 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0D02143E189A904100391898 /* sideeffectsViewController.h */,
+				0D02143F189A904100391898 /* sideeffectsViewController.m */,
 				0DFF82011852FBC1004D8CE6 /* dailymsglistViewController.m */,
 				0DFF82031853000B004D8CE6 /* msgcontent.h */,
 				0DFF82041853000B004D8CE6 /* msgcontent.m */,
@@ -934,6 +939,7 @@
 				0D9F19BF1837C478001389C1 /* Base64Transcoder.m in Sources */,
 				0D6C79C3183CABA500C48D17 /* dailymessageslist.m in Sources */,
 				0D55AA941833CF43006DC806 /* Reachability.m in Sources */,
+				0D021440189A904100391898 /* sideeffectsViewController.m in Sources */,
 				0D2F505A18320FA400056E53 /* BlockAlertView.m in Sources */,
 				0D6C79C7183CDD0100C48D17 /* SimpleTableCell.m in Sources */,
 				0DA1ABDF183A018F0063C29F /* NSObject+SBJSON.m in Sources */,

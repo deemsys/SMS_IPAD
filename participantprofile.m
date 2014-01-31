@@ -237,7 +237,7 @@
     NSString *resultResponseparticipantgroup=[self HttpPostEntityFirstparticipantgroup:@"loginid" ForValue1:userid1  EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     NSError *errorpar1;
     SBJSON *jsonpar1 = [[SBJSON new] autorelease];
-  //  NSLog(@"response %@",resultResponseparticipantgroup);
+ // NSLog(@"response participant  %@",resultResponseparticipantgroup);
 	NSDictionary *luckyNumberspar1 = [jsonpar1 objectWithString:resultResponseparticipantgroup error:&errorpar1];
     NSDictionary *itemsApppar1 = [luckyNumberspar1 objectForKey:@"serviceresponse"];
     NSArray *items1Apppar1=[itemsApppar1 objectForKey:@"Participants_groups List"];
@@ -388,7 +388,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
 //NSLog(@" post %@ ",post);
     
-  // NSLog(@" data %@ ",data);
+//NSLog(@" data %@ ",data);
     
     return data;
     

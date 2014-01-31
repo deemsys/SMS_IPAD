@@ -609,8 +609,9 @@
                         <outlet property="next" destination="oI2-AP-eRT" id="ovN-bo-UMV"/>
                         <outlet property="question1" destination="kv1-0c-Tqe" id="7xx-Qo-JhH"/>
                         <outlet property="seg" destination="ElC-5w-xjY" id="1Zm-Sa-BFD"/>
-                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms1" id="blN-DC-lSG"/>
-                        <segue destination="fRF-I4-4KV" kind="push" identifier="sms12" id="LIy-8n-oab"/>
+                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms1" id="Fl7-wS-65d"/>
+                        <segue destination="4Jx-nq-F7F" kind="push" identifier="sms50" id="vdW-O1-8tZ"/>
+                        <segue destination="fRF-I4-4KV" kind="push" identifier="sms21" id="1Jv-d2-5EZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYx-AQ-Pgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1828,15 +1829,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="235" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
-                                <rect key="frame" x="51" y="56" width="235" height="64"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
+                                <rect key="frame" x="51" y="56" width="237" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-ax-im6">
-                                <rect key="frame" x="119" y="220" width="63" height="30"/>
+                                <rect key="frame" x="119" y="365" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1766695103" green="0.2084334669" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1849,7 +1850,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXv-L4-5L9">
-                                <rect key="frame" x="120" y="258" width="62" height="27"/>
+                                <rect key="frame" x="120" y="399" width="62" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1766695103" green="0.2084334669" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1869,35 +1870,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Forgot" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-SN-Erx">
-                                <rect key="frame" x="100" y="120" width="93" height="21"/>
+                                <rect key="frame" x="100" y="105" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I had side effects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-6y-n35">
-                                <rect key="frame" x="100" y="145" width="141" height="21"/>
+                                <rect key="frame" x="100" y="131" width="141" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I ran out of medication" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbu-1f-tOx">
-                                <rect key="frame" x="100" y="170" width="164" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health insurance doesn’t cover it " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="kbu-1f-tOx">
+                                <rect key="frame" x="100" y="155" width="200" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqs-ZZ-JyK">
-                                <rect key="frame" x="100" y="195" width="93" height="21"/>
+                                <rect key="frame" x="100" y="342" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNz-Cf-VCe">
-                                <rect key="frame" x="66" y="145" width="29" height="23"/>
+                                <rect key="frame" x="66" y="133" width="29" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unselect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1907,7 +1908,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-H4-9hc">
-                                <rect key="frame" x="66" y="170" width="29" height="23"/>
+                                <rect key="frame" x="66" y="163" width="29" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unselect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1917,7 +1918,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msn-1g-6mW">
-                                <rect key="frame" x="66" y="195" width="29" height="23"/>
+                                <rect key="frame" x="66" y="341" width="29" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unselect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1926,8 +1927,48 @@
                                     <action selector="othersselected:" destination="CdN-Hy-moe" eventType="touchUpInside" id="h4F-dw-RoB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7v-NK-UQe">
+                                <rect key="frame" x="66" y="200" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="costtoomuch:" destination="CdN-Hy-moe" eventType="touchUpInside" id="NHF-3G-xLe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJM-t3-uxm">
+                                <rect key="frame" x="66" y="239" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="friendsdiscouraged:" destination="CdN-Hy-moe" eventType="touchUpInside" id="pHw-yv-EKy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfn-g1-ivm">
+                                <rect key="frame" x="66" y="276" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takingtoomanymedications:" destination="CdN-Hy-moe" eventType="touchUpInside" id="0mR-dz-lsi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-2x-6A0">
+                                <rect key="frame" x="66" y="311" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dontliketakingmed:" destination="CdN-Hy-moe" eventType="touchUpInside" id="iDj-Yt-p94"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay9-ND-A9x">
-                                <rect key="frame" x="66" y="120" width="29" height="23"/>
+                                <rect key="frame" x="66" y="106" width="29" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unselect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1943,6 +1984,34 @@
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Family/friends discouraged me from taking medication " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="ALA-Xv-aUC">
+                                <rect key="frame" x="100" y="228" width="200" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medication/co-payments cost too much " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="kNq-pF-FE8">
+                                <rect key="frame" x="100" y="191" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am taking too many medications " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="4pR-Yn-TyO">
+                                <rect key="frame" x="100" y="269" width="200" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I don’t like taking medications " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="UcU-D1-4ZR">
+                                <rect key="frame" x="100" y="303" width="200" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1952,7 +2021,13 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="answer2" destination="aLB-Bj-WCu" id="Ntr-f9-P0z"/>
+                        <outlet property="costtoomuch" destination="kNq-pF-FE8" id="QFW-FG-fL6"/>
+                        <outlet property="costtoomuchbutton" destination="t7v-NK-UQe" id="Rlf-O6-Zws"/>
+                        <outlet property="dontliketakingmedbutton" destination="VWX-2x-6A0" id="hce-9Z-6m4"/>
+                        <outlet property="dontliketotake" destination="UcU-D1-4ZR" id="rJc-37-7Ap"/>
                         <outlet property="forgotlabel" destination="RcG-SN-Erx" id="ly4-90-AQF"/>
+                        <outlet property="friendsdiscouraged" destination="ALA-Xv-aUC" id="0Dz-sP-ZNc"/>
+                        <outlet property="friendsdiscouragedbutton" destination="OJM-t3-uxm" id="FbG-hi-DK6"/>
                         <outlet property="hiddenfield" destination="8Pb-OM-Kt0" id="UqT-D3-6Jt"/>
                         <outlet property="iforget" destination="Ay9-ND-A9x" id="3RY-mE-uij"/>
                         <outlet property="inforce" destination="Lpn-Dz-JSf" id="eS3-YH-3uB"/>
@@ -1965,13 +2040,15 @@
                         <outlet property="send" destination="hXv-L4-5L9" id="57J-qk-epi"/>
                         <outlet property="sideeffectlabel" destination="1Ii-6y-n35" id="AlT-CO-QMW"/>
                         <outlet property="sideeffects" destination="yNz-Cf-VCe" id="Pa7-1o-5r5"/>
-                        <segue destination="4Jx-nq-F7F" kind="push" identifier="sms4" id="O7b-do-JxL"/>
+                        <outlet property="takingtoomany" destination="4pR-Yn-TyO" id="fra-dS-xew"/>
+                        <outlet property="toomanymedbutton" destination="Jfn-g1-ivm" id="oVu-bj-6yA"/>
                         <segue destination="Q1P-2b-Rt9" kind="push" identifier="sms20" id="SLs-SB-arY"/>
+                        <segue destination="VYc-hL-Ie9" kind="push" identifier="sms40" id="fcZ-ru-Cmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1r-oe-k1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="-485"/>
+            <point key="canvasLocation" x="4246" y="-533"/>
         </scene>
         <!--Weeklymessage3 - Weekly Survey-->
         <scene sceneID="Afo-ha-uVc">
@@ -2078,8 +2155,8 @@
                                     <action selector="record:" destination="Q1P-2b-Rt9" eventType="touchUpInside" id="66k-vg-Xe3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tips to improve message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="229" translatesAutoresizingMaskIntoConstraints="NO" id="1K4-FR-r9X">
-                                <rect key="frame" x="45" y="53" width="229" height="48"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tips to improve message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="235" translatesAutoresizingMaskIntoConstraints="NO" id="1K4-FR-r9X">
+                                <rect key="frame" x="45" y="53" width="235" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
@@ -2109,6 +2186,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aju-2J-HKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4746" y="-1098"/>
+        </scene>
+        <!--Sideeffects View Controller-->
+        <scene sceneID="y4p-cM-mFN">
+            <objects>
+                <viewController id="VYc-hL-Ie9" customClass="sideeffectsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g6X-XS-b0m"/>
+                        <viewControllerLayoutGuide type="bottom" id="F98-3X-vYr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dyi-nH-gCx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mIM-xg-6ak">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9Q-Yx-vj4">
+                                <rect key="frame" x="99" y="143" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesclicked:" destination="VYc-hL-Ie9" eventType="touchUpInside" id="dXB-Zt-8i1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOi-76-wsj">
+                                <rect key="frame" x="99" y="175" width="29" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unselect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noclicked:" destination="VYc-hL-Ie9" eventType="touchUpInside" id="yoE-5m-zSG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have you talked to your doctor about this? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="9qw-ms-hNL">
+                                <rect key="frame" x="45" y="72" width="224" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVA-mn-r1x">
+                                <rect key="frame" x="139" y="144" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR9-m6-M8f">
+                                <rect key="frame" x="139" y="175" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-sZ-YjB">
+                                <rect key="frame" x="109" y="233" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Next" backgroundImage="blue-teal-gradient.jpg">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextclicked:" destination="VYc-hL-Ie9" eventType="touchUpInside" id="HRy-fs-QVt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sjX-5U-Xbh"/>
+                    <connections>
+                        <outlet property="next" destination="Kkg-sZ-YjB" id="M8o-4Y-wS4"/>
+                        <outlet property="nobutton" destination="JOi-76-wsj" id="n2n-uE-7oF"/>
+                        <outlet property="yesbutton" destination="N9Q-Yx-vj4" id="cgi-RO-NPT"/>
+                        <segue destination="4Jx-nq-F7F" kind="push" identifier="sms51" id="tDu-Ps-J7f"/>
+                        <segue destination="Q1P-2b-Rt9" kind="push" identifier="sms52" id="fQ7-G2-c84"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5D-QO-NhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5797" y="-786"/>
         </scene>
         <!--Weeklymessage5 - Weekly Survey-->
         <scene sceneID="LwP-gr-BHy">
@@ -2277,7 +2439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIp-sq-ge3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5318" y="-502"/>
+            <point key="canvasLocation" x="4998" y="-14"/>
         </scene>
         <!--Stiings-->
         <scene sceneID="EJC-WM-dcD">
@@ -2771,7 +2933,7 @@
                         <outlet property="nob" destination="utH-b4-Jrv" id="YeW-an-qpr"/>
                         <outlet property="send" destination="wXc-hD-l0S" id="i2l-ut-xaA"/>
                         <outlet property="yesb" destination="6QW-Jh-SBM" id="DVH-p2-vC7"/>
-                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms15" id="Vcd-52-NTG"/>
+                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms25" id="baK-Lt-qQ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8k-4s-cHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2856,7 +3018,57 @@
     </scenes>
     <resources>
         <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
+        <image name="bg3.png" width="640" height="960"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="logo (1).png" width="202" height="200"/>
         <image name="next.png" width="98" height="36"/>
@@ -2864,6 +3076,19 @@
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="unread_message.png" width="512" height="512"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2874,7 +3099,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="zJw-5E-t9R"/>
         <segue reference="0Js-Lx-Uc6"/>
-        <segue reference="Vcd-52-NTG"/>
-        <segue reference="TkE-IW-zkV"/>
+        <segue reference="vdW-O1-8tZ"/>
+        <segue reference="Fl7-wS-65d"/>
+        <segue reference="fQ7-G2-c84"/>
     </inferredMetricsTieBreakers>
 </document>

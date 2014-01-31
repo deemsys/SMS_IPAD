@@ -202,10 +202,10 @@ int a;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if (a==1)
+    if ((a==1)&&([stringans isEqual:@"No"] ))
     {
        // NSLog(@"recorddict in answer1 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms15" sender:self];
+       [self performSegueWithIdentifier:@"sms25" sender:self];
     }
     else
     {
@@ -221,11 +221,13 @@ int a;
     [yesb setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     
     [nob setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-}
+    stringans=@"Yes";
+};
 
 - (IBAction)noact:(id)sender
 {
     mailanswer.text=@"1";
+    stringans=@"No";
     [yesb setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
     [nob setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
@@ -258,10 +260,12 @@ int a;
 
 -(void)messageSent:(SKPSMTPMessage *)message
 {
+ 
     if (a==1)
     {
        // NSLog(@"recorddict in answer1 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms15" sender:self];
+        [self performSegueWithIdentifier:@"sms25" sender:self];
+        
     }
 }
 // On Failure
@@ -284,6 +288,7 @@ int a;
   //  NSLog(@"count value%@",count);
     
     [super viewDidLoad];
+    sendingnum=0;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -311,7 +316,7 @@ int a;
 {
     
     
-    if ([segue.identifier isEqualToString:@"sms15"])
+    if ([segue.identifier isEqualToString:@"sms25"])
     {
         weekmessage2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;

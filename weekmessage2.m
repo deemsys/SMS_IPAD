@@ -12,6 +12,7 @@
 #import "weeklymessage.h"
 #import "weeklymessage3.h"
 #import "weeklymessage4.h"
+#import "sideeffectsViewController.h"
 
 @interface weekmessage2 ()
 
@@ -32,7 +33,7 @@ int a;
 
 -(BOOL)numbers:(NSString *)country1
 {
-    NSString *countryFormat1 = @"[1-4]{1}";
+    NSString *countryFormat1 = @"[1-8]{1}";
     
     //  [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -64,8 +65,25 @@ int a;
             }
             else if ([answer2.text isEqual:@"3"])
             {
-                answer2.text=@"I ran out of Medication";
+                answer2.text=@"Health insurance doesn’t cover it ";
             }
+            else if ([answer2.text isEqual:@"4"])
+            {
+                answer2.text=@"Medication/co-payments cost too much ";
+            }
+            else if ([answer2.text isEqual:@"5"])
+            {
+                 answer2.text=@"Family/friends discouraged me from taking medication ";
+            }
+            else if ([answer2.text isEqual:@"6"])
+            {
+                 answer2.text=@"I am taking too many medications ";
+            }
+            else if ([answer2.text isEqual:@"7"])
+            {
+                 answer2.text=@"I don’t like taking medications ";
+            }
+           
             [recorddict setValue:answer2.text forKey:@"answer2"];
             //NSLog(@"answer5%@",answer1.text);
         }
@@ -86,10 +104,16 @@ int a;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if (a==1)
+    if ((a==1)&&([answer2.text isEqual:@"I Had side effects"]))
     {
-      //  NSLog(@"recorddict in answer2 %@",recorddict);
+     NSLog(@"recorddict in answer2 %@",recorddict);
+        [self performSegueWithIdentifier:@"sms40" sender:self];
+    }
+    else if(a==1)
+    {
+        NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms20" sender:self];
+
     }
     
     
@@ -102,15 +126,9 @@ int a;
 }
 -(IBAction)next:(id)sender
 {
-    recorddict=[[NSMutableDictionary alloc]init];
-    [recorddict addEntriesFromDictionary:temp];
-     [recorddict setValue:@"novalue" forKey:@"answer2"];
-     [recorddict setValue:@"" forKey:@"audioname"];
-  //  NSLog(@"recorddict in answer2 %@",recorddict);
-    [self performSegueWithIdentifier:@"sms4" sender:self];
+  
     
 }
-
 - (IBAction)forgotsel:(id)sender
 {
    
@@ -118,10 +136,70 @@ int a;
     [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+
     answer2.text=@"1";
 }
 
+- (IBAction)costtoomuch:(id)sender
+{
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+   [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+   [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    
+    answer2.text=@"4";
+}
 
+
+
+- (IBAction)friendsdiscouraged:(id)sender {
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    
+    answer2.text=@"5";
+
+}
+
+- (IBAction)takingtoomanymedications:(id)sender
+{
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    
+    answer2.text=@"6";
+}
+
+- (IBAction)dontliketakingmed:(id)sender {
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    
+    answer2.text=@"7";
+}
 
 - (IBAction)sideeffectselected:(id)sender
 {
@@ -130,6 +208,11 @@ int a;
     [sideeffects setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+
     answer2.text=@"2";
 }
 
@@ -139,6 +222,10 @@ int a;
     [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ranout setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     answer2.text=@"3";
 }
 
@@ -148,7 +235,11 @@ int a;
     [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [others setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
-    answer2.text=@"4";
+    [costtoomuchbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    answer2.text=@"8";
 }
 
 
@@ -195,9 +286,10 @@ int a;
     [super viewDidLoad];
     answer2.delegate=self;
 	// Do any additional setup after loading the view.
-    NSArray *words = [NSArray arrayWithObjects: @"Nice job!", @"Keep it up!", @"Nice, keep up the good work!",@" Well done!",@"Good job, keeping up with your meds!",@"Nicely done!",@"Wonderful!",@"Nicely done!", nil ];
-    reinforce=[words objectAtIndex:arc4random()%[words count]];
-   // NSLog(@"random %@",reinforce);
+    NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
+    NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
+    reinforce=[words objectAtIndex:[weeknum intValue]-1];
+  NSLog(@"in weekly2 week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
     inforce.text=reinforce;
     // NSLog(@"reinforcement %@",inforce.text);
     aaa=[recorddict objectForKey:@"answer1"];
@@ -220,15 +312,25 @@ int a;
         sideeffectlabel.hidden=FALSE;
         ranoutlabel.hidden=FALSE;
         otherslabel.hidden=FALSE;
+        costtoomuch.hidden=FALSE;
+        friendsdiscouraged.hidden=FALSE;
+        takingtoomany.hidden=FALSE;
+        dontliketotake.hidden=FALSE;
+        costtoomuchbutton.hidden=FALSE;
+    toomanymedbutton.hidden=FALSE;
+  friendsdiscouragedbutton.hidden=FALSE;
+     dontliketakingmedbutton.hidden=FALSE;
+      //  NSLog(@"hi");
+        
         
     }
-    else     {
+ else     {
         question2.hidden=TRUE;
         answer2.hidden=TRUE;
         send.hidden=TRUE;
         clear.hidden=TRUE;
-        next.hidden=FALSE;
-        inforce.hidden=FALSE;
+        next.hidden=TRUE;
+        inforce.hidden=TRUE;
         iforget.hidden=TRUE;
         sideeffects.hidden=TRUE;
         ranout.hidden=TRUE;
@@ -237,8 +339,18 @@ int a;
         sideeffectlabel.hidden=TRUE;
         ranoutlabel.hidden=TRUE;
         otherslabel.hidden=TRUE;
-    }
-    
+        costtoomuch.hidden=TRUE;
+        friendsdiscouraged.hidden=TRUE;
+        takingtoomany.hidden=TRUE;
+        dontliketotake.hidden=TRUE;
+        costtoomuchbutton.hidden=TRUE;
+        toomanymedbutton.hidden=TRUE;
+        friendsdiscouragedbutton.hidden=TRUE;
+        dontliketakingmedbutton.hidden=TRUE;
+        
+       
+        
+    }    
 }
 
 - (void)didReceiveMemoryWarning
@@ -269,7 +381,14 @@ int a;
         
     }
     
-    
+    else if ([segue.identifier isEqualToString:@"sms40"])
+    {
+        sideeffectsViewController *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        //  NSLog(@"recorddict from second page %@",recorddict);
+        // destViewController.delegate=self;
+        
+    }
     
     
 }
@@ -286,6 +405,16 @@ int a;
     [otherslabel release];
     [iforget release];
     [question2 release];
+    [costtoomuch release];
+    [friendsdiscouraged release];
+    [takingtoomany release];
+    [dontliketotake release];
+    [costtoomuchbutton release];
+    [friendsdiscouraged release];
+    [friendsdiscouraged release];
+    [friendsdiscouragedbutton release];
+    [toomanymedbutton release];
+    [dontliketakingmedbutton release];
     [super dealloc];
 }
 @end

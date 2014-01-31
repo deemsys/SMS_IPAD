@@ -292,10 +292,8 @@ save.clipsToBounds = YES;
     aaa = [recorddict objectForKey:@"answer2"];
     if ([aaa isEqual:@"I Forgot"])
     {
-        NSArray *words = [NSArray arrayWithObjects: @"Forgot Tip 1", @"Forgot Tip 2", @"Forgot Tip 3",@"Forgot Tip 4",@"Forgot Tip 5", nil ];
-        NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-    //    NSLog(@"random %@",tips1);
-        tipsimprove.text=tips1;
+        
+        tipsimprove.text=@"A pill box, establishing a routine of taking your medication at the same time, or placing your medication in a location where you can’t miss it are some ways to remember to take your medication.";
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
         
@@ -311,29 +309,24 @@ save.clipsToBounds = YES;
     }
     else if([aaa isEqual:@"I Had side effects"])
     {
-        NSArray *words = [NSArray arrayWithObjects: @"Side Effects tip 1", @"Side Effects tip 2", @"Side Effects tip 3",@"Side Effects tip 4",@"Side Effects tip 5", nil ];
-        NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-     //   NSLog(@"random %@",tips1);
-        tipsimprove.text=tips1;
-        
-        tipsimprove.hidden=FALSE;
-        nextbut.hidden=FALSE;
-        
-        pleaseexplain.hidden=TRUE;
-        answer3.hidden=TRUE;
-        play.hidden=TRUE;
-        record.hidden=TRUE;
-        stop.hidden=TRUE;
-        save.hidden=TRUE;
-         [recorddict setObject:@"" forKey:@"audioname"];
-          [recorddict setObject:@"" forKey:@"audiourl"];
+        if ([[recorddict objectForKey:@"sideeffectsinformed"]isEqualToString:@"No"])
+        {
+            tipsimprove.hidden=TRUE;
+            nextbut.hidden=TRUE;
+            
+            pleaseexplain.hidden=FALSE;
+            answer3.hidden=FALSE;
+            play.hidden=FALSE;
+            record.hidden=FALSE;
+            stop.hidden=FALSE;
+            save.hidden=FALSE;
+   
+        }
         
     }
-    else if([aaa isEqual:@"I ran out of Medication"])
-    {NSArray *words = [NSArray arrayWithObjects: @"Ran out of Medication tip 1", @"Ran out of Medication tip 2", @"Ran out of Medication tip 3",@"Ran out of Medication tip 4",@"Ran out of Medication tip 5", nil ];
-        NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-     //   NSLog(@"random %@",tips1);
-        tipsimprove.text=tips1;
+    else if([aaa isEqual:@"Health insurance doesn’t cover it "])
+    {
+        tipsimprove.text=@"Please talk to your doctors and nurses team about this.They may be able to help you.";
         
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
@@ -347,6 +340,74 @@ save.clipsToBounds = YES;
          [recorddict setObject:@"" forKey:@"audioname"];
           [recorddict setObject:@"" forKey:@"audiourl"];
     }
+    else if([aaa isEqual:@"Medication/co-payments cost too much "])
+    {
+        tipsimprove.text=@"Please talk to your health care team about this.They may be able to help you.";
+        
+        tipsimprove.hidden=FALSE;
+        nextbut.hidden=FALSE;
+        
+        pleaseexplain.hidden=TRUE;
+        answer3.hidden=TRUE;
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
+    }
+    
+    else if([aaa isEqual:@"Family/friends discouraged me from taking medication "])
+    {
+        tipsimprove.text=@"That’s understandable, however, taking this medicine is an investment in your health. Please talk to your doctor or nurse about your concerns.";
+        
+        tipsimprove.hidden=FALSE;
+        nextbut.hidden=FALSE;
+        
+        pleaseexplain.hidden=TRUE;
+        answer3.hidden=TRUE;
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
+    }
+    
+    else if([aaa isEqual:@"I am taking too many medications "])
+    {
+        tipsimprove.text=@"Please talk to your doctor or nurse about this.";
+        
+        tipsimprove.hidden=FALSE;
+        nextbut.hidden=FALSE;
+        
+        pleaseexplain.hidden=TRUE;
+        answer3.hidden=TRUE;
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
+    }
+    else if([aaa isEqual:@"I don’t like taking medications"])
+    {
+        tipsimprove.text=@"That’s understandable. Many people feel this way, however, taking this medicine is an investment in your health. Please talk to you doctor or nurse about this.";
+        
+        tipsimprove.hidden=FALSE;
+        nextbut.hidden=FALSE;
+        
+        pleaseexplain.hidden=TRUE;
+        answer3.hidden=TRUE;
+        play.hidden=TRUE;
+        record.hidden=TRUE;
+        stop.hidden=TRUE;
+        save.hidden=TRUE;
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
+    }
+
+
     else
     {
         tipsimprove.hidden=TRUE;

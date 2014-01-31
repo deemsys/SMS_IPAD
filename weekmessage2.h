@@ -21,7 +21,6 @@
     IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     IBOutlet UIButton * next;
-    
     IBOutlet UIButton *iforget;
     IBOutlet UIButton *sideeffects;
     IBOutlet UIButton *ranout;
@@ -30,18 +29,24 @@
     IBOutlet UILabel *sideeffectlabel;
     IBOutlet UILabel *ranoutlabel;
     IBOutlet UILabel *otherslabel;
-    
-    
-    
-    
-    
+    IBOutlet UILabel *costtoomuch;
+    IBOutlet UILabel *takingtoomany;
+    IBOutlet UILabel *friendsdiscouraged;
+    IBOutlet UILabel *dontliketotake;
+    IBOutlet UIButton *costtoomuchbutton;
+    IBOutlet UIButton *toomanymedbutton;
+    IBOutlet UIButton *friendsdiscouragedbutton;
+    IBOutlet UIButton *dontliketakingmedbutton;
 }
 
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
 -(IBAction)next:(id)sender;
 - (IBAction)forgotsel:(id)sender;
-
+- (IBAction)costtoomuch:(id)sender;
+- (IBAction)friendsdiscouraged:(id)sender;
+- (IBAction)takingtoomanymedications:(id)sender;
+- (IBAction)dontliketakingmed:(id)sender;
 - (IBAction)sideeffectselected:(id)sender;
 - (IBAction)ranoutselected:(id)sender;
 - (IBAction)othersselected:(id)sender;

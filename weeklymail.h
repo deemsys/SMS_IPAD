@@ -26,7 +26,8 @@
     NSMutableDictionary * recordict;
     NSString * cont;
     NSString * count;
-    
+    int sendingnum;
+    NSString *stringans;
     IBOutlet UIButton *yesb;
     IBOutlet UIButton *nob;
     

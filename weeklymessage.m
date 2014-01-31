@@ -70,20 +70,40 @@ int a;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
+    
+    
     if (((([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))&&(([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||[answer1.text isEqual:@"0"]))||([answer1.text isEqual:@"5"]))
     {
-        [self performSegueWithIdentifier:@"sms12" sender:self];
+        [self performSegueWithIdentifier:@"sms21" sender:self];
+        
     }
-    else if (a==1)
-    {
-       // NSLog(@"recorddict in answer1 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms1" sender:self];
+    if ((a==1)&&(([answer1.text isEqual:@"0"])||([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"])))
+            
+        {
+            NSLog(@"recorddict in answer1 %@",recorddict);
+            
+            [self performSegueWithIdentifier:@"sms1" sender:self];
+        }
+        if ((a==1)&&(([answer1.text isEqual:@"6"])||([answer1.text isEqual:@"7"])))
+        {
+            NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
+            NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
+           NSString* reinforce=[words objectAtIndex:[weeknum intValue]-1];
+            NSLog(@" in condotion week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:reinforce];
+            
+            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            [recorddict setValue:@"novalue" forKey:@"answer2"];
+            [recorddict setValue:@"" forKey:@"audioname"];
+            [self performSegueWithIdentifier:@"sms50" sender:self];
+        
+        
+     
+        
     }
-    else
-    {
-        NULL;
-    }
-    
+       
     
     
     
@@ -152,6 +172,7 @@ int a;
 }
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     next.clipsToBounds = YES;
     next.layer.cornerRadius = 5.0f;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -164,7 +185,7 @@ int a;
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    [super viewDidLoad];
+    
     answer1.delegate=self;
     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Weekly Evaluation" message:@"System Begins Your Evaluation."];
     
@@ -194,7 +215,7 @@ int a;
         // destViewController.delegate=self;
         
     }
-    else if ([segue.identifier isEqualToString:@"sms12"])
+    else if ([segue.identifier isEqualToString:@"sms21"])
     {
         
         
@@ -203,6 +224,11 @@ int a;
        // NSLog(@"recorddict in weekly first %@",recorddict);
         // destViewController.delegate=self;
         
+    }
+    else if ([segue.identifier isEqualToString:@"sms50"])
+    {
+        weeklymessage4 *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
     }
 
     
@@ -221,9 +247,9 @@ int a;
     //  self.view.frame=CGRectMake(0,0,50,50);
 }
 - (void)dealloc {
-    [seg release];
-    [question1 release];
-    [next release];
+   // [seg release];
+   // [question1 release];
+   // [next release];
     [super dealloc];
 }
 @end
