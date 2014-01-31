@@ -20,6 +20,7 @@
 
 @implementation weekmessage2
 @synthesize recorddict;
+@synthesize next;
 NSString *aaa;
 int a;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -110,13 +111,13 @@ int a;
     }
     if ((a==1)&&([answer2.text isEqual:@"I Had side effects"]))
     {
-        NSLog(@"recorddict in answer2 %@",recorddict);
+       // NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms40" sender:self];
     }
     if ((a==1)&&(![answer2.text isEqual:@"I Had side effects"]))
     {
         
-        NSLog(@"recorddict in answer2 goto to next page %@",recorddict);
+       // NSLog(@"recorddict in answer2 goto to next page %@",recorddict);
         [self performSegueWithIdentifier:@"sms20" sender:self];
         
     }
@@ -147,6 +148,7 @@ int a;
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
     answer2.text=@"1";
+    send.hidden=NO;
 }
 
 - (IBAction)costtoomuch:(id)sender
@@ -160,6 +162,7 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
+    send.hidden=NO;
     answer2.text=@"4";
 }
 
@@ -175,6 +178,7 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
+    send.hidden=NO;
     answer2.text=@"5";
     
 }
@@ -190,6 +194,7 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
+    send.hidden=NO;
     answer2.text=@"6";
 }
 
@@ -203,6 +208,7 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     
+    send.hidden=NO;
     answer2.text=@"7";
 }
 
@@ -218,6 +224,7 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
+    send.hidden=NO;
     answer2.text=@"2";
 }
 
@@ -232,6 +239,8 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     answer2.text=@"3";
+    
+    send.hidden=NO;
 }
 
 - (IBAction)othersselected:(id)sender
@@ -245,6 +254,8 @@ int a;
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     answer2.text=@"8";
+    
+    send.hidden=NO;
 }
 
 
@@ -272,6 +283,7 @@ int a;
 }
 - (void)viewDidLoad
 {
+    send.hidden=YES;
     send.clipsToBounds = YES;
     send.layer.cornerRadius = 5.0f;
     next.clipsToBounds = YES;
@@ -289,12 +301,13 @@ int a;
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
     [super viewDidLoad];
+   
     answer2.delegate=self;
 	// Do any additional setup after loading the view.
     NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
     NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
     reinforce=[words objectAtIndex:[weeknum intValue]-1];
-    NSLog(@"in weekly2 week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
+   // NSLog(@"in weekly2 week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
     inforce.text=reinforce;
     // NSLog(@"reinforcement %@",inforce.text);
     aaa=[recorddict objectForKey:@"answer1"];
@@ -306,7 +319,7 @@ int a;
         question2.hidden=FALSE;
         answer2.hidden=FALSE;
         send.hidden=FALSE;
-        clear.hidden=FALSE;
+        clear.hidden=TRUE;
         next.hidden=TRUE;
         inforce.hidden=TRUE;
         iforget.hidden=FALSE;
@@ -420,6 +433,7 @@ int a;
     [friendsdiscouragedbutton release];
     [toomanymedbutton release];
     [dontliketakingmedbutton release];
+    [next release];
     [super dealloc];
 }
 @end

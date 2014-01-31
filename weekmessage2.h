@@ -50,6 +50,7 @@
 - (IBAction)sideeffectselected:(id)sender;
 - (IBAction)ranoutselected:(id)sender;
 - (IBAction)othersselected:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *next;
 
 
 

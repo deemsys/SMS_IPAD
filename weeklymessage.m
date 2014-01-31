@@ -86,7 +86,7 @@ int a;
         if(([answer1.text isEqual:@"0"])||([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"]))
             
         {
-            NSLog(@"recorddict in answer1 %@",recorddict);
+           // NSLog(@"recorddict in answer1 %@",recorddict);
             
             [self performSegueWithIdentifier:@"sms1" sender:self];
         }
@@ -96,7 +96,7 @@ int a;
         NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
         NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
         NSString* reinforce=[words objectAtIndex:[weeknum intValue]-1];
-        NSLog(@" in condotion week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
+       // NSLog(@" in condotion week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:reinforce];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
