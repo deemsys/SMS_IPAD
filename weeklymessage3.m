@@ -14,8 +14,8 @@
 
 @interface weeklymessage3 ()
 {
-   
-
+    
+    
 }
 
 
@@ -40,11 +40,11 @@ int a;
     [play setEnabled:YES];
     [save setEnabled:YES];
     [stop setEnabled:NO];
-  [self.audioPlayer stop];
+    [self.audioPlayer stop];
     [self.audioRecorder stop];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
-  //  NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
+    //  NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
     recording.hidden=TRUE;
 }
 
@@ -70,12 +70,12 @@ int a;
     
     if(([answer3.text length]!=0))
     {
-       
-            a=1;
-          //  NSLog(@"a value %i",a);
-            [recorddict setValue:answer3.text forKey:@"answer2"];
-            //NSLog(@"answer5%@",answer1.text);
-       
+        
+        a=1;
+        //  NSLog(@"a value %i",a);
+        [recorddict setValue:answer3.text forKey:@"answer2"];
+        //NSLog(@"answer5%@",answer1.text);
+        
     }
     else
     {
@@ -87,7 +87,7 @@ int a;
     }
     if (a==1)
     {
-      //  NSLog(@"recorddict in answer2 %@",recorddict);
+        //  NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms15" sender:self];
     }
     
@@ -100,7 +100,7 @@ int a;
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     
-  //  NSLog(@"recorddict in answer2 %@",recorddict);
+    //  NSLog(@"recorddict in answer2 %@",recorddict);
     [self performSegueWithIdentifier:@"sms15" sender:self];
     
     
@@ -126,8 +126,8 @@ int a;
     NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
     
     int i=0+arc4random()%1000;
-   
-audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
+    
+    audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
     [recorddict setObject:audioname forKey:@"audioname"];
     
     NSURL *audioFileURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",audioname]]];
@@ -138,12 +138,12 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
     
     [prefs setURL:audioFileURL forKey:@"Test1"];
     [prefs synchronize];
-
+    
     self.audioRecorder = [[AVAudioRecorder alloc]
                           initWithURL:audioFileURL
                           settings:recordSetting
                           error:nil];
-
+    
     recording.text=@"Recording..";
     if (self.audioPlayer.playing) {
         [self.audioPlayer stop];
@@ -153,10 +153,10 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
         [self.audioRecorder prepareToRecord];
-
+        
         // Start recording
         [self.audioRecorder record];
-        [record setTitle:@"Record" forState:UIControlStateNormal];
+        [record setTitle:@"Pause" forState:UIControlStateNormal];
         
     } else {
         
@@ -173,12 +173,12 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
 }
 -(IBAction)play:(id)sender
 {
-        recording.hidden=FALSE;
-        
-       recording.text=@"Playing..";
+    recording.hidden=FALSE;
     
-
-        
+    recording.text=@"Playing..";
+    
+    
+    
     if (!self.audioRecorder.recording){
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         
@@ -192,7 +192,7 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
         
         
         
-
+        
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[prefs URLForKey:@"Test1"] error:nil];
         [self.audioPlayer setDelegate:self];
         [self.audioPlayer play];
@@ -248,11 +248,11 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
     stop.layer.cornerRadius = 5.0f;
     record.clipsToBounds = YES;
     record.layer.cornerRadius = 5.0f;
-save.clipsToBounds = YES;
+    save.clipsToBounds = YES;
     save.layer.cornerRadius = 5.0f;
     
     
-   UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
     [home addTarget:self action:@selector(back)
@@ -270,10 +270,10 @@ save.clipsToBounds = YES;
     [play setEnabled:NO];
     [save setEnabled:NO];
     
-       AVAudioSession *session = [AVAudioSession sharedInstance];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
-       self.audioRecorder.delegate = self;
+    self.audioRecorder.delegate = self;
     self.audioRecorder.meteringEnabled = YES;
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -282,14 +282,15 @@ save.clipsToBounds = YES;
     
     
     
-
-    	// Do any additional setup after loading the view.
+    
+    // Do any additional setup after loading the view.
     
     
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;
     
     aaa = [recorddict objectForKey:@"answer2"];
+    
     if ([aaa isEqual:@"I Forgot"])
     {
         
@@ -320,11 +321,11 @@ save.clipsToBounds = YES;
             record.hidden=FALSE;
             stop.hidden=FALSE;
             save.hidden=FALSE;
-   
+            
         }
         
     }
-    else if([aaa isEqual:@"Health insurance doesn't cover it"])
+    else if([aaa isEqual:@"Health insurance doesn’t cover it"])
     {
         tipsimprove.text=@"Please talk to your doctors and nurses team about this.They may be able to help you.";
         
@@ -337,8 +338,8 @@ save.clipsToBounds = YES;
         record.hidden=TRUE;
         stop.hidden=TRUE;
         save.hidden=TRUE;
-         [recorddict setObject:@"" forKey:@"audioname"];
-          [recorddict setObject:@"" forKey:@"audiourl"];
+        [recorddict setObject:@"" forKey:@"audioname"];
+        [recorddict setObject:@"" forKey:@"audiourl"];
     }
     else if([aaa isEqual:@"Medication/co-payments cost too much"])
     {
@@ -390,9 +391,8 @@ save.clipsToBounds = YES;
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
-    else if([aaa isEqual:@"I don't like taking medications"])
+    else if([aaa isEqual:@"I don’t like taking medications"])
     {
-        NSLog(@"hi");
         tipsimprove.text=@"That’s understandable. Many people feel this way, however, taking this medicine is an investment in your health. Please talk to you doctor or nurse about this.";
         
         tipsimprove.hidden=FALSE;
@@ -407,9 +407,9 @@ save.clipsToBounds = YES;
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
-
-
-    else
+    
+    
+    else if([aaa isEqualToString:@"Others"])
     {
         tipsimprove.hidden=TRUE;
         nextbut.hidden=TRUE;
@@ -436,7 +436,7 @@ save.clipsToBounds = YES;
     {
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-     //   NSLog(@"recorddict from third page %@",recorddict);
+        //   NSLog(@"recorddict from third page %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -470,9 +470,9 @@ save.clipsToBounds = YES;
 
 
 - (void)dealloc {
-   // [nextbut release];
-   // [toolbar release];
-   // [tipsimprove release];
+    // [nextbut release];
+    // [toolbar release];
+    // [tipsimprove release];
     //[play release];
     //[stop release];
     //[record release];

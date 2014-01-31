@@ -47,7 +47,7 @@ int a;
         if([self numbers:[answer1 text]]==1)
         {
             a=1;
-           // NSLog(@"a value %i",a);
+            // NSLog(@"a value %i",a);
             [recorddict setValue:answer1.text forKey:@"answer1"];
             [recorddict setValue:seq forKey:@"seq"];
             [recorddict setValue:seqmorethan3 forKey:@"seqmorethan3"];
@@ -91,26 +91,26 @@ int a;
             [self performSegueWithIdentifier:@"sms1" sender:self];
         }
     }
-        if ((a==1)&&(([answer1.text isEqual:@"6"])||([answer1.text isEqual:@"7"])))
-        {
-            NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
-            NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
-           NSString* reinforce=[words objectAtIndex:[weeknum intValue]-1];
-            NSLog(@" in condotion week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:reinforce];
-            
-            //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
-            [recorddict setValue:@"novalue" forKey:@"answer2"];
-            [recorddict setValue:@"" forKey:@"audioname"];
-            [self performSegueWithIdentifier:@"sms50" sender:self];
+    if ((a==1)&&(([answer1.text isEqual:@"6"])||([answer1.text isEqual:@"7"])))
+    {
+        NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
+        NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
+        NSString* reinforce=[words objectAtIndex:[weeknum intValue]-1];
+        NSLog(@" in condotion week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:reinforce];
+        
+        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+        [recorddict setValue:@"novalue" forKey:@"answer2"];
+        [recorddict setValue:@"" forKey:@"audioname"];
+        [self performSegueWithIdentifier:@"sms50" sender:self];
         
         
-     
+        
         
     }
-       
+    
     
     
     
@@ -202,7 +202,7 @@ int a;
     [alert show];
     seq=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     seqmorethan3=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
-   // NSLog(@"sequence occured %@,count %@",seq,seqmorethan3);
+    // NSLog(@"sequence occured %@,count %@",seq,seqmorethan3);
 	// Do any additional setup after loading the view.
 }
 
@@ -218,7 +218,7 @@ int a;
         
         weekmessage2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-     //   NSLog(@"recorddict in week first %@",recorddict);
+        //   NSLog(@"recorddict in week first %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -226,9 +226,9 @@ int a;
     {
         
         
-       weeklymail *destViewController = [segue destinationViewController];
+        weeklymail *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-       // NSLog(@"recorddict in weekly first %@",recorddict);
+        // NSLog(@"recorddict in weekly first %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -237,7 +237,7 @@ int a;
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
     }
-
+    
     
     
 }
@@ -254,9 +254,9 @@ int a;
     //  self.view.frame=CGRectMake(0,0,50,50);
 }
 - (void)dealloc {
-   // [seg release];
-   // [question1 release];
-   // [next release];
+    // [seg release];
+    // [question1 release];
+    // [next release];
     [super dealloc];
 }
 @end

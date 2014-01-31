@@ -50,11 +50,11 @@ int a;
     if(([answer2.text length]!=0))
     {
         a=0;
-       // NSLog(@"a value %i",a);
+        // NSLog(@"a value %i",a);
         if([self numbers:[answer2 text]]==1)
         {
             a=1;
-           // NSLog(@"a value %i",a);
+            // NSLog(@"a value %i",a);
             if ([answer2.text isEqual:@"1"])
             {
                 answer2.text=@"I Forgot";
@@ -65,25 +65,29 @@ int a;
             }
             else if ([answer2.text isEqual:@"3"])
             {
-                answer2.text=@"Health insurance doesn't cover it ";
+                answer2.text=@"Health insurance doesn’t cover it";
             }
             else if ([answer2.text isEqual:@"4"])
             {
-                answer2.text=@"Medication/co-payments cost too much ";
+                answer2.text=@"Medication/co-payments cost too much";
             }
             else if ([answer2.text isEqual:@"5"])
             {
-                 answer2.text=@"Family/friends discouraged me from taking medication ";
+                answer2.text=@"Family/friends discouraged me from taking medication";
             }
             else if ([answer2.text isEqual:@"6"])
             {
-                 answer2.text=@"I am taking too many medications ";
+                answer2.text=@"I am taking too many medications";
             }
             else if ([answer2.text isEqual:@"7"])
             {
-                 answer2.text=@"I don't like taking medications ";
+                answer2.text=@"I don’t like taking medications";
             }
-           
+            else if ([answer2.text isEqual:@"8"])
+            {
+                answer2.text=@"Others";
+            }
+            
             [recorddict setValue:answer2.text forKey:@"answer2"];
             //NSLog(@"answer5%@",answer1.text);
         }
@@ -106,17 +110,17 @@ int a;
     }
     if ((a==1)&&([answer2.text isEqual:@"I Had side effects"]))
     {
-     NSLog(@"recorddict in answer2 side effects %@",recorddict);
+        NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms40" sender:self];
     }
-   if(a==1)
-   {
-    
-        NSLog(@"recorddict in answer2 %@",recorddict);
+    if ((a==1)&&(![answer2.text isEqual:@"I Had side effects"]))
+    {
+        
+        NSLog(@"recorddict in answer2 goto to next page %@",recorddict);
         [self performSegueWithIdentifier:@"sms20" sender:self];
-
-   
-   }
+        
+    }
+    
     
     
 }
@@ -127,12 +131,12 @@ int a;
 }
 -(IBAction)next:(id)sender
 {
-  
+    
     
 }
 - (IBAction)forgotsel:(id)sender
 {
-   
+    
     [iforget setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
@@ -141,7 +145,7 @@ int a;
     [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-
+    
     answer2.text=@"1";
 }
 
@@ -152,8 +156,8 @@ int a;
     [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [costtoomuchbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
-   [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-   [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
     answer2.text=@"4";
@@ -172,7 +176,7 @@ int a;
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
     answer2.text=@"5";
-
+    
 }
 
 - (IBAction)takingtoomanymedications:(id)sender
@@ -213,7 +217,7 @@ int a;
     [ toomanymedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [ friendsdiscouragedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [dontliketakingmedbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-
+    
     answer2.text=@"2";
 }
 
@@ -290,13 +294,13 @@ int a;
     NSArray *words = [NSArray arrayWithObjects:@"Well done!",@"Keep up the good work!",@" Way to go!",@"Nice job!",@"Keep it up!" ,@"Fantastic!" ,@"reat job staying on track!" ,@" Wonderful!" ,@"Sweet!",@"You're taking care of yourself!",@"Awesome!",@"Keep the streak alive!", nil ];
     NSString*weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
     reinforce=[words objectAtIndex:[weeknum intValue]-1];
-  NSLog(@"in weekly2 week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
+    NSLog(@"in weekly2 week number %d,index no %d,random %@",[weeknum intValue],[weeknum intValue]-1,reinforce);
     inforce.text=reinforce;
     // NSLog(@"reinforcement %@",inforce.text);
     aaa=[recorddict objectForKey:@"answer1"];
     // NSLog(@"aaa value %@",aaa);
     hiddenfield.text=aaa;
-  //  NSLog(@"hidden field %@",hiddenfield.text);
+    //  NSLog(@"hidden field %@",hiddenfield.text);
     if (([aaa isEqual:@"0"])||([aaa isEqual:@"1"])||([aaa isEqual:@"2"])||([aaa isEqual:@"3"])||([aaa isEqual:@"4"])||([aaa isEqual:@"5"]))
     {
         question2.hidden=FALSE;
@@ -318,14 +322,14 @@ int a;
         takingtoomany.hidden=FALSE;
         dontliketotake.hidden=FALSE;
         costtoomuchbutton.hidden=FALSE;
-    toomanymedbutton.hidden=FALSE;
-  friendsdiscouragedbutton.hidden=FALSE;
-     dontliketakingmedbutton.hidden=FALSE;
-      //  NSLog(@"hi");
+        toomanymedbutton.hidden=FALSE;
+        friendsdiscouragedbutton.hidden=FALSE;
+        dontliketakingmedbutton.hidden=FALSE;
+        //  NSLog(@"hi");
         
         
     }
- else     {
+    else     {
         question2.hidden=TRUE;
         answer2.hidden=TRUE;
         send.hidden=TRUE;
@@ -349,9 +353,9 @@ int a;
         friendsdiscouragedbutton.hidden=TRUE;
         dontliketakingmedbutton.hidden=TRUE;
         
-       
         
-    }    
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -369,7 +373,7 @@ int a;
     {
         weeklymessage3 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-      //  NSLog(@"recorddict from second page %@",recorddict);
+        //  NSLog(@"recorddict from second page %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -377,7 +381,7 @@ int a;
     {
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-      //  NSLog(@"recorddict from second page %@",recorddict);
+        //  NSLog(@"recorddict from second page %@",recorddict);
         // destViewController.delegate=self;
         
     }
