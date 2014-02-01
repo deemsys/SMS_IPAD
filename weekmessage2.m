@@ -88,7 +88,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in answer2 %@",recorddict);
+      //  NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms2" sender:self];
     }
     
@@ -105,7 +105,7 @@ int a;
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     
-    NSLog(@"recorddict in answer2 %@",recorddict);
+  //  NSLog(@"recorddict in answer2 %@",recorddict);
     [self performSegueWithIdentifier:@"sms4" sender:self];
     
 }
@@ -196,13 +196,13 @@ int a;
 	// Do any additional setup after loading the view.
     NSArray *words = [NSArray arrayWithObjects: @"Nice job!", @"Keep it up!", @"Nice, keep up the good work!",@" Well done!",@"Good job, keeping up with your meds!",@"Nicely done!",@"Wonderful!",@"Nicely done!", nil ];
     reinforce=[words objectAtIndex:arc4random()%[words count]];
-    NSLog(@"random %@",reinforce);
+   // NSLog(@"random %@",reinforce);
     inforce.text=reinforce;
     // NSLog(@"reinforcement %@",inforce.text);
     aaa=[recorddict objectForKey:@"answer1"];
     // NSLog(@"aaa value %@",aaa);
     hiddenfield.text=aaa;
-    NSLog(@"hidden field %@",hiddenfield.text);
+  //  NSLog(@"hidden field %@",hiddenfield.text);
     if (([aaa isEqual:@"0"])||([aaa isEqual:@"1"])||([aaa isEqual:@"2"])||([aaa isEqual:@"3"])||([aaa isEqual:@"4"])||([aaa isEqual:@"5"]))
     {
         question2.hidden=FALSE;
@@ -255,7 +255,7 @@ int a;
     {
         weeklymessage3 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict from second page %@",recorddict);
+      //  NSLog(@"recorddict from second page %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -263,7 +263,7 @@ int a;
     {
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict from second page %@",recorddict);
+      //  NSLog(@"recorddict from second page %@",recorddict);
         // destViewController.delegate=self;
         
     }

@@ -35,7 +35,7 @@ int a;
 }
 -(void)updatetable
 {
-    NSLog(@"update started");
+   // NSLog(@"update started");
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
     NSString *resultResponse2=[self HttpPostEntityFirstsequence:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     
@@ -65,7 +65,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Failed to update weekly evaluation result."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Failed to update weekly evaluation result."];
             
             [HUD hide:YES];
             
@@ -98,9 +98,9 @@ int a;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@" post %@ ",post);
+   // NSLog(@" post %@ ",post);
     
-    NSLog(@"result for update %@ ",data);
+  //  NSLog(@"result for update %@ ",data);
     
     return data;
     
@@ -121,7 +121,7 @@ int a;
         if([self numbers:[mailanswer text]]==1)
         {
             a=1;
-            NSLog(@"a value %i",a);
+         //   NSLog(@"a value %i",a);
             NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
             NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
             //smtp email composing
@@ -187,7 +187,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Answer you submitted is Invalid."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is Invalid."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -196,7 +196,7 @@ int a;
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Field should not be empty."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Field should not be empty."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -204,7 +204,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in answer1 %@",recorddict);
+       // NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms15" sender:self];
     }
     else
@@ -260,7 +260,7 @@ int a;
 {
     if (a==1)
     {
-        NSLog(@"recorddict in answer1 %@",recorddict);
+       // NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms15" sender:self];
     }
 }
@@ -280,8 +280,8 @@ int a;
     NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
   cont= [recorddict objectForKey:@"seq"];
     count=[recorddict objectForKey: @"seqmorethan3"];
-    NSLog(@"cont value%@",cont);
-    NSLog(@"count value%@",count);
+  //  NSLog(@"cont value%@",cont);
+  //  NSLog(@"count value%@",count);
     
     [super viewDidLoad];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -315,7 +315,7 @@ int a;
     {
         weekmessage2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in week first %@",recorddict);
+      //  NSLog(@"recorddict in week first %@",recorddict);
         // destViewController.delegate=self;
         
     }

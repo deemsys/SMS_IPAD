@@ -672,12 +672,12 @@
         }
 
     }*/
-   NSLog(@"application badge number %@",[NSString stringWithFormat:@"%i", [UIApplication sharedApplication].applicationIconBadgeNumber]);
+  // NSLog(@"application badge number %@",[NSString stringWithFormat:@"%i", [UIApplication sharedApplication].applicationIconBadgeNumber]);
 
     //NSLog(@"from addres on welcome %@",msgfrom);
    // NSLog(@"from addres on welcome %@",msgbody);
-  NSLog(@"from addres on welcome %@",msgdate);
-   NSLog(@"flag values in sync %@",flagvalue);
+ // NSLog(@"from addres on welcome %@",msgdate);
+  // NSLog(@"flag values in sync %@",flagvalue);
     
     [fileMngr saveDatapath:msgtextfile contentarray:msgbody];
     [fileMngr saveDatapath:msgdatefile contentarray:msgdate];

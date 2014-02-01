@@ -151,7 +151,7 @@ int a;
     NSString*patientemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
     NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
     NSString*weekno=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
-    NSLog(@"providerusername:%@\n,email:%@\n,patemail:%@\n,patusername:%@\n,weekno:%@\n",prousername,proemail,patientemail,patusername,weekno);
+  //  NSLog(@"providerusername:%@\n,email:%@\n,patemail:%@\n,patusername:%@\n,weekno:%@\n",prousername,proemail,patientemail,patusername,weekno);
     
     a=0;
    // recorddict=[[NSMutableDictionary alloc]init];
@@ -162,7 +162,7 @@ int a;
         if([self numbers:[answer4 text]]==1)
         {
             a=1;
-            NSLog(@"a value %i",a);
+         //   NSLog(@"a value %i",a);
             if ([answer4.text isEqual:@"1"])
             {
                 answer4.text=@"Yes";
@@ -174,7 +174,7 @@ int a;
             
             [recorddict setValue:answer4.text forKey:@"answer3"];
            
-            NSLog(@"answer4 value%@",answer4.text);
+          //  NSLog(@"answer4 value%@",answer4.text);
             
 
             if ([answer4.text isEqualToString:@"Yes"])
@@ -222,7 +222,7 @@ int a;
 {
     
     
-    NSLog(@"HighestState:%d", HighestState);
+ //   NSLog(@"HighestState:%d", HighestState);
     if (messageState > HighestState)
         HighestState = messageState;
     
@@ -263,7 +263,7 @@ int a;
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
 
-     NSLog(@"delegate - error(%ld): %@", (long)[error code], [error localizedDescription]);
+   //  NSLog(@"delegate - error(%ld): %@", (long)[error code], [error localizedDescription]);
         [self performSegueWithIdentifier:@"sms10" sender:self];
 
     

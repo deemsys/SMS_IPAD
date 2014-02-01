@@ -379,7 +379,7 @@
     else
     {
         grouppicker.text=@"Select group";
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Please select maximum 4 groups."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -435,7 +435,7 @@
     
     else
     {
-        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Select Provider and group detail."];
+        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"INFO!" message:@"Select Provider and group detail."];
         [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert1 show];
     }
@@ -701,7 +701,7 @@
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
     
     
-    NSLog(@"%@",post);
+ //   NSLog(@"%@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/twilioservice.php?service=sendmessage"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -721,7 +721,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
     
-    NSLog(@"%@ data",data);
+  //  NSLog(@"%@ data",data);
     
     return data;
     
@@ -788,7 +788,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSLog(@"postlenth%@",postLength);
+   // NSLog(@"postlenth%@",postLength);
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];

@@ -186,7 +186,7 @@
     return cell;
     
 }
-
+/* Table cell deletion task
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Remove the row from data model
@@ -195,7 +195,7 @@
     // Request table view to reload
     [tableView reloadData];
 }
-
+*/
 
 - (void)didReceiveMemoryWarning
 {

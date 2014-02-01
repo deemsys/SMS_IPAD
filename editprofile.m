@@ -438,7 +438,7 @@
 #pragma mark - Delegate
 -(void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr
 {
-    NSLog(@"selectedArray=%@",selectedEntriesArr);
+   // NSLog(@"selectedArray=%@",selectedEntriesArr);
     groupidlist=[recorddict objectForKey:@"groupid"];
     NSString *dataStr = [selectedEntriesArr componentsJoinedByString:@","];
     selectedgroupid=[[NSMutableArray alloc]init];
@@ -464,7 +464,7 @@
     else
     {
          grouppicker.text=@"Select group";
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Please select maximum 4 groups."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Please select maximum 4 groups."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -573,7 +573,7 @@
                         [recorddict setValue:t3 forKey:@"Preferred Time3 format"];
                         [recorddict setValue:provider.text forKey:@"Provider"];
                         //[recorddict setValue:grouppicker.text forKey:@"group"];
-                        NSLog(@"complete patient list %@",recorddict);
+                       // NSLog(@"complete patient list %@",recorddict);
                         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
                         [self.navigationController.view addSubview:HUD];
                         HUD.delegate = self;
@@ -586,14 +586,14 @@
                     }
                     else
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid E-mail id."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Mobile Number."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -602,14 +602,14 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid User Name."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid First Name."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -617,7 +617,7 @@
     
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter all the required fields."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter all the required fields."];
         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
         [alert show];
         
@@ -672,7 +672,7 @@
     
     
     NSString*loginid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
-    NSLog(@"userid %@",loginid);
+   // NSLog(@"userid %@",loginid);
     NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     
     //  NSLog(@"********%@",resultResponse);
@@ -794,8 +794,8 @@
     }
     
     // NSLog(@"%@ selected groupid",selectedgroupid);
-    NSLog(@"%@ group",postVarArrayString);
-    NSLog(@"%@ groupid",postVarArrayStringid);
+   // NSLog(@"%@ group",postVarArrayString);
+   // NSLog(@"%@ groupid",postVarArrayStringid);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&groupname=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid, grouppicker.text,emailid,oldemail,secondEntity,value2];
     
   //  NSLog(@"post %@",post);

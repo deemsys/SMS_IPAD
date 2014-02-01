@@ -47,7 +47,7 @@ int a;
         if([self numbers:[answer1 text]]==1)
         {
             a=1;
-            NSLog(@"a value %i",a);
+           // NSLog(@"a value %i",a);
             [recorddict setValue:answer1.text forKey:@"answer1"];
             [recorddict setValue:seq forKey:@"seq"];
             [recorddict setValue:seqmorethan3 forKey:@"seqmorethan3"];
@@ -76,7 +76,7 @@ int a;
     }
     else if (a==1)
     {
-        NSLog(@"recorddict in answer1 %@",recorddict);
+       // NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms1" sender:self];
     }
     else
@@ -190,7 +190,7 @@ int a;
         
         weekmessage2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in week first %@",recorddict);
+     //   NSLog(@"recorddict in week first %@",recorddict);
         // destViewController.delegate=self;
         
     }

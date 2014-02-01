@@ -233,7 +233,7 @@
         
         signup2ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in signup1 %@",recorddict);
+       // NSLog(@"recorddict in signup1 %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -390,12 +390,12 @@
     }
     
     
-     NSLog(@"groupname value %@",temp2);
- NSLog(@"groupid value %@",temp3);
-    NSLog(@"createdby value %@",temp4);
+   //  NSLog(@"groupname value %@",temp2);
+// NSLog(@"groupid value %@",temp3);
+  //  NSLog(@"createdby value %@",temp4);
     
-    NSLog(@"providerName:%@",_AppDArr);
-   NSLog(@"ProviderId:%@",_AppNArr);
+   // NSLog(@"providerName:%@",_AppDArr);
+  // NSLog(@"ProviderId:%@",_AppNArr);
     
 }
 
@@ -416,7 +416,7 @@
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
     
-    NSLog(@"%@",post);
+   // NSLog(@"%@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=simpleselect"];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];

@@ -60,8 +60,8 @@
     {
         [grouplist addObject:@""];
     }
-    NSLog(@"age %@",age.text);
-    NSLog(@"group %@",grouplist);
+ //   NSLog(@"age %@",age.text);
+  //  NSLog(@"group %@",grouplist);
     [recorddict setValue:firstname1 forKey:@"firstname"];
     [recorddict setValue:username1 forKey:@"username"];
     [recorddict setValue:mobile1 forKey:@"mobile"];
@@ -116,20 +116,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			NSLog(@"Access Not Available");
+		//	NSLog(@"Access Not Available");
 			break;
 		}
 			
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			NSLog(@"Reachable WWAN");
+		//	NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-            NSLog(@"Reachable WiFi");
+          //  NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -235,9 +235,9 @@
     [recorddict setObject:groupname forKey:@"Grouplist"];
     [recorddict setObject:createdby forKey:@"createdby"];
     //  NSLog(@"items1app %@",luckyNumbers);
-    NSLog(@"group name %@",groupname);
-    NSLog(@"group id %@",groupid);
-    NSLog(@" created by%@",createdby);
+  //  NSLog(@"group name %@",groupname);
+  //  NSLog(@"group id %@",groupid);
+  //  NSLog(@" created by%@",createdby);
     
 }
 
@@ -338,7 +338,7 @@
         
         editprofile *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in Participant Profile %@",recorddict);
+       // NSLog(@"recorddict in Participant Profile %@",recorddict);
         // destViewController.delegate=self;
         
     }

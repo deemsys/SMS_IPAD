@@ -92,7 +92,7 @@ int a;
     {
        
             a=1;
-            NSLog(@"a value %i",a);
+          //  NSLog(@"a value %i",a);
             [recorddict setValue:answer3.text forKey:@"answer2"];
             //NSLog(@"answer5%@",answer1.text);
        
@@ -107,7 +107,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in answer2 %@",recorddict);
+      //  NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms8" sender:self];
     }
     
@@ -120,7 +120,7 @@ int a;
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     
-    NSLog(@"recorddict in answer2 %@",recorddict);
+  //  NSLog(@"recorddict in answer2 %@",recorddict);
     [self performSegueWithIdentifier:@"sms8" sender:self];
     
     
@@ -234,7 +234,7 @@ save.clipsToBounds = YES;
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString * currentDate = [dateFormatter stringFromDate:date];
-    NSLog(@"current date %@",currentDate);
+  //  NSLog(@"current date %@",currentDate);
 
    NSString *name=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
     audioname=[NSString stringWithFormat:@"%@_%@_audiofile",currentDate,name];
@@ -275,7 +275,7 @@ save.clipsToBounds = YES;
     {
         NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 1", @"tip 2 for option 1", @"tip 3 for option 1",@"tip 4 for option 1",@"tip 5 for option 1", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-        NSLog(@"random %@",tips1);
+    //    NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
@@ -294,7 +294,7 @@ save.clipsToBounds = YES;
     {
         NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 2", @"tip 2 for option 2", @"tip 3 for option 2",@"tip 4 for option 2",@"tip 5 for option 2", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-        NSLog(@"random %@",tips1);
+     //   NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;
         
         tipsimprove.hidden=FALSE;
@@ -313,7 +313,7 @@ save.clipsToBounds = YES;
     else if([aaa isEqual:@"I ran out of Medication"])
     {NSArray *words = [NSArray arrayWithObjects: @"tip 1 for option 3", @"tip 2 for option 3", @"tip 3 for option 3",@"tip 4 for option 3",@"tip 5 for option 3", nil ];
         NSString *tips1=[words objectAtIndex:arc4random()%[words count]];
-        NSLog(@"random %@",tips1);
+     //   NSLog(@"random %@",tips1);
         tipsimprove.text=tips1;
         
         tipsimprove.hidden=FALSE;
@@ -355,7 +355,7 @@ save.clipsToBounds = YES;
     {
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict from third page %@",recorddict);
+     //   NSLog(@"recorddict from third page %@",recorddict);
         // destViewController.delegate=self;
         
     }

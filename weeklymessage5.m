@@ -42,7 +42,7 @@
     UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc]
                                       initWithCustomView:home] autorelease];
     self.navigationItem.leftBarButtonItem = cancelButton;
-    NSLog(@"recorddict in welcome 5 %@",recorddict);
+   // NSLog(@"recorddict in welcome 5 %@",recorddict);
     [super viewDidLoad];
   [self performSelector:@selector(signUpMethod) withObject:nil afterDelay:1];
     
@@ -239,7 +239,7 @@
     NSString*weekl=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Weeklogid"];
     NSString *weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
     NSString *weekdate=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weekdate"];
-    NSLog(@"l=%@,n=%@,d=%@",weekl,weeknum, weekdate);
+   // NSLog(@"l=%@,n=%@,d=%@",weekl,weeknum, weekdate);
     int n=[[recorddict objectForKey:@"answer1"]integerValue];
     int countcol;
     
@@ -260,11 +260,11 @@
         
         
         
-        NSLog(@"%@",post);
+      //  NSLog(@"%@",post);
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-        NSLog(@"postlenth%@",postLength);
+       // NSLog(@"postlenth%@",postLength);
         NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
         [request setURL:url];
         [request setHTTPMethod:@"POST"];
@@ -286,7 +286,7 @@
         NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
         
         
-        NSLog(@"response for answers%@",data);
+     //   NSLog(@"response for answers%@",data);
         
         
         
@@ -319,7 +319,7 @@
         
         NSString*weekl=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Weeklogid"];
         
-        NSLog(@"weekid %@,logid %@",weekl,loginid);
+     //   NSLog(@"weekid %@,logid %@",weekl,loginid);
         NSMutableData *body=[[NSMutableData alloc]init];
         
         NSData *userImageData = [[NSData alloc] initWithContentsOfFile:[recorddict objectForKey:@"audiourl"]];

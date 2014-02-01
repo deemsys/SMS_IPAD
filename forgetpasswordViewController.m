@@ -157,7 +157,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh snap!" message:@"Email id not found."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Email id not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
@@ -188,9 +188,9 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@" post %@ ",post);
+   // NSLog(@" post %@ ",post);
     
-    NSLog(@"%@ ",data);
+   // NSLog(@"%@ ",data);
     
     return data;
     
@@ -228,7 +228,7 @@
 
 
 -(void)messageSent:(SKPSMTPMessage *)message{
-    NSLog(@"delegate - message sent");
+   // NSLog(@"delegate - message sent");
     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Done!" message:@"Password sent."];
     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert show];
@@ -244,7 +244,7 @@
     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert show];
     [Spinner stopAnimating];
-    NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
+   // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
 }
 
 

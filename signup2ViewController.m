@@ -256,7 +256,7 @@
                        else
                        {
                            
-                           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Medical details."];
                            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                            [alert show];
                        }
@@ -265,7 +265,7 @@
                }
                else
                {
-                   BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Education detail."];
+                   BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Education detail."];
                    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                    [alert show];
                }
@@ -282,7 +282,7 @@
                    else
                    {
                        
-                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Medical details."];
                        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                        [alert show];
                    }
@@ -293,7 +293,7 @@
        }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid city."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid city."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -312,7 +312,7 @@
                    else
                    {
                        
-                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                       BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Medical details."];
                        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                        [alert show];
                    }
@@ -322,7 +322,7 @@
            }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Education detail."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Education detail."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -337,7 +337,7 @@
         else
         {
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Medical details."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -361,7 +361,7 @@
                 }
             else
                 {
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Medical details."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Medical details."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
@@ -369,7 +369,7 @@
             }
             else
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Education detail."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Education detail."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
@@ -378,14 +378,14 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid city."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid city."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         }
     }
     else
     {
-        BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Oh Snap!" message:@"Enter all the required fields"];
+        BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter all the required fields"];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
@@ -406,7 +406,7 @@
         
         signup3ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in signup2 %@",recorddict);
+      //  NSLog(@"recorddict in signup2 %@",recorddict);
         // destViewController.delegate=self;
         
     }

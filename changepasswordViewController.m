@@ -110,20 +110,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			NSLog(@"Access Not Available");
+		//	NSLog(@"Access Not Available");
 			break;
 		}
 			
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			NSLog(@"Reachable WWAN");
+		//	NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-            NSLog(@"Reachable WiFi");
+         //   NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -169,7 +169,7 @@
     }
     else
     {
-        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap" message:@"Failed to update password"];
+        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Failed to update password"];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }

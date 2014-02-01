@@ -1555,7 +1555,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-sS-JCw">
-                                        <rect key="frame" x="149" y="422" width="74" height="20"/>
+                                        <rect key="frame" x="108" y="448" width="74" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Submit" backgroundImage="blue-teal-gradient.jpg">
@@ -1809,7 +1809,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
-                                <rect key="frame" x="34" y="101" width="235" height="21"/>
+                                <rect key="frame" x="51" y="101" width="235" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2069,7 +2069,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tips to improve message" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="229" translatesAutoresizingMaskIntoConstraints="NO" id="1K4-FR-r9X">
-                                <rect key="frame" x="47" y="53" width="229" height="48"/>
+                                <rect key="frame" x="56" y="53" width="229" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
@@ -2847,69 +2847,17 @@
     <resources>
         <image name="BG.png" width="320" height="460"/>
         <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
-        <image name="BG1.jpg" width="768" height="1024"/>
         <image name="Visualpharm-Icons8-Metro-Style-System-Logout.ico" width="256" height="256"/>
         <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
-        <image name="bg3.png" width="640" height="960"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="next.png" width="98" height="36"/>
         <image name="profileimage.png" width="512" height="512"/>
-        <image name="register.png" width="640" height="960"/>
-        <image name="register.png" width="640" height="960"/>
         <image name="register.png" width="640" height="960"/>
         <image name="reset.png" width="98" height="36"/>
         <image name="settings.png" width="512" height="512"/>
         <image name="twillo.jpg" width="389" height="129"/>
         <image name="unread_message.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2920,7 +2868,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="LhH-3a-ZP2"/>
         <segue reference="zJw-5E-t9R"/>
-        <segue reference="Vcd-52-NTG"/>
+        <segue reference="blN-DC-lSG"/>
         <segue reference="ONR-yB-HFl"/>
     </inferredMetricsTieBreakers>
 </document>
