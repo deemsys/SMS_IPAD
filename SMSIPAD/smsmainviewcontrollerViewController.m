@@ -89,8 +89,7 @@
     {
         if([self alphanumericvalidation:phonenumber.text]==1)
         {
-            if([self alphanumericvalidation:password.text]==1)
-            {
+            
                 [recorddict setValue:phonenumber.text forKey:@"Username"];
                 [recorddict setValue:password.text forKey:@"Password"];
                 a=1;
@@ -106,15 +105,8 @@
                 [self performSelector:@selector(SignInCheck) withObject:nil afterDelay:0.2];
                 
                 
-            }
-            else
-            {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Password."];
-                
-                //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-            }
+            
+        
         }
         else
         {
