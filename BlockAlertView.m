@@ -62,7 +62,7 @@ static UIFont *buttonFont = nil;
         if (title)
         {
             CGSize size = [title sizeWithFont:titleFont
-                            constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*2, 1000)
+                            constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*1, 1000)
                                 lineBreakMode:UILineBreakModeWordWrap];
 
             UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kAlertViewBorder, _height+3, frame.size.width-kAlertViewBorder*2, size.height)];
@@ -84,7 +84,7 @@ static UIFont *buttonFont = nil;
         if (message)
         {
             CGSize size = [message sizeWithFont:messageFont
-                              constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*2, 1000)
+                              constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*1, 1000)
                                   lineBreakMode:UILineBreakModeWordWrap];
             
             UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kAlertViewBorder, _height, frame.size.width-kAlertViewBorder*2, size.height)];
@@ -244,7 +244,7 @@ static UIFont *buttonFont = nil;
         index++;
     }
     
-    _height += 10;  // Margin for the shadow
+    _height += 8;  // Margin for the shadow
     
     if (_height < background.size.height)
     {

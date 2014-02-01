@@ -19,8 +19,8 @@
 
 
 static const CGFloat kPadding = 4.f;
-static const CGFloat kLabelFontSize = 16.f;
-static const CGFloat kDetailsLabelFontSize = 12.f;
+static const CGFloat kLabelFontSize = 8.f;
+static const CGFloat kDetailsLabelFontSize = 8.f;
 
 
 @interface MBProgressHUD ()
@@ -155,8 +155,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.labelText = nil;
 		self.detailsLabelText = nil;
 		self.opacity = 0.8f;
-		self.labelFont = [UIFont boldSystemFontOfSize:kLabelFontSize];
-		self.detailsLabelFont = [UIFont boldSystemFontOfSize:kDetailsLabelFontSize];
+		self.labelFont = [UIFont boldSystemFontOfSize: kLabelFontSize];
+		self.detailsLabelFont = [UIFont  boldSystemFontOfSize:kDetailsLabelFontSize];
 		self.xOffset = 0.0f;
 		self.yOffset = 0.0f;
 		self.dimBackground = YES;
@@ -546,7 +546,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	// Draw rounded HUD bacgroud rect
 	CGRect boxRect = CGRectMake(roundf((allRect.size.width - size.width) / 2) + self.xOffset,
 								roundf((allRect.size.height - size.height) / 2) + self.yOffset, size.width, size.height);
-	float radius = 10.0f;
+	float radius = 5.0f;
 	CGContextBeginPath(context);
 	CGContextSetGrayFillColor(context, 0.0f, self.opacity);
 	CGContextMoveToPoint(context, CGRectGetMinX(boxRect) + radius, CGRectGetMinY(boxRect));
@@ -741,8 +741,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		CGContextFillEllipseInRect(context, circleRect);
 		CGContextStrokeEllipseInRect(context, circleRect);
 		// Draw progress
-		CGPoint center = CGPointMake(allRect.size.width / 2, allRect.size.height / 2);
-		CGFloat radius = (allRect.size.width - 4) / 2;
+		CGPoint center = CGPointMake(allRect.size.width / 4, allRect.size.height / 4);
+		CGFloat radius = (allRect.size.width - 8) / 2;
 		CGFloat startAngle = - ((float)M_PI / 2); // 90 degrees
 		CGFloat endAngle = (self.progress * 2 * (float)M_PI) + startAngle;
 		CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f); // white
