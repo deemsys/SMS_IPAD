@@ -34,6 +34,7 @@
     BOOL isConnect;
     
     IBOutlet UIButton *reset;
+    IBOutlet UIButton *cancel;
 
     IBOutlet UIButton *next;
     
@@ -45,5 +46,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *firstnameerr;
 @property (retain, nonatomic) IBOutlet UILabel *mobileerr;
 @property (retain, nonatomic) IBOutlet UILabel *emailerr;
+- (IBAction)cancel:(id)sender;
 
 @end

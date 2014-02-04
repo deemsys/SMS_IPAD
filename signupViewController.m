@@ -47,10 +47,13 @@
 
 - (void)viewDidLoad
 {
+    
     reset.clipsToBounds = YES;
     reset.layer.cornerRadius = 5.0f;
     next.clipsToBounds = YES;
     next.layer.cornerRadius = 5.0f;
+    cancel.clipsToBounds=YES;
+    cancel.layer.cornerRadius=5.0f;
     [super viewDidLoad];
     firstname.delegate=self;
     username.delegate=self;
@@ -61,6 +64,22 @@
     [firstnameerr setTextColor:color];
     [mobileerr setTextColor:color];
     [emailerr setTextColor:color];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
+
 
     recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
@@ -77,7 +96,19 @@
     UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@" Back" style:UIBarButtonItemStyleBordered target:self action:@selector(home:)];
     
     self.navigationItem.leftBarButtonItem = newBackButton;
-}
+    }
+/*-(void)textFieldDidChange :(UITextField *)textField{
+    if (textField.tag == 5) {
+        //NSString *fname = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([self alphanumericvalidation:textField.text]==1)
+        {
+            firstnameerr.hidden=YES;
+        }
+        else{
+            firstnameerr.hidden=NO;
+        }
+    }
+}*/
 -(void)home:(UIBarButtonItem *)sender
 {
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
@@ -91,6 +122,11 @@
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidUnload
@@ -204,13 +240,13 @@
         
         if ([self alphanumericvalidation:fname]==1)
         {
-            firstnameerr.hidden=YES;
+            //firstnameerr.hidden=YES;
             if ([self alphabeticsymbolvalidation:username.text]==1)
             {
-                usernameerr.hidden=YES;
+                //usernameerr.hidden=YES;
                 if ([self validateMobile:mnum]==1)
                 {
-                    mobileerr.hidden=YES;
+                    //mobileerr.hidden=YES;
                     if ([self validateEmail:email.text]==1)
                     {
                         c=1;
@@ -227,16 +263,16 @@
                     }
                     else
                     {
-                        emailerr.hidden=NO;
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
+                        //emailerr.hidden=NO;
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid E-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    mobileerr.hidden=NO;
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
+                    //mobileerr.hidden=NO;
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Mobile Number.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -245,16 +281,16 @@
             }
             else
             {
-                usernameerr.hidden=NO;
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
+                //usernameerr.hidden=NO;
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid User Name.Only a-z,0-9,-.@_ allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            firstnameerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
+            //firstnameerr.hidden=NO;
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid First Name.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -533,6 +569,35 @@
     [firstnameerr release];
     [mobileerr release];
     [emailerr release];
+    [cancel release];
     [super dealloc];
+}
+- (IBAction)cancel:(id)sender
+{
+    firstname.text=@"";
+    email.text=@"";
+    username.text=@"";
+    mobilenum.text=@"";
+    firstnameerr.hidden=YES;
+    usernameerr.hidden=YES;
+    mobileerr.hidden=YES;
+    emailerr.hidden=YES;
+    
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
+
 }
 @end

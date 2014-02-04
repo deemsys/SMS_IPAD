@@ -813,16 +813,16 @@
         
         if ([self alphanumericvalidation:fsname]==1)
         {
-            errorlabel.hidden=YES;
+            //errorlabel.hidden=YES;
            if ([self alphabeticsymbolvalidation:username.text]==1)
             {
-                errorlabel.hidden=YES;
+                //errorlabel.hidden=YES;
                 if ([self validateMobile:mnum]==1)
                 {
-                    errorlabel.hidden=YES;
+                    //errorlabel.hidden=YES;
                     if ([self validateEmail:email.text]==1)
                     {
-                        errorlabel.hidden=YES;
+                        //errorlabel.hidden=YES;
                         [recorddict setValue:fname.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
                         [recorddict setValue:agepicker.text forKey:@"age"];
@@ -849,16 +849,16 @@
                             if ([self zipcodevalidation:[city text]]==1)
                             {
                                 a=1;
-                                errorlabel.hidden=YES;
+                                //errorlabel.hidden=YES;
                                 [recorddict setValue:city.text forKey:@"City"];
                                 
                             }
                             else
                             {
                                 a=0;
-                                errorlabel.hidden=NO;
-                                errorlabel.text=@"Only 5 digits,0-9 allowed";
-                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
+                               // errorlabel.hidden=NO;
+                               //errorlabel.text=@"Only 5 digits,0-9 allowed";
+                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode.Only 5 digits,0-9 allowed"];
                                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                                 [alert show];
                             }
@@ -895,18 +895,18 @@
                     }
                     else
                     {
-                        errorlabel.hidden=NO;
-                        errorlabel.text=@"example@contoso.com";
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
+                       // errorlabel.hidden=NO;
+                        //errorlabel.text=@"example@contoso.com";
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
                 }
                 else
                 {
-                    errorlabel.hidden=NO;
-                    errorlabel.text=@"Only 10 digits,0-9 allowed";
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
+                    //errorlabel.hidden=NO;
+                    //errorlabel.text=@"Only 10 digits,0-9 allowed";
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -915,18 +915,18 @@
             }
             else
             {
-                errorlabel.hidden=NO;
-                errorlabel.text=@"Only a-z,0-9,- @ . _ allowed";
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
+                //errorlabel.hidden=NO;
+                //errorlabel.text=@"Only a-z,0-9,- @ . _ allowed";
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name.Only a-z,0-9,-@._allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            errorlabel.hidden=NO;
-            errorlabel.text=@"Only a-z,0-9 allowed";
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
+            //errorlabel.hidden=NO;
+            //errorlabel.text=@"Only a-z,0-9 allowed";
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }

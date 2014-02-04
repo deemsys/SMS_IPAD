@@ -215,10 +215,10 @@ static UIFont *buttonFont = nil;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
           //   button.frame = CGRectMake(xOffset+150, _height-70, 30, 30);
-          button.frame = CGRectMake(110, _height-5,30, 20);
+          button.frame = CGRectMake(110, _height,30, 20);
         } else
         {
-          button.frame = CGRectMake(110, _height-5, 30, 30);
+          button.frame = CGRectMake(110, _height, 30, 30);
         }
         
       button.titleLabel.font = buttonFont;
@@ -262,7 +262,7 @@ static UIFont *buttonFont = nil;
 
     CGRect frame = _view.frame;
     frame.origin.y = - _height;
-    frame.size.height = 80;
+    frame.size.height = 95;
     _view.frame = frame;
     
     UIImageView *modalBackground = [[UIImageView alloc] initWithFrame:_view.bounds];

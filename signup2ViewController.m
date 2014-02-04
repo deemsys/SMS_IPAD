@@ -53,6 +53,8 @@
     next.layer.cornerRadius = 5.0f;
     medicaldetails.clipsToBounds = YES;
     medicaldetails.layer.cornerRadius = 5.0f;
+    cancel.clipsToBounds=YES;
+    cancel.layer.cornerRadius=5.0f;
     [agepick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     agepick.delegate = self;
@@ -308,6 +310,25 @@ if([city.text length]>0)
     }
 
 }
+
+- (IBAction)cancel:(id)sender
+{
+    city.text=@"";
+    medicaldetails.text=@"";
+    zipcodeerr.hidden=YES;
+    agepicker.text=@"Below 12";
+    gender.text=@"0";
+    edu=@"";
+    [self.agepick selectRow:0 inComponent:0 animated:YES];
+    [seggender setSelectedSegmentIndex:0];
+    [educationseg setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+
+}
 -(IBAction)next:(id)sender
 {
 
@@ -358,7 +379,7 @@ if([city.text length]>0)
     {
         if ([self zipcodevalidation:[city text]]==1)
         {
-            zipcodeerr.hidden=YES;
+            //zipcodeerr.hidden=YES;
                 c=1;
             [recorddict setValue:city.text forKey:@"City"];
 
@@ -366,8 +387,8 @@ if([city.text length]>0)
         else
         {
             c=0;
-            zipcodeerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
+            //zipcodeerr.hidden=NO;
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode.Only 5 digits,0-9 allowed"];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         }
@@ -560,9 +581,16 @@ if([city.text length]>0)
     medicaldetails.text=@"";
     zipcodeerr.hidden=YES;
     agepicker.text=@"Below 12";
+    gender.text=@"0";
+    edu=@"";
     [self.agepick selectRow:0 inComponent:0 animated:YES];
     [seggender setSelectedSegmentIndex:0];
     [educationseg setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
     
 }
 - (void)viewDidUnload
@@ -585,6 +613,7 @@ if([city.text length]>0)
     [reset release];
     [next release];
     [zipcodeerr release];
+    [cancel release];
     [super dealloc];
 }
 @end

@@ -25,6 +25,7 @@
 
     IBOutlet UIButton *reset;
     
+    IBOutlet UIButton *cancel;
     IBOutlet UIButton *next;
 }
 @property (nonatomic, strong) IBOutlet UIPickerView *agepick;
@@ -39,4 +40,6 @@
 @property(nonatomic,retain)IBOutlet UISegmentedControl*educationseg;
 @property (retain, nonatomic) IBOutlet UILabel *zipcodeerr;
 -(IBAction)segeduclicked:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 @end

@@ -96,7 +96,7 @@
     
     
 	HUD.delegate = self;
-	HUD.labelText = @"Loading";
+	HUD.labelText = @"Updating";
     [HUD show:YES];
     
     NSString*logid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
@@ -156,7 +156,7 @@
         HUD.labelText = @"Completed";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
-        [HUD hide:YES afterDelay:5];
+        [HUD hide:YES afterDelay:2];
         [[NSUserDefaults standardUserDefaults]setObject:newpaswrd.text forKey:@"password"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         oldpaswrd.text=@"";

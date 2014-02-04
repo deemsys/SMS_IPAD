@@ -198,7 +198,7 @@ int a;
     
     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
     // [alert setDestructiveButtonWithTitle:@"ok" block:nil];
-    [alert setCancelButtonWithTitle:@"ok" block:nil];
+    [alert setCancelButtonWithTitle:@"Ok" block:nil];
     [alert show];
     seq=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     seqmorethan3=   [[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];

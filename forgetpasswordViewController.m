@@ -16,7 +16,7 @@
 @end
 
 @implementation forgetpasswordViewController
-
+@synthesize emailerr;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,11 +77,13 @@
     {
         if ([self validateEmail:emailid.text]==1)
         {
+            //emailerr.hidden=YES;
             [self getpassword:emailid.text];
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter valid Email-id."];
+           // emailerr.hidden=NO;
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter valid Email-id.Only example@contoso.com allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -302,6 +304,9 @@
     [super viewDidLoad];
     submit.clipsToBounds = YES;
     submit.layer.cornerRadius = 5.0f;
+    UIColor * color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
+    [emailerr setTextColor:color];
+    [emailerr setHidden:YES];
     //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
@@ -329,6 +334,7 @@
 - (void)dealloc {
     
     [submit release];
+    [emailerr release];
     [super dealloc];
 }
 

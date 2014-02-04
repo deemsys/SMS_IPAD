@@ -25,7 +25,7 @@
 #define kActionSheetButtonShadowOffset  CGSizeMake(0, -1)
 
 #define kActionSheetBackground              @"action-sheet-panel.png"
-#define kActionSheetBackgroundCapHeight     30
+#define kActionSheetBackgroundCapHeight     10
 
 
 // Alert View constants
@@ -50,6 +50,6 @@
 #define kAlertViewButtonShadowOffset    CGSizeMake(0, -1)
 
 #define kAlertViewBackground            @"alert.png"
-#define kAlertViewBackgroundCapHeight   38
+#define kAlertViewBackgroundCapHeight   58
 
 #endif

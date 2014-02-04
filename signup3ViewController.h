@@ -86,6 +86,7 @@
     
     IBOutlet UIButton *reset;
     
+    IBOutlet UIButton *reset_new;
     IBOutlet UIButton *submit;
     
 }
@@ -115,6 +116,7 @@
 -(IBAction)changeprovider:(id)sender;
 -(IBAction)changegroup:(id)sender;
 -(IBAction)submit:(id)sender;
+- (IBAction)reset_new_action:(id)sender;
 
 @end
 

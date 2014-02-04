@@ -107,6 +107,8 @@
     reset.layer.cornerRadius = 5.0f;
     submit.clipsToBounds = YES;
     submit.layer.cornerRadius = 5.0f;
+    reset_new.clipsToBounds=YES;
+    reset_new.layer.cornerRadius=5.0f;
     [timepick1 setBackgroundColor:([UIColor whiteColor])];
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
@@ -134,10 +136,10 @@
     // NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
     timearray=[[NSMutableArray alloc] initWithObjects:@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
-    providerpicker.text=@"Select provider";
+   // providerpicker.text=@"Select provider";
     providerarray=[recorddict objectForKey:@"Providersname"];
     groupfinal=[[NSMutableArray alloc]init];
-    grouppicker.text=@"Select group";
+   // grouppicker.text=@"Select group";
     grouparray=[recorddict objectForKey:@"Groupname"];
     UITapGestureRecognizer *tapGR3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped3)];
     [providerpick addGestureRecognizer:tapGR3];
@@ -208,7 +210,16 @@
         timepicker3.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"t3"];
         [timepick3 selectRow:[timearray indexOfObject:timepicker3.text] inComponent:0 animated:NO];
     }
-    
+    if([[NSUserDefaults standardUserDefaults]objectForKey:@"providername"])
+    {
+        
+        providerpicker.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"providername"];
+        [self collectgroup:providerpicker.text];
+    }
+    if([[NSUserDefaults standardUserDefaults]objectForKey:@"groupname"])
+    {
+        grouppicker.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"groupname"];
+    }
     
 	// Do any additional setup after loading the view.
 }
@@ -228,6 +239,15 @@
     {
         [[NSUserDefaults standardUserDefaults]setObject:timepicker3.text forKey:@"t3"];
         [[NSUserDefaults standardUserDefaults]setObject:t3 forKey:@"tf3"];
+    }
+    if(![providerpicker.text isEqualToString:@"Select provider"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:providerpicker.text forKey:@"providername"];
+    }
+    if (![grouppicker.text isEqualToString:@"Select group"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:grouppicker.text forKey:@"groupname"];
+
     }
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self.navigationController popViewControllerAnimated:YES];
@@ -403,7 +423,8 @@
     if(providerpick.hidden==YES)
     {
         grouppicker.text=@"Select group";
-        
+        [[NSUserDefaults standardUserDefaults]setObject:grouppicker.text forKey:@"groupname"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         providerpick.hidden=NO;
     }
 }
@@ -457,11 +478,16 @@
     // NSLog(@"selectedgroupid %@",selectedgroupid);
     [recorddict setObject:selectedEntriesArr forKey:@"selectedgroups"];
     [recorddict setObject:selectedgroupid forKey:@"selectedgroupsid"];
+        [[NSUserDefaults standardUserDefaults]setObject:selectedgroupid forKey:@"grouplistid"];
+        [[NSUserDefaults standardUserDefaults]setObject:selectedEntriesArr forKey:@"grouplist"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
     
     }
     else
     {
         grouppicker.text=@"Select group";
+        [[NSUserDefaults standardUserDefaults]setObject:grouppicker.text forKey:@"groupname"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Please select maximum 4 groups."];
         
         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
@@ -484,6 +510,10 @@
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
     
     if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
     {
@@ -545,6 +575,39 @@
     }
     
     
+}
+
+- (IBAction)reset_new_action:(id)sender
+{
+    timepicker1.text=@"Select time";
+    timepicker2.text=@"Select time";
+    timepicker3.text=@"Select time";
+    providerpicker.text=@"Select provider";
+    grouppicker.text=@"Select group";
+    [providerpicker setTextColor:[UIColor whiteColor]];
+    [grouppicker setTextColor:[UIColor whiteColor]];
+    t1=@"AM";
+    t2=@"AM";
+    t3=@"AM";
+    [time1 setSelectedSegmentIndex:0];
+    [time2 setSelectedSegmentIndex:0];
+    [time3 setSelectedSegmentIndex:0];
+    
+    [self.timepick1 selectRow:0 inComponent:0 animated:NO];
+    [self.timepick2 selectRow:0 inComponent:0 animated:NO];
+    [self.timepick3 selectRow:0 inComponent:0 animated:NO];
+   
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
+
 }
 #pragma mark SKPSMTPMessage Delegate Methods
 - (void)messageState:(SKPSMTPState)messageState
@@ -861,10 +924,19 @@
 
 -(NSString *)HttpPostEntityFirst:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
+    NSArray *arrayWithIDs;
+    NSArray *arrayWithIDvalues;
     //Registering user detail
-    
-    NSArray *arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
-    NSArray *arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
+    if(([recorddict objectForKey:@"selectedgroups"])&&([recorddict objectForKey:@"selectedgroupsid"]))
+    {
+   arrayWithIDs=[recorddict objectForKey:@"selectedgroups"];
+    arrayWithIDvalues=[recorddict objectForKey:@"selectedgroupsid"];
+    }
+    else
+    {
+        arrayWithIDs=[[NSUserDefaults standardUserDefaults]objectForKey:@"grouplist"];
+        arrayWithIDvalues=[[NSUserDefaults standardUserDefaults]objectForKey:@"grouplistid"];
+    }
     NSString *postVarArrayString = @"";
     NSString *postVarArrayStringid = @"";
     int j=[arrayWithIDs count];
@@ -1037,6 +1109,11 @@ if (([pt1 isEqualToString:@""])|| ([pt1 isEqualToString:@"Select time"]))
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"groupname"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"providername"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplistid"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"grouplist"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -1047,6 +1124,7 @@ if (([pt1 isEqualToString:@""])|| ([pt1 isEqualToString:@"Select time"]))
 - (void)dealloc {
     [reset release];
     [submit release];
+    [reset_new release];
     [super dealloc];
 }
 @end

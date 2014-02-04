@@ -40,6 +40,7 @@
     IBOutlet UITextField *relayHost;
     IBOutlet UISwitch *SSLSwitch;
     
+    IBOutlet UILabel *emailerr;
     IBOutlet UISwitch *useAuthSwitch;
     IBOutlet UITextField *login;
     IBOutlet UITextField *password,*username;
@@ -60,6 +61,7 @@
     
     
 }
+@property (retain, nonatomic) IBOutlet UILabel *emailerr;
 
 - (IBAction)sendpassword:(id)sender;
 

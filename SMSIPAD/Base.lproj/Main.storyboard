@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-qs-zDs">
-                                <rect key="frame" x="106" y="146" width="95" height="26"/>
+                                <rect key="frame" x="106" y="182" width="95" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15857577549999999" green="0.32167166650000001" blue="0.61387914539999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -57,6 +57,13 @@
                                 <rect key="frame" x="132" y="231" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="example@contoso.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-2q-sgq">
+                                <rect key="frame" x="139" y="133" width="123" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.82718829719999998" green="0.2446697638" blue="0.1037926082" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -66,6 +73,7 @@
                     <connections>
                         <outlet property="ProgressBar" destination="aZI-uZ-aQe" id="pdB-mD-47e"/>
                         <outlet property="Spinner" destination="6Du-KJ-A1b" id="B8H-y8-9Ne"/>
+                        <outlet property="emailerr" destination="FJd-2q-sgq" id="8wJ-iL-xAs"/>
                         <outlet property="emailid" destination="lWb-kt-QjN" id="PcJ-E9-aaD"/>
                         <outlet property="submit" destination="fj8-qs-zDs" id="1q4-rY-1GH"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="smsforgot" id="ctH-H8-Iii"/>
@@ -819,7 +827,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lb8-9c-ksj">
-                                <rect key="frame" x="164" y="258" width="80" height="24"/>
+                                <rect key="frame" x="219" y="270" width="80" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit" backgroundImage="blue-teal-gradient.jpg">
@@ -830,7 +838,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4M-Lu-QTJ">
-                                <rect key="frame" x="48" y="258" width="84" height="24"/>
+                                <rect key="frame" x="20" y="270" width="84" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cancel" backgroundImage="blue-teal-gradient.jpg">
@@ -902,22 +910,22 @@
                                     <outlet property="delegate" destination="J7Y-We-Sb1" id="b7g-15-Dzd"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="61" translatesAutoresizingMaskIntoConstraints="NO" id="qNA-Ue-Psg">
-                                <rect key="frame" x="20" y="186" width="61" height="49"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="112" translatesAutoresizingMaskIntoConstraints="NO" id="qNA-Ue-Psg">
+                                <rect key="frame" x="20" y="186" width="112" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select group" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="229" translatesAutoresizingMaskIntoConstraints="NO" id="fep-Co-NK5">
-                                <rect key="frame" x="74" y="199" width="229" height="23"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select group" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="fep-Co-NK5">
+                                <rect key="frame" x="120" y="189" width="185" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-dN-6o3">
-                                <rect key="frame" x="74" y="200" width="135" height="22"/>
+                                <rect key="frame" x="120" y="194" width="99" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -970,6 +978,18 @@
                                     <action selector="changetimeset2:" destination="J7Y-We-Sb1" eventType="valueChanged" id="h8q-gF-rXE"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOT-M5-6xH">
+                                <rect key="frame" x="120" y="270" width="80" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset" backgroundImage="blue-teal-gradient.jpg">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset_new_action:" destination="J7Y-We-Sb1" eventType="touchUpInside" id="3nZ-Oj-hUW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -984,6 +1004,7 @@
                         <outlet property="providerpick" destination="wwQ-o8-gIT" id="TaY-yf-dPz"/>
                         <outlet property="providerpicker" destination="ov5-By-OM0" id="V78-2b-4Sa"/>
                         <outlet property="reset" destination="I4M-Lu-QTJ" id="D2J-EY-Qoa"/>
+                        <outlet property="reset_new" destination="IOT-M5-6xH" id="oIX-pA-LkS"/>
                         <outlet property="submit" destination="Lb8-9c-ksj" id="1FO-Kg-kgu"/>
                         <outlet property="time1" destination="OJH-65-WgQ" id="403-ez-MxG"/>
                         <outlet property="time2" destination="JPe-nt-d7y" id="szf-dy-Rwt"/>
@@ -2578,7 +2599,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uvn-XP-CWf">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uvn-XP-CWf">
                                         <rect key="frame" x="131" y="108" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2588,7 +2609,7 @@
                                             <outlet property="delegate" destination="2p1-hS-1MQ" id="TD2-dv-MyJ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOU-js-sq3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vOU-js-sq3">
                                         <rect key="frame" x="131" y="274" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2598,7 +2619,7 @@
                                             <outlet property="delegate" destination="2p1-hS-1MQ" id="dE6-5M-R4G"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69D-Ma-Jb0">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="69D-Ma-Jb0">
                                         <rect key="frame" x="131" y="163" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2619,7 +2640,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJn-Sd-yaX">
-                                        <rect key="frame" x="176" y="363" width="78" height="26"/>
+                                        <rect key="frame" x="216" y="363" width="78" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Next" backgroundImage="blue-teal-gradient.jpg">
@@ -2637,7 +2658,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlJ-BM-07f">
-                                        <rect key="frame" x="58" y="363" width="78" height="26"/>
+                                        <rect key="frame" x="118" y="363" width="78" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Reset" backgroundImage="blue-teal-gradient.jpg">
@@ -2670,12 +2691,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="example@contoso.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zi4-GB-Veg">
-                                        <rect key="frame" x="129" y="308" width="133" height="15"/>
+                                        <rect key="frame" x="128" y="312" width="133" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.65690768494897966" green="0.01562869552559534" blue="0.079370419560115313" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-ap-H74">
+                                        <rect key="frame" x="20" y="363" width="78" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Cancel" backgroundImage="blue-teal-gradient.jpg">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="2p1-hS-1MQ" eventType="touchUpInside" id="aXj-El-3dL"/>
+                                            <segue destination="vXZ-lx-hvc" kind="push" identifier="cancel1" id="h5b-p4-kHz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2686,6 +2720,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cancel" destination="BYQ-ap-H74" id="4ai-uh-Ufv"/>
                         <outlet property="email" destination="vOU-js-sq3" id="HaR-91-Ver"/>
                         <outlet property="emailerr" destination="zi4-GB-Veg" id="hmJ-Yn-w6F"/>
                         <outlet property="firstname" destination="Uvn-XP-CWf" id="HZ5-v6-Kdx"/>
@@ -2802,7 +2837,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v99-wt-TeG">
-                                        <rect key="frame" x="49" y="333" width="80" height="25"/>
+                                        <rect key="frame" x="121" y="333" width="80" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Reset" backgroundImage="blue-teal-gradient.jpg">
@@ -2813,7 +2848,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-GR-4lp">
-                                        <rect key="frame" x="170" y="333" width="80" height="25"/>
+                                        <rect key="frame" x="222" y="333" width="80" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Next" backgroundImage="blue-teal-gradient.jpg">
@@ -2868,6 +2903,19 @@
                                         <color key="textColor" red="0.4998007015" green="0.0" blue="0.027088744870000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-nS-jtJ">
+                                        <rect key="frame" x="20" y="333" width="80" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Cancel" backgroundImage="blue-teal-gradient.jpg">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="lcf-wr-ts9" eventType="touchUpInside" id="UuA-wf-8WM"/>
+                                            <segue destination="vXZ-lx-hvc" kind="push" identifier="cancel2" id="BGS-Kj-rgB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -2879,6 +2927,7 @@
                     <connections>
                         <outlet property="agepick" destination="w9N-ds-Dc4" id="Fpy-R0-LSA"/>
                         <outlet property="agepicker" destination="RIV-tV-ja2" id="Som-MH-cBi"/>
+                        <outlet property="cancel" destination="wT7-nS-jtJ" id="18b-hH-1Cm"/>
                         <outlet property="city" destination="XKc-XO-XWC" id="Di3-ZW-zh3"/>
                         <outlet property="educationseg" destination="Gvs-Tr-hag" id="Rqd-qe-COS"/>
                         <outlet property="gender" destination="tfN-tM-zft" id="jpG-fZ-Mdm"/>
@@ -3092,10 +3141,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tDu-Ps-J7f"/>
-        <segue reference="baK-Lt-qQ7"/>
-        <segue reference="WU0-SZ-Qgr"/>
         <segue reference="fQ7-G2-c84"/>
+        <segue reference="baK-Lt-qQ7"/>
+        <segue reference="zJw-5E-t9R"/>
         <segue reference="KlT-rp-OLs"/>
+        <segue reference="tDu-Ps-J7f"/>
     </inferredMetricsTieBreakers>
 </document>
