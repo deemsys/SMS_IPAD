@@ -63,21 +63,21 @@
             }
             else
             {
-                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"New password,confirm password not same"];
+                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Password mismatch with retype password."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter correct oldpassword"];
+            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Incorrect oldpassword."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
     }
     else
     {
-        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter all the required fields"];
+        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Enter all the required fields."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
@@ -163,13 +163,13 @@
         newpaswrd.text=@"";
         confirmpawrd.text=@"";
         
-        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Successful" message:@"Password changed successfully"];
+        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"Successful" message:@"Password changed successfully."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
     else
     {
-        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Failed to update password"];
+        BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Failed to update password."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }

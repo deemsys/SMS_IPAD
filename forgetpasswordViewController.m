@@ -83,7 +83,7 @@
         else
         {
            // emailerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter valid Email-id.Only example@contoso.com allowed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid email-id.Only example@contoso.com allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -92,7 +92,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter Email-id."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter email-id."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         

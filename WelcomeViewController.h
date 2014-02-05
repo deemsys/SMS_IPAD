@@ -60,5 +60,6 @@
 @property (nonatomic, retain) UILabel *resLabel1;
 @property (nonatomic, retain) UIButton*eval;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
+
 @property (nonatomic, strong) NSTimer *timer;
 @end

@@ -20,6 +20,8 @@
 
 @implementation smsmainviewcontrollerViewController
 @synthesize recorddict;
+@synthesize phonenum;
+@synthesize pass;
 
 - (void)viewDidLoad
 {
@@ -84,7 +86,21 @@
 }
 -(IBAction)signin:(id)sender
 {
-    if(([phonenumber.text length]!=0)&&([password.text length]!=0))
+    
+    if( ([phonenumber.text length]==0)&&([password.text length]==0))
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter login credentials."];
+    
+    // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+    [alert show];
+        
+    }
+    else
+    {
+    if([phonenumber.text length]!=0)
+       {
+       if([password.text length]!=0)
     {
         if([self alphanumericvalidation:phonenumber.text]==1)
         {
@@ -109,7 +125,7 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Username."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid username."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -118,13 +134,25 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter login Credentials."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter password."];
         
         // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
         [alert show];
         
     }
+       }
+
+       
+       else
+       {
+           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter username."];
+           
+           // [alert setCancelButtonWithTitle:@"Cancel" block:nil];
+           [alert setDestructiveButtonWithTitle:@"OK" block:nil];
+           [alert show];
+       }
+}
 }
 
 - (IBAction)signup:(id)sender
@@ -250,7 +278,11 @@
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Invalid Username And Password."];
+            password.text=@"";
+            phonenumber.text=@"";
+            phonenum.text=@"";
+            pass.text=@"";
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Invalid username and password."];
             
             [HUD hide:YES];
             
@@ -361,6 +393,8 @@
     [signup release];
     [forgot release];
     [notregisterd release];
+    [phonenum release];
+    [pass release];
     [super dealloc];
 }
 @end

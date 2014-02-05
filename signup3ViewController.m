@@ -787,7 +787,7 @@
                     if ([[menu objectForKey:@"emaill"]  isEqualToString:@"emailexist"])
                     {
                         
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id Already Exists."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id already exists."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -798,7 +798,7 @@
                     }
                     else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"usernameexist"])
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Username Already Exists."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Username already exists."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -810,7 +810,7 @@
                     }
                     else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number Already Exists."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobilenumber already exists."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -824,7 +824,7 @@
                 else
                 {
                     
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed!"];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed."];
                     
                     
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -839,7 +839,7 @@
         {
             // NSLog(@"fail");
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO" message:@"Registration Failed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed."];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -850,7 +850,7 @@
         {
             
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Incorrect Password."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Incorrect password."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

@@ -29,6 +29,9 @@
     
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
+@property (retain, nonatomic) IBOutlet UITextField *phonenum;
+@property (retain, nonatomic) IBOutlet UITextField *pass;
+
 -(IBAction)signin:(id)sender;
 - (IBAction)signup:(id)sender;
 

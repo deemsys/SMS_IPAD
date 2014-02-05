@@ -94,7 +94,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is Invalid."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is invalid."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

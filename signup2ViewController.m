@@ -388,7 +388,7 @@ if([city.text length]>0)
         {
             c=0;
             //zipcodeerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode.Only 5 digits,0-9 allowed"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid zipcode.Only 5 digits,0-9 allowed."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         }

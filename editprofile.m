@@ -858,7 +858,7 @@
                                 a=0;
                                // errorlabel.hidden=NO;
                                //errorlabel.text=@"Only 5 digits,0-9 allowed";
-                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode.Only 5 digits,0-9 allowed"];
+                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid zipcode.Only 5 digits,0-9 allowed."];
                                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                                 [alert show];
                             }
@@ -897,7 +897,7 @@
                     {
                        // errorlabel.hidden=NO;
                         //errorlabel.text=@"example@contoso.com";
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id.Only example@contoso.com allowed."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid e-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
@@ -906,7 +906,7 @@
                 {
                     //errorlabel.hidden=NO;
                     //errorlabel.text=@"Only 10 digits,0-9 allowed";
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number.Only 10 digits,0-9 allowed."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid mobile number.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -917,7 +917,7 @@
             {
                 //errorlabel.hidden=NO;
                 //errorlabel.text=@"Only a-z,0-9,- @ . _ allowed";
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name.Only a-z,0-9,-@._allowed."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid username.Only a-z,0-9,-@._allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
@@ -926,7 +926,7 @@
         {
             //errorlabel.hidden=NO;
             //errorlabel.text=@"Only a-z,0-9 allowed";
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name.Only a-z,0-9 allowed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid firstname.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -1043,7 +1043,7 @@
             if ([[menu objectForKey:@"emaill"]  isEqualToString:@"emailexist"])
             {
                 // NSLog(@"Start Sending in email exist");
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Emailid already exists!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Emailid already exists."];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -1051,7 +1051,7 @@
             }
             else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number already exists!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobilenumber already exists."];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -1063,7 +1063,7 @@
         else
         {
             // NSLog(@"else Start Sending");
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Updation Failed!"];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Updation failed."];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

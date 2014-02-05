@@ -55,7 +55,7 @@
     cancel.clipsToBounds=YES;
     cancel.layer.cornerRadius=5.0f;
     [super viewDidLoad];
-    firstname.delegate=self;
+    firstnamee.delegate=self;
     username.delegate=self;
     mobilenum.delegate=self;
     email.delegate=self;
@@ -97,18 +97,7 @@
     
     self.navigationItem.leftBarButtonItem = newBackButton;
     }
-/*-(void)textFieldDidChange :(UITextField *)textField{
-    if (textField.tag == 5) {
-        //NSString *fname = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-        if ([self alphanumericvalidation:textField.text]==1)
-        {
-            firstnameerr.hidden=YES;
-        }
-        else{
-            firstnameerr.hidden=NO;
-        }
-    }
-}*/
+
 -(void)home:(UIBarButtonItem *)sender
 {
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
@@ -166,7 +155,7 @@
 }
 
 -(void)dismissKeyboard {
-    [firstname resignFirstResponder];
+    [firstnamee resignFirstResponder];
     [username resignFirstResponder];
     [mobilenum resignFirstResponder];
     [email resignFirstResponder];
@@ -217,7 +206,7 @@
 
 
 - (IBAction)clear:(id)sender {
-    firstname.text=@"";
+    firstnamee.text=@"";
     email.text=@"";
     username.text=@"";
     mobilenum.text=@"";
@@ -233,9 +222,9 @@
     //NSMutableArray*names=[recorddict objectForKey:@"Providersname"];
     
     //NSLog(@"%@ array",names[1]);
-    if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
+    if(([firstnamee.text length]!=0)&&([mobilenum.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
     {
-        NSString *fname = [firstname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *fname = [firstnamee.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         NSString *mnum = [mobilenum.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         
         if ([self alphanumericvalidation:fname]==1)
@@ -251,7 +240,7 @@
                     {
                         c=1;
                         emailerr.hidden=YES;
-                        [recorddict setValue:firstname.text forKey:@"FirstName"];
+                        [recorddict setValue:firstnamee.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
                         [recorddict setValue:mobilenum.text forKey:@"Mobilenum"];
                         [recorddict setValue:email.text forKey:@"email"];
@@ -264,7 +253,7 @@
                     else
                     {
                         //emailerr.hidden=NO;
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid E-mail id.Only example@contoso.com allowed."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid e-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
@@ -272,7 +261,7 @@
                 else
                 {
                     //mobileerr.hidden=NO;
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Mobile Number.Only 10 digits,0-9 allowed."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid mobilenumber.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -282,7 +271,7 @@
             else
             {
                 //usernameerr.hidden=NO;
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid User Name.Only a-z,0-9,-.@_ allowed."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid username.Only a-z,0-9,-.@_ allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
@@ -290,7 +279,7 @@
         else
         {
             //firstnameerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid First Name.Only a-z,0-9 allowed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid firstname.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -574,7 +563,7 @@
 }
 - (IBAction)cancel:(id)sender
 {
-    firstname.text=@"";
+    firstnamee.text=@"";
     email.text=@"";
     username.text=@"";
     mobilenum.text=@"";

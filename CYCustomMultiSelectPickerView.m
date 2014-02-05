@@ -68,7 +68,7 @@
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
 	UIBarButtonItem *confirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(confirmPickView)];
 	UIBarButtonItem *flexibleSpaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(pickerHide)];
+	UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(pickerHide)];
     [items addObject:cancelBtn];
     [items addObject:flexibleSpaceItem];
     [items addObject:confirmBtn];

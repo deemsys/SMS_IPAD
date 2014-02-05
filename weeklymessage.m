@@ -194,7 +194,7 @@ int a;
     
     
     answer1.delegate=self;
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Weekly Evaluation" message:@"System Begins Your Evaluation."];
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Weekly Evaluation" message:@"System begins your evaluation."];
     
     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
     // [alert setDestructiveButtonWithTitle:@"ok" block:nil];

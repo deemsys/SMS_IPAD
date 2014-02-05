@@ -193,7 +193,7 @@ int a;
         }
         else
         {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is Invalid."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Answer you submitted is invalid."];
             
             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -255,7 +255,7 @@ int a;
     // open an alert with just an OK button
     [HUD hide:YES];
 
-    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Info" message:[error localizedDescription]];
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"INFO!" message:[error localizedDescription]];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
 
@@ -350,7 +350,7 @@ int a;
             if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
             {
                 
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message evaluation  successful."];
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
@@ -362,7 +362,7 @@ int a;
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
             {
                 
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message evaluation  failed."];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -416,7 +416,7 @@ int a;
             {
                 
                 
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message evaluation  successful."];
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
@@ -431,7 +431,7 @@ int a;
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
             {
                 
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message evaluation  failed."];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

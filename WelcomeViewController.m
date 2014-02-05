@@ -503,7 +503,7 @@
     }
     else
     {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"userid not found."];
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Userid not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         
