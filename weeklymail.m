@@ -35,6 +35,7 @@ int a;
 }
 -(void)updatetable
 {
+    NSLog(@"update started");
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
     NSString *resultResponse2=[self HttpPostEntityFirstsequence:@"loginid" ForValue1:useridnumber EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
     
@@ -99,7 +100,7 @@ int a;
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     NSLog(@" post %@ ",post);
     
-    NSLog(@"result %@ ",data);
+    NSLog(@"result for update %@ ",data);
     
     return data;
     
@@ -111,6 +112,7 @@ int a;
 }
 -(IBAction)send:(id)sender
 {
+    [self updatetable];
     //recorddict=[[NSMutableDictionary alloc]init];
     if(([mailanswer.text length]!=0))
     {
