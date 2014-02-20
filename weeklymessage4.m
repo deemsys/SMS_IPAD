@@ -50,23 +50,18 @@ int a;
 
 
 
--(void)messageSent:(SKPSMTPMessage *)message
-{
-    
-    
-    
-}
-// On Failure
--(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error
-{
-    // open an alert with just an OK button
-    
-}
 
 -(IBAction)send:(id)sender
 {
+    NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
+    NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
+    NSString*patientemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
+    NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
+    NSString*weekno=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
+    NSLog(@"providerusername:%@\n,email:%@\n,patemail:%@\n,patusername:%@\n,weekno:%@\n",prousername,proemail,patientemail,patusername,weekno);
+    
     a=0;
-    recorddict=[[NSMutableDictionary alloc]init];
+   // recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     if(([answer4.text length]!=0))
     {
@@ -85,18 +80,13 @@ int a;
             }
             
             [recorddict setValue:answer4.text forKey:@"answer3"];
-            NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
-            NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
-            NSString*patemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
-            NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
-            // [[NSUserDefaults standardUserDefaults]setObject:[filteredweek objectAtIndex:0] forKey:@"Weeknum"];
-            NSString*weekno=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
-            
-            if ([answer4.text isEqual:@"Yes"])
+           
+            NSLog(@"answer4 value%@",answer4.text);
+            if ([answer4.text isEqualToString:@"Yes"])
             {
                 //mail compose
                 
-                // NSLog(@"Start Sending");
+                 NSLog(@"Start Sending");
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
                 emailMessage.fromEmail = @"learnguild@gmail.com";
                 
@@ -122,6 +112,7 @@ int a;
                                           messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
                 emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
                 [emailMessage send];
+                NSLog(@"mail sent to pro");
             }
             //Acknowledgement for participants
             {
@@ -150,7 +141,7 @@ int a;
                 emailMessage.parts = [NSArray arrayWithObjects:plainMsg,nil];
                 [emailMessage send];
                 
-                
+                NSLog(@"mail sent to pat");
             }
             
         }
@@ -190,6 +181,29 @@ int a;
     }
     
 }
+#pragma mark SKPSMTPMessage Delegate Methods
+- (void)messageState:(SKPSMTPState)messageState;
+{
+    
+    
+    //insert into database
+    
+    
+}
+
+
+-(void)messageSent:(SKPSMTPMessage *)message
+{
+    
+}
+// On Failure
+-(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
+    // open an alert with just an OK button
+    
+    // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
+    
+}
+
 -(void)signUpMethod
 {
     // NSString*email=[recorddict objectForKey:@"email"];
@@ -383,9 +397,7 @@ int a;
 }
 - (void)viewDidLoad
 {
-    proemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
-    patemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientemail"];
-    
+       
     
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
@@ -408,7 +420,7 @@ int a;
 {
     
     
-    if ([segue.identifier isEqualToString:@"sms2"])
+    if ([segue.identifier isEqualToString:@"sms10"])
     {
         weeklymessage5 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;

@@ -39,8 +39,7 @@
     NSMutableDictionary * recorddict;
     NSMutableDictionary * temp;
     
-    NSString * proemail;
-    NSString * patemail;
+    
     MBProgressHUD *HUD;
     BOOL isConnect;
 }

@@ -159,7 +159,7 @@ int a;
     // NSLog(@"aaa value %@",aaa);
     hiddenfield.text=aaa;
     NSLog(@"hidden field %@",hiddenfield.text);
-    if (([aaa isEqual:@"0"])||([aaa isEqual:@"1"])||([aaa isEqual:@"2"])||([aaa isEqual:@"3"])||([aaa isEqual:@"4"]))
+    if (([aaa isEqual:@"0"])||([aaa isEqual:@"1"])||([aaa isEqual:@"2"])||([aaa isEqual:@"3"])||([aaa isEqual:@"4"])||([aaa isEqual:@"5"]))
     {
         question2.hidden=FALSE;
         answer2.hidden=FALSE;
@@ -168,8 +168,7 @@ int a;
         next.hidden=TRUE;
         inforce.hidden=TRUE;
     }
-    else
-    {
+    else     {
         question2.hidden=TRUE;
         answer2.hidden=TRUE;
         send.hidden=TRUE;

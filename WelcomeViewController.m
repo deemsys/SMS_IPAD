@@ -452,7 +452,7 @@
             provider1 =[arrayList3 objectForKey:@"providername"];
             group1 =[arrayList3 objectForKey:@"group"];
             age1 =[arrayList3 objectForKey:@"age"];
-            
+             [[NSUserDefaults standardUserDefaults]synchronize];
             HUD.labelText = @"Completed.";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
@@ -462,6 +462,8 @@
         
         [[NSUserDefaults standardUserDefaults]setObject:username1 forKey:@"Participantusername"];
         [[NSUserDefaults standardUserDefaults]setObject:email1 forKey:@"Participantemail"];
+        NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
+         [[NSUserDefaults standardUserDefaults]synchronize];
     }
     else
     {
@@ -657,6 +659,8 @@
         [switch1 setOn:YES];
         resLabel1.text=@"On";
     }
+    NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
+
     welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
@@ -669,17 +673,21 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     timer = [NSTimer scheduledTimerWithTimeInterval:1800
                                              target:self
-                                           selector:@selector(sunc1)
+                                           selector:@selector(dailysync)
                                            userInfo:nil
                                             repeats:YES];
     
-    //[self sunc];
+ [self sunc];
     [self weekupdate];
     [self sequencycheck];
     
     
     
 	// Do any additional setup after loading the view.
+}
+-(void)dailysync
+{
+    
 }
 -(void)sequencycheck
 {

@@ -1830,7 +1830,7 @@
                                 <rect key="frame" x="32" y="64" width="235" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLB-Bj-WCu">
@@ -2531,7 +2531,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvX-aQ-JEh">
-                                <rect key="frame" x="20" y="38" width="272" height="127"/>
+                                <rect key="frame" x="20" y="38" width="272" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">It appears you have not been taking your medication regularly. We encourage you to contact your doctor’s office at the number listed in Provider's Profile. If you’d like, we can inform your doctor’s office via email. Would you like us to inform your doctor’s office? 
@@ -2541,7 +2541,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rby-Ll-9tE">
-                                <rect key="frame" x="58" y="179" width="196" height="30"/>
+                                <rect key="frame" x="58" y="218" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2551,7 +2551,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-hD-l0S">
-                                <rect key="frame" x="90" y="225" width="52" height="30"/>
+                                <rect key="frame" x="91" y="256" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1766695103" green="0.2084334669" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2564,7 +2564,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tya-ln-Zjc">
-                                <rect key="frame" x="174" y="225" width="52" height="30"/>
+                                <rect key="frame" x="174" y="256" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1766695103" green="0.2084334669" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2585,7 +2585,7 @@
                         <outlet property="mailanswer" destination="rby-Ll-9tE" id="NF3-9V-dMV"/>
                         <outlet property="mailmessage" destination="fvX-aQ-JEh" id="3SU-0Y-ZXh"/>
                         <outlet property="send" destination="wXc-hD-l0S" id="i2l-ut-xaA"/>
-                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms13" id="aaA-rd-okW"/>
+                        <segue destination="CdN-Hy-moe" kind="push" identifier="sms15" id="Vcd-52-NTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8k-4s-cHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2608,9 +2608,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="O7b-do-JxL"/>
-        <segue reference="blN-DC-lSG"/>
         <segue reference="DkS-WN-iHq"/>
+        <segue reference="O7b-do-JxL"/>
+        <segue reference="Vcd-52-NTG"/>
         <segue reference="0Js-Lx-Uc6"/>
     </inferredMetricsTieBreakers>
 </document>

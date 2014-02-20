@@ -11,6 +11,7 @@
 #import "BlockAlertView.h"
 #import "weekmessage2.h"
 #import "weeklymessage4.h"
+#import "weeklymail.h"
 
 @interface weeklymessage ()
 
@@ -149,6 +150,17 @@ int a;
         // destViewController.delegate=self;
         
     }
+    else if ([segue.identifier isEqualToString:@"sms12"])
+    {
+        
+        
+       weeklymail *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        NSLog(@"recorddict in weekly first %@",recorddict);
+        // destViewController.delegate=self;
+        
+    }
+
     
     
 }

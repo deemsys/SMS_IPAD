@@ -111,7 +111,7 @@ int a;
 }
 -(IBAction)send:(id)sender
 {
-    recorddict=[[NSMutableDictionary alloc]init];
+    //recorddict=[[NSMutableDictionary alloc]init];
     if(([mailanswer.text length]!=0))
     {
         a=0;
@@ -120,8 +120,6 @@ int a;
             a=1;
             NSLog(@"a value %i",a);
             NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
-            NSString*patemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
-            NSString*prousername=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"];
             NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
             //smtp email composing
             
@@ -133,7 +131,7 @@ int a;
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
                 emailMessage.fromEmail = @"learnguild@gmail.com";
                 
-                emailMessage.toEmail = proemail;//receiver email address
+                emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
@@ -143,8 +141,6 @@ int a;
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
                 emailMessage.wantsSecure = YES;
                 emailMessage.delegate = self;
-                
-                [recorddict objectForKey:@"pass"];
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
                 NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n welcome to BC Research App. \n\n The participant %@ under your treatment seems to be not taking his/her medication properly by weekly assessments.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
@@ -178,7 +174,7 @@ int a;
     if (a==1)
     {
         NSLog(@"recorddict in answer1 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms13" sender:self];
+        [self performSegueWithIdentifier:@"sms15" sender:self];
     }
     else
     {
@@ -200,11 +196,35 @@ int a;
     }
     return self;
 }
+#pragma mark SKPSMTPMessage Delegate Methods
+- (void)messageState:(SKPSMTPState)messageState;
+{
+    
+    
+    //insert into database
+    
+    
+}
+
+
+-(void)messageSent:(SKPSMTPMessage *)message
+{
+    if (a==1)
+    {
+        NSLog(@"recorddict in answer1 %@",recorddict);
+        [self performSegueWithIdentifier:@"sms15" sender:self];
+    }
+}
+// On Failure
+-(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
+    // open an alert with just an OK button
+    
+    // NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
+   
+}
 
 - (void)viewDidLoad
 {
-    proemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
-    patemail=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientemail"];
     NSString*sequenceocc=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccured"];
     NSString*sequenceoccmore=[[NSUserDefaults standardUserDefaults]objectForKey:@"Sequenceoccuredmorethan3"];
     
@@ -238,7 +258,7 @@ int a;
 {
     
     
-    if ([segue.identifier isEqualToString:@"sms13"])
+    if ([segue.identifier isEqualToString:@"sms15"])
     {
         weekmessage2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;

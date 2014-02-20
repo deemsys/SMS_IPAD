@@ -24,8 +24,7 @@
     IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     NSMutableDictionary * recordict;
-    NSString * proemail;
-    NSString * patemail;
+    
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
