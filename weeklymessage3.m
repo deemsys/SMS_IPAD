@@ -108,7 +108,7 @@ int a;
     if (a==1)
     {
       //  NSLog(@"recorddict in answer2 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms8" sender:self];
+        [self performSegueWithIdentifier:@"sms15" sender:self];
     }
     
     
@@ -121,7 +121,7 @@ int a;
     [recorddict addEntriesFromDictionary:temp];
     
   //  NSLog(@"recorddict in answer2 %@",recorddict);
-    [self performSegueWithIdentifier:@"sms8" sender:self];
+    [self performSegueWithIdentifier:@"sms15" sender:self];
     
     
 }
@@ -150,15 +150,7 @@ int a;
     
 }
 
-#pragma mark - AVAudioPlayerDelegate
 
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    recording.hidden=TRUE;
-    
-    BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Done" message:@"Finish playing the recording!"];
-    [alert show];
-}
 
 
 -(void)dismissKeyboard {
@@ -192,7 +184,7 @@ int a;
 
 - (void)viewDidLoad
 {
-    
+    //[self.audioRecorder prepareToRecord];
     // Disable Stop/Play button when application launches
     answer3.clipsToBounds = YES;
     answer3.layer.cornerRadius = 5.0f;
@@ -350,7 +342,7 @@ save.clipsToBounds = YES;
 {
     
     
-    if ([segue.identifier isEqualToString:@"sms8"])
+    if ([segue.identifier isEqualToString:@"sms15"])
     {
         weeklymessage4 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;

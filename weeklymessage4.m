@@ -187,9 +187,9 @@ int a;
             }
            else
            {
-               [self performSegueWithIdentifier:@"sms10" sender:self];
-               [HUD hide:YES];
- 
+               [self performSelector:@selector(signUpMethod) withObject:nil afterDelay:0.2];
+
+               
            }
         }
         else
@@ -240,10 +240,11 @@ int a;
     
     if (move==2)
     {
-        [HUD hide:YES];
+        [self performSelector:@selector(signUpMethod) withObject:nil afterDelay:0.2];
+       
         move=0;
      
-        [self performSegueWithIdentifier:@"sms10" sender:self];
+       
     }
     move++;
     // [HUD hide:YES];
@@ -261,7 +262,8 @@ int a;
     [alert1 show];
 
    //  NSLog(@"delegate - error(%ld): %@", (long)[error code], [error localizedDescription]);
-        [self performSegueWithIdentifier:@"sms10" sender:self];
+    [self performSelector:@selector(signUpMethod) withObject:nil afterDelay:0.2];
+
 
     
 }
@@ -315,58 +317,142 @@ int a;
     }
     
     
+    
     NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
     //for username
-    NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
-    
-    //  NSLog(@"********%@",resultResponse);
-    //   NSLog(@"REGISTRATION");
-    
-    NSError *error;
-    
-    SBJSON *json = [[SBJSON new] autorelease];
-    NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-    if (luckyNumbers == nil)
+    if ([[recorddict objectForKey:@"audioname"] isEqual:@""])
     {
         
-        //NSLog(@"luckyNumbers == nil");
         
+        NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+        
+        
+        //  NSLog(@"********%@",resultResponse);
+        //   NSLog(@"REGISTRATION");
+        
+        NSError *error;
+        
+        SBJSON *json = [[SBJSON new] autorelease];
+        NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+        if (luckyNumbers == nil)
+        {
+            
+            //NSLog(@"luckyNumbers == nil");
+            
+        }
+        else
+        {
+            
+            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            
+            
+            
+            
+            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+            {
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                [HUD hide:YES];
+                [self performSegueWithIdentifier:@"sms10" sender:self];
+
+                
+            }
+            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+            {
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                [HUD hide:YES];
+                [self performSegueWithIdentifier:@"sms10" sender:self];
+
+   
+              
+                
+            }
+            
+            
+            [HUD hide:YES];
+            
+        }
     }
-    else
+    else if (![[recorddict objectForKey:@"audioname"] isEqual:@""])
     {
+        NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
         
-        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+       [self HttpPostEntityFirstaudiosave:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
         
         
         
+        //  NSLog(@"********%@",resultResponse);
+        //   NSLog(@"REGISTRATION");
         
-        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+        NSError *error;
+        
+        SBJSON *json = [[SBJSON new] autorelease];
+        NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+        
+        
+        if (luckyNumbers == nil)
         {
-            [HUD hide:YES];
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
             
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
-            move=1;
+            //NSLog(@"luckyNumbers == nil");
             
         }
-        else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+        else
         {
             
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+            NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+           
             
             
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
+            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+            {
+                
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  Successful!"];
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                [HUD hide:YES];
+                [self performSegueWithIdentifier:@"sms10" sender:self];
+
+                
+                
+                
+                
+            }
+            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+            {
+                
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Message Evaluation  failed!"];
+                
+                
+                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                [alert show];
+                [HUD hide:YES];
+                [self performSegueWithIdentifier:@"sms10" sender:self];
+
+                
+                
+                
+            }
+            
+            
             [HUD hide:YES];
             
         }
-        
-             
-        [HUD hide:YES];
-        
     }
+    
+    
     
     
     
@@ -377,57 +463,138 @@ int a;
     NSString*weekl=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Weeklogid"];
     NSString *weeknum=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"];
     NSString *weekdate=[[NSUserDefaults standardUserDefaults]objectForKey:@"Weekdate"];
-    NSLog(@"l=%@,n=%@,d=%@",weekl,weeknum, weekdate);
+    // NSLog(@"l=%@,n=%@,d=%@",weekl,weeknum, weekdate);
     int n=[[recorddict objectForKey:@"answer1"]integerValue];
     int countcol;
     
-  
-        if(n<=5)
-        {
-            countcol=1;
-        }
-        else
-            countcol=0;
+    
+    if(n<=5)
+    {
+        countcol=1;
+    }
+    else
+        countcol=0;
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&weeknum=%@&weekdate=%@&weeklogid=%@&countcol=%d&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],weeknum,weekdate,weekl,countcol,secondEntity,value2];
+    @try {
+        
+        NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&weeknum=%@&weekdate=%@&weeklogid=%@&countcol=%d&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],weeknum,weekdate,weekl,countcol,secondEntity,value2];
+        
+        NSURL *url=[NSURL URLWithString:@"http://medsmonit.com/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
+        
+        
+        
+        //  NSLog(@"%@",post);
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        // NSLog(@"postlenth%@",postLength);
+        NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        
+        //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
+        
+        
+        //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+        
+        
+        NSError *error;
+        NSURLResponse *response;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        
+        
+        //   NSLog(@"response for answers%@",data);
+        
+        
+        
+        
+        
+        return data;
+        
+    }
+    @catch (NSException *exception)
+    {
+        
+    }
     
-    NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
     
-    
-    
-    NSLog(@"%@",post);
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSLog(@"postlenth%@",postLength);
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    //when we user https, we need to allow any HTTPS cerificates, so add the one line code,to tell teh NSURLRequest to accept any https certificate, i'm not sure //about the security aspects
-    
-    
-    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-    
-    NSError *error;
-    NSURLResponse *response;
-    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    
-    
-    NSLog(@"response %@",data);
-    
-    
-    
-    
-    
-    return data;
     
 }
+
+-(NSString *)HttpPostEntityFirstaudiosave:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
+{
+    
+    @try {
+        NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
+        
+        NSURL *url=[NSURL URLWithString:@"http://medsmonit.com/bcreasearch/Service/participantregister.php?service=audioinsert"];
+        
+        NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:url];
+        [req setHTTPMethod:@"POST"];
+        
+        [req setValue:@"multipart/form-data; boundary=*****" forHTTPHeaderField:@"Content-Type"];//
+        
+        NSString*weekl=  [[NSUserDefaults standardUserDefaults]objectForKey:@"Weeklogid"];
+        
+        //   NSLog(@"weekid %@,logid %@",weekl,loginid);
+        NSMutableData *body=[[NSMutableData alloc]init];
+        
+        NSData *userImageData = [[NSData alloc] initWithContentsOfFile:[recorddict objectForKey:@"audiourl"]];
+        
+        
+        NSString *stringBoundary = [NSString stringWithString:@"*****"];
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"weeklogid\"\r\n\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@",weekl] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"patientid\"\r\n\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@",loginid] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        
+        
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"patientaudio\"; filename=\"Record.caf\"\r\nContent-Type: audio/caf\r\n\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
+        [body appendData:[NSData dataWithData:userImageData]];
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSASCIIStringEncoding]];
+        
+        
+        [req setHTTPBody:body];//putParams];
+    // NSLog(@"body %@",body);
+        NSHTTPURLResponse* response = nil;
+        NSError* error = [[[NSError alloc] init] autorelease];
+        NSString *result;
+        NSData *responseData;
+        responseData = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
+        result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+      //  NSLog(@"response for audio insertion %@",result);
+        
+        [url release];
+        [req release];
+        
+        
+        
+       
+    }
+    @catch (NSException *exception)
+    {
+        
+    }
+    
+    
+    
+}
+
 -(IBAction)clear:(id)sender
 {
     answer4.text=@"";
@@ -497,7 +664,7 @@ int a;
     temp=recorddict;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
     
@@ -513,7 +680,7 @@ int a;
     
     
     
-}
+}*/
 
 
 - (void)didReceiveMemoryWarning

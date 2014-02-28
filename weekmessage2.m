@@ -89,7 +89,7 @@ int a;
     if (a==1)
     {
       //  NSLog(@"recorddict in answer2 %@",recorddict);
-        [self performSegueWithIdentifier:@"sms2" sender:self];
+        [self performSegueWithIdentifier:@"sms20" sender:self];
     }
     
     
@@ -251,7 +251,7 @@ int a;
 {
     
     
-    if ([segue.identifier isEqualToString:@"sms2"])
+    if ([segue.identifier isEqualToString:@"sms20"])
     {
         weeklymessage3 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;

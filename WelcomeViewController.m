@@ -20,7 +20,7 @@
 
 @implementation WelcomeViewController
 @synthesize recorddict;
-@synthesize switch1;
+
 @synthesize resLabel1;
 @synthesize eval;
 @synthesize timer;
@@ -33,10 +33,12 @@
     }
     return self;
 }
+
 -(void)back
 {
     
 }
+
 -(void)weekupdate
 {
     NSString *useridnumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
@@ -249,70 +251,6 @@
 
 }
 
-- (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender
-{
-    NSString*select;
-	if (switch1.on)
-    {
-        select=@"1";
-        resLabel1.text = @"On";
-    }
-	else
-    {
-        
-        select=@"0";
-        resLabel1.text = @"Off";
-    }
-    NSString *resultResponse=[self HttpPostEntityFirstmessagestream:@"patientid" ForValue1:[[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"] EntitySecond:@"messagestream" ForValue2:select EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV"];
-    
-    
-    
-    
-    NSError *error;
-    
-    SBJSON *json = [[SBJSON new] autorelease];
-    NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-    
-    if (luckyNumbers == nil)
-    {
-        ////NSLog(@"Failed");
-        
-    }
-    else
-    {
-        
-        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        //////NSLog(@"Menu id: %@", [menu objectForKey:@"success"]);
-        
-        if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
-        {
-            
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updation successful."];
-            
-            [HUD hide:YES];
-            
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
-            
-            
-        }
-        else
-        {
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Message stream updation failed."];
-            
-            [HUD hide:YES];
-            
-            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-            [alert show];
-            
-        }
-        
-        
-    }
-    
-    
-    
-}
 
 -(void)sunc
 {
@@ -551,20 +489,16 @@
             group1 =[arrayList3 objectForKey:@"group"];
             age1 =[arrayList3 objectForKey:@"age"];
             msgstream=[arrayList3 objectForKey:@"messagestream"];
-             [[NSUserDefaults standardUserDefaults]synchronize];
-            HUD.labelText = @"Completed.";
-            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-            HUD.mode = MBProgressHUDModeCustomView;
-            [HUD hide:YES afterDelay:0];
+       
             
         }
         
         [[NSUserDefaults standardUserDefaults]setObject:username1 forKey:@"Participantusername"];
         [[NSUserDefaults standardUserDefaults]setObject:email1 forKey:@"Participantemail"];
        // NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
-        NSLog(@"message stream %@",msgstream);
-        [[NSUserDefaults standardUserDefaults]setObject:msgstream forKey:@"messagestream"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
+        NSLog(@"message stream in welcome %@",msgstream);
+      
+       
          
     }
     else
@@ -574,13 +508,13 @@
         [alert show];
         
     }
-    
+      [[NSUserDefaults standardUserDefaults]setObject:msgstream forKey:@"messagestream"];
     [[NSUserDefaults standardUserDefaults]setObject:temp forKey:@"Providerusername"];
     [[NSUserDefaults standardUserDefaults]setObject:temp1 forKey:@"Providerfirstname"];
     [[NSUserDefaults standardUserDefaults]setObject:temp2 forKey:@"Providermobile"];
     [[NSUserDefaults standardUserDefaults]setObject:temp3 forKey:@"Provideremail"];
     //Fetching Daily messages
-    
+    NSLog(@"crossed 1");
     
     NSString *resultResponse5 = [self HttpPostEntityFirstreadsms:@"usernumber" ForValue1:[NSString stringWithFormat:@"+1%@",mobile1]  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error5;
@@ -595,7 +529,7 @@
     NSDictionary *itemsApp21 = [jsonObject objectForKey:@"serviceresponse"];
     NSArray *items1App21=[itemsApp21 objectForKey:@"Patient info"];
     
-    
+     NSLog(@"crossed 2");
     NSMutableArray*temptext=[[NSMutableArray alloc]init];
     NSMutableArray*tempdate=[[NSMutableArray alloc]init];
     NSMutableArray*tempflag=[[NSMutableArray alloc]init];
@@ -631,6 +565,7 @@
   //  NSLog(@"from addres on welcome %@",temptext);
    /// NSLog(@"from addres on welcome %@",tempdate);
    // NSLog(@"from addres on welcome %@",tempflag);
+     NSLog(@"crossed 3");
     if([tempfrom count]!=0)
     {
     if([msgdate count]==0&&[msgbody count]==0&&[msgfrom count]==0&&[flagvalue count]==0)
@@ -983,20 +918,9 @@
     survey.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
     [self sunc];
-    [self weekupdate];
-    [self sequencycheck];
-    NSString *mes=[[NSUserDefaults standardUserDefaults]objectForKey:@"messagestream"];
-    if ([mes isEqual:@"0"]) {
-        [switch1 setOn:NO];
-        resLabel1.text=@"Off";
-    }
-    else
-    {
-        [switch1 setOn:YES];
-        resLabel1.text=@"On";
-    }
-    NSLog(@"%@,%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"]);
-
+   [self weekupdate];
+  [self sequencycheck];
+    
     welcome.text=[NSString stringWithFormat:@"Welcome %@ !",[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
