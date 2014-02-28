@@ -180,7 +180,7 @@
                     <navigationItem key="navigationItem" title="Participant Login " id="A9W-nX-N5N">
                         <barButtonItem key="backBarButtonItem" title="Back" id="76a-Ui-Ba7"/>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="forgot" destination="BHS-gz-gTn" id="C46-2M-lYW"/>
                         <outlet property="password" destination="Qt7-GG-2C4" id="ENt-Nb-fyw"/>
@@ -509,7 +509,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo (1).png" translatesAutoresizingMaskIntoConstraints="NO" id="sER-6f-WVi">
-                                <rect key="frame" x="238" y="186" width="62" height="43"/>
+                                <rect key="frame" x="238" y="403" width="62" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -2870,7 +2870,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="zJw-5E-t9R"/>
-        <segue reference="KlT-rp-OLs"/>
+        <segue reference="0Js-Lx-Uc6"/>
         <segue reference="blN-DC-lSG"/>
         <segue reference="O7b-do-JxL"/>
     </inferredMetricsTieBreakers>
