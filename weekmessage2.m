@@ -110,6 +110,46 @@ int a;
     
 }
 
+- (IBAction)forgotsel:(id)sender
+{
+   
+    [iforget setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    answer2.text=@"1";
+}
+
+
+
+- (IBAction)sideeffectselected:(id)sender
+{
+    
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    answer2.text=@"2";
+}
+
+- (IBAction)ranoutselected:(id)sender
+{
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    answer2.text=@"3";
+}
+
+- (IBAction)othersselected:(id)sender
+{
+    [iforget setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [sideeffects setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [ranout setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    [others setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    answer2.text=@"4";
+}
+
 
 
 
@@ -167,6 +207,15 @@ int a;
         clear.hidden=FALSE;
         next.hidden=TRUE;
         inforce.hidden=TRUE;
+        iforget.hidden=FALSE;
+        sideeffects.hidden=FALSE;
+        ranout.hidden=FALSE;
+        others.hidden=FALSE;
+        forgotlabel.hidden=FALSE;
+        sideeffectlabel.hidden=FALSE;
+        ranoutlabel.hidden=FALSE;
+        otherslabel.hidden=FALSE;
+        
     }
     else     {
         question2.hidden=TRUE;
@@ -175,6 +224,14 @@ int a;
         clear.hidden=TRUE;
         next.hidden=FALSE;
         inforce.hidden=FALSE;
+        iforget.hidden=TRUE;
+        sideeffects.hidden=TRUE;
+        ranout.hidden=TRUE;
+        others.hidden=TRUE;
+        forgotlabel.hidden=TRUE;
+        sideeffectlabel.hidden=TRUE;
+        ranoutlabel.hidden=TRUE;
+        otherslabel.hidden=TRUE;
     }
     
 }
@@ -215,6 +272,14 @@ int a;
 
 - (void)dealloc {
     [inforce release];
+    [sideeffects release];
+    [ranout release];
+    [others release];
+    [forgotlabel release];
+    [sideeffectlabel release];
+    [ranoutlabel release];
+    [otherslabel release];
+    [iforget release];
     [super dealloc];
 }
 @end

@@ -368,6 +368,22 @@ int a;
 {
     answer4.text=@"";
 }
+
+- (IBAction)yesselected:(id)sender
+{
+    [yesbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    answer4.text=@"1";
+    [nobutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+
+    
+}
+
+- (IBAction)noselected:(id)sender
+{
+    [yesbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
+    answer4.text=@"2";
+    [nobutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+}
 -(void)dismissKeyboard
 {
     [answer4 resignFirstResponder];
@@ -442,6 +458,8 @@ int a;
 }
 
 - (void)dealloc {
+    [yesbutton release];
+    [nobutton release];
     [super dealloc];
 }
 @end

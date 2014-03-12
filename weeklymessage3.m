@@ -117,6 +117,7 @@ int a;
         [recorder record];
         [recordButton setTitle:@"Pause" forState:UIControlStateNormal];
         recording.hidden=FALSE;
+        recording.text=@"Recording..";
         
     } else {
         
@@ -128,7 +129,7 @@ int a;
     
     [stopButton setEnabled:YES];
     [playButton setEnabled:NO];
-    recording.hidden=FALSE;
+   
 }
 -(IBAction)play:(id)sender
 {
@@ -137,7 +138,8 @@ int a;
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
         [player setDelegate:self];
         [player play];
-        recording.text=@"playing..";
+        recording.text=@"Playing..";
+        recording.hidden=FALSE;
     }
     
     

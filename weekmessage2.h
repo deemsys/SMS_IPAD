@@ -20,10 +20,34 @@
     IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     IBOutlet UIButton * next;
+    
+    IBOutlet UIButton *iforget;
+    IBOutlet UIButton *sideeffects;
+    IBOutlet UIButton *ranout;
+    IBOutlet UIButton *others;
+    IBOutlet UILabel *forgotlabel;
+    IBOutlet UILabel *sideeffectlabel;
+    IBOutlet UILabel *ranoutlabel;
+    IBOutlet UILabel *otherslabel;
+    
+    
+    
+    
+    
 }
 
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
 -(IBAction)next:(id)sender;
+- (IBAction)forgotsel:(id)sender;
+
+- (IBAction)sideeffectselected:(id)sender;
+- (IBAction)ranoutselected:(id)sender;
+- (IBAction)othersselected:(id)sender;
+
+
+
+
+
 @property(nonatomic , retain) NSMutableDictionary * recorddict;
 @end

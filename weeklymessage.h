@@ -15,8 +15,11 @@
     NSMutableDictionary *recorddict;
     NSString*seq;
     NSString*seqmorethan3;
+    IBOutlet UISegmentedControl *seg;
 }
 -(IBAction)send:(id)sender;
 -(IBAction)clear:(id)sender;
+- (IBAction)ahtrating:(id)sender;
+
 @property(nonatomic,retain)NSMutableDictionary * recorddict;
 @end

@@ -50,7 +50,7 @@ int a;
             NSLog(@"a value %i",a);
             [recorddict setValue:answer1.text forKey:@"answer1"];
             [recorddict setValue:seq forKey:@"seq"];
-            [recorddict setValue:seqmorethan3 forKey:@"seqmorethan 3"];
+            [recorddict setValue:seqmorethan3 forKey:@"seqmorethan3"];
             //NSLog(@"answer5%@",answer1.text);
         }
         else
@@ -70,7 +70,7 @@ int a;
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
     }
-    if ((([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))&&(([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||([answer1.text isEqual:@"5"])))
+    if (((([seq isEqual:@"1"])||([seqmorethan3 isEqual:@"1"]))&&(([answer1.text isEqual:@"1"])||([answer1.text isEqual:@"2"])||([answer1.text isEqual:@"3"])||([answer1.text isEqual:@"4"])||[answer1.text isEqual:@"0"]))||([answer1.text isEqual:@"5"]))
     {
         [self performSegueWithIdentifier:@"sms12" sender:self];
     }
@@ -91,6 +91,44 @@ int a;
 -(IBAction)clear:(id)sender
 {
     answer1.text=@"";
+}
+
+- (IBAction)ahtrating:(id)sender
+{
+    if (seg.selectedSegmentIndex==0)
+    {
+        answer1.text=@"0";
+    }
+    if (seg.selectedSegmentIndex==1)
+    {
+        answer1.text=@"1";
+    }
+    if (seg.selectedSegmentIndex==2)
+    {
+        answer1.text=@"2";
+    }
+    if (seg.selectedSegmentIndex==3)
+    {
+        answer1.text=@"3";
+    }
+    if (seg.selectedSegmentIndex==4)
+    {
+        answer1.text=@"4";
+    }
+    if (seg.selectedSegmentIndex==5)
+    {
+        answer1.text=@"5";
+    }
+    if (seg.selectedSegmentIndex==6)
+    {
+        answer1.text=@"6";
+    }
+    if (seg.selectedSegmentIndex==7)
+    {
+        answer1.text=@"7";
+    }
+    
+    
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -177,5 +215,9 @@ int a;
     [super viewWillAppear:animated];
     a=0;
     //  self.view.frame=CGRectMake(0,0,50,50);
+}
+- (void)dealloc {
+    [seg release];
+    [super dealloc];
 }
 @end

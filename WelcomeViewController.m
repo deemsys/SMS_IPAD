@@ -128,12 +128,12 @@
     if(count==0)
     {
         eval.hidden=YES;
-        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly evaluations"];
+        weekremaining.text=[NSString stringWithFormat:@"You have completed all your weekly Surveys."];
     }
     else
     {
         eval.hidden=NO;
-        weekremaining.text=[NSString stringWithFormat:@"You have %d Surveys that is overdue",count];
+        weekremaining.text=[NSString stringWithFormat:@"You have %d Surveys that is overdue.",count];
     }
     NSLog(@"filtered date %@",filtereddate);
     NSLog(@"filtered logid %@",filteredlogid);
