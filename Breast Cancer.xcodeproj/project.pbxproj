@@ -101,6 +101,10 @@
 		0D952EC01835316C00053B45 /* back_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D952EBE1835314D00053B45 /* back_btn@2x.png */; };
 		0D952EC11835317200053B45 /* back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D952EBC1835314B00053B45 /* back_btn.png */; };
 		0D952EC21835317700053B45 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D952EBA18352C6300053B45 /* cancel.png */; };
+		0D98771A18AF55BD00649122 /* Record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D98771918AF55BD00649122 /* Record.png */; };
+		0D98771C18AF580000649122 /* play-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D98771B18AF580000649122 /* play-chrome.png */; };
+		0D98772018AF6E3600649122 /* stop_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D98771F18AF6E3600649122 /* stop_button.png */; };
+		0D98772218AF813400649122 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D98772118AF813400649122 /* pause.png */; };
 		0D9919BF184CC03200589D3B /* loginbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D9919BE184CC03200589D3B /* loginbg.png */; };
 		0D9919C1184CC03C00589D3B /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D9919C0184CC03C00589D3B /* register.png */; };
 		0D9F19BF1837C478001389C1 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F19B61837C478001389C1 /* Base64Transcoder.m */; };
@@ -268,6 +272,10 @@
 		0D952EBA18352C6300053B45 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		0D952EBC1835314B00053B45 /* back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_btn.png; sourceTree = "<group>"; };
 		0D952EBE1835314D00053B45 /* back_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_btn@2x.png"; sourceTree = "<group>"; };
+		0D98771918AF55BD00649122 /* Record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Record.png; sourceTree = "<group>"; };
+		0D98771B18AF580000649122 /* play-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-chrome.png"; sourceTree = "<group>"; };
+		0D98771F18AF6E3600649122 /* stop_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop_button.png; sourceTree = "<group>"; };
+		0D98772118AF813400649122 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		0D9919BE184CC03200589D3B /* loginbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbg.png; sourceTree = "<group>"; };
 		0D9919C0184CC03C00589D3B /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
 		0D9F19B51837C478001389C1 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
@@ -371,6 +379,10 @@
 		0D0271E1182D119F00C35B94 = {
 			isa = PBXGroup;
 			children = (
+				0D98772118AF813400649122 /* pause.png */,
+				0D98771F18AF6E3600649122 /* stop_button.png */,
+				0D98771B18AF580000649122 /* play-chrome.png */,
+				0D98771918AF55BD00649122 /* Record.png */,
 				0D02143E189A904100391898 /* sideeffectsViewController.h */,
 				0D02143F189A904100391898 /* sideeffectsViewController.m */,
 				0DFF82011852FBC1004D8CE6 /* dailymsglistViewController.m */,
@@ -824,6 +836,7 @@
 				0D952EC11835317200053B45 /* back_btn.png in Resources */,
 				0D952EC01835316C00053B45 /* back_btn@2x.png in Resources */,
 				0D952EB918352BAA00053B45 /* forgotpass.png in Resources */,
+				0D98771C18AF580000649122 /* play-chrome.png in Resources */,
 				0DD26E721847622F00E1CCE3 /* check_selected@2x.png in Resources */,
 				0D1E770418618833008C17DA /* logo (1).png in Resources */,
 				0D1E77061861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico in Resources */,
@@ -839,9 +852,11 @@
 				0D24CDEA1855AE42003062B5 /* icon80.png in Resources */,
 				0DD26E751847622F00E1CCE3 /* frame_middle@2x.png in Resources */,
 				0DD26E731847622F00E1CCE3 /* check@2x.png in Resources */,
+				0D98771A18AF55BD00649122 /* Record.png in Resources */,
 				0D952EB21835291400053B45 /* signin.png in Resources */,
 				0D952EB31835291400053B45 /* signup.png in Resources */,
 				0D24CDE81855AE3E003062B5 /* icon58.png in Resources */,
+				0D98772218AF813400649122 /* pause.png in Resources */,
 				0D952EB41835291400053B45 /* submit.png in Resources */,
 				0D952EB51835291400053B45 /* update.png in Resources */,
 				0D952EB61835291400053B45 /* back.png in Resources */,
@@ -851,6 +866,7 @@
 				0D6BE9C41850893900AE72F0 /* select.png in Resources */,
 				0D2BDC72189CF97A00187616 /* alert_bg.png in Resources */,
 				0D6BE9C51850893900AE72F0 /* unselect.png in Resources */,
+				0D98772018AF6E3600649122 /* stop_button.png in Resources */,
 				0DD26E771847622F00E1CCE3 /* wheel_bg@2x.png in Resources */,
 				0DA1ABE6183A0CCA0063C29F /* 37x-Checkmark.png in Resources */,
 				0D55AA9C1833D2EB006DC806 /* alert-red-button.png in Resources */,

@@ -20,15 +20,17 @@
     NSMutableDictionary * temp;
     IBOutlet UIButton *nextbut;
    // IBOutlet UIButton *saveButton;
-    
+    int recordselected;
     IBOutlet UIToolbar *toolbar;
     
+  
     IBOutlet UIButton *play;
     
     IBOutlet UIButton *stop;
     IBOutlet UIButton *save;
     IBOutlet UIButton *record;
 }
+- (IBAction)pause:(id)sender;
 - (IBAction)next:(id)sender;
 @property (strong, nonatomic) AVAudioRecorder *audioRecorder;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;

@@ -37,15 +37,18 @@ int a;
 
 -(IBAction)stop:(id)sender
 {
+    [record setImage:[UIImage imageNamed:@"Record.png"] forState:UIControlStateNormal];
+
     [play setEnabled:YES];
     [save setEnabled:YES];
     [stop setEnabled:NO];
+    [record setEnabled:YES];
     [self.audioPlayer stop];
     [self.audioRecorder stop];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
     //  NSLog(@"url %@",[recorddict objectForKey:@"audiourl"]);
-    recording.hidden=TRUE;
+    recording.hidden=FALSE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,31 +63,37 @@ int a;
 
 -(IBAction)save:(id)sender
 {
-    a=0;
-    recording.hidden=YES;
+    a=1;
+    recording.hidden=NO;
     [recorddict addEntriesFromDictionary:temp];
     recorddict=[[NSMutableDictionary alloc]init];
     
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
-    
-    if(([answer3.text length]!=0))
+    if (recordselected==0)
     {
-        
-        a=1;
+        if ([answer3.text length]!=0)
+        {
+            
+            //  NSLog(@"a value %i",a);
+            [recorddict setValue:answer3.text forKey:@"answer2"];
+        }
+
+    [recorddict setObject:@"" forKey:@"audioname"];
+    [recorddict setObject:@"" forKey:@"audiourl"];
+    }
+    if (recordselected==1)
+    {
+        if ([answer3.text length]!=0)
+        {
+            
         //  NSLog(@"a value %i",a);
         [recorddict setValue:answer3.text forKey:@"answer2"];
+        }
         //NSLog(@"answer5%@",answer1.text);
-        
     }
-    else
-    {
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Field should not be empty."];
-        
-        //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-        [alert show];
-    }
+    
+   
     if (a==1)
     {
         //  NSLog(@"recorddict in answer2 %@",recorddict);
@@ -94,6 +103,8 @@ int a;
     
     
 }
+
+
 
 - (IBAction)next:(id)sender
 {
@@ -105,10 +116,19 @@ int a;
     
     
 }
+
 -(IBAction)record:(id)sender
 {
-    recording.hidden=FALSE;
+   
+    recordselected=1;
     // Set the audio file
+
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    self.audioRecorder.delegate = self;
+    self.audioRecorder.meteringEnabled = YES;
+
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     
     [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
@@ -144,7 +164,7 @@ int a;
                           settings:recordSetting
                           error:nil];
     
-    recording.text=@"Recording..";
+    //recording.text=@"Recording..";
     if (self.audioPlayer.playing) {
         [self.audioPlayer stop];
     }
@@ -156,28 +176,29 @@ int a;
         
         // Start recording
         [self.audioRecorder record];
-        [record setTitle:@"Pause" forState:UIControlStateNormal];
+        //[record setTitle:@"Record" forState:UIControlStateNormal];
         
     } else {
         
         // Pause recording
         [self.audioRecorder pause];
-        [record setTitle:@"Record" forState:UIControlStateNormal];
+        //[record setTitle:@"Record" forState:UIControlStateNormal];
     }
     
     
     [stop setEnabled:YES];
     [record setEnabled:NO];
+    [play setEnabled:NO];
     
     
 }
 -(IBAction)play:(id)sender
 {
-    recording.hidden=FALSE;
+  
     
-    recording.text=@"Playing..";
+   // recording.text=@"Playing..";
     
-    
+    [record setImage:[UIImage imageNamed:@"Record.png"] forState:UIControlStateNormal];
     
     if (!self.audioRecorder.recording){
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
@@ -198,7 +219,10 @@ int a;
         [self.audioPlayer play];
     }
     [stop setEnabled:YES];
-    [record setEnabled:NO];
+    [record setEnabled:YES];
+   
+    
+    
     
 }
 
@@ -250,8 +274,8 @@ int a;
     record.layer.cornerRadius = 5.0f;
     save.clipsToBounds = YES;
     save.layer.cornerRadius = 5.0f;
-    
-    
+    answer3.text=@"";
+    recordselected=0;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -268,7 +292,7 @@ int a;
     // Disable Stop/Play button when application launches
     [stop setEnabled:NO];
     [play setEnabled:NO];
-    [save setEnabled:NO];
+     // [save setEnabled:NO];
     
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
@@ -297,13 +321,14 @@ int a;
         tipsimprove.text=@"A pill box, establishing a routine of taking your medication at the same time, or placing your medication in a location where you can’t miss it are some ways to remember to take your medication.";
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
         record.hidden=TRUE;
         stop.hidden=TRUE;
         save.hidden=TRUE;
+       
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
         
@@ -314,7 +339,8 @@ int a;
         {
             tipsimprove.hidden=TRUE;
             nextbut.hidden=TRUE;
-            
+            recording.hidden=TRUE;
+            recording.hidden=FALSE;
             pleaseexplain.hidden=FALSE;
             answer3.hidden=FALSE;
             play.hidden=FALSE;
@@ -331,13 +357,14 @@ int a;
         
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
         record.hidden=TRUE;
         stop.hidden=TRUE;
         save.hidden=TRUE;
+       
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
@@ -347,13 +374,14 @@ int a;
         
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
         record.hidden=TRUE;
         stop.hidden=TRUE;
         save.hidden=TRUE;
+       
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
@@ -364,24 +392,24 @@ int a;
         
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
         record.hidden=TRUE;
         stop.hidden=TRUE;
         save.hidden=TRUE;
-        [recorddict setObject:@"" forKey:@"audioname"];
+               [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
     
     else if([aaa isEqual:@"I am taking too many medications"])
     {
         tipsimprove.text=@"Please talk to your doctor or nurse about this.";
-        
+       
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
@@ -397,7 +425,7 @@ int a;
         
         tipsimprove.hidden=FALSE;
         nextbut.hidden=FALSE;
-        
+        recording.hidden=TRUE;
         pleaseexplain.hidden=TRUE;
         answer3.hidden=TRUE;
         play.hidden=TRUE;
@@ -413,13 +441,14 @@ int a;
     {
         tipsimprove.hidden=TRUE;
         nextbut.hidden=TRUE;
-        
+        recording.hidden=FALSE;
         pleaseexplain.hidden=FALSE;
         answer3.hidden=FALSE;
         play.hidden=FALSE;
         record.hidden=FALSE;
         stop.hidden=FALSE;
         save.hidden=FALSE;
+        
     }
     
     
@@ -452,6 +481,8 @@ int a;
     [record setTitle:@"Record" forState:UIControlStateNormal];
     [stop setEnabled:NO];
     [play setEnabled:YES];
+    [record setEnabled:YES];
+    
 }
 
 #pragma mark - AVAudioPlayerDelegate
@@ -476,6 +507,6 @@ int a;
     //[play release];
     //[stop release];
     //[record release];
-    [super dealloc];
+       [super dealloc];
 }
 @end

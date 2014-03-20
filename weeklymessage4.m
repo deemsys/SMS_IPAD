@@ -69,7 +69,7 @@ int a;
     
     
     // you must include <SKPSMTPMessageDelegate> to your class
-    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication.\n\n Your Weekly Message Details has been Submitted to your respective Provider Successfully..\n\n Keep on Answering your Weekly Assessments.\n\n Thankyou. ",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication!\n\n Your Weekly Message Details has been Submitted to your respective Provider Successfully.\n\n Keep on Answering your Weekly Assessments.\n\n Thankyou. ",[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
     
     NSDictionary *plainMsg = [NSDictionary
                               dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -102,7 +102,7 @@ int a;
     NSMutableArray *parts_to_send = [NSMutableArray array];
     
     // you must include <SKPSMTPMessageDelegate> to your class
-    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n Weekly Message Details for the Adhere To Medication App Participants.\n\n Participant Name: %@\n\n Week Number : %@ \n\n Over for the past seven days on how many days did you take a dose of your AHT medication? : %@ \n\n What made you miss some doses? : %@ \n\n Would you like the app to send an email to your provider? : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"],[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"]];
+    NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n Weekly Message Details for the Adhere To Medication App Participants.\n\n Participant Name : %@ \n\n Week Number : %@ \n\n Over for the past seven days on how many days did you take a dose of your AHT medication? : %@ \n\n What made you miss some doses? : %@ \n\n Would you like the app to send an email to your provider? : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Weeknum"],[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"]];
     
     NSDictionary *plainMsg = [NSDictionary
                               dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,

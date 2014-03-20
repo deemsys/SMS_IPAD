@@ -435,7 +435,7 @@
     
     else
     {
-        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"INFO!" message:@"Select Provider and group detail."];
+        BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter all required fields."];
         [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert1 show];
     }
@@ -469,6 +469,7 @@
     [Spinner stopAnimating];
     Spinner.hidden=YES;
     ProgressBar.hidden=YES;
+        [self performSegueWithIdentifier:@"smssignup" sender:self];
     }
 }
 // On Failure
@@ -583,8 +584,7 @@
                 [recorddict objectForKey:@"pass"];
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
-                                        [recorddict objectForKey:@"pass"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n Please find the login Credentials for your Registration :\n\n Username : %@\n\n Password : %@\n\nThank you.\n\n",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"pass"]];
                
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -673,7 +673,7 @@
 }
 -(void)smssend
 {
-    NSString *body=[NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication \n\n Please find the login Credentials for your Registration.\n\n Username: %@\n\n Password:%@",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
+    NSString *body=[NSString stringWithFormat:@"Hi %@ , \n\n Welcome To Adhere To Medication! \n\n Please find the login Credentials for your Registration :\n\n Username : %@\n\n Password : %@\n\n",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],
                     [recorddict objectForKey:@"pass"]];;
     NSString *resultResponse2=[self HttpPostEntityFirstSms:@"to" ForValue1:[recorddict objectForKey:@"Mobilenum"]  EntitySecond:@"msgbody" ForValue2:body EntityThird:@"authkey" ForValue3:@"rzTFevN099Km39PV" ];
     NSError *error2;

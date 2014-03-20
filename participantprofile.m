@@ -36,11 +36,15 @@
     group.delegate=self;
     group.dataSource=self;
     [self getparticipantdetail:userid];
+    NSRange range;
+    range.length = 3;
+    range.location = 3;
     
+    mobilenumber.text = [NSString stringWithFormat:@"(%@)%@-%@", [mobile1 substringToIndex:3], [mobile1 substringWithRange:range], [mobile1 substringFromIndex:6]];
     
     firstname.text=firstname1;
     username.text=username1;
-    mobilenumber.text=mobile1;
+    //mobilenumber.text=mobile1;
     emailid.text=email1;
     
     city.text=city1;

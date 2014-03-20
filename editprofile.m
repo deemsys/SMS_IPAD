@@ -145,7 +145,7 @@
     agepick.dataSource = self;
     
     agepick.hidden=YES;
-    
+    a=0;
     
     fname.text=[recorddict objectForKey:@"firstname"];
 	age.text=[recorddict objectForKey:@"age"];
@@ -546,6 +546,15 @@
     return [mobileTest1 evaluateWithObject:mobilenumber];
     
 }
+-(BOOL)zipcodevalidation:(NSString *)country1
+{
+    NSString *countryFormat1 = @"[0-9]{5}";
+    
+    // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
+    return [countryTest1 evaluateWithObject:country1];
+    
+}
 // Submission action using http posting json data & json parsing
 - (IBAction)submit:(id)sender
 {
@@ -565,22 +574,40 @@
                         [recorddict setValue:username.text forKey:@"UserName"];
                         [recorddict setValue:mobile.text forKey:@"Mobilenum"];
                         [recorddict setValue:age.text forKey:@"age"];
-                        if ([medical.text  isEqual: @""]) {
-                            medical.text=@"null";
+                        if ([medical.text  isEqual: @""])
+                        {
+                            a=1;
+                            medical.text=@"";
                             [recorddict setValue:medical.text forKey:@"Medicaldetails"];
                         }
                         else
                         {
+                            a=1;
                             [recorddict setValue:medical.text forKey:@"Medicaldetails"];
                         }
                         if ([city.text  isEqual: @""]) {
-                            city.text=@"null";
+                            city.text=@"";
+                            a=1;
                             [recorddict setValue:city.text forKey:@"City"];
                             
                         }
                         else
                         {
-                            [recorddict setValue:city.text forKey:@"City"];
+                            a=0;
+                            if ([self zipcodevalidation:[city text]]==1)
+                            {
+                                a=1;
+                                [recorddict setValue:city.text forKey:@"City"];
+                                
+                            }
+                            else
+                            {
+                                a=0;
+                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
+                                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                                [alert show];
+                            }
+
                             
                         }
 
@@ -597,12 +624,16 @@
                         [recorddict setValue:provider.text forKey:@"Provider"];
                         //[recorddict setValue:grouppicker.text forKey:@"group"];
                        // NSLog(@"complete patient list %@",recorddict);
+                        if (a==1)
+                        {
+                            
                         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
                         [self.navigationController.view addSubview:HUD];
                         HUD.delegate = self;
                         HUD.labelText = @"Updating....";
                         [HUD show:YES];
                         [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
+                        }
                         
                         
                         
@@ -731,12 +762,14 @@
             [HUD hide:YES afterDelay:0];
             
             //NSLog(@"success");
-            
+            /*
             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"successfully updated!"];
             
             
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
+            */
+                        [self performSegueWithIdentifier:@"edittodashboard" sender:self];
             
             
             

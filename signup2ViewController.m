@@ -167,6 +167,15 @@
     return [countryTest1 evaluateWithObject:country1];
     
 }
+-(BOOL)zipcodevalidation:(NSString *)country1
+{
+    NSString *countryFormat1 = @"[0-9]{5}";
+    
+    // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
+    return [countryTest1 evaluateWithObject:country1];
+    
+}
 
 -(IBAction)changeage:(id)sender
 {
@@ -217,25 +226,40 @@
     [recorddict setValue:agepicker.text forKey:@"Age"];
        [recorddict setValue:edu forKey:@"Education"];
     if ([medicaldetails.text  isEqual: @""]) {
-        medicaldetails.text=@"null";
+        medicaldetails.text=@"";
+            c=1;
         [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
     }
     else
     {
+            c=1;
         [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
     }
     if ([city.text  isEqual: @""]) {
-       city.text=@"null";
+       city.text=@"";
+            c=1;
         [recorddict setValue:city.text forKey:@"City"];
 
     }
     else
     {
-        [recorddict setValue:city.text forKey:@"City"];
+        if ([self zipcodevalidation:[city text]]==1)
+        {
+                c=1;
+            [recorddict setValue:city.text forKey:@"City"];
 
+        }
+        else
+        {
+            c=0;
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+        }
+        
     }
     
-    c=1;
+
      /*  if([city.text length]!=0)
     {
        if([self alphabeticvalidation:city.text]==1)

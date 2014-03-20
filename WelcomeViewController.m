@@ -243,7 +243,7 @@
     }
     else if([msgfrom count]==0)    {
          [UIApplication sharedApplication].applicationIconBadgeNumber=0;
-        dailymessagelabel.text=@"You didnot receive any messages";
+        dailymessagelabel.text=@"You don't have any new messages";
     }
     
 
@@ -664,7 +664,7 @@
     }
      else if([msgfrom count]==0)    {
           [UIApplication sharedApplication].applicationIconBadgeNumber=0;
-        dailymessagelabel.text=@"You didnot receive any messages";
+        dailymessagelabel.text=@"You don't have any new messages";
     }
     
     
@@ -1022,7 +1022,7 @@
     }
     else if([msgfrom count]==0)    {
           [UIApplication sharedApplication].applicationIconBadgeNumber=0;
-        dailymessagelabel.text=@"You didnot receive any messages";
+        dailymessagelabel.text=@"You don't have any new messages";
     }
 
     
@@ -1320,7 +1320,7 @@
     }
     else if([msgfrom count]==0)    {
         
-        dailymessagelabel.text=@"You didnot receive any messages";
+        dailymessagelabel.text=@"You don't have any new messages";
     }
     
     

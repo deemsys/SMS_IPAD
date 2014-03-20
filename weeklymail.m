@@ -58,10 +58,10 @@ int a;
         if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
         {
             
-            HUD.labelText = @"Completed.";
-            HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
-            HUD.mode = MBProgressHUDModeCustomView;
-            [HUD hide:YES afterDelay:0];
+           // HUD.labelText = @"Completed.";
+           // HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+           // HUD.mode = MBProgressHUDModeCustomView;
+            //[HUD hide:YES afterDelay:0];
         }
         else
         {
@@ -79,7 +79,7 @@ int a;
 -(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //getting weekly evaluation sequence occurence
-    HUD.labelText = @"Synchronizing Data..";
+    //HUD.labelText = @"Synchronizing Data..";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
@@ -113,6 +113,11 @@ int a;
 // Includes Mail Template and data insertion
 -(IBAction)send:(id)sender
 {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.delegate = self;
+     HUD.labelText = @"Sending Data..";
+    [HUD show:YES];
     [self updatetable];
     //recorddict=[[NSMutableDictionary alloc]init];
     if(([mailanswer.text length]!=0))
@@ -121,6 +126,8 @@ int a;
         if([self numbers:[mailanswer text]]==1)
         {
             a=1;
+            
+
          //   NSLog(@"a value %i",a);
             NSString*proemail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
             NSString*patusername=[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"];
@@ -146,7 +153,7 @@ int a;
                 emailMessage.delegate = self;
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n The participant %@ under your treatment had misses his/her medications frequently thrice in a row entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n The participant %@ under your treatment had misses his/her medications frequently thrice in a row entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
                 
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -174,7 +181,7 @@ int a;
                 emailMessage.delegate = self;
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ \n\n Welcome To Adhere To Medication. \n\n The participant %@ under your treatment had misses his/her medications 4 times out of 12 weekly assessments entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n The participant %@ under your treatment had misses his/her medications 4 times out of 12 weekly assessments entering values less than 5.\n\n Also he wants the admin to contact him.\n\n Thank you.",[[NSUserDefaults standardUserDefaults]objectForKey:@"Providerusername"],[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantusername"]];
                 
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
@@ -204,6 +211,7 @@ int a;
     }
     if ((a==1)&&([stringans isEqual:@"No"] ))
     {
+       [HUD hide:YES];
        // NSLog(@"recorddict in answer1 %@",recorddict);
        [self performSegueWithIdentifier:@"sms25" sender:self];
     }
@@ -261,6 +269,7 @@ int a;
  
     if (a==1)
     {
+         [HUD hide:YES afterDelay:2];
        // NSLog(@"recorddict in answer1 %@",recorddict);
         [self performSegueWithIdentifier:@"sms25" sender:self];
         
