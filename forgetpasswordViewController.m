@@ -224,7 +224,7 @@
     emailMessage.subject =@"Hi user";
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self; // you must include <SKPSMTPMessageDelegate> to your class
-    NSString *messageBody = [NSString stringWithFormat:@"Hi ,\n\n Your Password is : %@\n\n From Adhere To Medication team.\n\nThank You.\n\n",userpassword];
+    NSString *messageBody = [NSString stringWithFormat:@"Hi ,\n\n Your Password is : %@\n\n From Adhere To Medication team.\n\n Thank You.\n\n",userpassword];
     
     NSDictionary *plainMsg = [NSDictionary
                               dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,

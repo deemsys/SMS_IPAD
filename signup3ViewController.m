@@ -584,7 +584,7 @@
                 [recorddict objectForKey:@"pass"];
                 
                 // you must include <SKPSMTPMessageDelegate> to your class
-                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n Please find the login Credentials for your Registration :\n\n Username : %@\n\n Password : %@\n\nThank you.\n\n",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"pass"]];
+                NSString *messageBody= [NSString stringWithFormat:@"Hi %@ ,\n\n Welcome To Adhere To Medication! \n\n Please find the login Credentials for your Registration :\n\n Username : %@\n\n Password : %@\n\n Thank you.\n\n",[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"UserName"],[recorddict objectForKey:@"pass"]];
                
                 NSDictionary *plainMsg = [NSDictionary
                                           dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
