@@ -11,6 +11,7 @@
 @interface sideeffectsViewController : UIViewController
 {
     NSString *answer;
+    IBOutlet UIButton *next;
 }
 @property (retain, nonatomic) IBOutlet UIButton *next;
 - (IBAction)nextclicked:(id)sender;

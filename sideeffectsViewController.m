@@ -18,6 +18,7 @@
 
 @implementation sideeffectsViewController
 @synthesize recorddict;
+@synthesize next;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,10 @@
 
 - (void)viewDidLoad
 {
+    next.clipsToBounds = YES;
+    next.layer.cornerRadius = 5.0f;
     [super viewDidLoad];
+     next.hidden=YES;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -51,7 +55,7 @@
 }
 
 - (void)dealloc {
-    [_next release];
+    [next release];
     [_yesbutton release];
     [_nobutton release];
     [super dealloc];
@@ -75,6 +79,7 @@
     }
 - (IBAction)yesclicked:(id)sender
 {
+     next.hidden=NO;
      [_yesbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
      [_nobutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Great Job!"];
@@ -86,6 +91,7 @@
 }
 
 - (IBAction)noclicked:(id)sender {
+     next.hidden=NO;
     [_yesbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [_nobutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     answer=@"No";

@@ -65,7 +65,7 @@ int a;
             }
             else if ([answer2.text isEqual:@"3"])
             {
-                answer2.text=@"Health insurance doesn’t cover it ";
+                answer2.text=@"Health insurance doesn't cover it ";
             }
             else if ([answer2.text isEqual:@"4"])
             {
@@ -81,7 +81,7 @@ int a;
             }
             else if ([answer2.text isEqual:@"7"])
             {
-                 answer2.text=@"I don’t like taking medications ";
+                 answer2.text=@"I don't like taking medications ";
             }
            
             [recorddict setValue:answer2.text forKey:@"answer2"];
@@ -106,16 +106,17 @@ int a;
     }
     if ((a==1)&&([answer2.text isEqual:@"I Had side effects"]))
     {
-     NSLog(@"recorddict in answer2 %@",recorddict);
+     NSLog(@"recorddict in answer2 side effects %@",recorddict);
         [self performSegueWithIdentifier:@"sms40" sender:self];
     }
-   if((a==1)&&!([answer2.text isEqual:@"I Had side effects"]))
-    {
+   if(a==1)
+   {
+    
         NSLog(@"recorddict in answer2 %@",recorddict);
         [self performSegueWithIdentifier:@"sms20" sender:self];
 
-    }
-    
+   
+   }
     
     
 }

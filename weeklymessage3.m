@@ -324,7 +324,7 @@ save.clipsToBounds = YES;
         }
         
     }
-    else if([aaa isEqual:@"Health insurance doesn’t cover it "])
+    else if([aaa isEqual:@"Health insurance doesn't cover it"])
     {
         tipsimprove.text=@"Please talk to your doctors and nurses team about this.They may be able to help you.";
         
@@ -340,7 +340,7 @@ save.clipsToBounds = YES;
          [recorddict setObject:@"" forKey:@"audioname"];
           [recorddict setObject:@"" forKey:@"audiourl"];
     }
-    else if([aaa isEqual:@"Medication/co-payments cost too much "])
+    else if([aaa isEqual:@"Medication/co-payments cost too much"])
     {
         tipsimprove.text=@"Please talk to your health care team about this.They may be able to help you.";
         
@@ -357,7 +357,7 @@ save.clipsToBounds = YES;
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
     
-    else if([aaa isEqual:@"Family/friends discouraged me from taking medication "])
+    else if([aaa isEqual:@"Family/friends discouraged me from taking medication"])
     {
         tipsimprove.text=@"That’s understandable, however, taking this medicine is an investment in your health. Please talk to your doctor or nurse about your concerns.";
         
@@ -374,7 +374,7 @@ save.clipsToBounds = YES;
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
     
-    else if([aaa isEqual:@"I am taking too many medications "])
+    else if([aaa isEqual:@"I am taking too many medications"])
     {
         tipsimprove.text=@"Please talk to your doctor or nurse about this.";
         
@@ -390,8 +390,9 @@ save.clipsToBounds = YES;
         [recorddict setObject:@"" forKey:@"audioname"];
         [recorddict setObject:@"" forKey:@"audiourl"];
     }
-    else if([aaa isEqual:@"I don’t like taking medications"])
+    else if([aaa isEqual:@"I don't like taking medications"])
     {
+        NSLog(@"hi");
         tipsimprove.text=@"That’s understandable. Many people feel this way, however, taking this medicine is an investment in your health. Please talk to you doctor or nurse about this.";
         
         tipsimprove.hidden=FALSE;

@@ -218,6 +218,7 @@ int a;
     
     [nob setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     stringans=@"Yes";
+    next.hidden=NO;
 };
 
 - (IBAction)noact:(id)sender
@@ -227,6 +228,7 @@ int a;
     [yesb setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     
     [nob setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+     next.hidden=NO;
 }
 
 -(IBAction)clear:(id)sender
@@ -284,6 +286,7 @@ int a;
   //  NSLog(@"count value%@",count);
     
     [super viewDidLoad];
+    next.hidden=YES;
     sendingnum=0;
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;

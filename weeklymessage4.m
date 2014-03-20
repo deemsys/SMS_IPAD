@@ -601,7 +601,7 @@ int a;
     [yesbutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
     answer4.text=@"1";
     [nobutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
-
+    next.hidden=NO;
     
 }
 
@@ -610,6 +610,7 @@ int a;
     [yesbutton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     answer4.text=@"2";
     [nobutton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateNormal];
+    next.hidden=NO;
 }
 -(void)dismissKeyboard
 {
@@ -642,6 +643,7 @@ int a;
 {
     next.clipsToBounds = YES;
     next.layer.cornerRadius = 5.0f;
+    next.hidden=YES;
     
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
