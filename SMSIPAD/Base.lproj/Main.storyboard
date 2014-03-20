@@ -1829,8 +1829,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
-                                <rect key="frame" x="51" y="56" width="237" height="136"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Keep doing well!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-Dz-JSf">
+                                <rect key="frame" x="51" y="56" width="249" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2187,7 +2187,7 @@
             </objects>
             <point key="canvasLocation" x="4746" y="-1098"/>
         </scene>
-        <!--Sideeffects View Controller-->
+        <!--Sideeffects View Controller - Weekly Survey-->
         <scene sceneID="y4p-cM-mFN">
             <objects>
                 <viewController id="VYc-hL-Ie9" customClass="sideeffectsViewController" sceneMemberID="viewController">
@@ -2245,7 +2245,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-sZ-YjB">
-                                <rect key="frame" x="109" y="233" width="62" height="30"/>
+                                <rect key="frame" x="123" y="233" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Next" backgroundImage="blue-teal-gradient.jpg">
@@ -2259,7 +2259,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sjX-5U-Xbh"/>
+                    <navigationItem key="navigationItem" title="Weekly Survey" id="sjX-5U-Xbh">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="iFv-xF-hoy"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="next" destination="Kkg-sZ-YjB" id="M8o-4Y-wS4"/>
                         <outlet property="nobutton" destination="JOi-76-wsj" id="n2n-uE-7oF"/>
@@ -3034,10 +3036,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="baK-Lt-qQ7"/>
         <segue reference="zJw-5E-t9R"/>
         <segue reference="0Js-Lx-Uc6"/>
-        <segue reference="vdW-O1-8tZ"/>
-        <segue reference="Fl7-wS-65d"/>
+        <segue reference="tDu-Ps-J7f"/>
         <segue reference="fQ7-G2-c84"/>
     </inferredMetricsTieBreakers>
 </document>

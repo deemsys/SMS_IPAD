@@ -156,7 +156,7 @@ audioname=[NSString stringWithFormat:@"%@_%@_%d_audiofile",currentDate,name,i];
 
         // Start recording
         [self.audioRecorder record];
-        [record setTitle:@"Pause" forState:UIControlStateNormal];
+        [record setTitle:@"Record" forState:UIControlStateNormal];
         
     } else {
         

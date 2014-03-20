@@ -21,7 +21,7 @@
     MBProgressHUD *HUD;
     IBOutlet UITextView * mailmessage;
     IBOutlet UITextField * mailanswer;
-    IBOutlet UIButton * send;
+       IBOutlet UIButton * send;
     IBOutlet UIButton * clear;
     NSMutableDictionary * recordict;
     NSString * cont;
@@ -38,7 +38,6 @@
 
 - (IBAction)yesact:(id)sender;
 - (IBAction)noact:(id)sender;
-
 
 
 

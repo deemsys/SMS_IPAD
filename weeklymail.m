@@ -207,11 +207,7 @@ int a;
        // NSLog(@"recorddict in answer1 %@",recorddict);
        [self performSegueWithIdentifier:@"sms25" sender:self];
     }
-    else
-    {
-        NULL;
-    }
-    
+       
     
 }
 
