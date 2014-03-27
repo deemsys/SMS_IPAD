@@ -51,7 +51,7 @@
     else if (textField.tag==6) {
         
         NSUInteger newLength = [city.text length] + [string length] - range.length;
-        return (newLength > 6) ? NO : YES;
+        return (newLength > 5) ? NO : YES;
     }
     else
         return YES;
@@ -135,6 +135,7 @@
     [timepick2 setBackgroundColor:([UIColor whiteColor])];
     [timepick3 setBackgroundColor:([UIColor whiteColor])];
     [grouppick setBackgroundColor:([UIColor whiteColor])];
+    [agepick setBackgroundColor:([UIColor whiteColor])];
     [super viewDidLoad];
     timepick1.hidden=YES;
     timepick2.hidden=YES;

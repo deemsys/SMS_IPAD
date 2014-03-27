@@ -478,7 +478,7 @@ int a;
         
         NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&answer1=%@&answer2=%@&answer3=%@&weeknum=%@&weekdate=%@&weeklogid=%@&countcol=%d&%@=%@",firstEntity,value1,[recorddict objectForKey:@"answer1"],[recorddict objectForKey:@"answer2"],[recorddict objectForKey:@"answer3"],weeknum,weekdate,weekl,countcol,secondEntity,value2];
         
-        NSURL *url=[NSURL URLWithString:@"http://medsmonit.com/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
+        NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=weeklyevaluation"];
         
         
         
@@ -532,7 +532,7 @@ int a;
     @try {
         NSString*loginid= [[NSUserDefaults standardUserDefaults] objectForKey:@"loginid"];
         
-        NSURL *url=[NSURL URLWithString:@"http://medsmonit.com/bcreasearch/Service/participantregister.php?service=audioinsert"];
+        NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=audioinsert"];
         
         NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:url];
         [req setHTTPMethod:@"POST"];

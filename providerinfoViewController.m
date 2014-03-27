@@ -50,7 +50,7 @@
         controller.mailComposeDelegate = self;
         [controller setTitle:@"Email"];
         [controller setSubject:@""];
-        [controller setMessageBody:@"Sent from BC research App Mail" isHTML:YES];
+        [controller setMessageBody:@"Sent from Adhere To Medication App Mail" isHTML:YES];
         [controller setToRecipients:[NSArray arrayWithObjects:provideremail.text,nil]];
         [self presentViewController:controller animated:YES completion:NULL];
     }

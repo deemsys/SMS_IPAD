@@ -414,7 +414,7 @@
         int PASSWORD_LENGTH=6;
         for (int i=0; i<PASSWORD_LENGTH; i++)
         {
-            int  index = (arc4random()%[letters length])+1;
+            int  index = (arc4random()%[letters length]);
             r.location=index;
             r.length=1;
             pw = [letters substringWithRange:r]  ;
@@ -535,7 +535,7 @@
     //for username
     NSString *resultResponse=[self HttpPostEntityFirst:@"email" ForValue1:email EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     
-    //  NSLog(@"********%@",resultResponse);
+     NSLog(@"********%@",resultResponse);
     //   NSLog(@"REGISTRATION");
     
     NSError *error;
@@ -611,23 +611,14 @@
                 
             }
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+                
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed!"];
-                
-                
-                [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
-                [alert show];
-                
-            }
-            else
-            {
-                
                 if ([[menu objectForKey:@"message"] isEqualToString:@"Already Exist"])
                 {
                     
                     
                     
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id Already Exits and active."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"E-mail id or Username Already Exits."];
                     
                     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -636,7 +627,17 @@
                     [HUD hide:YES];
                     return;
                 }
-                
+                else
+                {
+                    
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Registration failed!"];
+                    
+                    
+                    [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+                    [alert show];
+                    [HUD hide:YES];
+                    return;
+                }
                 
             }
         }

@@ -1510,7 +1510,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="GJS-9v-BiM"/>
                                         </connections>
@@ -1520,7 +1520,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="4eM-1d-7Ab"/>
                                         </connections>
@@ -1530,7 +1530,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.74999999999999978" height="0.74999999999999978"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="WQZ-3Y-SQ4" id="uY6-jn-INe"/>
                                         </connections>
@@ -2582,7 +2582,7 @@
                                         <rect key="frame" x="131" y="211" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <action selector="hideKeyboard:" destination="2p1-hS-1MQ" eventType="editingDidEndOnExit" id="fyb-dU-CwL"/>
                                             <outlet property="delegate" destination="2p1-hS-1MQ" id="dE6-5M-R4G"/>
@@ -2739,7 +2739,7 @@
                                         <rect key="frame" x="143" y="105" width="129" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="hideKeyboard:" destination="lcf-wr-ts9" eventType="editingDidEndOnExit" id="x9C-Tf-Gfx"/>
                                             <outlet property="delegate" destination="lcf-wr-ts9" id="G1e-qS-eGb"/>

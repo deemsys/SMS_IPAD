@@ -136,10 +136,13 @@
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"Patient password"];
-    
+   // NSLog(@"array %@ count %d",items1App,[items1App count]);
     NSDictionary *arrayList1;
     if ([[itemsApp objectForKey:@"success"] isEqualToString:@"Yes"])
     {
+        if ([items1App count]>0)
+        {
+            
         for (id anUpdate1 in items1App)
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
@@ -153,6 +156,16 @@
             ProgressBar.hidden=YES;
             [self sendmail:password1];
         }
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Email id not found."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+            [HUD hide:YES afterDelay:0.3];
+            ProgressBar.hidden=YES;
+
+        }
         
     }
     else
@@ -160,6 +173,8 @@
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Email id not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
+        [HUD hide:YES afterDelay:0.3];
+        ProgressBar.hidden=YES;
         
     }
     // NSLog(@"items1app %@",luckyNumbers);
@@ -190,7 +205,7 @@
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
    // NSLog(@" post %@ ",post);
     
-   // NSLog(@"%@ ",data);
+ // NSLog(@"%@ ",data);
     
     return data;
     
