@@ -46,13 +46,62 @@
     username.text=username1;
     //mobilenumber.text=mobile1;
     emailid.text=email1;
+    if([city1 isEqualToString:@""])
+    {
+        city.text=@"";
+        city1=@"";
+    }
+    else
+    {
+        city.text=city1;
+    }
+    if ([education1 isEqualToString:@""]) {
+        education.text=@"";
+        education1=@"";
+    }
+    else
+    {
+      education.text=education1;
+    }
+    if ([medical1 isEqualToString:@""])
+    {
+        medical.text=@"";
+        medical1=@"";
+    }
+    else
+    {
+        medical.text=medical1;
+    }
+    if ([time11 isEqualToString:@"null"]) {
+        time1.text=@"";
+        time11=@"Select time";
+    }
+    else
+    {
+       time1.text=[NSString stringWithFormat:@"%@ %@",time11,time11fm];
+    }
     
-    city.text=city1;
-    education.text=education1;
-    medical.text=medical1;
-    time1.text=[NSString stringWithFormat:@"%@%@",time11,time11fm];
-    time2.text=[NSString stringWithFormat:@"%@%@",time21,time21fm];
-    time3.text=[NSString stringWithFormat:@"%@%@",time31,time31fm];
+    if ([time21 isEqualToString:@"null"]) {
+        time2.text=@"";
+        time21=@"Select time";
+    }
+    else
+    {
+      time2.text=[NSString stringWithFormat:@"%@ %@",time21,time21fm];
+    }
+    if ([time31 isEqualToString:@"null"]) {
+        time3.text=@"";
+        time31=@"Select time";
+    }
+    else
+    {
+      time3.text=[NSString stringWithFormat:@"%@ %@",time31,time31fm];
+    }
+    
+    
+    
+    
+    
     provider.text=provider1;
     age.text=age1;
     if(![group1 isEqualToString:@""])

@@ -123,11 +123,11 @@ int a;
     recordselected=1;
     // Set the audio file
 
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+  AVAudioSession *session = [AVAudioSession sharedInstance];
+[session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
-    self.audioRecorder.delegate = self;
-    self.audioRecorder.meteringEnabled = YES;
+//self.audioRecorder.delegate = self;
+    //self.audioRecorder.meteringEnabled = YES;
 
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     
@@ -488,7 +488,7 @@ int a;
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
                                                     message: @"Finish playing the recording!"
                                                    delegate: nil
                                           cancelButtonTitle:@"OK"

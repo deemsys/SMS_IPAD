@@ -22,6 +22,7 @@
 @synthesize seggender;
 @synthesize gender;
 @synthesize educationseg;
+@synthesize zipcodeerr;
 
 
 
@@ -45,8 +46,7 @@
 }
 - (void)viewDidLoad
 {
-    edu=@"High School Imcomplete";
-    gender.text=@"0";
+    edu=@"";
     reset.clipsToBounds = YES;
     reset.layer.cornerRadius = 5.0f;
     next.clipsToBounds = YES;
@@ -60,11 +60,66 @@
     
     agepick.hidden=YES;
     city.delegate=self;
-    
+    UIColor * color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
+    [zipcodeerr setTextColor:color];
     medicaldetails.delegate=self;
-   
+    
     agepicker.text=@"Below 12";
     ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"city"] length]>0)
+    {
+        city.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"city"];
+    }
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"meddetail"] length]>0)
+    {
+        medicaldetails.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"meddetail"];
+    }
+    if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"age"]length]>0) {
+        agepicker.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"age"];
+        [agepick selectRow:[ageArray indexOfObject:agepicker.text] inComponent:0 animated:NO];
+
+    }
+    
+        if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"gender"]isEqualToString:@"0"])
+        {
+            gender.text=@"0";
+            [seggender setSelectedSegmentIndex:0];
+        }
+        else if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"gender"]isEqualToString:@"1"])
+        {
+            gender.text=@"1";
+            [seggender setSelectedSegmentIndex:1];
+        }
+    else
+    {
+        gender.text=@"0";
+    }
+        if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"education"] length]>0)
+    {
+        edu=[[NSUserDefaults standardUserDefaults]objectForKey:@"education"];
+        if ([edu isEqualToString:@"Did not complete High School"])
+        {
+            [educationseg setSelectedSegmentIndex:0];
+        }
+        else if ([edu isEqualToString:@"High School or GED"])
+        {
+            [educationseg setSelectedSegmentIndex:1];
+        }
+        else if ([edu isEqualToString:@"Some College"])
+        {
+            [educationseg setSelectedSegmentIndex:2];
+        }
+        else if ([edu isEqualToString:@"Undergraduate Degree"])
+        {
+            [educationseg setSelectedSegmentIndex:3];
+        }
+        else if([edu isEqualToString:@"Post-graduate Degree"])
+        {
+            [educationseg setSelectedSegmentIndex:4];
+        }
+       
+
+    }
     
 
     
@@ -73,8 +128,41 @@
     [agepick addGestureRecognizer:tapGR];
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    /*
+    UIButton *button1=[UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setFrame:CGRectMake(5.0,2.0,45.0,45.0)];
+    [button1 addTarget:self action:@selector(home:) forControlEvents:UIControlEventTouchUpInside];
+    [button1 setImage:[UIImage imageNamed:@"backbutton.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]initWithCustomView:button1];
+    self.navigationItem.leftBarButtonItem = button;*/
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@" Back" style:UIBarButtonItemStyleBordered target:self action:@selector(home:)];
+    
+    self.navigationItem.leftBarButtonItem = newBackButton;
+    
+    
+   
+    
 
 	// Do any additional setup after loading the view.
+}
+-(void)home:(UIBarButtonItem *)sender
+{
+if([city.text length]>0)
+   {
+       [[NSUserDefaults standardUserDefaults]setObject:city.text forKey:@"city"];
+       
+   }
+    if([medicaldetails.text length]>0)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:medicaldetails.text forKey:@"meddetail"];
+        
+    }
+    [[NSUserDefaults standardUserDefaults]setObject:agepicker.text forKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]setObject:gender.text forKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]setObject:edu forKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
+   
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -204,7 +292,7 @@
         }
     else if([educationseg selectedSegmentIndex]==1)
     {
-        edu=@"Hight School or GED";
+        edu=@"High School or GED";
     }
     else if([educationseg selectedSegmentIndex]==2)
     {
@@ -212,19 +300,35 @@
     }
     else if([educationseg selectedSegmentIndex]==3)
     {
-        edu=@"Under Graduate";
+        edu=@"Undergraduate Degree";
     }
     else if([educationseg selectedSegmentIndex]==4)
     {
-        edu=@"Post Graduate";
+        edu=@"Post-graduate Degree";
     }
 
 }
 -(IBAction)next:(id)sender
 {
+
+   
+    if([city.text length]>0)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:city.text forKey:@"city"];
+        
+    }
+    if([medicaldetails.text length]>0)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:medicaldetails.text forKey:@"meddetail"];
+        
+    }
+    [[NSUserDefaults standardUserDefaults]setObject:agepicker.text forKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]setObject:gender.text forKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]setObject:edu forKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     [recorddict setValue:gender.text forKey:@"Gender"];
     [recorddict setValue:agepicker.text forKey:@"Age"];
-       [recorddict setValue:edu forKey:@"Education"];
+// NSLog(@"gender %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"gender"]);
     if ([medicaldetails.text  isEqual: @""]) {
         medicaldetails.text=@"";
             c=1;
@@ -235,16 +339,26 @@
             c=1;
         [recorddict setValue:medicaldetails.text forKey:@"Medicaldetails"];
     }
+    if ([edu isEqualToString:@""])
+    {
+     [recorddict setValue:edu forKey:@"Education"];
+    }
+    else
+    {
+        [recorddict setValue:edu forKey:@"Education"];
+    }
     if ([city.text  isEqual: @""]) {
        city.text=@"";
             c=1;
         [recorddict setValue:city.text forKey:@"City"];
 
     }
+    
     else
     {
         if ([self zipcodevalidation:[city text]]==1)
         {
+            zipcodeerr.hidden=YES;
                 c=1;
             [recorddict setValue:city.text forKey:@"City"];
 
@@ -252,7 +366,8 @@
         else
         {
             c=0;
-        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
+            zipcodeerr.hidden=NO;
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
         }
@@ -443,6 +558,12 @@
 {
    city.text=@"";
     medicaldetails.text=@"";
+    zipcodeerr.hidden=YES;
+    agepicker.text=@"Below 12";
+    [self.agepick selectRow:0 inComponent:0 animated:YES];
+    [seggender setSelectedSegmentIndex:0];
+    [educationseg setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    
 }
 - (void)viewDidUnload
 {
@@ -463,6 +584,7 @@
 - (void)dealloc {
     [reset release];
     [next release];
+    [zipcodeerr release];
     [super dealloc];
 }
 @end

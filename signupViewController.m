@@ -22,6 +22,10 @@
 
 @implementation signupViewController
 @synthesize recorddict;
+@synthesize usernameerr;
+@synthesize firstnameerr;
+@synthesize emailerr;
+@synthesize mobileerr;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,13 +56,42 @@
     username.delegate=self;
     mobilenum.delegate=self;
     email.delegate=self;
-    
+    UIColor * color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
+    [usernameerr setTextColor:color];
+    [firstnameerr setTextColor:color];
+    [mobileerr setTextColor:color];
+    [emailerr setTextColor:color];
+
     recorddict=[[NSMutableDictionary alloc]init];
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
       [self sunc];
     
-	// Do any additional setup after loading the view.
+ /*  UIButton *button1=[UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setFrame:CGRectMake(5.0,2.0,45.0,45.0)];
+    [button1 addTarget:self action:@selector(home:) forControlEvents:UIControlEventTouchUpInside];
+    [button1 setImage:[UIImage imageNamed:@"backbutton.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]initWithCustomView:button1];
+    self.navigationItem.leftBarButtonItem = button;
+    */
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@" Back" style:UIBarButtonItemStyleBordered target:self action:@selector(home:)];
+    
+    self.navigationItem.leftBarButtonItem = newBackButton;
+}
+-(void)home:(UIBarButtonItem *)sender
+{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidUnload
 {
@@ -109,7 +142,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(BOOL)validateEmail:(NSString*)candidate{
-    NSString *emailFormat1 = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *emailFormat1 = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}";
     
     
     NSPredicate *emailTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailFormat1];
@@ -117,9 +150,9 @@
     
 }
 
--(BOOL)alphabeticvalidation:(NSString *)country1
+-(BOOL)alphabeticsymbolvalidation:(NSString *)country1
 {
-    NSString *countryFormat1 = @"(?:[A-Za-z]+)";
+    NSString *countryFormat1 = @"(?:[A-Za-z0-9._@-]+)";
     
     // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -152,6 +185,10 @@
     email.text=@"";
     username.text=@"";
     mobilenum.text=@"";
+    firstnameerr.hidden=YES;
+    usernameerr.hidden=YES;
+    mobileerr.hidden=YES;
+    emailerr.hidden=YES;
 }
 
 -(IBAction)next:(id)sender
@@ -162,15 +199,22 @@
     //NSLog(@"%@ array",names[1]);
     if(([firstname.text length]!=0)&&([mobilenum.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0))
     {
-        if ([self alphanumericvalidation:firstname.text]==1)
+        NSString *fname = [firstname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *mnum = [mobilenum.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        if ([self alphanumericvalidation:fname]==1)
         {
-            if ([self alphanumericvalidation:username.text]==1)
+            firstnameerr.hidden=YES;
+            if ([self alphabeticsymbolvalidation:username.text]==1)
             {
-                if ([self validateMobile:mobilenum.text]==1)
+                usernameerr.hidden=YES;
+                if ([self validateMobile:mnum]==1)
                 {
+                    mobileerr.hidden=YES;
                     if ([self validateEmail:email.text]==1)
                     {
                         c=1;
+                        emailerr.hidden=YES;
                         [recorddict setValue:firstname.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
                         [recorddict setValue:mobilenum.text forKey:@"Mobilenum"];
@@ -183,6 +227,7 @@
                     }
                     else
                     {
+                        emailerr.hidden=NO;
                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
@@ -190,6 +235,7 @@
                 }
                 else
                 {
+                    mobileerr.hidden=NO;
                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
@@ -199,6 +245,7 @@
             }
             else
             {
+                usernameerr.hidden=NO;
                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
@@ -206,6 +253,7 @@
         }
         else
         {
+            firstnameerr.hidden=NO;
             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
@@ -390,12 +438,12 @@
     }
     
     
-   //  NSLog(@"groupname value %@",temp2);
-// NSLog(@"groupid value %@",temp3);
-  //  NSLog(@"createdby value %@",temp4);
+  // NSLog(@"groupname value %@",temp2);
+//NSLog(@"groupid value %@",temp3);
+ // NSLog(@"createdby value %@",temp4);
     
    // NSLog(@"providerName:%@",_AppDArr);
-  // NSLog(@"ProviderId:%@",_AppNArr);
+  //NSLog(@"ProviderId:%@",_AppNArr);
     
 }
 
@@ -481,6 +529,10 @@
    
     [reset release];
     [next release];
+    [usernameerr release];
+    [firstnameerr release];
+    [mobileerr release];
+    [emailerr release];
     [super dealloc];
 }
 @end

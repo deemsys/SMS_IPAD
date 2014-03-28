@@ -33,6 +33,7 @@
 @synthesize agepicker;
 @synthesize segedu;
 @synthesize gender;
+@synthesize errorlabel;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -111,11 +112,11 @@
     }
     if([segedu selectedSegmentIndex]==3)
     {
-          education=@"Under Graduate";
+          education=@"Undergraduate Degree";
     }
     if([segedu selectedSegmentIndex]==4)
     {
-        education=@"Post Graduate";
+        education=@"Post-graduate Degree";
     }
 }
 -(IBAction)seggenderselected:(id)sender
@@ -143,12 +144,16 @@
     grouppick.hidden=YES;
     agepick.delegate = self;
     agepick.dataSource = self;
+    ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
     
+    timearray=[[NSMutableArray alloc] initWithObjects:@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
+     UIColor * color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
+    [errorlabel setTextColor:color];
     agepick.hidden=YES;
     a=0;
     
     fname.text=[recorddict objectForKey:@"firstname"];
-	age.text=[recorddict objectForKey:@"age"];
+	agepicker.text=[recorddict objectForKey:@"age"];
     city.text=[recorddict objectForKey:@"city"];
      education=[recorddict objectForKey:@"education"];
     gend=[recorddict objectForKey:@"gender"];
@@ -156,7 +161,7 @@
     {
            [segedu setSelectedSegmentIndex:0];
     }
-    else if ([education isEqualToString:@"Hight School or GED"])
+    else if ([education isEqualToString:@"High School or GED"])
     {
         [segedu setSelectedSegmentIndex:1];
     }
@@ -164,14 +169,15 @@
     {
       [segedu setSelectedSegmentIndex:2];
     }
-   else if ([education isEqualToString:@"Under Graduate"])
+   else if ([education isEqualToString:@"Undergraduate Degree"])
    {
        [segedu setSelectedSegmentIndex:3];
     }
-   else if([education isEqualToString:@"Post Graduate"])
+   else if([education isEqualToString:@"Post-graduate Degree"])
    {
         [segedu setSelectedSegmentIndex:4];
    }
+    
 
     if ([gend isEqualToString:@"Male"])
     {
@@ -189,6 +195,252 @@
     time1.text=[recorddict objectForKey:@"time11"];
     time2.text=[recorddict objectForKey:@"time21"];
     time3.text=[recorddict objectForKey:@"time31"];
+   @try
+    {
+   if([time1.text isEqualToString:@"01"])
+    {
+        
+    [timepick1 selectRow:0 inComponent:0 animated:NO];
+    }
+    if([time1.text isEqualToString:@"02"])
+    {
+        [self.timepick1 selectRow:1 inComponent:0 animated:NO];
+    }
+    if([time1.text isEqualToString:@"03"])
+    {
+        
+[self.timepick1 selectRow:2 inComponent:0 animated:NO];
+    }
+   
+    if([time1.text isEqualToString:@"04"])
+    {
+          [self.timepick1 selectRow:3 inComponent:0 animated:NO];
+    }
+   
+    if([time1.text isEqualToString:@"05"])
+    {
+          [self.timepick1 selectRow:4 inComponent:0 animated:NO];
+    }
+    
+   if([time1.text isEqualToString:@"06"])
+    {
+          [self.timepick1 selectRow:5 inComponent:0 animated:NO];
+    }
+   
+    if([time1.text isEqualToString:@"07"])
+    {
+          [self.timepick1 selectRow:6 inComponent:0 animated:NO];
+    }
+ 
+    if([time1.text isEqualToString:@"08"])
+    {
+   [self.timepick1 selectRow:7 inComponent:0 animated:NO];
+    }
+   
+    if([time1.text isEqualToString:@"09"])
+    {
+        [self.timepick1 selectRow:8 inComponent:0 animated:NO];
+    }
+    if([time1.text isEqualToString:@"10"])
+    {
+        [self.timepick1 selectRow:9 inComponent:0 animated:NO];
+    }
+   
+    if([time1.text isEqualToString:@"11"])
+    {
+        [self.timepick1 selectRow:10 inComponent:0 animated:NO];
+    }
+    if([time1.text isEqualToString:@"12"])
+    {
+        [self.timepick1 selectRow:11 inComponent:0 animated:NO];
+    }
+    
+    }
+      @catch (NSError *error) {
+        NSLog(@"%@", error);
+    }
+    @try
+    {
+        if([time2.text isEqualToString:@"01"])
+        {
+            
+            [timepick2 selectRow:0 inComponent:0 animated:NO];
+        }
+        if([time2.text isEqualToString:@"02"])
+        {
+            [self.timepick2 selectRow:1 inComponent:0 animated:NO];
+        }
+        if([time2.text isEqualToString:@"03"])
+        {
+            
+            [self.timepick2 selectRow:2 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"04"])
+        {
+            [self.timepick2 selectRow:3 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"05"])
+        {
+            [self.timepick2 selectRow:4 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"06"])
+        {
+            [self.timepick2 selectRow:5 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"07"])
+        {
+            [self.timepick2 selectRow:6 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"08"])
+        {
+            [self.timepick2 selectRow:7 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"09"])
+        {
+            [self.timepick2 selectRow:8 inComponent:0 animated:NO];
+        }
+        if([time2.text isEqualToString:@"10"])
+        {
+            [self.timepick2 selectRow:9 inComponent:0 animated:NO];
+        }
+        
+        if([time2.text isEqualToString:@"11"])
+        {
+            [self.timepick2 selectRow:10 inComponent:0 animated:NO];
+        }
+        if([time2.text isEqualToString:@"12"])
+        {
+            [self.timepick2 selectRow:11 inComponent:0 animated:NO];
+        }
+        
+    }
+    @catch (NSError *error) {
+        NSLog(@"%@", error);
+    }
+    
+    @try
+    {
+        if([time3.text isEqualToString:@"01"])
+        {
+            
+            [timepick3 selectRow:0 inComponent:0 animated:NO];
+        }
+        if([time3.text isEqualToString:@"02"])
+        {
+            [self.timepick3 selectRow:1 inComponent:0 animated:NO];
+        }
+        if([time3.text isEqualToString:@"03"])
+        {
+            
+            [self.timepick3 selectRow:2 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"04"])
+        {
+            [self.timepick3 selectRow:3 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"05"])
+        {
+            [self.timepick3 selectRow:4 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"06"])
+        {
+            [self.timepick3 selectRow:5 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"07"])
+        {
+            [self.timepick3 selectRow:6 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"08"])
+        {
+            [self.timepick3 selectRow:7 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"09"])
+        {
+            [self.timepick3 selectRow:8 inComponent:0 animated:NO];
+        }
+        if([time3.text isEqualToString:@"10"])
+        {
+            [self.timepick3 selectRow:9 inComponent:0 animated:NO];
+        }
+        
+        if([time3.text isEqualToString:@"11"])
+        {
+            [self.timepick3 selectRow:10 inComponent:0 animated:NO];
+        }
+        if([time3.text isEqualToString:@"12"])
+        {
+            [self.timepick3 selectRow:11 inComponent:0 animated:NO];
+        }
+        
+    }
+    @catch (NSError *error) {
+        NSLog(@"%@", error);
+    }
+    @try
+    {
+        if([agepicker.text isEqualToString:@"Below 12"])
+        {
+            [self.agepick selectRow:0 inComponent:0 animated:NO];
+        }
+        if([agepicker.text isEqualToString:@"12-20 years"])
+        {
+            [self.agepick selectRow:1 inComponent:0 animated:NO];
+        }
+        if([agepicker.text isEqualToString:@"21-30 years"])
+        {
+            [self.agepick selectRow:2 inComponent:0 animated:NO];
+        }
+        if([agepicker.text isEqualToString:@"31-40 years"])
+        {
+            [self.agepick selectRow:3 inComponent:0 animated:NO];
+        }
+        if([agepicker.text isEqualToString:@"41-50 years"])
+        {
+            [self.agepick selectRow:4 inComponent:0 animated:NO];
+        }
+        
+        if([agepicker.text isEqualToString:@"51-60 years"])
+        {
+            [self.agepick selectRow:5 inComponent:0 animated:NO];
+        }
+        
+        if([agepicker.text isEqualToString:@"61-70 years"])
+        {
+            [self.agepick selectRow:6 inComponent:0 animated:NO];
+        }
+        
+        if([agepicker.text isEqualToString:@"71-80 years"])
+        {
+            [self.agepick selectRow:7 inComponent:0 animated:NO];
+        }
+        if([agepicker.text isEqualToString:@"81-90 years"])
+        {
+            [self.agepick selectRow:8 inComponent:0 animated:NO];
+        }
+        
+        if([agepicker.text isEqualToString:@"91-100 years"])
+        {
+            [self.agepick selectRow:9 inComponent:0 animated:NO];
+        }
+        
+        
+    }
+    @catch (NSException *exception) {
+        
+    }
+    
     if([[recorddict objectForKey:@"time11fm"] isEqual:@"AM"] )
     {
         t1=@"AM";
@@ -222,11 +474,7 @@
     }
     username.text=[recorddict objectForKey:@"username"];
    // gender.text=[recorddict objectForKey:@"gender"];
-    ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
-    
-    timearray=[[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12", nil];
-    
-    grouppicker.text=[recorddict objectForKey:@"groupname"];
+        grouppicker.text=[recorddict objectForKey:@"groupname"];
     grouparray=[recorddict objectForKey:@"Grouplist"];
     entries=[[NSArray alloc]init];
     entriesSelected=[[NSArray alloc]init];
@@ -512,16 +760,16 @@
     // Dispose of any resources that can be recreated.
 }
 -(BOOL)validateEmail:(NSString*)candidate{
-    NSString *emailFormat1 = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *emailFormat1 = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}";
     
     
     NSPredicate *emailTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailFormat1];
     return [emailTest1 evaluateWithObject:candidate];
     
 }
--(BOOL)alphabeticvalidation:(NSString *)country1
+-(BOOL)alphabeticsymbolvalidation:(NSString *)country1
 {
-    NSString *countryFormat1 = @"(?:[A-Za-z]+)";
+    NSString *countryFormat1 = @"(?:[A-Za-z0-9._@-]+)";
     
     // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -560,19 +808,24 @@
 {
     if(([fname.text length]!=0)&&([mobile.text length]!=0)&&([username.text length]!=0)&&([email.text length]!=0)&&(![grouppicker.text isEqualToString:@""]))
     {
+        NSString *fsname = [fname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *mnum = [mobile.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         
-        if ([self alphabeticvalidation:fname.text]==1)
+        if ([self alphanumericvalidation:fsname]==1)
         {
-            if ([self alphanumericvalidation:username.text]==1)
+            errorlabel.hidden=YES;
+           if ([self alphabeticsymbolvalidation:username.text]==1)
             {
-                if ([self validateMobile:mobile.text]==1)
+                errorlabel.hidden=YES;
+                if ([self validateMobile:mnum]==1)
                 {
+                    errorlabel.hidden=YES;
                     if ([self validateEmail:email.text]==1)
                     {
-                        
+                        errorlabel.hidden=YES;
                         [recorddict setValue:fname.text forKey:@"FirstName"];
                         [recorddict setValue:username.text forKey:@"UserName"];
-                        [recorddict setValue:age.text forKey:@"age"];
+                        [recorddict setValue:agepicker.text forKey:@"age"];
                         if ([medical.text  isEqual: @""])
                         {
                             a=1;
@@ -596,12 +849,15 @@
                             if ([self zipcodevalidation:[city text]]==1)
                             {
                                 a=1;
+                                errorlabel.hidden=YES;
                                 [recorddict setValue:city.text forKey:@"City"];
                                 
                             }
                             else
                             {
                                 a=0;
+                                errorlabel.hidden=NO;
+                                errorlabel.text=@"Only 5 digits,0-9 allowed";
                                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Zipcode."];
                                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                                 [alert show];
@@ -639,6 +895,8 @@
                     }
                     else
                     {
+                        errorlabel.hidden=NO;
+                        errorlabel.text=@"example@contoso.com";
                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid E-mail id."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
@@ -646,6 +904,8 @@
                 }
                 else
                 {
+                    errorlabel.hidden=NO;
+                    errorlabel.text=@"Only 10 digits,0-9 allowed";
                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid Mobile Number."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
@@ -655,6 +915,8 @@
             }
             else
             {
+                errorlabel.hidden=NO;
+                errorlabel.text=@"Only a-z,0-9,- @ . _ allowed";
                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid User Name."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
@@ -662,6 +924,8 @@
         }
         else
         {
+            errorlabel.hidden=NO;
+            errorlabel.text=@"Only a-z,0-9 allowed";
             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter Valid First Name."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
@@ -670,6 +934,7 @@
     
     else
     {
+        
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter all the required fields."];
         [alert setDestructiveButtonWithTitle:@"OK" block:nil];
         [alert show];
@@ -728,7 +993,7 @@
    // NSLog(@"userid %@",loginid);
     NSString *resultResponse=[self HttpPostEntityFirst:@"loginid" ForValue1:loginid EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     
-    //  NSLog(@"********%@",resultResponse);
+     //NSLog(@"********%@",resultResponse);
     //   NSLog(@"REGISTRATION");
     
     NSError *error;
@@ -838,6 +1103,51 @@
     NSString *tf2=[recorddict objectForKey:@"Preferred Time2 format"];
     NSString *tf3=[recorddict objectForKey:@"Preferred Time3 format"];
     NSString*prov=provider.text;
+    
+    if ([education isEqualToString:@""]) {
+        edu=@"";
+        
+    }
+    else
+    {
+        edu=education;
+    }
+       if (([pt1 isEqualToString:@""])|| ([pt1 isEqualToString:@"Select time"]))
+    {
+        
+        pt1=@"null";
+        tf1=@"AM";
+    }
+    else
+    {
+        pt1=[recorddict objectForKey:@"Preferred Time1"];
+        tf1=[recorddict objectForKey:@"Preferred Time1 format"];
+
+
+    }
+    
+    if (([pt2 isEqualToString:@""])||([pt2 isEqualToString:@"Select time"])) {
+        
+        pt2=@"null";
+    tf2=@"AM";
+    }
+    else
+    {
+        pt2=[recorddict objectForKey:@"Preferred Time2"];
+        tf2=[recorddict objectForKey:@"Preferred Time2 format"];
+        
+    }
+    if (([pt3 isEqualToString:@""])||([pt3 isEqualToString:@"Select time"])) {
+        //time3.text=@"";
+        pt3=@"null";
+        tf3=@"AM";
+    }
+    else
+    {
+        pt3=[recorddict objectForKey:@"Preferred Time3"];
+        tf3=[recorddict objectForKey:@"Preferred Time3 format"];
+
+    }
     if(![grouppicker.text isEqual:[recorddict objectForKey:@"groupname"]])
     {
        // NSLog(@"changed the group");
@@ -905,13 +1215,13 @@
    // NSLog(@"%@ groupid",postVarArrayStringid);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&old_mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&groupid=%@&groupname=%@&email=%@&oldemailid=%@&%@=%@",firstEntity,value1,firstname,mobnum,oldmobilenum,gend,city1,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age1,username1,postVarArrayStringid, grouppicker.text,emailid,oldemail,secondEntity,value2];
     
-  //  NSLog(@"post %@",post);
+ // NSLog(@"post %@",post);
     
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=patientupdate"];
     
     
     
-    // NSLog(@"%@",post);
+// NSLog(@"%@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -934,7 +1244,7 @@
     
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"%@",data);
+  // NSLog(@"response %@",data);
     
     
     
@@ -947,6 +1257,7 @@
 
 - (void)dealloc {
     [submit release];
+    [errorlabel release];
     [super dealloc];
 }
 @end

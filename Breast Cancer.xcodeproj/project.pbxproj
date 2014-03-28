@@ -26,6 +26,9 @@
 		0D05E7501886BBD4004497A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F19C41837CDFB001389C1 /* CFNetwork.framework */; };
 		0D0E55231858538000A3B41F /* messageunread.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E55221858538000A3B41F /* messageunread.png */; };
 		0D0E552518589A4400A3B41F /* twillo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E552418589A4400A3B41F /* twillo.jpg */; };
+		0D1B0AB2189FB02D000C5A50 /* signup3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F5070183250F400056E53 /* signup3ViewController.m */; };
+		0D1B0AB3189FB9F0000C5A50 /* editprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79DA183E581700C48D17 /* editprofile.m */; };
+		0D1B0AB5189FE16C000C5A50 /* Backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1B0AB4189FE16C000C5A50 /* Backarrow.png */; };
 		0D1E770418618833008C17DA /* logo (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E770318618833008C17DA /* logo (1).png */; };
 		0D1E77061861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E77051861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico */; };
 		0D1E77091861B52A008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E77071861B33C008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png */; };
@@ -42,7 +45,6 @@
 		0D2F505D18320FB100056E53 /* BlockBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F505C18320FB100056E53 /* BlockBackground.m */; };
 		0D2F50671832393900056E53 /* signupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F50661832393900056E53 /* signupViewController.m */; };
 		0D2F506A1832446800056E53 /* signup2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F50691832446800056E53 /* signup2ViewController.m */; };
-		0D2F5071183250F400056E53 /* signup3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F5070183250F400056E53 /* signup3ViewController.m */; };
 		0D55AA941833CF43006DC806 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D55AA931833CF43006DC806 /* Reachability.m */; };
 		0D55AA971833CF60006DC806 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D55AA961833CF60006DC806 /* MBProgressHUD.m */; };
 		0D55AA9A1833CF90006DC806 /* fileMngr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D55AA991833CF90006DC806 /* fileMngr.m */; };
@@ -64,7 +66,6 @@
 		0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D0183D00FD00C48D17 /* weeklymessage.m */; };
 		0D6C79D3183DFAC600C48D17 /* week.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D6C79D2183DFAC500C48D17 /* week.png */; };
 		0D6C79D7183E453B00C48D17 /* participantprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79D6183E453B00C48D17 /* participantprofile.m */; };
-		0D6C79DB183E581700C48D17 /* editprofile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79DA183E581700C48D17 /* editprofile.m */; };
 		0D6C79EA184084BA00C48D17 /* weeklymessage3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79E9184084BA00C48D17 /* weeklymessage3.m */; };
 		0D6C79ED184084CC00C48D17 /* weeklymessage4.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EC184084CC00C48D17 /* weeklymessage4.m */; };
 		0D6C79F01840852F00C48D17 /* weeklymessage5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C79EF1840852F00C48D17 /* weeklymessage5.m */; };
@@ -185,6 +186,7 @@
 		0D027218182D119F00C35B94 /* SMSIPADTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMSIPADTests.m; sourceTree = "<group>"; };
 		0D0E55221858538000A3B41F /* messageunread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageunread.png; sourceTree = "<group>"; };
 		0D0E552418589A4400A3B41F /* twillo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twillo.jpg; sourceTree = "<group>"; };
+		0D1B0AB4189FE16C000C5A50 /* Backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Backarrow.png; sourceTree = "<group>"; };
 		0D1E770318618833008C17DA /* logo (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo (1).png"; sourceTree = "<group>"; };
 		0D1E77051861B15A008C17DA /* Rafiqul-Hassan-Blogger-Refresh-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "Rafiqul-Hassan-Blogger-Refresh-2.ico"; sourceTree = "<group>"; };
 		0D1E77071861B33C008C17DA /* 009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "009435-silver-inlay-square-metal-icon-arrows-arrow-circle-refresh.png"; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			children = (
 				0D98772118AF813400649122 /* pause.png */,
 				0D98771F18AF6E3600649122 /* stop_button.png */,
+				0D1B0AB4189FE16C000C5A50 /* Backarrow.png */,
 				0D98771B18AF580000649122 /* play-chrome.png */,
 				0D98771918AF55BD00649122 /* Record.png */,
 				0D02143E189A904100391898 /* sideeffectsViewController.h */,
@@ -613,8 +616,8 @@
 		0D952E771834EEE600053B45 /* changepassword */ = {
 			isa = PBXGroup;
 			children = (
-				0D952E781834EF0700053B45 /* changepasswordViewController.h */,
 				0D952E791834EF0700053B45 /* changepasswordViewController.m */,
+				0D952E781834EF0700053B45 /* changepasswordViewController.h */,
 			);
 			name = changepassword;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				0DD26E751847622F00E1CCE3 /* frame_middle@2x.png in Resources */,
 				0DD26E731847622F00E1CCE3 /* check@2x.png in Resources */,
 				0D98771A18AF55BD00649122 /* Record.png in Resources */,
+				0D1B0AB5189FE16C000C5A50 /* Backarrow.png in Resources */,
 				0D952EB21835291400053B45 /* signin.png in Resources */,
 				0D952EB31835291400053B45 /* signup.png in Resources */,
 				0D24CDE81855AE3E003062B5 /* icon58.png in Resources */,
@@ -929,7 +933,6 @@
 			files = (
 				0D05E74F1886ADA9004497A6 /* SKPSMTPMessage.m in Sources */,
 				0D6C79D1183D00FD00C48D17 /* weeklymessage.m in Sources */,
-				0D6C79DB183E581700C48D17 /* editprofile.m in Sources */,
 				0DFF82051853000B004D8CE6 /* msgcontent.m in Sources */,
 				0D0271FE182D119F00C35B94 /* smsmainviewcontrollerAppDelegate.m in Sources */,
 				0DD26E6A1847621600E1CCE3 /* CYCustomMultiSelectPickerView.m in Sources */,
@@ -939,7 +942,6 @@
 				0D2F506A1832446800056E53 /* signup2ViewController.m in Sources */,
 				0D709F331836643700C4F907 /* UITextfieldScrollViewController.m in Sources */,
 				0D2F5057183205F400056E53 /* WelcomeViewController.m in Sources */,
-				0D2F5071183250F400056E53 /* signup3ViewController.m in Sources */,
 				0D952E7E1834F27D00053B45 /* providerinfoViewController.m in Sources */,
 				0D55AA971833CF60006DC806 /* MBProgressHUD.m in Sources */,
 				0D55AA9A1833CF90006DC806 /* fileMngr.m in Sources */,
@@ -950,6 +952,8 @@
 				0D021440189A904100391898 /* sideeffectsViewController.m in Sources */,
 				0D2F505A18320FA400056E53 /* BlockAlertView.m in Sources */,
 				0D6C79C7183CDD0100C48D17 /* SimpleTableCell.m in Sources */,
+				0D1B0AB3189FB9F0000C5A50 /* editprofile.m in Sources */,
+				0D1B0AB2189FB02D000C5A50 /* signup3ViewController.m in Sources */,
 				0DA1ABDF183A018F0063C29F /* NSObject+SBJSON.m in Sources */,
 				0D9F19C01837C478001389C1 /* HSK_CFUtilities.m in Sources */,
 				0D709F361836646700C4F907 /* testViewController.m in Sources */,

@@ -238,7 +238,7 @@
     else if ((count2==0)&&([msgfrom count]!=0))
     {
          [UIApplication sharedApplication].applicationIconBadgeNumber=0;
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
     else if([msgfrom count]==0)    {
@@ -659,7 +659,7 @@
     else if ((count2==0)&&([msgfrom count]!=0))
     {
          
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
      else if([msgfrom count]==0)    {
@@ -1017,7 +1017,7 @@
     }
     else if ((count2==0)&&([msgfrom count]!=0))
     {
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
     else if([msgfrom count]==0)    {
@@ -1113,7 +1113,7 @@
     }
     else if ((count2==0)&&([msgfrom count]!=0))
     {
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
     else
@@ -1315,7 +1315,7 @@
     }
     else if ((count2==0)&&([msgfrom count]!=0))
     {
-        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d essages in your library",[msgfrom count]-count2,[msgfrom count]];
+        NSString *labeltext=[NSString stringWithFormat:@"You have not reviewed %d messages out of the %d messages in your library",[msgfrom count]-count2,[msgfrom count]];
         dailymessagelabel.text=labeltext;
     }
     else if([msgfrom count]==0)    {

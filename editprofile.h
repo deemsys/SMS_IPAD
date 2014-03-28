@@ -87,6 +87,7 @@
 @property (nonatomic, strong)IBOutlet UILabel*time3;
 @property(nonatomic,retain)IBOutlet UISegmentedControl*segedu;
 @property(nonatomic,retain)IBOutlet UISegmentedControl*gender;
+@property (retain, nonatomic) IBOutlet UILabel *errorlabel;
 
 - (IBAction)changeTimeInLabel1:(id)sender;
 - (IBAction)changeTimeInLabel2:(id)sender;

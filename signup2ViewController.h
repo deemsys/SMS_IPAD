@@ -37,5 +37,6 @@
 - (IBAction)hideKeyboard:(id)sender;
 @property (nonatomic, strong) IBOutlet UILabel*agepicker;
 @property(nonatomic,retain)IBOutlet UISegmentedControl*educationseg;
+@property (retain, nonatomic) IBOutlet UILabel *zipcodeerr;
 -(IBAction)segeduclicked:(id)sender;
 @end

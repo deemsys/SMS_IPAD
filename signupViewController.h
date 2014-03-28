@@ -38,8 +38,12 @@
     IBOutlet UIButton *next;
     
 }
+@property (retain, nonatomic) IBOutlet UILabel *usernameerr;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 -(IBAction)clear:(id)sender;
 -(IBAction)next:(id)sender;
+@property (retain, nonatomic) IBOutlet UILabel *firstnameerr;
+@property (retain, nonatomic) IBOutlet UILabel *mobileerr;
+@property (retain, nonatomic) IBOutlet UILabel *emailerr;
 
 @end

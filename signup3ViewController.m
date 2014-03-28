@@ -116,9 +116,10 @@
     timepick1.hidden=YES;
     timepick2.hidden=YES;
     timepick3.hidden=YES;
-    timepicker1.text=@"1";
-    timepicker2.text=@"1";
-    timepicker3.text=@"1";
+    timepicker1.text=@"Select time";
+    timepicker2.text=@"Select time";
+    timepicker3.text=@"Select time";
+    UIColor * color1 = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
     t1=@"AM";
     t2=@"AM";
     t3=@"AM";
@@ -132,7 +133,7 @@
     groupidlist=[recorddict objectForKey:@"Groupid"];
     // NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
-    timearray=[[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12", nil];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
     providerpicker.text=@"Select provider";
     providerarray=[recorddict objectForKey:@"Providersname"];
     groupfinal=[[NSMutableArray alloc]init];
@@ -149,9 +150,87 @@
     [timepick2 addGestureRecognizer:tapGR1];
     UITapGestureRecognizer *tapGR2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapped2)];
     [timepick3 addGestureRecognizer:tapGR2];
+    /*UIButton *button1=[UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setFrame:CGRectMake(5.0,2.0,45.0,45.0)];
+    [button1 addTarget:self action:@selector(home:) forControlEvents:UIControlEventTouchUpInside];
+    [button1 setImage:[UIImage imageNamed:@"backbutton.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]initWithCustomView:button1];
+    self.navigationItem.leftBarButtonItem = button;*/
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@" Back" style:UIBarButtonItemStyleBordered target:self action:@selector(home:)];
+    
+    self.navigationItem.leftBarButtonItem = newBackButton;
+    
+
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf1"]isEqualToString:@"AM"])
+    {
+        t1=@"AM";
+        [time1 setSelectedSegmentIndex:0];
+    }
+    else if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf1"]isEqualToString:@"PM"])
+
+    {
+        t1=@"PM";
+        [time1 setSelectedSegmentIndex:1];
+    }
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf2"]isEqualToString:@"AM"])    {
+        t2=@"AM";
+        [time2 setSelectedSegmentIndex:0];
+    }
+    else if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf2"]isEqualToString:@"PM"])
+
+    {
+        t2=@"PM";
+        [time2 setSelectedSegmentIndex:1];
+    }
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf3"] isEqualToString:@"AM"])
+    {
+        
+        
+        [time3 setSelectedSegmentIndex:0];
+    }
+    else if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tf3"]isEqualToString:@"PM"])
+
+    {
+        t3=@"PM";
+        [time3 setSelectedSegmentIndex:1];
+    }
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"t1"]) {
+        timepicker1.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"t1"];
+        [timepick1 selectRow:[timearray indexOfObject:timepicker1.text] inComponent:0 animated:NO];
+        
+        
+    }
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"t2"]) {
+        timepicker2.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"t2"];
+        [timepick2 selectRow:[timearray indexOfObject:timepicker2.text] inComponent:0 animated:NO];
+    }
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"t3"]) {
+        timepicker3.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"t3"];
+        [timepick3 selectRow:[timearray indexOfObject:timepicker3.text] inComponent:0 animated:NO];
+    }
     
     
 	// Do any additional setup after loading the view.
+}
+-(void)home:(UIBarButtonItem *)sender
+{
+    if (![timepicker1.text isEqualToString:@"Select time"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:timepicker1.text forKey:@"t1"];
+        [[NSUserDefaults standardUserDefaults]setObject:t1 forKey:@"tf1"];
+    }
+    if (![timepicker2.text isEqualToString:@"Select time"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:timepicker2.text forKey:@"t2"];
+        [[NSUserDefaults standardUserDefaults]setObject:t2 forKey:@"tf2"];
+    }
+    if (![timepicker3.text isEqualToString:@"Select time"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:timepicker3.text forKey:@"t3"];
+        [[NSUserDefaults standardUserDefaults]setObject:t3 forKey:@"tf3"];
+    }
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)pickerViewTapped
 {
@@ -320,16 +399,20 @@
 }
 -(IBAction)changeprovider:(id)sender
 {
+     [providerpicker setTextColor:[UIColor whiteColor]];
     if(providerpick.hidden==YES)
     {
         grouppicker.text=@"Select group";
+        
         providerpick.hidden=NO;
     }
 }
 -(IBAction)changegroup:(id)sender
 {
+     [grouppicker setTextColor:[UIColor whiteColor]];
     if(grouppick.hidden==YES)
     {
+         [grouppicker setTextColor:[UIColor whiteColor]];
         grouppick.hidden=NO;
     }
     [grouppick reloadAllComponents];
@@ -390,9 +473,21 @@
 
 -(IBAction)submit:(id)sender
 {
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
+    
     if(![providerpicker.text isEqualToString:@"Select provider"]&&![grouppicker.text isEqualToString:@"Select group"])
     {
-       
+      
         [recorddict setValue:timepicker1.text forKey:@"Preferred Time1"];
          [recorddict setValue:t1 forKey:@"Preferred Time1 format"];
         [recorddict setValue:timepicker2.text forKey:@"Preferred Time2"];
@@ -435,6 +530,15 @@
     
     else
     {
+        UIColor * color1 = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
+        if([providerpicker.text isEqualToString:@"Select provider"])
+        {
+            [providerpicker setTextColor: color1];
+        }
+        if([grouppicker.text isEqualToString:@"Select group"])
+        {
+            [grouppicker setTextColor: color1];
+        }
         BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter all required fields."];
         [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert1 show];
@@ -806,13 +910,52 @@
    // NSLog(@"%@ group",postVarArrayString);
    // NSLog(@"%@ groupid",postVarArrayStringid);
     
+    
+    
+if (([pt1 isEqualToString:@""])|| ([pt1 isEqualToString:@"Select time"]))
+    {
+        
+        pt1=@"null";
+        tf1=@"AM";
+    }
+    else
+    {
+        pt1=[recorddict objectForKey:@"Preferred Time1"];
+        tf1=[recorddict objectForKey:@"Preferred Time1 format"];
+        
+        
+    }
+    
+    if (([pt2 isEqualToString:@""])||([pt2 isEqualToString:@"Select time"])) {
+        
+        pt2=@"null";
+        tf2=@"AM";
+    }
+    else
+    {
+        pt2=[recorddict objectForKey:@"Preferred Time2"];
+        tf2=[recorddict objectForKey:@"Preferred Time2 format"];
+        
+    }
+    if (([pt3 isEqualToString:@""])||([pt3 isEqualToString:@"Select time"])) {
+        //time3.text=@"";
+        pt3=@"null";
+        tf3=@"AM";
+    }
+    else
+    {
+        pt3=[recorddict objectForKey:@"Preferred Time3"];
+        tf3=[recorddict objectForKey:@"Preferred Time3 format"];
+        
+    }
+
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&fname=%@&mobile_num=%@&gender=%@&city=%@&education=%@&medical_details=%@&time1=%@&time1format=%@&time2=%@&time2format=%@&time3=%@&time3format=%@&Provider_name=%@&group_name=%@&age=%@&username1=%@&pass=%@&groupid=%@&groupname=%@&%@=%@",firstEntity,value1,fname,mobnum,gend,city,edu,meddet,pt1,tf1,pt2,tf2,pt3,tf3,prov,postVarArrayString,age,username1,password1,postVarArrayStringid,groupname,secondEntity,value2];
     
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/participantregister.php?service=partinsert"];
     
     
     
-   // NSLog(@"%@",post);
+   //NSLog(@"%@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -880,6 +1023,20 @@
     
     // NSLog(@"vales in f*n call %@",groupfinal);
     
+}
+- (IBAction)cancel:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"city"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"meddetail"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"age"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"education"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf1"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf2"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"t3"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"tf3"];
 }
 
 - (void)didReceiveMemoryWarning
