@@ -135,7 +135,7 @@
     groupidlist=[recorddict objectForKey:@"Groupid"];
     // NSMutableArray *names=[recorddict objectForKey:@"Providersname"];
     
-    timearray=[[NSMutableArray alloc] initWithObjects:@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"Select time",@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
    // providerpicker.text=@"Select provider";
     providerarray=[recorddict objectForKey:@"Providersname"];
     groupfinal=[[NSMutableArray alloc]init];
@@ -630,7 +630,7 @@
     if (a==1)
     {
     [self smssend];
-    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password sent to your mail."];
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password sent to your E-mail and Mobile Number."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
     [Spinner stopAnimating];
@@ -798,7 +798,7 @@
                     }
                     else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"usernameexist"])
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Username already exists."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"User Name already exists."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
@@ -810,7 +810,7 @@
                     }
                     else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
                     {
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobilenumber already exists."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number already exists."];
                         
                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

@@ -63,14 +63,14 @@
             }
             else
             {
-                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Password mismatch with retype password."];
+                BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Password mismatch with Confirm Password."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
         }
         else
         {
-            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Incorrect oldpassword."];
+            BlockAlertView*alert=[[BlockAlertView alloc]initWithTitle:@"INFO!" message:@"Incorrect Old Password."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }

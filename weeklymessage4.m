@@ -140,6 +140,7 @@ int a;
 
 -(IBAction)send:(id)sender
 {
+    next.hidden=YES;
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
     HUD.delegate = self;

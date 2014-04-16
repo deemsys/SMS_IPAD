@@ -146,7 +146,7 @@
     agepick.dataSource = self;
     ageArray = [[NSArray alloc] initWithObjects:@"Below 12", @"12-20 years", @"21-30 years", @"31-40 years", @"41-50 years",@"51-60 years",@"61-70 years",@"71-80 years",@"81-90 years",@"91-100 years", nil];
     
-    timearray=[[NSMutableArray alloc] initWithObjects:@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
+    timearray=[[NSMutableArray alloc] initWithObjects:@"Select time",@"01", @"02", @"03", @"04", @"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
      UIColor * color = [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f];
     [errorlabel setTextColor:color];
     agepick.hidden=YES;
@@ -858,7 +858,7 @@
                                 a=0;
                                // errorlabel.hidden=NO;
                                //errorlabel.text=@"Only 5 digits,0-9 allowed";
-                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid zipcode.Only 5 digits,0-9 allowed."];
+                                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Zipcode.Only 5 digits,0-9 allowed."];
                                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                                 [alert show];
                             }
@@ -897,7 +897,7 @@
                     {
                        // errorlabel.hidden=NO;
                         //errorlabel.text=@"example@contoso.com";
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid e-mail id.Only example@contoso.com allowed."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid E-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
@@ -906,7 +906,7 @@
                 {
                     //errorlabel.hidden=NO;
                     //errorlabel.text=@"Only 10 digits,0-9 allowed";
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid mobile number.Only 10 digits,0-9 allowed."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Mobile Number.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -917,7 +917,7 @@
             {
                 //errorlabel.hidden=NO;
                 //errorlabel.text=@"Only a-z,0-9,- @ . _ allowed";
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid username.Only a-z,0-9,-@._allowed."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid User Name.Only a-z,0-9,-@._allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
@@ -926,7 +926,7 @@
         {
             //errorlabel.hidden=NO;
             //errorlabel.text=@"Only a-z,0-9 allowed";
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid firstname.Only a-z,0-9 allowed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid First Name.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }
@@ -1051,7 +1051,7 @@
             }
             else if ([[menu objectForKey:@"emaill"]  isEqualToString:@"mobilenumexist"])
             {
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobilenumber already exists."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Mobile Number already exists."];
                 
                 
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];

@@ -253,7 +253,7 @@
                     else
                     {
                         //emailerr.hidden=NO;
-                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid e-mail id.Only example@contoso.com allowed."];
+                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid E-mail id.Only example@contoso.com allowed."];
                         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                         [alert show];
                     }
@@ -261,7 +261,7 @@
                 else
                 {
                     //mobileerr.hidden=NO;
-                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid mobilenumber.Only 10 digits,0-9 allowed."];
+                    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid Mobile Number.Only 10 digits,0-9 allowed."];
                     [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                     [alert show];
                 }
@@ -271,7 +271,7 @@
             else
             {
                 //usernameerr.hidden=NO;
-                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid username.Only a-z,0-9,-.@_ allowed."];
+                BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid User Name.Only a-z,0-9,-.@_ allowed."];
                 [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
                 [alert show];
             }
@@ -279,7 +279,7 @@
         else
         {
             //firstnameerr.hidden=NO;
-            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid firstname.Only a-z,0-9 allowed."];
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Enter valid First Name.Only a-z,0-9 allowed."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
         }

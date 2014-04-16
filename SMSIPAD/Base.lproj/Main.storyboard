@@ -1507,7 +1507,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hj0-hW-Kdz">
-                                        <rect key="frame" x="38" y="392" width="55" height="22"/>
+                                        <rect key="frame" x="38" y="394" width="55" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1678,8 +1678,8 @@
                                             <action selector="changeage:" destination="WQZ-3Y-SQ4" eventType="touchUpInside" id="10l-st-cvu"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-Ae-pTD">
-                                        <rect key="frame" x="106" y="394" width="185" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="194" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-Ae-pTD">
+                                        <rect key="frame" x="106" y="387" width="194" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3135,10 +3135,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fQ7-G2-c84"/>
+        <segue reference="zJw-5E-t9R"/>
+        <segue reference="BGS-Kj-rgB"/>
         <segue reference="baK-Lt-qQ7"/>
-        <segue reference="WU0-SZ-Qgr"/>
         <segue reference="tDu-Ps-J7f"/>
-        <segue reference="ctH-H8-Iii"/>
+        <segue reference="fQ7-G2-c84"/>
     </inferredMetricsTieBreakers>
 </document>
