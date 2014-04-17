@@ -463,7 +463,7 @@
     if (a==1)
     {
     [self smssend];
-    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password has been sent to your mail and mobile number."];
+    BlockAlertView *alert1 = [BlockAlertView alertWithTitle:@"Registration successful!" message:@"Password sent to your mail."];
     [alert1 setDestructiveButtonWithTitle:@"Ok" block:nil];
     [alert1 show];
     [Spinner stopAnimating];
