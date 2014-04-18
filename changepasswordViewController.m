@@ -96,7 +96,7 @@
     
     
 	HUD.delegate = self;
-	HUD.labelText = @"Loading...";
+	HUD.labelText = @"Loading";
     [HUD show:YES];
     
     NSString*logid=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginid"];
@@ -137,7 +137,7 @@
     
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:0];
@@ -153,7 +153,7 @@
     ;
     if ( [[itemsApp2 objectForKey:@"success"] isEqualToString:@"Yes"])
     {
-        HUD.labelText = @"Completed.";
+        HUD.labelText = @"Completed";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:5];
@@ -179,7 +179,7 @@
     //updating password
     
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,fourthEntity,value4,thirdEntity,value3];
     
     

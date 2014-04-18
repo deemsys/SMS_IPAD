@@ -70,7 +70,7 @@
 {
     //manually start stop message stream
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];

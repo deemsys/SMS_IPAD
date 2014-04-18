@@ -98,7 +98,7 @@
                 
                 
                 HUD.delegate = self;
-                HUD.labelText = @"Authenticating...";
+                HUD.labelText = @"Authenticating";
                 
                 [HUD show:YES];
                 [self performSelector:@selector(SignInCheck) withObject:nil afterDelay:0.2];
@@ -173,7 +173,7 @@
     //  imgName=@"Connected.png";
     else
     {
-        HUD.labelText = @"Check network connection...";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:2];
@@ -211,7 +211,7 @@
         if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
         {
             
-            HUD.labelText = @"Completed.";
+            HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];

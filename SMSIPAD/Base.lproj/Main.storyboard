@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Forgetpassword View Controller - Forget Password-->
+        <!--Forgetpassword View Controller - Forgot Password-->
         <scene sceneID="Ygx-lF-6QZ">
             <objects>
                 <viewController id="yaD-5u-PKJ" customClass="forgetpasswordViewController" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oin-Ew-eIu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AGn-Hh-vpY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Oht-jl-rLY">
@@ -60,7 +60,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Forget Password" id="EJr-EM-Ihy">
+                    <navigationItem key="navigationItem" title="Forgot Password" id="EJr-EM-Ihy">
                         <barButtonItem key="backBarButtonItem" title="Back" id="T6s-nn-iGU"/>
                     </navigationItem>
                     <connections>
@@ -84,11 +84,11 @@
                         <viewControllerLayoutGuide type="bottom" id="msU-MC-Ou6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apB-Ps-egZ">
-                                <rect key="frame" x="0.0" y="-10" width="320" height="540"/>
+                                <rect key="frame" x="0.0" y="-34" width="320" height="540"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg3.png" translatesAutoresizingMaskIntoConstraints="NO" id="7bS-oV-PB7">
@@ -282,7 +282,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="ZQ8-S3-0Bj">
-                        <barButtonItem key="backBarButtonItem" title="back" id="XGS-ap-XyB"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="XGS-ap-XyB"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -433,7 +433,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Adherence To Medication" id="QHg-GF-Qfe">
-                        <barButtonItem key="backBarButtonItem" title="back" id="nMl-HY-d5M"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="nMl-HY-d5M"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -511,7 +511,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Message" id="BpJ-cG-Mbn">
-                        <barButtonItem key="backBarButtonItem" title="back" id="d3b-uG-GL6"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="d3b-uG-GL6"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -592,7 +592,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weekly Messages" id="QTx-XY-HXM">
-                        <barButtonItem key="backBarButtonItem" title="back" id="SdU-fd-OIw"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="SdU-fd-OIw"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1101,7 +1101,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Provider Details" id="jbG-Hy-qEt">
-                        <barButtonItem key="backBarButtonItem" title="back" id="7xE-aL-go8"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7xE-aL-go8"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1352,7 +1352,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="B92-sT-RxB">
-                        <barButtonItem key="backBarButtonItem" title="back" id="qGS-S3-5Tu"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="qGS-S3-5Tu"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -2015,7 +2015,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weekly Survey" id="8sf-u3-eN2">
-                        <barButtonItem key="backBarButtonItem" title="back" id="Fiy-WM-czU"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Fiy-WM-czU"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -2166,7 +2166,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Weekly Survey" id="Jzl-Qy-L1s">
-                        <barButtonItem key="backBarButtonItem" title="back" id="fyz-ma-lfp"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fyz-ma-lfp"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -2427,7 +2427,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weekly Survey" id="WMS-3s-daE">
-                        <barButtonItem key="backBarButtonItem" title="back" id="VIi-Yd-ZHf"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="VIi-Yd-ZHf"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -3010,7 +3010,9 @@
                             <outlet property="delegate" destination="KrX-Ef-BKQ" id="t8l-ds-xMu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Daily Messages" id="pSf-wK-c1w"/>
+                    <navigationItem key="navigationItem" title="Daily Messages" id="pSf-wK-c1w">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="DCV-13-hde"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="somelabel" destination="5gN-j9-fdE" id="ef3-KX-yuQ"/>
                         <outlet property="tableView" destination="EH7-Z8-BHi" id="Ovw-IR-rX2"/>
@@ -3024,7 +3026,53 @@
     <resources>
         <image name="Record.png" width="280" height="280"/>
         <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
+        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
+        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="logo (1).png" width="202" height="200"/>
         <image name="next.png" width="98" height="36"/>
@@ -3035,6 +3083,19 @@
         <image name="stop_button.png" width="128" height="128"/>
         <image name="unread_message.png" width="512" height="512"/>
         <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
+        <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -3044,8 +3105,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="WU0-SZ-Qgr"/>
         <segue reference="baK-Lt-qQ7"/>
-        <segue reference="fQ7-G2-c84"/>
         <segue reference="tDu-Ps-J7f"/>
+        <segue reference="fQ7-G2-c84"/>
         <segue reference="ctH-H8-Iii"/>
     </inferredMetricsTieBreakers>
 </document>

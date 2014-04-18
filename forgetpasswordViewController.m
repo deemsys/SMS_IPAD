@@ -73,9 +73,39 @@
 
 - (IBAction)sendpassword:(id)sender
 {
-    [self getpassword:emailid.text];
+    if ([emailid.text length]!=0)
+    {
+        if ([self validateEmail:emailid.text]==1)
+        {
+            [self getpassword:emailid.text];
+        }
+        else
+        {
+            BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter valid Email-id."];
+            [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+            [alert show];
+        }
+        
+        
+    }
+    else
+    {
+        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Enter Email-id."];
+        [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
+        [alert show];
+        
+    }
     
 }
+-(BOOL)validateEmail:(NSString*)candidate{
+    NSString *emailFormat1 = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    
+    NSPredicate *emailTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailFormat1];
+    return [emailTest1 evaluateWithObject:candidate];
+    
+}
+
 -(void)getpassword:(NSString*)email
 
 {
@@ -85,7 +115,7 @@
     
     
 	HUD.delegate = self;
-	HUD.labelText = @"Loading...";
+	HUD.labelText = @"Loading";
     [HUD show:YES];
     
     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
@@ -123,7 +153,7 @@
     
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:2];
@@ -149,7 +179,7 @@
             
             
             password1 =[arrayList1 objectForKey:@"userpassword"];
-            HUD.labelText = @"Completed.";
+            HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];
@@ -184,7 +214,7 @@
 {
     
     //Sending user forgot password
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=passwordSelect"];
@@ -274,10 +304,15 @@
     submit.layer.cornerRadius = 5.0f;
     //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     
-    
+    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+
 	// Do any additional setup after loading the view.
 }
 
+-(void)dismissKeyboard {
+    [emailid resignFirstResponder];
+}
 - (IBAction)hideKeyboard:(id)sender
 {
     //NSLog(@"hideKeyboard");

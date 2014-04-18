@@ -111,7 +111,7 @@
     
     
 	HUD.delegate = self;
-	HUD.labelText = @"Loading...";
+	HUD.labelText = @"Loading";
     [HUD show:YES];
     
     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
@@ -149,7 +149,7 @@
     
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:2];
@@ -189,7 +189,7 @@
             group1 =[arrayList1 objectForKey:@"group"];
             age1 =[arrayList1 objectForKey:@"age"];
             
-            HUD.labelText = @"Completed.";
+            HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];
@@ -310,7 +310,7 @@
 {
     //reading user detail
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantSelect"];
@@ -341,7 +341,7 @@
     
     
     //reading groups based on provider detail
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=getGroups"];
@@ -371,7 +371,7 @@
 {
     //reading user detail
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantsgrouplist"];

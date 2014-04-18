@@ -280,7 +280,7 @@
     //  imgName=@"Connected.png";
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:2];
@@ -412,7 +412,7 @@
 {
     
     //Reading all providers detail
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
     
@@ -445,7 +445,7 @@
 {
     
     //Reading group names
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     
     

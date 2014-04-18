@@ -263,7 +263,7 @@
     
     
 	HUD.delegate = self;
-	HUD.labelText = @"Loading...";
+	HUD.labelText = @"Loading";
     [HUD show:YES];
     [self performSelector:@selector(sunc1) withObject:nil afterDelay:0.2 ];
 }
@@ -312,7 +312,7 @@
     
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:2];
@@ -720,7 +720,7 @@
     [fileMngr saveDatapath:msgflagfile contentarray:flagvalue];
     [fileMngr saveDatapath:msgfromfile contentarray:msgfrom];
     
-    HUD.labelText = @"Completed.";
+    HUD.labelText = @"Completed";
     HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	HUD.mode = MBProgressHUDModeCustomView;
     [HUD hide:YES afterDelay:0];
@@ -735,7 +735,7 @@
 {
     
     //getting provider details
-    HUD.labelText = @"Synchronizing Data...";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/twilioservice.php?service=readmessage"];
@@ -765,7 +765,7 @@
 {
     
     //getting provider details
-    HUD.labelText = @"Synchronizing Data...";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=providerSelect"];
@@ -795,7 +795,7 @@
 {
     //getting weekly evaluation unfilled dates
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=weeklyevaluationSelect"];
@@ -824,7 +824,7 @@
 -(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //getting weekly evaluation sequence occurence
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=sequenceSelect"];
@@ -854,7 +854,7 @@
 {
     //Getting Participants detail
     
-    HUD.labelText = @"Synchronizing Data..";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericSelect.php?service=participantSelect"];
@@ -885,7 +885,7 @@
 {
     //manually start stop message stream
     
-    HUD.labelText = @"Synchronizing Data...";
+    HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=messageStreamUpdate"];
@@ -1160,7 +1160,7 @@
             age1 =[arrayList3 objectForKey:@"age"];
             msgstream=[arrayList3 objectForKey:@"messagestream"];
             [[NSUserDefaults standardUserDefaults]synchronize];
-            HUD.labelText = @"Completed.";
+            HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];

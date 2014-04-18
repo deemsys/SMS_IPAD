@@ -630,7 +630,7 @@
                         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
                         [self.navigationController.view addSubview:HUD];
                         HUD.delegate = self;
-                        HUD.labelText = @"Updating....";
+                        HUD.labelText = @"Updating";
                         [HUD show:YES];
                         [self performSelector:@selector(signUpMethod)withObject:nil afterDelay:0.2 ];
                         }
@@ -717,7 +717,7 @@
     //  imgName=@"Connected.png";
     else
     {
-        HUD.labelText = @"Check network connection....";
+        HUD.labelText = @"Check network connection";
         HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
         HUD.mode = MBProgressHUDModeCustomView;
         [HUD hide:YES afterDelay:1];
@@ -756,7 +756,7 @@
             
             
             // NSLog(@"Start Sending");
-            HUD.labelText = @"Completed.";
+            HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
             [HUD hide:YES afterDelay:0];

@@ -58,7 +58,7 @@ int a;
         if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
         {
             
-           // HUD.labelText = @"Completed.";
+           // HUD.labelText = @"Completed";
            // HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
            // HUD.mode = MBProgressHUDModeCustomView;
             //[HUD hide:YES afterDelay:0];
@@ -79,7 +79,7 @@ int a;
 -(NSString *)HttpPostEntityFirstsequence:(NSString*)firstEntity ForValue1:(NSString*)value1  EntityThird:(NSString*)thirdEntity ForValue3:(NSString*)value3
 {
     //getting weekly evaluation sequence occurence
-    //HUD.labelText = @"Synchronizing Data..";
+    //HUD.labelText = @"Synchronizing Data";
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,thirdEntity,value3];
     NSURL *url=[NSURL URLWithString:@"http://www.medsmonit.com/bcreasearch/Service/genericUpdate.php?service=sequenceUpdate"];
@@ -116,7 +116,7 @@ int a;
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
     HUD.delegate = self;
-     HUD.labelText = @"Sending Data..";
+     HUD.labelText = @"Sending Data";
     [HUD show:YES];
     [self updatetable];
     //recorddict=[[NSMutableDictionary alloc]init];
