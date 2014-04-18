@@ -1668,7 +1668,6 @@
                                             <segment title="High School iincomplete"/>
                                             <segment title="GED"/>
                                             <segment title="Some College"/>
-                                            <segment title="Master Degree"/>
                                             <segment title="UG"/>
                                             <segment title="PG"/>
                                         </segments>
@@ -3026,53 +3025,7 @@
     <resources>
         <image name="Record.png" width="280" height="280"/>
         <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
-        <image name="background1.jpg" width="1280" height="1024"/>
         <image name="bg3.png" width="640" height="960"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
-        <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="blue-teal-gradient.jpg" width="500" height="350"/>
         <image name="logo (1).png" width="202" height="200"/>
         <image name="next.png" width="98" height="36"/>
@@ -3082,19 +3035,6 @@
         <image name="settings.png" width="512" height="512"/>
         <image name="stop_button.png" width="128" height="128"/>
         <image name="unread_message.png" width="512" height="512"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
-        <image name="unselect.png" width="42" height="38"/>
         <image name="unselect.png" width="42" height="38"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
