@@ -52,7 +52,7 @@ int a;
 {
     
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-    emailMessage.fromEmail = @"learnguild@gmail.com";
+    emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
     
     emailMessage.toEmail =[[NSUserDefaults standardUserDefaults]objectForKey:@"Participantemail"];
    // @"silviyarani159@gmail.com";
@@ -60,7 +60,7 @@ int a;
     emailMessage.relayHost = @"smtp.gmail.com";
   //  NSLog(@"participant mail %@",emailMessage.toEmail);
     emailMessage.requiresAuth = YES;
-    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+    emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
     emailMessage.subject =@"Adhere To Medication App Weekly Message Details";
     //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];
@@ -85,14 +85,14 @@ int a;
 -(void)sendprovider
 {
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-    emailMessage.fromEmail = @"learnguild@gmail.com";
+    emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
     
     emailMessage.toEmail= [[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];//receiver email address
     //@"silviyarani159@gmail.com"[[NSUserDefaults standardUserDefaults]objectForKey:@"Provideremail"];
     emailMessage.relayHost = @"smtp.gmail.com";
     
     emailMessage.requiresAuth = YES;
-    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+    emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
     emailMessage.subject =@"Adhere To Medication App WeeklyEvaluation Result";
     //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];

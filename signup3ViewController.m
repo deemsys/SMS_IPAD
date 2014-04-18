@@ -568,13 +568,13 @@
                 
                 // NSLog(@"Start Sending");
                 SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-                emailMessage.fromEmail = @"learnguild@gmail.com";
+                emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
                 
                 emailMessage.toEmail = [recorddict objectForKey:@"email"];//receiver email address
                 emailMessage.relayHost = @"smtp.gmail.com";
                 
                 emailMessage.requiresAuth = YES;
-                emailMessage.login = @"learnguild@gmail.com"; //sender email address
+                emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
                 emailMessage.pass = @"deemsys@123"; //sender email password
                 emailMessage.subject =@"Adhere To Medication App Registration";
                 //[NSString stringWithFormat:@"Hi User %@",[recorddict objectForKey:@"UserName"]];

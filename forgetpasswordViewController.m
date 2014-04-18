@@ -244,14 +244,14 @@
 -(void)sendmail:(NSString*)userpassword
 {
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
-    emailMessage.fromEmail = @"learnguild@gmail.com";
+    emailMessage.fromEmail = @"adheretomedicationteam@gmail.com";
     
     emailMessage.toEmail = emailid.text;  //receiver email address
     emailMessage.relayHost = @"smtp.gmail.com";
     emailMessage.requiresAuth = YES;
-    emailMessage.login = @"learnguild@gmail.com"; //sender email address
+    emailMessage.login = @"adheretomedicationteam@gmail.com"; //sender email address
     emailMessage.pass = @"deemsys@123"; //sender email password
-    emailMessage.subject =@"Hi user";
+    emailMessage.subject =@"Password Recovery";
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self; // you must include <SKPSMTPMessageDelegate> to your class
     NSString *messageBody = [NSString stringWithFormat:@"Hi ,\n\n Your Password is : %@\n\n From Adhere To Medication team.\n\n Thank You.\n\n",userpassword];
