@@ -184,8 +184,7 @@
             HUD.labelText = @"Completed";
             HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
             HUD.mode = MBProgressHUDModeCustomView;
-            [HUD hide:YES afterDelay:0];
-            ProgressBar.hidden=YES;
+                        ProgressBar.hidden=YES;
             [self sendmail:password1];
         }
         }
@@ -194,7 +193,7 @@
             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Email id not found."];
             [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
             [alert show];
-            [HUD hide:YES afterDelay:0.3];
+            [HUD hide:YES afterDelay:2];
             ProgressBar.hidden=YES;
 
         }
@@ -205,7 +204,7 @@
         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"INFO!" message:@"Email id not found."];
         [alert setDestructiveButtonWithTitle:@"Ok" block:nil];
         [alert show];
-        [HUD hide:YES afterDelay:0.3];
+        [HUD hide:YES afterDelay:2];
         ProgressBar.hidden=YES;
         
     }
@@ -282,6 +281,8 @@
     [Spinner stopAnimating];
     ProgressBar.hidden=YES;
     emailid.text=@"";
+    [HUD hide:YES ];
+
     [self performSegueWithIdentifier:@"smsforgot" sender:self];
 }
 
